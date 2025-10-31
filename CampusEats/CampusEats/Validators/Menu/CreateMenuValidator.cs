@@ -16,8 +16,5 @@ public class CreateMenuValidator : AbstractValidator<CreateMenuRequest>
         
         RuleFor(x => x.ItemIds)
             .NotEmpty().WithMessage("At least one menu item must be selected.");
-
-        RuleFor(x => x.Category)
-            .NotEmpty().WithMessage("At least one category must be selected.");
     }
 }

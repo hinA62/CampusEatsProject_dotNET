@@ -1,0 +1,80 @@
+# 🐳 CampusEats - Docker Compose Configuration
+
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: campuseats-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: CampusEatsDB
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres123}
+      POSTGRES_INITDB_ARGS: "-E UTF8"
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+    networks:
+      - campuseats-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # .NET API Backend
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: campuseats-api
+    restart: unless-stopped
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=CampusEatsDB;Username=postgres;Password=${POSTGRES_PASSWORD:-postgres123}
+    ports:
+      - "5298:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - campuseats-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # pgAdmin - PostgreSQL Management Tool (Optional)
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: campuseats-pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@campuseats.com
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD:-admin123}
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    networks:
+      - campuseats-network
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+
+networks:
+  campuseats-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local
+  pgadmin_data:
+    driver: local

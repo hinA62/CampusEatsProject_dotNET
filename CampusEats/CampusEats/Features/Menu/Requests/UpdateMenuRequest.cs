@@ -1,10 +1,9 @@
-ï»¿namespace CampusEats.Features.Menu.Requests;
-
+namespace CampusEats.Features.Menu.Requests;
+// Restrictions nu mai sunt în request - se deduc automat din alergenii items-urilor
 public record UpdateMenuRequest(
     Guid Id,
     string Name,
     decimal Price,
-    List<Guid> ItemId,
-    MenuCategory Category,
-    DietaryRestrictions Restrictions
-    );
+    List<Guid>? ItemIds,
+    MenuCategory Category
+);

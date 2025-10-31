@@ -1,6 +1,202 @@
 @CampusEats_HostAddress = http://localhost:5298
 
-GET {{CampusEats_HostAddress}}/weatherforecast/
+### Health Check
+GET {{CampusEats_HostAddress}}/health
 Accept: application/json
+
+###
+
+# ============================================
+# MENU ITEMS ENDPOINTS
+# ============================================
+
+### Create Menu Item - Pizza
+POST {{CampusEats_HostAddress}}/api/menu-items
+Content-Type: application/json
+
+{
+  "id": "11111111-1111-1111-1111-111111111111",
+  "name": "Pizza Margherita",
+  "price": 12.99,
+  "imageUrl": "https://example.com/pizza.jpg",
+  "allergens": ["gluten", "lactose"]
+}
+
+###
+
+### Create Menu Item - Salad
+POST {{CampusEats_HostAddress}}/api/menu-items
+Content-Type: application/json
+
+{
+  "id": "22222222-2222-2222-2222-222222222222",
+  "name": "Caesar Salad",
+  "price": 8.50,
+  "imageUrl": "https://example.com/salad.jpg",
+  "allergens": ["lactose", "fish"]
+}
+
+###
+
+### Create Menu Item - Burger
+POST {{CampusEats_HostAddress}}/api/menu-items
+Content-Type: application/json
+
+{
+  "id": "33333333-3333-3333-3333-333333333333",
+  "name": "Beef Burger",
+  "price": 15.00,
+  "imageUrl": "https://example.com/burger.jpg",
+  "allergens": ["gluten", "eggs"]
+}
+
+###
+
+### Get All Menu Items
+GET {{CampusEats_HostAddress}}/api/menu-items
+Accept: application/json
+
+###
+
+### Get Menu Item by ID
+GET {{CampusEats_HostAddress}}/api/menu-items/11111111-1111-1111-1111-111111111111
+Accept: application/json
+
+###
+
+### Update Menu Item
+PUT {{CampusEats_HostAddress}}/api/menu-items/11111111-1111-1111-1111-111111111111
+Content-Type: application/json
+
+{
+  "id": "11111111-1111-1111-1111-111111111111",
+  "name": "Pizza Margherita Deluxe",
+  "price": 14.99,
+  "imageUrl": "https://example.com/pizza-deluxe.jpg",
+  "allergens": ["gluten", "lactose", "tomatoes"]
+}
+
+###
+
+### Delete Menu Item
+DELETE {{CampusEats_HostAddress}}/api/menu-items/33333333-3333-3333-3333-333333333333
+
+###
+
+# ============================================
+# MENU ENDPOINTS
+# ============================================
+
+### Create Menu - Lunch Special
+POST {{CampusEats_HostAddress}}/api/menu
+Content-Type: application/json
+
+{
+  "name": "Mediterranean Lunch",
+  "price": 25.00,
+  "itemIds": [
+    "11111111-1111-1111-1111-111111111111",
+    "22222222-2222-2222-2222-222222222222"
+  ],
+  "category": "Mediterranean",
+  "restrictions": "LactoseFree"
+}
+
+###
+
+### Create Menu - Vegan Menu
+POST {{CampusEats_HostAddress}}/api/menu
+Content-Type: application/json
+
+{
+  "name": "Vegan Delight",
+  "price": 18.50,
+  "itemIds": [
+    "22222222-2222-2222-2222-222222222222"
+  ],
+  "category": "Vegan",
+  "restrictions": "GlutenFree"
+}
+
+###
+
+### Get All Menus
+GET {{CampusEats_HostAddress}}/api/menu
+Accept: application/json
+
+###
+
+### Get Menu by ID (replace with actual ID after creating)
+@menuId = xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+GET {{CampusEats_HostAddress}}/api/menu/{{menuId}}
+Accept: application/json
+
+###
+
+### Update Menu (replace with actual ID)
+PUT {{CampusEats_HostAddress}}/api/menu/{{menuId}}
+Content-Type: application/json
+
+{
+  "id": "{{menuId}}",
+  "name": "Mediterranean Lunch Updated",
+  "price": 27.50,
+  "itemIds": [
+    "11111111-1111-1111-1111-111111111111",
+    "22222222-2222-2222-2222-222222222222"
+  ],
+  "category": "Mediterranean"
+}
+
+###
+
+### Delete Menu (replace with actual ID)
+DELETE {{CampusEats_HostAddress}}/api/menu/{{menuId}}
+
+###
+
+# ============================================
+# ERROR TESTING (Invalid Requests)
+# ============================================
+
+### Invalid Menu Item - Empty Name
+POST {{CampusEats_HostAddress}}/api/menu-items
+Content-Type: application/json
+
+{
+  "id": "44444444-4444-4444-4444-444444444444",
+  "name": "",
+  "price": 10.00,
+  "imageUrl": "https://example.com/test.jpg",
+  "allergens": []
+}
+
+###
+
+### Invalid Menu Item - Negative Price
+POST {{CampusEats_HostAddress}}/api/menu-items
+Content-Type: application/json
+
+{
+  "id": "55555555-5555-5555-5555-555555555555",
+  "name": "Test Item",
+  "price": -5.00,
+  "imageUrl": "https://example.com/test.jpg",
+  "allergens": []
+}
+
+###
+
+### Invalid Menu Item - Bad URL
+POST {{CampusEats_HostAddress}}/api/menu-items
+Content-Type: application/json
+
+{
+  "id": "66666666-6666-6666-6666-666666666666",
+  "name": "Test Item",
+  "price": 10.00,
+  "imageUrl": "not-a-valid-url",
+  "allergens": []
+}
 
 ###

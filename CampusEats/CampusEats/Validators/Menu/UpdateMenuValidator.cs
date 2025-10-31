@@ -14,10 +14,8 @@ public class UpdateMenuValidator : AbstractValidator<UpdateMenuRequest>
         RuleFor(x => x.Price)
             .GreaterThan(0).WithMessage("Menu price must be greater than zero.");
 
-        RuleFor(x => x.ItemId)
-            .NotEmpty().WithMessage("At least one menu item is required.");
-        
-        RuleFor(x => x.Category)
-            .NotEmpty().WithMessage("At least one category is required.");
+        RuleFor(x => x.ItemIds)
+            .NotEmpty().WithMessage("At least one menu item is required.")
+            .When(x => x.ItemIds != null);
     }
 }

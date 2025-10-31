@@ -1,0 +1,51 @@
+# Docker
+.env
+docker-compose.override.yml
+
+# PostgreSQL data
+postgres_data/
+pgadmin_data/
+
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio
+.vs/
+*.vsidx
+*.vspscc
+
+# ReSharper
+_ReSharper*/
+*.DotSettings.user
+
+# Rider
+.idea/
+
+# User secrets
+secrets.json
+
+# macOS
+.DS_Store
+
+# Linux
+*~
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Database files
+*.db
+*.db-shm
+*.db-wal
