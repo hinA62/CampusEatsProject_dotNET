@@ -1,5 +1,8 @@
 using CampusEats.Features.Menu.Handlers;
 using CampusEats.Features.Menu.Requests;
+using CampusEats.Features.Order;
+using CampusEats.Features.Order.Requests;
+using CampusEats.Features.Order.Handlers;
 using CampusEats.Persistence;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
@@ -39,6 +42,10 @@ builder.Services.AddScoped<DeleteMenuHandler>();
 builder.Services.AddScoped<CreateItemHandler>();
 builder.Services.AddScoped<UpdateItemHandler>();
 builder.Services.AddScoped<DeleteItemHandler>();
+builder.Services.AddScoped<PlaceOrderHandler>();
+builder.Services.AddScoped<GetOrderHistoryHandler>();
+builder.Services.AddScoped<GetOrderByIdHandler>();
+builder.Services.AddScoped<CancelOrderHandler>();
 
 // Add CORS (optional - useful for Blazor)
 builder.Services.AddCors(options =>
@@ -76,6 +83,8 @@ if (app.Environment.IsDevelopment())
 // ============================================
 
 // Create Menu
+
+
 app.MapPost("/api/menu", async (CreateMenuRequest request, CreateMenuHandler handler) =>
 {
     return await handler.Handle(request);
@@ -186,6 +195,61 @@ app.MapGet("/api/menu-items/{id:guid}", async (Guid id, CampusEatsContext db) =>
 .WithTags("MenuItems")
 .Produces(200)
 .Produces(404);
+
+
+// ============================================
+// ORDER ENDPOINTS
+// ============================================
+
+// Place order (meniu + iteme, multiple)
+app.MapPost("/api/orders", async (PlaceOrderRequest request, PlaceOrderHandler handler) =>
+    {
+        return await handler.Handle(request);
+    })
+    .WithName("PlaceOrder")
+    .WithTags("Orders")
+    .Produces(201)
+    .Produces(400);
+
+// Get order by id
+app.MapGet("/api/orders/{id:guid}", async (Guid id, GetOrderByIdHandler handler) =>
+    {
+        return await handler.Handle(new GetOrderByIdRequest(id));
+    })
+    .WithName("GetOrderById")
+    .WithTags("Orders")
+    .Produces(200)
+    .Produces(404);
+
+// Get order history for a client
+app.MapGet("/api/clients/{clientId:guid}/orders", async (Guid clientId, GetOrderHistoryHandler handler) =>
+    {
+        return await handler.Handle(new GetOrderHistoryRequest(clientId));
+    })
+    .WithName("GetOrderHistory")
+    .WithTags("Orders")
+    .Produces(200);
+
+// Cancel pending order
+app.MapPost("/api/orders/{id:guid}/cancel", async (Guid id, CancelOrderHandler handler) =>
+    {
+        return await handler.Handle(new CancelOrderRequest(id));
+    })
+    .WithName("CancelOrder")
+    .WithTags("Orders")
+    .Produces(200)
+    .Produces(404)
+    .Produces(409);
+
+
+
+
+
+
+
+
+
+
 
 // ============================================
 // HEALTH CHECK
