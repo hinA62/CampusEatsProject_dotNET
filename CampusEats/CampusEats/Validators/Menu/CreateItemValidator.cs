@@ -1,4 +1,4 @@
-﻿CampusEats.Features.Menu.Requests;
+﻿using CampusEats.Features.Menu.Requests;
 using FluentValidation;
 
 namespace CampusEats.Validators.Menu;

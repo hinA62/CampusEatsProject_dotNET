@@ -3,6 +3,7 @@ using CampusEats.Features.Menu.Requests;
 using CampusEats.Features.Order;
 using CampusEats.Features.Order.Requests;
 using CampusEats.Features.Order.Handlers;
+using CampusEats.Features.Inventory;
 using CampusEats.Persistence;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
@@ -46,6 +47,8 @@ builder.Services.AddScoped<PlaceOrderHandler>();
 builder.Services.AddScoped<GetOrderHistoryHandler>();
 builder.Services.AddScoped<GetOrderByIdHandler>();
 builder.Services.AddScoped<CancelOrderHandler>();
+builder.Services.AddScoped<InventoryService>();
+
 
 // Add CORS (optional - useful for Blazor)
 builder.Services.AddCors(options =>
@@ -243,6 +246,43 @@ app.MapPost("/api/orders/{id:guid}/cancel", async (Guid id, CancelOrderHandler h
 
 
 
+
+// ============================================
+// ORDER ENDPOINTS
+// ============================================
+
+app.MapPost("/api/inventory/{date}/rebuild", async (string date, InventoryService svc) =>
+    {
+        if (!DateOnly.TryParse(date, out var d)) return Results.BadRequest("Invalid date (YYYY-MM-DD).");
+        var day = await svc.RebuildAsync(d);
+        return Results.Ok(new {
+            day.Date,
+            day.GeneratedAtUtc,
+            Items = day.Items.OrderByDescending(i => i.Count).ThenBy(i => i.Name)
+        });
+    })
+    .WithName("RebuildInventory")
+    .WithTags("Inventory")
+    .Produces(200)
+    .Produces(400);
+
+app.MapGet("/api/inventory/{date}", async (string date, InventoryService svc) =>
+    {
+        if (!DateOnly.TryParse(date, out var d)) return Results.BadRequest("Invalid date (YYYY-MM-DD).");
+        var day = await svc.GetAsync(d);
+        return day is null
+            ? Results.NotFound()
+            : Results.Ok(new {
+                day.Date,
+                day.GeneratedAtUtc,
+                Items = day.Items.OrderByDescending(i => i.Count).ThenBy(i => i.Name)
+            });
+    })
+    .WithName("GetInventory")
+    .WithTags("Inventory")
+    .Produces(200)
+    .Produces(404)
+    .Produces(400);
 
 
 

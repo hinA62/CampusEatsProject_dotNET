@@ -1,5 +1,6 @@
 ﻿using CampusEats.Features.Menu;
 using CampusEats.Features.Order;
+using CampusEats.Features.Inventory;
 using Microsoft.EntityFrameworkCore;
 
 namespace CampusEats.Persistence;
@@ -9,6 +10,8 @@ public class CampusEatsContext(DbContextOptions<CampusEatsContext> options) : Db
     public DbSet<Menu> Menu { get; set; }
     public DbSet<MenuItem> MenuItem { get; set; }
     public DbSet<Order> Order { get; set; }
+    public DbSet<InventoryDay> InventoryDay { get; set; }
+    public DbSet<InventoryDayItem> InventoryDayItems { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
@@ -87,6 +90,24 @@ public class CampusEatsContext(DbContextOptions<CampusEatsContext> options) : Db
             entity.Property(e => e.Status)
                 .HasConversion<string>()
                 .IsRequired();
+        });
+        modelBuilder.Entity<InventoryDay>(e =>
+        {
+            e.ToTable("InventoryDays");
+            e.HasKey(x => x.Date);
+            e.Property(x => x.GeneratedAtUtc)
+                .HasColumnType("timestamp with time zone");
+        });
+        modelBuilder.Entity<InventoryDayItem>(e =>
+        {
+            e.ToTable("InventoryDayItems");
+            e.HasKey(x => x.Id);
+            e.HasIndex(x => new { x.Date, x.ItemId }).IsUnique(); 
+            e.Property(x => x.UnitPrice).HasColumnType("decimal(18,2)");
+            e.HasOne<InventoryDay>()
+                .WithMany(d => d.Items)
+                .HasForeignKey(x => x.Date)
+                .OnDelete(DeleteBehavior.Cascade);
         });
     }
 }
