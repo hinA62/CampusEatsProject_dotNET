@@ -3866,24 +3866,26 @@
     ]
   },
   "packageFolders": {
-    "/Users/mateimanea/.nuget/packages/": {}
+    "C:\\Users\\Andrei\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/mateimanea/CampusEatsProject_dotNET/CampusEats/CampusEats/CampusEats.csproj",
+      "projectUniqueName": "C:\\Users\\Andrei\\Desktop\\.NET\\CampusEatsProject_dotNET\\CampusEats\\CampusEats\\CampusEats.csproj",
       "projectName": "CampusEats",
-      "projectPath": "/Users/mateimanea/CampusEatsProject_dotNET/CampusEats/CampusEats/CampusEats.csproj",
-      "packagesPath": "/Users/mateimanea/.nuget/packages/",
-      "outputPath": "/Users/mateimanea/CampusEatsProject_dotNET/CampusEats/CampusEats/obj/",
+      "projectPath": "C:\\Users\\Andrei\\Desktop\\.NET\\CampusEatsProject_dotNET\\CampusEats\\CampusEats\\CampusEats.csproj",
+      "packagesPath": "C:\\Users\\Andrei\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Andrei\\Desktop\\.NET\\CampusEatsProject_dotNET\\CampusEats\\CampusEats\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/mateimanea/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Andrei\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3970,7 +3972,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.305/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

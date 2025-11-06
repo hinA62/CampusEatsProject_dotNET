@@ -3,6 +3,8 @@ using CampusEats.Features.Menu.Requests;
 using CampusEats.Features.Order;
 using CampusEats.Features.Order.Requests;
 using CampusEats.Features.Order.Handlers;
+using CampusEats.Features.Kitchen.Handlers;
+using CampusEats.Features.Kitchen.Requests;
 using CampusEats.Features.Inventory;
 using CampusEats.Persistence;
 using FluentValidation;
@@ -47,6 +49,8 @@ builder.Services.AddScoped<PlaceOrderHandler>();
 builder.Services.AddScoped<GetOrderHistoryHandler>();
 builder.Services.AddScoped<GetOrderByIdHandler>();
 builder.Services.AddScoped<CancelOrderHandler>();
+builder.Services.AddScoped<GetPendingOrdersHandler>();
+builder.Services.AddScoped<UpdateOrderStatusHandler>();
 builder.Services.AddScoped<InventoryService>();
 
 
@@ -248,7 +252,35 @@ app.MapPost("/api/orders/{id:guid}/cancel", async (Guid id, CancelOrderHandler h
 
 
 // ============================================
-// ORDER ENDPOINTS
+// KITCHEN ENDPOINTS
+// ============================================
+
+// Get pending/active orders for kitchen view
+app.MapGet("/api/kitchen/orders", async (string? status, GetPendingOrdersHandler handler) =>
+    {
+        return await handler.Handle(new GetPendingOrdersRequest(status));
+    })
+    .WithName("GetKitchenOrders")
+    .WithTags("Kitchen")
+    .Produces(200)
+    .Produces(400);
+
+// Update order status (Pending → Confirmed → Preparing → Completed)
+app.MapPatch("/api/kitchen/orders/{id:guid}/status", async (Guid id, OrderStatus newStatus, UpdateOrderStatusHandler handler) =>
+    {
+        return await handler.Handle(new UpdateOrderStatusRequest(id, newStatus));
+    })
+    .WithName("UpdateOrderStatus")
+    .WithTags("Kitchen")
+    .Produces(200)
+    .Produces(400)
+    .Produces(404);
+
+
+
+
+// ============================================
+// INVENTORY ENDPOINTS (LEGACY)
 // ============================================
 
 app.MapPost("/api/inventory/{date}/rebuild", async (string date, InventoryService svc) =>
