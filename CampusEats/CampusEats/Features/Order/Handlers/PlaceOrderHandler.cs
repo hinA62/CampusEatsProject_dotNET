@@ -42,7 +42,7 @@ public class PlaceOrderHandler(CampusEatsContext context, ILogger<PlaceOrderHand
             return Results.BadRequest(new { Message = "Some MenuIDs/ItemIDs do not exist", MissingMenuIDs = missingMenus, MissingItemIDs = missingItems });
         }
 
-        var total = menus.Sum(m => m.Price) + items.Sum(i => i.Price);
+        decimal? total = menus.Sum(m => m.Price) + items.Sum(i => i.Price);
 
         var order = new Order(
             Id: Guid.NewGuid(),

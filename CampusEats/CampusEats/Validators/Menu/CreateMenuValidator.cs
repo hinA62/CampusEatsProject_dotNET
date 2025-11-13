@@ -12,9 +12,9 @@ public class CreateMenuValidator : AbstractValidator<CreateMenuRequest>
             .MaximumLength(50).WithMessage("Menu name cannot exceed 50 characters.");
         
         RuleFor(x => x.Price)
-            .GreaterThan(0).WithMessage("Price must be greater than zero.");
+            .NotNull().GreaterThan(0).WithMessage("Price must be greater than zero.");
         
         RuleFor(x => x.ItemIds)
-            .NotEmpty().WithMessage("At least one menu item must be selected.");
+            .NotNull().NotEmpty().WithMessage("At least one menu item must be selected.");
     }
 }
