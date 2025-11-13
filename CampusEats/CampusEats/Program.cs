@@ -1,5 +1,11 @@
 using CampusEats.Features.Menu.Handlers;
 using CampusEats.Features.Menu.Requests;
+using CampusEats.Features.Order;
+using CampusEats.Features.Order.Requests;
+using CampusEats.Features.Order.Handlers;
+using CampusEats.Features.Kitchen.Handlers;
+using CampusEats.Features.Kitchen.Requests;
+using CampusEats.Features.Inventory;
 using CampusEats.Persistence;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
@@ -39,6 +45,14 @@ builder.Services.AddScoped<DeleteMenuHandler>();
 builder.Services.AddScoped<CreateItemHandler>();
 builder.Services.AddScoped<UpdateItemHandler>();
 builder.Services.AddScoped<DeleteItemHandler>();
+builder.Services.AddScoped<PlaceOrderHandler>();
+builder.Services.AddScoped<GetOrderHistoryHandler>();
+builder.Services.AddScoped<GetOrderByIdHandler>();
+builder.Services.AddScoped<CancelOrderHandler>();
+builder.Services.AddScoped<GetPendingOrdersHandler>();
+builder.Services.AddScoped<UpdateOrderStatusHandler>();
+builder.Services.AddScoped<InventoryService>();
+
 
 // Add CORS (optional - useful for Blazor)
 builder.Services.AddCors(options =>
@@ -76,6 +90,8 @@ if (app.Environment.IsDevelopment())
 // ============================================
 
 // Create Menu
+
+
 app.MapPost("/api/menu", async (CreateMenuRequest request, CreateMenuHandler handler) =>
 {
     return await handler.Handle(request);
@@ -186,6 +202,126 @@ app.MapGet("/api/menu-items/{id:guid}", async (Guid id, CampusEatsContext db) =>
 .WithTags("MenuItems")
 .Produces(200)
 .Produces(404);
+
+
+// ============================================
+// ORDER ENDPOINTS
+// ============================================
+
+// Place order (meniu + iteme, multiple)
+app.MapPost("/api/orders", async (PlaceOrderRequest request, PlaceOrderHandler handler) =>
+    {
+        return await handler.Handle(request);
+    })
+    .WithName("PlaceOrder")
+    .WithTags("Orders")
+    .Produces(201)
+    .Produces(400);
+
+// Get order by id
+app.MapGet("/api/orders/{id:guid}", async (Guid id, GetOrderByIdHandler handler) =>
+    {
+        return await handler.Handle(new GetOrderByIdRequest(id));
+    })
+    .WithName("GetOrderById")
+    .WithTags("Orders")
+    .Produces(200)
+    .Produces(404);
+
+// Get order history for a client
+app.MapGet("/api/clients/{clientId:guid}/orders", async (Guid clientId, GetOrderHistoryHandler handler) =>
+    {
+        return await handler.Handle(new GetOrderHistoryRequest(clientId));
+    })
+    .WithName("GetOrderHistory")
+    .WithTags("Orders")
+    .Produces(200);
+
+// Cancel pending order
+app.MapPost("/api/orders/{id:guid}/cancel", async (Guid id, CancelOrderHandler handler) =>
+    {
+        return await handler.Handle(new CancelOrderRequest(id));
+    })
+    .WithName("CancelOrder")
+    .WithTags("Orders")
+    .Produces(200)
+    .Produces(404)
+    .Produces(409);
+
+
+
+
+// ============================================
+// KITCHEN ENDPOINTS
+// ============================================
+
+// Get pending/active orders for kitchen view
+app.MapGet("/api/kitchen/orders", async (string? status, GetPendingOrdersHandler handler) =>
+    {
+        return await handler.Handle(new GetPendingOrdersRequest(status));
+    })
+    .WithName("GetKitchenOrders")
+    .WithTags("Kitchen")
+    .Produces(200)
+    .Produces(400);
+
+// Update order status (Pending → Confirmed → Preparing → Completed)
+app.MapPatch("/api/kitchen/orders/{id:guid}/status", async (Guid id, OrderStatus newStatus, UpdateOrderStatusHandler handler) =>
+    {
+        return await handler.Handle(new UpdateOrderStatusRequest(id, newStatus));
+    })
+    .WithName("UpdateOrderStatus")
+    .WithTags("Kitchen")
+    .Produces(200)
+    .Produces(400)
+    .Produces(404);
+
+
+
+
+// ============================================
+// INVENTORY ENDPOINTS (LEGACY)
+// ============================================
+
+app.MapPost("/api/inventory/{date}/rebuild", async (string date, InventoryService svc) =>
+    {
+        if (!DateOnly.TryParse(date, out var d)) return Results.BadRequest("Invalid date (YYYY-MM-DD).");
+        var day = await svc.RebuildAsync(d);
+        return Results.Ok(new {
+            day.Date,
+            day.GeneratedAtUtc,
+            Items = day.Items.OrderByDescending(i => i.Count).ThenBy(i => i.Name)
+        });
+    })
+    .WithName("RebuildInventory")
+    .WithTags("Inventory")
+    .Produces(200)
+    .Produces(400);
+
+app.MapGet("/api/inventory/{date}", async (string date, InventoryService svc) =>
+    {
+        if (!DateOnly.TryParse(date, out var d)) return Results.BadRequest("Invalid date (YYYY-MM-DD).");
+        var day = await svc.GetAsync(d);
+        return day is null
+            ? Results.NotFound()
+            : Results.Ok(new {
+                day.Date,
+                day.GeneratedAtUtc,
+                Items = day.Items.OrderByDescending(i => i.Count).ThenBy(i => i.Name)
+            });
+    })
+    .WithName("GetInventory")
+    .WithTags("Inventory")
+    .Produces(200)
+    .Produces(404)
+    .Produces(400);
+
+
+
+
+
+
+
 
 // ============================================
 // HEALTH CHECK
