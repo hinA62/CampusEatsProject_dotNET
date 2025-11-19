@@ -24,10 +24,10 @@ builder.Services.ConfigureHttpJsonOptions(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Configure PostgreSQL Database with JSON support
+// Configure Postgresql Database with JSON support
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
-// Create data source with JSON support
+// Create data_source with JSON support
 var dataSourceBuilder = new NpgsqlDataSourceBuilder(connectionString);
 dataSourceBuilder.EnableDynamicJson();
 var dataSource = dataSourceBuilder.Build();
@@ -67,6 +67,7 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+
 // Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
 {
@@ -75,6 +76,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseCors("AllowAll");
+
 
 // Apply migrations automatically on startup (Development only)
 if (app.Environment.IsDevelopment())
@@ -85,21 +87,20 @@ if (app.Environment.IsDevelopment())
     app.Logger.LogInformation("Database migrations applied successfully");
 }
 
+
+
 // ============================================
 // MENU ENDPOINTS
 // ============================================
 
 // Create Menu
-
-
-app.MapPost("/api/menu", async (CreateMenuRequest request, CreateMenuHandler handler) =>
-{
-    return await handler.Handle(request);
-})
+app.MapPost("/api/menu", async (CreateMenuRequest request, CreateMenuHandler handler) => 
+        await handler.Handle(request))
 .WithName("CreateMenu")
 .WithTags("Menu")
 .Produces(201)
 .Produces(400);
+
 
 // Update Menu
 app.MapPut("/api/menu/{id:guid}", async (Guid id, UpdateMenuRequest request, UpdateMenuHandler handler) =>
@@ -114,15 +115,15 @@ app.MapPut("/api/menu/{id:guid}", async (Guid id, UpdateMenuRequest request, Upd
 .Produces(400)
 .Produces(404);
 
+
 // Delete Menu
-app.MapDelete("/api/menu/{id:guid}", async (Guid id, DeleteMenuHandler handler) =>
-{
-    return await handler.Handle(new DeleteMenuRequest(id));
-})
+app.MapDelete("/api/menu/{id:guid}", async (Guid id, DeleteMenuHandler handler) => 
+        await handler.Handle(new DeleteMenuRequest(id)))
 .WithName("DeleteMenu")
 .WithTags("Menu")
 .Produces(200)
 .Produces(404);
+
 
 // Get All Menus
 app.MapGet("/api/menu", async (CampusEatsContext db) =>
@@ -133,6 +134,7 @@ app.MapGet("/api/menu", async (CampusEatsContext db) =>
 .WithName("GetAllMenus")
 .WithTags("Menu")
 .Produces(200);
+
 
 // Get Menu by ID
 app.MapGet("/api/menu/{id:guid}", async (Guid id, CampusEatsContext db) =>
@@ -145,19 +147,20 @@ app.MapGet("/api/menu/{id:guid}", async (Guid id, CampusEatsContext db) =>
 .Produces(200)
 .Produces(404);
 
+
+
 // ============================================
 // MENU ITEM ENDPOINTS
 // ============================================
 
 // Create Menu Item
 app.MapPost("/api/menu-items", async (CreateItemRequest request, CreateItemHandler handler) =>
-{
-    return await handler.Handle(request);
-})
+        await handler.Handle(request))
 .WithName("CreateMenuItem")
 .WithTags("MenuItems")
 .Produces(201)
 .Produces(400);
+
 
 // Update Menu Item
 app.MapPut("/api/menu-items/{id:guid}", async (Guid id, UpdateItemRequest request, UpdateItemHandler handler) =>
@@ -172,15 +175,15 @@ app.MapPut("/api/menu-items/{id:guid}", async (Guid id, UpdateItemRequest reques
 .Produces(400)
 .Produces(404);
 
+
 // Delete Menu Item
 app.MapDelete("/api/menu-items/{id:guid}", async (Guid id, DeleteItemHandler handler) =>
-{
-    return await handler.Handle(new DeleteItemRequest(id));
-})
+        await handler.Handle(new DeleteItemRequest(id)))
 .WithName("DeleteMenuItem")
 .WithTags("MenuItems")
 .Produces(204)
 .Produces(404);
+
 
 // Get All Menu Items
 app.MapGet("/api/menu-items", async (CampusEatsContext db) =>
@@ -191,6 +194,7 @@ app.MapGet("/api/menu-items", async (CampusEatsContext db) =>
 .WithName("GetAllMenuItems")
 .WithTags("MenuItems")
 .Produces(200);
+
 
 // Get Menu Item by ID
 app.MapGet("/api/menu-items/{id:guid}", async (Guid id, CampusEatsContext db) =>
@@ -204,44 +208,40 @@ app.MapGet("/api/menu-items/{id:guid}", async (Guid id, CampusEatsContext db) =>
 .Produces(404);
 
 
+
 // ============================================
 // ORDER ENDPOINTS
 // ============================================
 
-// Place order (meniu + iteme, multiple)
-app.MapPost("/api/orders", async (PlaceOrderRequest request, PlaceOrderHandler handler) =>
-    {
-        return await handler.Handle(request);
-    })
+// Place order (menu + item, multiple)
+app.MapPost("/api/orders", async (PlaceOrderRequest request, PlaceOrderHandler handler) => 
+        await handler.Handle(request))
     .WithName("PlaceOrder")
     .WithTags("Orders")
     .Produces(201)
     .Produces(400);
 
+
 // Get order by id
 app.MapGet("/api/orders/{id:guid}", async (Guid id, GetOrderByIdHandler handler) =>
-    {
-        return await handler.Handle(new GetOrderByIdRequest(id));
-    })
+        await handler.Handle(new GetOrderByIdRequest(id)))
     .WithName("GetOrderById")
     .WithTags("Orders")
     .Produces(200)
     .Produces(404);
 
+
 // Get order history for a client
-app.MapGet("/api/clients/{clientId:guid}/orders", async (Guid clientId, GetOrderHistoryHandler handler) =>
-    {
-        return await handler.Handle(new GetOrderHistoryRequest(clientId));
-    })
+app.MapGet("/api/clients/{clientId:guid}/orders", async (Guid clientId, GetOrderHistoryHandler handler) => 
+        await handler.Handle(new GetOrderHistoryRequest(clientId)))
     .WithName("GetOrderHistory")
     .WithTags("Orders")
     .Produces(200);
 
+
 // Cancel pending order
 app.MapPost("/api/orders/{id:guid}/cancel", async (Guid id, CancelOrderHandler handler) =>
-    {
-        return await handler.Handle(new CancelOrderRequest(id));
-    })
+        await handler.Handle(new CancelOrderRequest(id)))
     .WithName("CancelOrder")
     .WithTags("Orders")
     .Produces(200)
@@ -250,32 +250,27 @@ app.MapPost("/api/orders/{id:guid}/cancel", async (Guid id, CancelOrderHandler h
 
 
 
-
 // ============================================
 // KITCHEN ENDPOINTS
 // ============================================
 
 // Get pending/active orders for kitchen view
-app.MapGet("/api/kitchen/orders", async (string? status, GetPendingOrdersHandler handler) =>
-    {
-        return await handler.Handle(new GetPendingOrdersRequest(status));
-    })
+app.MapGet("/api/kitchen/orders", async (string? status, GetPendingOrdersHandler handler) => 
+        await handler.Handle(new GetPendingOrdersRequest(status)))
     .WithName("GetKitchenOrders")
     .WithTags("Kitchen")
     .Produces(200)
     .Produces(400);
 
+
 // Update order status (Pending → Confirmed → Preparing → Completed)
 app.MapPatch("/api/kitchen/orders/{id:guid}/status", async (Guid id, OrderStatus newStatus, UpdateOrderStatusHandler handler) =>
-    {
-        return await handler.Handle(new UpdateOrderStatusRequest(id, newStatus));
-    })
+        await handler.Handle(new UpdateOrderStatusRequest(id, newStatus)))
     .WithName("UpdateOrderStatus")
     .WithTags("Kitchen")
     .Produces(200)
     .Produces(400)
     .Produces(404);
-
 
 
 
@@ -318,11 +313,6 @@ app.MapGet("/api/inventory/{date}", async (string date, InventoryService svc) =>
 
 
 
-
-
-
-
-
 // ============================================
 // HEALTH CHECK
 // ============================================
@@ -332,7 +322,7 @@ app.MapGet("/health", () => Results.Ok(new { Status = "Healthy", Timestamp = Dat
 .WithTags("System")
 .Produces(200);
 
-app.Logger.LogInformation("🚀 CampusEats API is starting...");
-app.Logger.LogInformation("📍 Swagger UI: http://localhost:5298/swagger");
+app.Logger.LogInformation("CampusEats API is starting...");
+app.Logger.LogInformation("Swagger UI: http://localhost:5298/swagger");
 
 app.Run();

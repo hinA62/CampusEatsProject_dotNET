@@ -6,7 +6,7 @@ namespace CampusEats.Test;
 public class CreateItemValidatorTests
 {
     [Fact]
-    public void Given_ValidInput_With_Validate_Then_ShouldPass()
+    public void Given_ValidInput_When_Validate_Then_ShouldPass()
     {
         var model = new CreateItemRequest(Guid.NewGuid(), "Valid Item Name", 10.99m, "https://example.com/image.jpg", null);
         var validator = new CreateItemValidator();
@@ -20,7 +20,6 @@ public class CreateItemValidatorTests
     [Theory]
     [InlineData(null)]
     [InlineData("")]
-    
     public void Given_NullOrEmptyName_When_Validate_Then_ShouldFail(string name)
     {
         var model = new CreateItemRequest(Guid.NewGuid(), name, 10.12m, "https://example.com/image.jpg", null);
