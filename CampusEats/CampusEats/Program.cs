@@ -6,11 +6,18 @@ using CampusEats.Features.Order.Handlers;
 using CampusEats.Features.Kitchen.Handlers;
 using CampusEats.Features.Kitchen.Requests;
 using CampusEats.Features.Inventory;
+using CampusEats.Features.Auth;
+using CampusEats.Features.Auth.Requests;
+using CampusEats.Features.User;
+using CampusEats.Validators.Auth;
 using CampusEats.Persistence;
 using FluentValidation;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
 using System.Text.Json.Serialization;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -52,7 +59,7 @@ builder.Services.AddScoped<CancelOrderHandler>();
 builder.Services.AddScoped<GetPendingOrdersHandler>();
 builder.Services.AddScoped<UpdateOrderStatusHandler>();
 builder.Services.AddScoped<InventoryService>();
-
+builder.Services.AddScoped<JwtService>();
 
 // Add CORS (optional - useful for Blazor)
 builder.Services.AddCors(options =>
@@ -64,7 +71,22 @@ builder.Services.AddCors(options =>
               .AllowAnyHeader();
     });
 });
-
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!))
+        };
+    });
+builder.Services.AddAuthorization();
 var app = builder.Build();
 
 
@@ -76,7 +98,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseCors("AllowAll");
-
+app.UseAuthentication();
+app.UseAuthorization();
 
 // Apply migrations automatically on startup (Development only)
 if (app.Environment.IsDevelopment())
@@ -93,39 +116,48 @@ if (app.Environment.IsDevelopment())
 // MENU ENDPOINTS
 // ============================================
 
-// Create Menu
+// Create Menu (Admin only)
 app.MapPost("/api/menu", async (CreateMenuRequest request, CreateMenuHandler handler) => 
         await handler.Handle(request))
+.RequireAuthorization(policy => policy.RequireRole("Admin"))
 .WithName("CreateMenu")
 .WithTags("Menu")
 .Produces(201)
-.Produces(400);
+.Produces(400)
+.Produces(401)
+.Produces(403);
 
 
-// Update Menu
+// Update Menu (Admin only)
 app.MapPut("/api/menu/{id:guid}", async (Guid id, UpdateMenuRequest request, UpdateMenuHandler handler) =>
 {
     // Ensure ID from route matches request
     var requestWithId = request with { Id = id };
     return await handler.Handle(requestWithId);
 })
+.RequireAuthorization(policy => policy.RequireRole("Admin"))
 .WithName("UpdateMenu")
 .WithTags("Menu")
 .Produces(200)
 .Produces(400)
+.Produces(401)
+.Produces(403)
 .Produces(404);
 
 
-// Delete Menu
+// Delete Menu (Admin only)
 app.MapDelete("/api/menu/{id:guid}", async (Guid id, DeleteMenuHandler handler) => 
         await handler.Handle(new DeleteMenuRequest(id)))
+.RequireAuthorization(policy => policy.RequireRole("Admin"))
 .WithName("DeleteMenu")
 .WithTags("Menu")
 .Produces(200)
+.Produces(401)
+.Produces(403)
 .Produces(404);
 
 
-// Get All Menus
+// Get All Menus (Public - no auth required)
 app.MapGet("/api/menu", async (CampusEatsContext db) =>
 {
     var menus = await db.Menu.ToListAsync();
@@ -136,7 +168,7 @@ app.MapGet("/api/menu", async (CampusEatsContext db) =>
 .Produces(200);
 
 
-// Get Menu by ID
+// Get Menu by ID (Public - no auth required)
 app.MapGet("/api/menu/{id:guid}", async (Guid id, CampusEatsContext db) =>
 {
     var menu = await db.Menu.FindAsync(id);
@@ -153,39 +185,48 @@ app.MapGet("/api/menu/{id:guid}", async (Guid id, CampusEatsContext db) =>
 // MENU ITEM ENDPOINTS
 // ============================================
 
-// Create Menu Item
+// Create Menu Item (Admin only)
 app.MapPost("/api/menu-items", async (CreateItemRequest request, CreateItemHandler handler) =>
         await handler.Handle(request))
+.RequireAuthorization(policy => policy.RequireRole("Admin"))
 .WithName("CreateMenuItem")
 .WithTags("MenuItems")
 .Produces(201)
-.Produces(400);
+.Produces(400)
+.Produces(401)
+.Produces(403);
 
 
-// Update Menu Item
+// Update Menu Item (Admin only)
 app.MapPut("/api/menu-items/{id:guid}", async (Guid id, UpdateItemRequest request, UpdateItemHandler handler) =>
 {
     // Ensure ID from route matches request
     var requestWithId = request with { Id = id };
     return await handler.Handle(requestWithId);
 })
+.RequireAuthorization(policy => policy.RequireRole("Admin"))
 .WithName("UpdateMenuItem")
 .WithTags("MenuItems")
 .Produces(200)
 .Produces(400)
+.Produces(401)
+.Produces(403)
 .Produces(404);
 
 
-// Delete Menu Item
+// Delete Menu Item (Admin only)
 app.MapDelete("/api/menu-items/{id:guid}", async (Guid id, DeleteItemHandler handler) =>
         await handler.Handle(new DeleteItemRequest(id)))
+.RequireAuthorization(policy => policy.RequireRole("Admin"))
 .WithName("DeleteMenuItem")
 .WithTags("MenuItems")
 .Produces(204)
+.Produces(401)
+.Produces(403)
 .Produces(404);
 
 
-// Get All Menu Items
+// Get All Menu Items (Public - no auth required)
 app.MapGet("/api/menu-items", async (CampusEatsContext db) =>
 {
     var items = await db.MenuItem.ToListAsync();
@@ -196,7 +237,7 @@ app.MapGet("/api/menu-items", async (CampusEatsContext db) =>
 .Produces(200);
 
 
-// Get Menu Item by ID
+// Get Menu Item by ID (Public - no auth required)
 app.MapGet("/api/menu-items/{id:guid}", async (Guid id, CampusEatsContext db) =>
 {
     var item = await db.MenuItem.FindAsync(id);
@@ -213,38 +254,50 @@ app.MapGet("/api/menu-items/{id:guid}", async (Guid id, CampusEatsContext db) =>
 // ORDER ENDPOINTS
 // ============================================
 
-// Place order (menu + item, multiple)
+// Place order (Client only - authenticated users)
 app.MapPost("/api/orders", async (PlaceOrderRequest request, PlaceOrderHandler handler) => 
         await handler.Handle(request))
+    .RequireAuthorization(policy => policy.RequireRole("Client", "Admin"))
     .WithName("PlaceOrder")
     .WithTags("Orders")
     .Produces(201)
-    .Produces(400);
+    .Produces(400)
+    .Produces(401)
+    .Produces(403);
 
 
-// Get order by id
+// Get order by id (Client can see own orders, Admin can see all)
 app.MapGet("/api/orders/{id:guid}", async (Guid id, GetOrderByIdHandler handler) =>
         await handler.Handle(new GetOrderByIdRequest(id)))
+    .RequireAuthorization(policy => policy.RequireRole("Client", "Admin", "Kitchen"))
     .WithName("GetOrderById")
     .WithTags("Orders")
     .Produces(200)
+    .Produces(401)
+    .Produces(403)
     .Produces(404);
 
 
-// Get order history for a client
+// Get order history for a client (Client can see own, Admin can see all)
 app.MapGet("/api/clients/{clientId:guid}/orders", async (Guid clientId, GetOrderHistoryHandler handler) => 
         await handler.Handle(new GetOrderHistoryRequest(clientId)))
+    .RequireAuthorization(policy => policy.RequireRole("Client", "Admin"))
     .WithName("GetOrderHistory")
     .WithTags("Orders")
-    .Produces(200);
+    .Produces(200)
+    .Produces(401)
+    .Produces(403);
 
 
-// Cancel pending order
+// Cancel pending order (Client can cancel own orders, Admin can cancel any)
 app.MapPost("/api/orders/{id:guid}/cancel", async (Guid id, CancelOrderHandler handler) =>
         await handler.Handle(new CancelOrderRequest(id)))
+    .RequireAuthorization(policy => policy.RequireRole("Client", "Admin"))
     .WithName("CancelOrder")
     .WithTags("Orders")
     .Produces(200)
+    .Produces(401)
+    .Produces(403)
     .Produces(404)
     .Produces(409);
 
@@ -254,22 +307,28 @@ app.MapPost("/api/orders/{id:guid}/cancel", async (Guid id, CancelOrderHandler h
 // KITCHEN ENDPOINTS
 // ============================================
 
-// Get pending/active orders for kitchen view
+// Get pending/active orders for kitchen view (Kitchen staff only)
 app.MapGet("/api/kitchen/orders", async (string? status, GetPendingOrdersHandler handler) => 
         await handler.Handle(new GetPendingOrdersRequest(status)))
+    .RequireAuthorization(policy => policy.RequireRole("Kitchen", "Admin"))
     .WithName("GetKitchenOrders")
     .WithTags("Kitchen")
     .Produces(200)
-    .Produces(400);
+    .Produces(400)
+    .Produces(401)
+    .Produces(403);
 
 
-// Update order status (Pending → Confirmed → Preparing → Completed)
+// Update order status (Kitchen staff only)
 app.MapPatch("/api/kitchen/orders/{id:guid}/status", async (Guid id, OrderStatus newStatus, UpdateOrderStatusHandler handler) =>
         await handler.Handle(new UpdateOrderStatusRequest(id, newStatus)))
+    .RequireAuthorization(policy => policy.RequireRole("Kitchen", "Admin"))
     .WithName("UpdateOrderStatus")
     .WithTags("Kitchen")
     .Produces(200)
     .Produces(400)
+    .Produces(401)
+    .Produces(403)
     .Produces(404);
 
 
@@ -278,6 +337,7 @@ app.MapPatch("/api/kitchen/orders/{id:guid}/status", async (Guid id, OrderStatus
 // INVENTORY ENDPOINTS (LEGACY)
 // ============================================
 
+// Rebuild inventory (Admin only)
 app.MapPost("/api/inventory/{date}/rebuild", async (string date, InventoryService svc) =>
     {
         if (!DateOnly.TryParse(date, out var d)) return Results.BadRequest("Invalid date (YYYY-MM-DD).");
@@ -288,11 +348,15 @@ app.MapPost("/api/inventory/{date}/rebuild", async (string date, InventoryServic
             Items = day.Items.OrderByDescending(i => i.Count).ThenBy(i => i.Name)
         });
     })
+    .RequireAuthorization(policy => policy.RequireRole("Admin"))
     .WithName("RebuildInventory")
     .WithTags("Inventory")
     .Produces(200)
-    .Produces(400);
+    .Produces(400)
+    .Produces(401)
+    .Produces(403);
 
+// Get inventory (Kitchen and Admin can view)
 app.MapGet("/api/inventory/{date}", async (string date, InventoryService svc) =>
     {
         if (!DateOnly.TryParse(date, out var d)) return Results.BadRequest("Invalid date (YYYY-MM-DD).");
@@ -305,12 +369,90 @@ app.MapGet("/api/inventory/{date}", async (string date, InventoryService svc) =>
                 Items = day.Items.OrderByDescending(i => i.Count).ThenBy(i => i.Name)
             });
     })
+    .RequireAuthorization(policy => policy.RequireRole("Kitchen", "Admin"))
     .WithName("GetInventory")
     .WithTags("Inventory")
     .Produces(200)
+    .Produces(401)
+    .Produces(403)
     .Produces(404)
     .Produces(400);
 
+// ============================================
+// AUTH ENDPOINTS
+// ============================================
+
+// Register User
+app.MapPost("/api/auth/register", async (
+    RegisterUserRequest request,
+    CampusEatsContext db,
+    IValidator<RegisterUserRequest> validator,  // ← Injectează validatorul
+    CancellationToken ct) =>
+{
+    // Validare
+    var validationResult = await validator.ValidateAsync(request, ct);
+    if (!validationResult.IsValid)
+        return Results.ValidationProblem(validationResult.ToDictionary());
+
+    // Verificare email existent
+    if (await db.Users.AnyAsync(u => u.Email == request.Email, ct))
+        return Results.BadRequest("Email already exists");
+
+    if (!Enum.TryParse<UserRole>(request.Role, true, out var role))
+        return Results.BadRequest("Invalid role");
+
+    var user = new CampusEats.Features.User.User
+    {
+        Id = Guid.NewGuid(),
+        Username = request.Username,
+        Email = request.Email,
+        PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.Password),
+        Role = role,
+        CreatedAt = DateTime.UtcNow
+    };
+
+    db.Users.Add(user);
+    await db.SaveChangesAsync(ct);
+
+    return Results.Created(
+        $"/api/users/{user.Id}",
+        new { user.Id, user.Username, user.Email, Role = user.Role.ToString() }
+    );
+})
+.WithName("RegisterUser")
+.WithTags("Auth")
+.Produces(201)
+.Produces(400)
+.ProducesValidationProblem();  // ← Adaugă response pentru validare
+
+
+// Login User
+app.MapPost("/api/auth/login", async (
+    LoginUserRequest request,
+    CampusEatsContext db,
+    JwtService jwtService,
+    CancellationToken ct) =>
+{
+    var user = await db.Users
+        .FirstOrDefaultAsync(u => u.Email == request.Email, ct);
+
+    if (user is null || !BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash))
+        return Results.Unauthorized();
+
+    var token = jwtService.GenerateToken(user);
+
+    return Results.Ok(new
+    {
+        token,
+        userId = user.Id,
+        username = user.Username,
+        role = user.Role.ToString()
+    });
+})
+.WithName("LoginUser")
+.WithTags("Auth")
+.Produces(200)
+.Produces(401);
 
 
 // ============================================

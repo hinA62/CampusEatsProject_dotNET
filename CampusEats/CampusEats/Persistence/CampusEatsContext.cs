@@ -1,6 +1,7 @@
 ﻿using CampusEats.Features.Menu;
 using CampusEats.Features.Order;
 using CampusEats.Features.Inventory;
+using CampusEats.Features.User;
 using Microsoft.EntityFrameworkCore;
 
 namespace CampusEats.Persistence;
@@ -12,6 +13,7 @@ public class CampusEatsContext(DbContextOptions<CampusEatsContext> options) : Db
     public DbSet<Order> Order { get; set; }
     public DbSet<InventoryDay> InventoryDay { get; set; }
     public DbSet<InventoryDayItem> InventoryDayItems { get; set; }
+	public DbSet<User> Users { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
@@ -109,5 +111,37 @@ public class CampusEatsContext(DbContextOptions<CampusEatsContext> options) : Db
                 .HasForeignKey(x => x.Date)
                 .OnDelete(DeleteBehavior.Cascade);
         });
+
+		//user entity
+        
+		modelBuilder.Entity<User>(entity =>
+		{
+		    entity.ToTable("Users");
+		    entity.HasKey(e => e.Id);
+
+		    entity.Property(e => e.Username)
+		        .IsRequired()
+		        .HasMaxLength(50);
+
+		    entity.Property(e => e.Email)
+		        .IsRequired()
+		        .HasMaxLength(100);
+
+		    entity.HasIndex(e => e.Email)
+		        .IsUnique();
+
+		    entity.Property(e => e.PasswordHash)
+		        .IsRequired();
+
+		    entity.Property(e => e.Role)
+		        .HasConversion<string>()
+		        .IsRequired();
+
+		    entity.Property(e => e.CreatedAt)
+		        .HasColumnType("timestamp with time zone")
+		        .HasDefaultValueSql("NOW() AT TIME ZONE 'UTC'");
+		});
+		    
+		
     }
 }
