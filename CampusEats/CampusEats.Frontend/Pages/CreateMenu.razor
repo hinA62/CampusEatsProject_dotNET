@@ -1,0 +1,53 @@
+﻿@page "/menus/create"
+@using CampusEatsFrontend.Models.Menu
+@using CampusEatsFrontend.Services
+@inject NavigationManager Navigation
+@inject MenuService MenuService
+
+<h3>Create Menu</h3>
+
+<EditForm Model="_newMenu" OnValidSubmit="Save">
+    <DataAnnotationsValidator />
+
+    <div class="mb-3">
+        <label>Name</label>
+        <InputText class="form-control" @bind-Value="_newMenu.Name" />
+    </div>
+
+    <div class="mb-3">
+        <label>Price</label>
+        <InputNumber class="form-control" @bind-Value="_newMenu.Price" />
+    </div>
+
+    <div class="mb-3">
+        <label>Category</label>
+        <InputSelect class="form-select" @bind-Value="_newMenu.Category">
+            @foreach (var cat in Enum.GetValues<MenuCategory>())
+            {
+                <option value="@cat">@cat</option>
+            }
+        </InputSelect>
+    </div>
+
+    <div class="mb-3">
+        <label>Dietary Restrictions</label>
+        <InputSelect class="form-select" @bind-Value="_newMenu.Restrictions">
+            @foreach (var rest in Enum.GetValues<DietaryRestrictions>())
+            {
+                <option value="@rest">@rest</option>
+            }
+        </InputSelect>
+    </div>
+
+    <button class="btn btn-primary">Create</button>
+</EditForm>
+
+@code {
+    readonly CreateMenuRequest _newMenu = new();
+
+    async Task Save()
+    {
+        await MenuService.CreateMenuAsync(_newMenu);
+        Navigation.NavigateTo("/menus");
+    }
+}
