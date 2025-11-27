@@ -4114,7 +4114,6 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
       "SdkAnalysisLevel": "10.0.100"
     },
     "frameworks": {
