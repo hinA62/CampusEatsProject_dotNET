@@ -2,6 +2,8 @@
 using CampusEats.Features.Order;
 using CampusEats.Features.Inventory;
 using CampusEats.Features.User;
+using CampusEats.Features.Payment;
+using CampusEats.Features.Loyalty;
 using Microsoft.EntityFrameworkCore;
 
 namespace CampusEats.Persistence;
@@ -14,6 +16,9 @@ public class CampusEatsContext(DbContextOptions<CampusEatsContext> options) : Db
     public DbSet<InventoryDay> InventoryDay { get; set; }
     public DbSet<InventoryDayItem> InventoryDayItems { get; set; }
 	public DbSet<User> Users { get; set; }
+    public DbSet<Payment> Payments { get; set; }
+    public DbSet<LoyaltyAccount> LoyaltyAccounts { get; set; }
+    public DbSet<LoyaltyTransaction> LoyaltyTransactions { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
@@ -140,8 +145,71 @@ public class CampusEatsContext(DbContextOptions<CampusEatsContext> options) : Db
 		    entity.Property(e => e.CreatedAt)
 		        .HasColumnType("timestamp with time zone")
 		        .HasDefaultValueSql("NOW() AT TIME ZONE 'UTC'");
+            
 		});
-		    
-		
+        
+        //PAYMENT
+        modelBuilder.Entity<Payment>(entity =>
+        {
+            entity.ToTable("Payments");
+            entity.HasKey(p => p.Id);
+
+            entity.Property(p => p.Amount)
+                .HasColumnType("decimal(18,2)")
+                .IsRequired();
+
+            entity.Property(p => p.Status)
+                .HasConversion<string>()
+                .IsRequired();
+
+            entity.Property(p => p.Method)
+                .HasConversion<string>()
+                .IsRequired();
+
+            entity.Property(p => p.CreatedAtUtc)
+                .HasColumnType("timestamp with time zone")
+                .HasDefaultValueSql("NOW() AT TIME ZONE 'UTC'");
+
+            entity.Property(p => p.ExternalReference)
+                .HasMaxLength(200);
+
+            entity.HasIndex(p => p.UserId);
+        });
+        // LOYALTY ACCOUNT
+        modelBuilder.Entity<LoyaltyAccount>(entity =>
+        {
+            entity.ToTable("LoyaltyAccounts");
+            entity.HasKey(l => l.UserId); // 1-1 cu User
+
+            entity.Property(l => l.Points)
+                .IsRequired();
+
+            entity.Property(l => l.UpdatedAtUtc)
+                .HasColumnType("timestamp with time zone")
+                .HasDefaultValueSql("NOW() AT TIME ZONE 'UTC'");
+        });
+
+        // LOYALTY TRANSACTION
+        modelBuilder.Entity<LoyaltyTransaction>(entity =>
+        {
+            entity.ToTable("LoyaltyTransactions");
+            entity.HasKey(t => t.Id);
+
+            entity.Property(t => t.Type)
+                .HasConversion<string>()
+                .IsRequired();
+
+            entity.Property(t => t.Points)
+                .IsRequired();
+
+            entity.Property(t => t.Description)
+                .HasMaxLength(500);
+
+            entity.Property(t => t.CreatedAtUtc)
+                .HasColumnType("timestamp with time zone")
+                .HasDefaultValueSql("NOW() AT TIME ZONE 'UTC'");
+
+            entity.HasIndex(t => t.UserId);
+        });
     }
 }

@@ -11,6 +11,12 @@ using CampusEats.Features.Auth.Requests;
 using CampusEats.Features.User;
 using CampusEats.Validators.Auth;
 using CampusEats.Persistence;
+using CampusEats.Features.Payment;
+using CampusEats.Features.Payment.Requests;
+using CampusEats.Features.Payment.Handlers;
+using CampusEats.Features.Loyalty;
+using CampusEats.Features.Loyalty.Requests;
+using CampusEats.Features.Loyalty.Handlers;
 using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -60,7 +66,12 @@ builder.Services.AddScoped<GetPendingOrdersHandler>();
 builder.Services.AddScoped<UpdateOrderStatusHandler>();
 builder.Services.AddScoped<InventoryService>();
 builder.Services.AddScoped<JwtService>();
-
+builder.Services.AddScoped<CreatePaymentHandler>();
+builder.Services.AddScoped<CreatePaymentHandler>();
+builder.Services.AddScoped<GetPaymentByIdHandler>();
+builder.Services.AddScoped<GetPaymentHistoryHandler>();
+builder.Services.AddScoped<GetLoyaltyBalanceHandler>();
+builder.Services.AddScoped<RedeemPointsHandler>();
 // Add CORS (optional - useful for Blazor)
 builder.Services.AddCors(options =>
 {
@@ -377,6 +388,111 @@ app.MapGet("/api/inventory/{date}", async (string date, InventoryService svc) =>
     .Produces(403)
     .Produces(404)
     .Produces(400);
+
+
+
+// ============================================
+// PAYMENT ENDPOINTS
+// ============================================
+
+// Create payment (Client/Admin)
+app.MapPost("/api/payments", async (
+        CreatePaymentRequest request,
+        CreatePaymentHandler handler,
+        IValidator<CreatePaymentRequest> validator,
+        CancellationToken ct) =>
+    {
+        var validation = await validator.ValidateAsync(request, ct);
+        if (!validation.IsValid)
+            return Results.ValidationProblem(validation.ToDictionary());
+
+        return await handler.Handle(request, ct);
+    })
+    .RequireAuthorization(policy => policy.RequireRole("Client", "Admin"))
+    .WithName("CreatePayment")
+    .WithTags("Payments")
+    .Produces(201)
+    .Produces(400)
+    .ProducesValidationProblem()
+    .Produces(401)
+    .Produces(403);
+
+// Get payment by id
+app.MapGet("/api/payments/{id:guid}", async (Guid id, GetPaymentByIdHandler handler) =>
+        await handler.Handle(new GetPaymentByIdRequest(id)))
+    .RequireAuthorization(policy => policy.RequireRole("Client", "Admin"))
+    .WithName("GetPaymentById")
+    .WithTags("Payments")
+    .Produces(200)
+    .Produces(404)
+    .Produces(401)
+    .Produces(403);
+
+// Get payment history for user
+app.MapGet("/api/users/{userId:guid}/payments", async (Guid userId, GetPaymentHistoryHandler handler) =>
+        await handler.Handle(new GetPaymentHistoryRequest(userId)))
+    .RequireAuthorization(policy => policy.RequireRole("Client", "Admin"))
+    .WithName("GetUserPayments")
+    .WithTags("Payments")
+    .Produces(200)
+    .Produces(401)
+    .Produces(403);
+
+
+// ============================================
+// LOYALTY ENDPOINTS
+// ============================================
+
+// Get loyalty balance
+app.MapGet("/api/loyalty/{userId:guid}/balance", async (Guid userId, GetLoyaltyBalanceHandler handler) =>
+        await handler.Handle(new GetLoyaltyBalanceRequest(userId)))
+    .RequireAuthorization(policy => policy.RequireRole("Client", "Admin"))
+    .WithName("GetLoyaltyBalance")
+    .WithTags("Loyalty")
+    .Produces(200)
+    .Produces(401)
+    .Produces(403);
+
+
+// Redeem points
+app.MapPost("/api/loyalty/redeem", async (
+        RedeemPointsRequest request,
+        RedeemPointsHandler handler,
+        IValidator<RedeemPointsRequest> validator,
+        CancellationToken ct) =>
+    {
+        var validation = await validator.ValidateAsync(request, ct);
+        if (!validation.IsValid)
+            return Results.ValidationProblem(validation.ToDictionary());
+
+        return await handler.Handle(request, ct);
+    })
+    .RequireAuthorization(policy => policy.RequireRole("Client", "Admin"))
+    .WithName("RedeemPoints")
+    .WithTags("Loyalty")
+    .Produces(200)
+    .Produces(400)
+    .ProducesValidationProblem()
+    .Produces(401)
+    .Produces(403);
+
+// Loyalty transactions history
+app.MapGet("/api/loyalty/{userId:guid}/transactions", async (Guid userId, CampusEatsContext db, CancellationToken ct) =>
+    {
+        var txs = await db.LoyaltyTransactions
+            .Where(t => t.UserId == userId)
+            .OrderByDescending(t => t.CreatedAtUtc)
+            .ToListAsync(ct);
+
+        return Results.Ok(txs);
+    })
+    .RequireAuthorization(policy => policy.RequireRole("Client", "Admin"))
+    .WithName("GetLoyaltyTransactions")
+    .WithTags("Loyalty")
+    .Produces(200)
+    .Produces(401)
+    .Produces(403);
+
 
 // ============================================
 // AUTH ENDPOINTS
