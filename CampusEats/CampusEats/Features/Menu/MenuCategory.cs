@@ -14,5 +14,8 @@ public enum MenuCategory
     Baltic,
     Balkan,
     Turkish,
-    Traditional
+    Traditional,
+    Breakfast,
+    Lunch,
+    Dinner
 }

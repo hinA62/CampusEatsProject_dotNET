@@ -3,7 +3,7 @@
 public record Menu(
     Guid Id,
     string Name, 
-    decimal Price, 
+    decimal? Price, 
     List<Guid> ItemId, 
     MenuCategory Category, 
     DietaryRestrictions Restrictions

@@ -1,0 +1,67 @@
+@page "/menus"
+@inject MenuService MenuService
+@using CampusEatsFrontend.Models.Menu
+@using CampusEatsFrontend.Services
+@inject NavigationManager Navigation
+
+<h3>Menus</h3>
+
+<button class="btn btn-primary" @onclick="GoToCreate">Add Menu</button>
+
+@if (_menus == null)
+{
+    <p>Loading...</p>
+}
+else if (_menus.Count == 0)
+{
+    <p>No menus created.</p>
+}
+else
+{
+    <table class="table table-striped mt-3">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Restrictions</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var m in _menus)
+        {
+            <tr>
+                <td>@m.Name</td>
+                <td>@m.Price</td>
+                <td>@m.Category</td>
+                <td>@m.Restrictions</td>
+                <td>
+                    <button class="btn btn-danger" @onclick="() => DeleteMenu(m.Id)">Delete</button>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+@code {
+    List<MenuDto>? _menus;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _menus = await MenuService.GetAllMenusAsync();
+    }
+
+    void GoToCreate()
+    {
+        Navigation.NavigateTo("/menus/create");
+    }
+
+    private async Task DeleteMenu(Guid id)
+    {
+        await MenuService.DeleteMenuAsync(id);
+        _menus = await MenuService.GetAllMenusAsync();
+        StateHasChanged();
+    }
+}
