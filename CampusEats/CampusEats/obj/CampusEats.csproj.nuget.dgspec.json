@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "/Users/mateimanea/CampusEatsProject_dotNET/CampusEats/CampusEats/CampusEats.csproj": {}
+    "C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats\\CampusEats.csproj": {}
   },
   "projects": {
-    "/Users/mateimanea/CampusEatsProject_dotNET/CampusEats/CampusEats/CampusEats.csproj": {
+    "C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats\\CampusEats.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/mateimanea/CampusEatsProject_dotNET/CampusEats/CampusEats/CampusEats.csproj",
+        "projectUniqueName": "C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats\\CampusEats.csproj",
         "projectName": "CampusEats",
-        "projectPath": "/Users/mateimanea/CampusEatsProject_dotNET/CampusEats/CampusEats/CampusEats.csproj",
-        "packagesPath": "/Users/mateimanea/.nuget/packages/",
-        "outputPath": "/Users/mateimanea/CampusEatsProject_dotNET/CampusEats/CampusEats/obj/",
+        "projectPath": "C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats\\CampusEats.csproj",
+        "packagesPath": "C:\\Users\\Veronica\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/mateimanea/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Veronica\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -110,24 +114,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[9.0.11, 9.0.11]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[9.0.11, 9.0.11]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[9.0.11, 9.0.11]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[9.0.11, 9.0.11]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -136,11 +122,7 @@
               "privateAssets": "all"
             }
           },
-<<<<<<< Updated upstream
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.305/PortableRuntimeIdentifierGraph.json"
-=======
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json"
->>>>>>> Stashed changes
         }
       }
     }

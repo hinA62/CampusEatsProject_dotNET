@@ -15,6 +15,6 @@ public class CreateMenuValidator : AbstractValidator<CreateMenuRequest>
             .NotNull().GreaterThan(0).WithMessage("Price must be greater than zero.");
         
         RuleFor(x => x.ItemIds)
-            .NotNull().NotEmpty().WithMessage("At least one menu item must be selected.");
+            .NotNull().WithMessage("At least one menu item must be selected.");
     }
 }
