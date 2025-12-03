@@ -9,12 +9,9 @@ using CampusEats.Features.Inventory;
 using CampusEats.Features.Auth;
 using CampusEats.Features.Auth.Requests;
 using CampusEats.Features.User;
-using CampusEats.Validators.Auth;
 using CampusEats.Persistence;
-using CampusEats.Features.Payment;
 using CampusEats.Features.Payment.Requests;
 using CampusEats.Features.Payment.Handlers;
-using CampusEats.Features.Loyalty;
 using CampusEats.Features.Loyalty.Requests;
 using CampusEats.Features.Loyalty.Handlers;
 using FluentValidation;
@@ -277,7 +274,7 @@ app.MapPost("/api/orders", async (PlaceOrderRequest request, PlaceOrderHandler h
     .Produces(403);
 
 
-// Get order by id (Client can see own orders, Admin can see all)
+// Get order by id (Client can see their own orders, Admin can see all)
 app.MapGet("/api/orders/{id:guid}", async (Guid id, GetOrderByIdHandler handler) =>
         await handler.Handle(new GetOrderByIdRequest(id)))
     .RequireAuthorization(policy => policy.RequireRole("Client", "Admin", "Kitchen"))
@@ -300,7 +297,7 @@ app.MapGet("/api/clients/{clientId:guid}/orders", async (Guid clientId, GetOrder
     .Produces(403);
 
 
-// Cancel pending order (Client can cancel own orders, Admin can cancel any)
+// Cancel pending order (Client can cancel their own orders, Admin can cancel any)
 app.MapPost("/api/orders/{id:guid}/cancel", async (Guid id, CancelOrderHandler handler) =>
         await handler.Handle(new CancelOrderRequest(id)))
     .RequireAuthorization(policy => policy.RequireRole("Client", "Admin"))
@@ -428,7 +425,7 @@ app.MapGet("/api/payments/{id:guid}", async (Guid id, GetPaymentByIdHandler hand
     .Produces(401)
     .Produces(403);
 
-// Get payment history for user
+// Get payment history for a user
 app.MapGet("/api/users/{userId:guid}/payments", async (Guid userId, GetPaymentHistoryHandler handler) =>
         await handler.Handle(new GetPaymentHistoryRequest(userId)))
     .RequireAuthorization(policy => policy.RequireRole("Client", "Admin"))
@@ -502,7 +499,7 @@ app.MapGet("/api/loyalty/{userId:guid}/transactions", async (Guid userId, Campus
 app.MapPost("/api/auth/register", async (
     RegisterUserRequest request,
     CampusEatsContext db,
-    IValidator<RegisterUserRequest> validator,  // ← Injectează validatorul
+    IValidator<RegisterUserRequest> validator,
     CancellationToken ct) =>
 {
     // Validare
@@ -517,7 +514,7 @@ app.MapPost("/api/auth/register", async (
     if (!Enum.TryParse<UserRole>(request.Role, true, out var role))
         return Results.BadRequest("Invalid role");
 
-    var user = new CampusEats.Features.User.User
+    var user = new User
     {
         Id = Guid.NewGuid(),
         Username = request.Username,
@@ -539,7 +536,7 @@ app.MapPost("/api/auth/register", async (
 .WithTags("Auth")
 .Produces(201)
 .Produces(400)
-.ProducesValidationProblem();  // ← Adaugă response pentru validare
+.ProducesValidationProblem();
 
 
 // Login User

@@ -1,0 +1,15 @@
+register user:
+{
+	"Username": "Alexandru",
+	"Email": "alex@mail.com",
+	"Password": "#alex",
+	"Role": "Client"
+}
+
+create menu-item:
+{
+	"Name": "Sarmale",
+	"Price": 32.45,
+	"ImageUrl": https://www.pinterest.com/pin/279715826852622522/",
+	"Allergens": ["None"]
+}

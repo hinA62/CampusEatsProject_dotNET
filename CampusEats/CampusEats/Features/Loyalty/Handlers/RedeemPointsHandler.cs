@@ -1,24 +1,28 @@
 ﻿using CampusEats.Features.Loyalty.Requests;
 using CampusEats.Persistence;
+using CampusEats.Validators.Loyalty;
 using Microsoft.EntityFrameworkCore;
 
 namespace CampusEats.Features.Loyalty.Handlers;
 
-public class RedeemPointsHandler
+public class RedeemPointsHandler(CampusEatsContext db, ILogger<RedeemPointsHandler> logger)
 {
-    private readonly CampusEatsContext _db;
-
-    public RedeemPointsHandler(CampusEatsContext db)
+    public async Task<IResult> Handle(RedeemPointsRequest request, CancellationToken ct)
     {
-        _db = db;
-    }
+        var validator = new RedeemPointsValidator();
+        var validationResult = await validator.ValidateAsync(request, ct);
+        if (!validationResult.IsValid)
+        {
+            foreach (var error in validationResult.Errors)
+            {
+                logger.LogError(error.ErrorMessage);
+            }
 
-    public async Task<IResult> Handle(RedeemPointsRequest request, CancellationToken ct = default)
-    {
-        if (request.PointsToRedeem <= 0)
-            return Results.BadRequest("PointsToRedeem must be greater than 0.");
-
-        var account = await _db.LoyaltyAccounts
+            return Results.BadRequest(validationResult.Errors);
+        }
+        
+        
+        var account = await db.LoyaltyAccounts
             .FirstOrDefaultAsync(a => a.UserId == request.UserId, ct);
 
         if (account is null)
@@ -44,8 +48,9 @@ public class RedeemPointsHandler
             CreatedAtUtc = DateTime.UtcNow
         };
 
-        await _db.LoyaltyTransactions.AddAsync(tx, ct);
-        await _db.SaveChangesAsync(ct);
+        await db.LoyaltyTransactions.AddAsync(tx, ct);
+        await db.SaveChangesAsync(ct);
+        logger.LogInformation($"Points redeemed for user {request.UserId}: {request.PointsToRedeem}");
 
         return Results.Ok(new {
             account.UserId,
