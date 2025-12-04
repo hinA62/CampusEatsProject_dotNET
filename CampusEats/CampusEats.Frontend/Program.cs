@@ -2,14 +2,26 @@ using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using CampusEatsFrontend;
 using CampusEatsFrontend.Services;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp =>
-    new HttpClient { BaseAddress = new Uri("http://localhost:5298/") });
+{
+    var httpClient = new HttpClient { BaseAddress = new Uri("http://localhost:5298/") };
+    return httpClient;
+});
+
+builder.Services.Configure<JsonSerializerOptions>(options =>
+{
+    options.PropertyNameCaseInsensitive = true;
+    options.Converters.Add(new JsonStringEnumConverter());
+});
 
 builder.Services.AddScoped<MenuService>();
+builder.Services.AddScoped<AuthService>();
 
 await builder.Build().RunAsync();

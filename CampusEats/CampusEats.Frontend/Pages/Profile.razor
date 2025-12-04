@@ -1,0 +1,80 @@
+@page "/profile"
+@using CampusEatsFrontend.Services
+@inject AuthService AuthService
+@inject NavigationManager Navigation
+
+<PageTitle>Profile - CampusEats</PageTitle>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h3 class="card-title text-center mb-4">User Profile</h3>
+                    
+                    @if (AuthService.IsAuthenticated && AuthService.CurrentUser != null)
+                    {
+                        <div class="mb-4">
+                            <div class="row mb-3">
+                                <div class="col-4 fw-bold">Username:</div>
+                                <div class="col-8">@AuthService.CurrentUser.Username</div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-4 fw-bold">Role:</div>
+                                <div class="col-8">
+                                    <span class="badge bg-@GetRoleBadgeColor()">@AuthService.CurrentUser.Role</span>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-4 fw-bold">User ID:</div>
+                                <div class="col-8"><small class="text-muted">@AuthService.CurrentUser.UserId</small></div>
+                            </div>
+                        </div>
+
+                        <hr />
+
+                        <div class="d-grid gap-2">
+                            <a href="/change-password" class="btn btn-outline-primary">Change Password</a>
+                            <button class="btn btn-danger" @onclick="HandleLogout">Logout</button>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="alert alert-warning" role="alert">
+                            You are not logged in. Please <a href="/login">login</a> to view your profile.
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await AuthService.InitializeAsync();
+        
+        if (!AuthService.IsAuthenticated)
+        {
+            Navigation.NavigateTo("/login");
+        }
+    }
+
+    private async Task HandleLogout()
+    {
+        await AuthService.LogoutAsync();
+        Navigation.NavigateTo("/login");
+    }
+
+    private string GetRoleBadgeColor()
+    {
+        return AuthService.CurrentUser?.Role switch
+        {
+            "Admin" => "danger",
+            "Kitchen" => "warning",
+            "Client" => "primary",
+            _ => "secondary"
+        };
+    }
+}
