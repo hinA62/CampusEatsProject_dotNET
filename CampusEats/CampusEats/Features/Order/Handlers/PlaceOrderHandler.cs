@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using CampusEats.Features.Order.Requests;
 using CampusEats.Persistence;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +23,7 @@ public class PlaceOrderHandler(CampusEatsContext context, ILogger<PlaceOrderHand
             return Results.BadRequest(validation.Errors);
         }
 
+        Debug.Assert(request.MenuIDs != null, "request.MenuIDs != null");
         var menuIds = request.MenuIDs.Distinct().ToList();
         var itemIds = request.ItemIDs.Distinct().ToList();
 
@@ -38,8 +40,10 @@ public class PlaceOrderHandler(CampusEatsContext context, ILogger<PlaceOrderHand
         var missingItems = itemIds.Except(items.Select(i => i.Id)).ToList();
         if (missingMenus.Any() || missingItems.Any())
         {
-            logger.LogWarning("Missing refs. Menus: {Menus} Items: {Items}", string.Join(',', missingMenus), string.Join(',', missingItems));
-            return Results.BadRequest(new { Message = "Some MenuIDs/ItemIDs do not exist", MissingMenuIDs = missingMenus, MissingItemIDs = missingItems });
+            logger.LogWarning("Missing refs. Menus: {Menus} Items: {Items}",
+                string.Join(',', missingMenus), string.Join(',', missingItems));
+            return Results.BadRequest(new { Message = "Some MenuIDs/ItemIDs do not exist", 
+                MissingMenuIDs = missingMenus, MissingItemIDs = missingItems });
         }
 
         decimal? total = menus.Sum(m => m.Price) + items.Sum(i => i.Price);
@@ -47,7 +51,7 @@ public class PlaceOrderHandler(CampusEatsContext context, ILogger<PlaceOrderHand
         var order = new Order(
             Id: Guid.NewGuid(),
             ClientId: request.ClientId,
-            Price: total,
+            Price: (decimal)total,
             MenuIDs: menuIds,
             ItemIDs: itemIds,
             CreatedAt: DateTime.UtcNow,

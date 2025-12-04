@@ -6,12 +6,8 @@ using CampusEats.Features.User;
 
 namespace CampusEats.Features.Auth;
 
-public class JwtService
+public class JwtService(IConfiguration config)
 {
-    private readonly IConfiguration _config;
-
-    public JwtService(IConfiguration config) => _config = config;
-
     public string GenerateToken(User.User user)
     {
         var claims = new[]
@@ -22,13 +18,13 @@ public class JwtService
             new Claim(ClaimTypes.Role, user.Role.ToString())
         };
 
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]!));
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Jwt:Key"]!));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-        var expiry = DateTime.UtcNow.AddMinutes(int.Parse(_config["Jwt:ExpiryMinutes"]!));
+        var expiry = DateTime.UtcNow.AddMinutes(int.Parse(config["Jwt:ExpiryMinutes"]!));
 
         var token = new JwtSecurityToken(
-            issuer: _config["Jwt:Issuer"],
-            audience: _config["Jwt:Audience"],
+            issuer: config["Jwt:Issuer"],
+            audience: config["Jwt:Audience"],
             claims: claims,
             expires: expiry,
             signingCredentials: creds

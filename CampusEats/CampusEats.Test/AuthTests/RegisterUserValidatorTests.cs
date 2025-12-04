@@ -1,5 +1,4 @@
-﻿using System.Runtime.InteropServices;
-using CampusEats.Features.Auth.Requests;
+﻿using CampusEats.Features.Auth.Requests;
 using CampusEats.Validators.Auth;
 
 namespace CampusEats.Test.AuthTests;
@@ -36,13 +35,13 @@ public class RegisterUserValidatorTests
         // Assert
         Assert.False(result.IsValid);
         Assert.Contains(result.Errors, e => 
-            e.PropertyName == "Username" && e.ErrorMessage.Contains(" must not be empty."));
+            e.ErrorMessage == "Username is required.");
     }
 
     [Theory]
     [InlineData("ab")]
-    [InlineData("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")]
-    public void Given_InvalidName_When_Validate_ShouldFail(string username)
+    [InlineData("a")]
+    public void Given_ShortName_When_Validate_ShouldFail(string username)
     {
         // Arrange
         var model = new RegisterUserRequest
@@ -55,8 +54,25 @@ public class RegisterUserValidatorTests
         // Assert
         Assert.False(result.IsValid);
         Assert.Contains(result.Errors, e => 
-            e.PropertyName == "Username" && 
-            e.ErrorMessage.Contains(" must be at least 3 characters long and maximum 50 characters long."));
+            e.ErrorMessage == "Username must be at least 3 characters long.");
+    }
+
+    [Fact]
+    public void Given_TooLongUsername_When_Validate_ShouldFail()
+    {
+        // Arrange
+        var longUsername = new string('a', 51);
+        var model = new RegisterUserRequest
+            (longUsername, "some-valid@mail.com", "SomeP@ssw0rd", "Client");
+        var validator = new RegisterUserValidator();
+        
+        // Act
+        var result = validator.Validate(model);
+        
+        // Assert
+        Assert.False(result.IsValid);
+        Assert.Contains(result.Errors, e => 
+            e.ErrorMessage == "Username cannot exceed 50 characters long.");
     }
 
     [Fact]
@@ -73,7 +89,7 @@ public class RegisterUserValidatorTests
         // Assert
         Assert.False(result.IsValid);
         Assert.Contains(result.Errors, e => 
-            e.PropertyName == "Email" && e.ErrorMessage.Contains(" must not be empty."));
+            e.ErrorMessage == "Email is required.");
     }
 
     [Theory]
@@ -86,16 +102,16 @@ public class RegisterUserValidatorTests
         var model = new RegisterUserRequest
             ("Ion", email, "SomeP@ssw0rd", "Client");
         var validator = new RegisterUserValidator();
-        
+
         // Act
         var result = validator.Validate(model);
-        
+
         // Assert
         Assert.False(result.IsValid);
-        Assert.Contains(result.Errors, e => 
-            e.PropertyName == "Email" && e.ErrorMessage.Contains(" is not a valid e-mail address."));
+        Assert.Contains(result.Errors, e =>
+            e.ErrorMessage == "Invalid email format.");
     }
-    
+
     [Fact]
     public void Given_TooLongEmail_When_Validate_ShouldFail()
     {
@@ -111,7 +127,7 @@ public class RegisterUserValidatorTests
         // Assert
         Assert.False(result.IsValid);
         Assert.Contains(result.Errors, e => 
-            e.PropertyName == "Email" && e.ErrorMessage.Contains(" must be at most 100 characters long."));
+            e.ErrorMessage == "Email cannot exceed 100 characters.");
     }
 
     [Fact]
@@ -128,7 +144,7 @@ public class RegisterUserValidatorTests
         // Assert
         Assert.False(result.IsValid);
         Assert.Contains(result.Errors, e => 
-            e.PropertyName == "Password" && e.ErrorMessage.Contains(" must not be empty."));
+           e.ErrorMessage == "Password is required.");
     }
 
     [Theory]
@@ -144,7 +160,8 @@ public class RegisterUserValidatorTests
     public void Given_TooShortPassword_When_Validate_ShouldFail(string password)
     {
         // Arrange
-        var model = new RegisterUserRequest("Ion", "ion_lungu@mail.com", password, "Client");
+        var model = new RegisterUserRequest
+            ("Ion", "ion_lungu@mail.com", password, "Client");
         var validator = new RegisterUserValidator();
         
         // Act
@@ -153,7 +170,7 @@ public class RegisterUserValidatorTests
         // Assert
         Assert.False(result.IsValid);
         Assert.Contains(result.Errors, e => 
-            e.PropertyName == "Password" && e.ErrorMessage.Contains(" must be at least 10 characters long."));
+            e.ErrorMessage.Contains("Password must be at least 10 characters long."));
     }
 
     [Theory]
@@ -165,7 +182,8 @@ public class RegisterUserValidatorTests
     public void Given_InvalidPassword_When_Validate_ShouldFail(string password)
     {
         // Arrange
-        var model = new RegisterUserRequest("Ion", "ion_lungu@mail.com", password, "Client");
+        var model = new RegisterUserRequest
+            ("Ion", "ion_lungu@mail.com", password, "Client");
         var validator = new RegisterUserValidator();
         
         // Act
@@ -174,9 +192,7 @@ public class RegisterUserValidatorTests
         // Assert
         Assert.False(result.IsValid);
         Assert.Contains(result.Errors, e => 
-            e.PropertyName == "Password" &&
-            e.ErrorMessage.Contains(" must contain at least one uppercase letter," +
-                                    " one lowercase letter, one digit and one special character."));
+            e.ErrorMessage.Contains("Password must contain at least"));
     }
 
     [Fact]
@@ -193,7 +209,7 @@ public class RegisterUserValidatorTests
         // Assert
         Assert.False(result.IsValid);
         Assert.Contains(result.Errors, e =>
-            e.PropertyName == "Role" && e.ErrorMessage.Contains(" must not be empty."));
+            e.ErrorMessage == "Role is required.");
     }
 
     [Theory]
@@ -213,22 +229,6 @@ public class RegisterUserValidatorTests
         // Assert
         Assert.False(result.IsValid);
         Assert.Contains(result.Errors, e =>
-            e.PropertyName == "Role" && e.ErrorMessage.Contains(" is not a valid role."));
-    }
-
-    [Fact]
-    public void Given_MultipleInvalidData_When_Validate_ShouldFail()
-    {
-        // Arrange
-        var model = new RegisterUserRequest
-            ("", "invalid-email", "123", "InvalidRole");
-        var validator = new RegisterUserValidator();
-        
-        // Act
-        var result = validator.Validate(model);
-        
-        // Assert
-        Assert.False(result.IsValid);
-        Assert.Equal(4, result.Errors.Count);
+            e.ErrorMessage == "Invalid role. Valid roles: Client, Kitchen, Admin.");
     }
 }

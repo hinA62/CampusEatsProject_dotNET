@@ -33,7 +33,8 @@ public class UpdateOrderStatusValidatorTests
 
         // Assert
         Assert.False(result.IsValid);
-        Assert.Contains(result.Errors, e => e.PropertyName == "OrderId" && e.ErrorMessage.Contains("OrderId is required"));
+        Assert.Contains(result.Errors, e => 
+            e.PropertyName == "OrderId" && e.ErrorMessage.Contains("OrderId is required"));
     }
 
     [Fact]
@@ -48,7 +49,8 @@ public class UpdateOrderStatusValidatorTests
 
         // Assert
         Assert.False(result.IsValid);
-        Assert.Contains(result.Errors, e => e.PropertyName == "NewStatus" && e.ErrorMessage.Contains("Invalid order status"));
+        Assert.Contains(result.Errors, e => 
+            e.PropertyName == "NewStatus" && e.ErrorMessage.Contains("Invalid order status"));
     }
 
     [Fact]
@@ -63,7 +65,8 @@ public class UpdateOrderStatusValidatorTests
 
         // Assert
         Assert.False(result.IsValid);
-        Assert.Contains(result.Errors, e => e.PropertyName == "NewStatus" && e.ErrorMessage.Contains("Cannot change status to Cancelled"));
+        Assert.Contains(result.Errors, e => 
+            e.PropertyName == "NewStatus" && e.ErrorMessage.Contains("Cannot change status to Cancelled"));
     }
     
     [Theory]
@@ -74,7 +77,13 @@ public class UpdateOrderStatusValidatorTests
     public void Given_InvalidOrderStatus_When_Validate_Then_ShouldFail(OrderStatus status)
     {
         // Arrange
-        var validStatuses = new[] { OrderStatus.Pending, OrderStatus.Confirmed, OrderStatus.Preparing, OrderStatus.Completed };
+        var validStatuses = new[]
+        {
+            OrderStatus.Pending, 
+            OrderStatus.Confirmed, 
+            OrderStatus.Preparing, 
+            OrderStatus.Completed
+        };
         var validator = new UpdateOrderStatusValidator();
         
         // Act
@@ -84,10 +93,10 @@ public class UpdateOrderStatusValidatorTests
         // Assert
         if (validStatuses.Contains(status)) return;
         Assert.False(result.IsValid);
-        Assert.Contains(result.Errors, e => e.PropertyName == "NewStatus" && e.ErrorMessage.Contains("Invalid order status"));
+        Assert.Contains(result.Errors, e => 
+            e.PropertyName == "NewStatus" && e.ErrorMessage.Contains("Invalid order status"));
     }
     
-
     [Fact]
     public void Given_MultipleInvalidFields_When_Validate_Then_ShouldReturnMultipleErrors()
     {

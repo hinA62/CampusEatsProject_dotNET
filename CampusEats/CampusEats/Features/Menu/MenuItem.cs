@@ -3,7 +3,7 @@
 public record MenuItem(
     Guid Id, 
     string Name, 
-    decimal? Price,
+    decimal Price,
     string? ImageUrl, 
     List<string>? Allergens
     );

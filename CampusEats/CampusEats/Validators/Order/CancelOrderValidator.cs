@@ -8,6 +8,6 @@ public class CancelOrderValidator : AbstractValidator<CancelOrderRequest>
 {
     public CancelOrderValidator()
     {
-        RuleFor(r => r.OrderId).NotEmpty();
+        RuleFor(r => r.OrderId).NotEmpty().WithMessage("Order Id is required.");
     }
 }

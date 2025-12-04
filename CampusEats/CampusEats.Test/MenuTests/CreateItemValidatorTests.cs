@@ -10,7 +10,8 @@ public class CreateItemValidatorTests
     {
         // Arrange
         var model = new CreateItemRequest
-            (Guid.NewGuid(), "Valid Item Name", 10.99m, "https://example.com/image.jpg", null);
+            (Guid.NewGuid(), "Valid Item Name", 10.99m,
+                "https://example.com/image.jpg", null);
         var validator = new CreateItemValidator();
 
         // Act
@@ -27,7 +28,8 @@ public class CreateItemValidatorTests
     {
         // Arrange
         var model = new CreateItemRequest
-            (Guid.NewGuid(), name, 10.12m, "https://example.com/image.jpg", null);
+            (Guid.NewGuid(), name, 10.12m,
+                "https://example.com/image.jpg", null);
         var validator = new CreateItemValidator();
 
         // Act
@@ -36,7 +38,7 @@ public class CreateItemValidatorTests
         // Assert
         Assert.False(result.IsValid);
         Assert.Contains(result.Errors, e => 
-            e.PropertyName == "Name" && e.ErrorMessage.Contains("required"));
+            e.ErrorMessage == "Name is required.");
     }
 
     [Theory]
@@ -46,7 +48,8 @@ public class CreateItemValidatorTests
     {
         // Arrange
         var model = new CreateItemRequest
-            (Guid.NewGuid(), name, 10.99m, "https://example.com/image.jpg", null);
+            (Guid.NewGuid(), name, 10.99m,
+                "https://example.com/image.jpg", null);
         var validator = new CreateItemValidator();
 
         // Act
@@ -63,7 +66,8 @@ public class CreateItemValidatorTests
     {
         // Arrange
         var model = new CreateItemRequest
-            (Guid.NewGuid(), "Valid Item", null, "https://example.com/image.jpg", null);
+            (Guid.NewGuid(), "Valid Item", 
+                null, "https://example.com/image.jpg", null);
         var validator = new CreateItemValidator();
 
         // Act
@@ -72,7 +76,7 @@ public class CreateItemValidatorTests
         // Assert
         Assert.False(result.IsValid);
         Assert.Contains(result.Errors, e => 
-            e.PropertyName == "Price" && e.ErrorMessage.Contains("required"));
+            e.ErrorMessage == "Price is required.");
     }
 
     [Theory]
@@ -83,7 +87,8 @@ public class CreateItemValidatorTests
     {
         // Arrange
         var model = new CreateItemRequest
-            (Guid.NewGuid(), "Valid Item", price, "https://example.com/image.jpg", null);
+            (Guid.NewGuid(), "Valid Item", price,
+                "https://example.com/image.jpg", null);
         var validator = new CreateItemValidator();
 
         // Act
@@ -99,7 +104,8 @@ public class CreateItemValidatorTests
     public void Given_MultipleInvalidFields_When_Validate_Then_ShouldReturnMultipleErrors()
     {
         // Arrange
-        var model = new CreateItemRequest(Guid.Empty, "ab", -5m, "invalid-url", null);
+        var model = new CreateItemRequest
+            (Guid.Empty, "ab", -5m, "invalid-url", null);
         var validator = new CreateItemValidator();
 
         // Act

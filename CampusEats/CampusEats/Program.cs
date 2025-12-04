@@ -5,7 +5,6 @@ using CampusEats.Features.Order.Requests;
 using CampusEats.Features.Order.Handlers;
 using CampusEats.Features.Kitchen.Handlers;
 using CampusEats.Features.Kitchen.Requests;
-using CampusEats.Features.Inventory;
 using CampusEats.Features.Auth;
 using CampusEats.Features.Auth.Requests;
 using CampusEats.Features.User;
@@ -21,6 +20,7 @@ using Microsoft.EntityFrameworkCore;
 using Npgsql;
 using System.Text.Json.Serialization;
 using System.Text;
+using CampusEats.Features.Inventory.Handlers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -61,7 +61,7 @@ builder.Services.AddScoped<GetOrderByIdHandler>();
 builder.Services.AddScoped<CancelOrderHandler>();
 builder.Services.AddScoped<GetPendingOrdersHandler>();
 builder.Services.AddScoped<UpdateOrderStatusHandler>();
-builder.Services.AddScoped<InventoryService>();
+builder.Services.AddScoped<InventoryHandler>();
 builder.Services.AddScoped<JwtService>();
 builder.Services.AddScoped<CreatePaymentHandler>();
 builder.Services.AddScoped<CreatePaymentHandler>();
@@ -346,7 +346,7 @@ app.MapPatch("/api/kitchen/orders/{id:guid}/status", async (Guid id, OrderStatus
 // ============================================
 
 // Rebuild inventory (Admin only)
-app.MapPost("/api/inventory/{date}/rebuild", async (string date, InventoryService svc) =>
+app.MapPost("/api/inventory/{date}/rebuild", async (string date, InventoryHandler svc) =>
     {
         if (!DateOnly.TryParse(date, out var d)) return Results.BadRequest("Invalid date (YYYY-MM-DD).");
         var day = await svc.RebuildAsync(d);
@@ -365,7 +365,7 @@ app.MapPost("/api/inventory/{date}/rebuild", async (string date, InventoryServic
     .Produces(403);
 
 // Get inventory (Kitchen and Admin can view)
-app.MapGet("/api/inventory/{date}", async (string date, InventoryService svc) =>
+app.MapGet("/api/inventory/{date}", async (string date, InventoryHandler svc) =>
     {
         if (!DateOnly.TryParse(date, out var d)) return Results.BadRequest("Invalid date (YYYY-MM-DD).");
         var day = await svc.GetAsync(d);

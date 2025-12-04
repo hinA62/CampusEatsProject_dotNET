@@ -5,7 +5,7 @@ namespace CampusEats.Features.Menu;
 public record Menu(
     Guid Id,
     string Name, 
-    decimal? Price, 
+    decimal Price, 
     [property: JsonPropertyName("ItemId")]
     List<Guid> ItemId, 
     MenuCategory Category, 

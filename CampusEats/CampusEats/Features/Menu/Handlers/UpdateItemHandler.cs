@@ -30,6 +30,7 @@ public class UpdateItemHandler (CampusEatsContext context, ILogger<UpdateItemHan
             logger.LogWarning("Menu item with ID: {MenuItemId} not found", request.Id);
             return Results.NotFound($"Menu item with ID: {request.Id} not found");
         }
+        
         var updatedMenuItem = menuItem with
         {
             Name = request.Name,

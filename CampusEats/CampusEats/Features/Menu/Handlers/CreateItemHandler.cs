@@ -24,7 +24,7 @@ public class CreateItemHandler (CampusEatsContext context, ILogger<CreateItemHan
         }
         
         //create menu item
-        var menuItem = new MenuItem(Guid.NewGuid(), request.Name, request.Price, request.ImageUrl, request.Allergens);
+        var menuItem = new MenuItem(Guid.NewGuid(), request.Name, (decimal)request.Price!, request.ImageUrl, request.Allergens);
         context.MenuItem.Add(menuItem);
         await context.SaveChangesAsync();
         logger.LogInformation("Menu item created with ID: {MenuItemId}", menuItem.Id);

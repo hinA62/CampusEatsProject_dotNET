@@ -9,7 +9,7 @@ public class RedeemPointsValidatorTests
     public void Given_ValidInput_When_Validate_Then_ShouldPass()
     {
         // Arrange
-        var model = new RedeemPointsRequest(new Guid(), 10);
+        var model = new RedeemPointsRequest(Guid.NewGuid(), 10);
         var validator = new RedeemPointsValidator();
 
         // Act
@@ -32,7 +32,8 @@ public class RedeemPointsValidatorTests
         
         // Assert
         Assert.False(result.IsValid);
-        Assert.Contains(result.Errors, e => e.ErrorMessage.Contains("UserId is required"));
+        Assert.Contains(result.Errors, e => 
+            e.ErrorMessage.Contains("User Id is required"));
     }
 
     [Fact]
@@ -47,6 +48,7 @@ public class RedeemPointsValidatorTests
         
         // Assert
         Assert.False(result.IsValid);
-        Assert.Contains(result.Errors, e => e.ErrorMessage.Contains("Points must be greater than 0"));
+        Assert.Contains(result.Errors, e => 
+            e.ErrorMessage == "Points to redeem must be greater than 0.");
     }
 }

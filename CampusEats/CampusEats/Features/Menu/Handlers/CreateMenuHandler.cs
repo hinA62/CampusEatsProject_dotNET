@@ -1,4 +1,5 @@
-﻿using CampusEats.Features.Menu.Requests;
+﻿using System.Diagnostics;
+using CampusEats.Features.Menu.Requests;
 using CampusEats.Persistence;
 using CampusEats.Validators.Menu;
 using Microsoft.EntityFrameworkCore;
@@ -26,7 +27,7 @@ public class CreateMenuHandler(CampusEatsContext context, ILogger<CreateMenuHand
         
         // calculeaza automat restrictii 
         var menuItems = await context.MenuItem
-            .Where(item => request.ItemIds.Contains(item.Id))
+            .Where(item => request.ItemIds != null && request.ItemIds.Contains(item.Id))
             .ToListAsync();
         
         // obtine alergeni
@@ -39,17 +40,24 @@ public class CreateMenuHandler(CampusEatsContext context, ILogger<CreateMenuHand
         
         var calculatedRestrictions = DietaryRestrictions.None;
         
-        if (!allAllergens.Any(a => a.Contains("dairy") || a.Contains("milk") || a.Contains("lactose") || a.Contains("cheese")))
+        if (!allAllergens.Any(a => a.Contains("dairy") || 
+                                   a.Contains("milk") || 
+                                   a.Contains("lactose") || 
+                                   a.Contains("cheese")))
         {
             calculatedRestrictions |= DietaryRestrictions.LactoseFree;
         }
         
-        if (!allAllergens.Any(a => a.Contains("gluten") || a.Contains("wheat")))
+        if (!allAllergens.Any(a => a.Contains("gluten") || 
+                                   a.Contains("wheat")))
         {
             calculatedRestrictions |= DietaryRestrictions.GlutenFree;
         }
         
-        if (!allAllergens.Any(a => a.Contains("nut") || a.Contains("peanut") || a.Contains("almond") || a.Contains("cashew")))
+        if (!allAllergens.Any(a => a.Contains("nut") ||
+                                   a.Contains("peanut") || 
+                                   a.Contains("almond") || 
+                                   a.Contains("cashew")))
         {
             calculatedRestrictions |= DietaryRestrictions.NutFree;
         }
@@ -61,8 +69,10 @@ public class CreateMenuHandler(CampusEatsContext context, ILogger<CreateMenuHand
         logger.LogInformation("Menu restrictions: {Restrictions} (calculated from allergens: [{Allergens}])", 
             finalRestrictions, allAllergens.Count > 0 ? string.Join(", ", allAllergens) : "none");
         
-        //create menu
-        var menu = new Menu(Guid.NewGuid(), request.Name, request.Price, request.ItemIds, request.Category, finalRestrictions);
+        //create a menu
+        Debug.Assert(request.ItemIds != null, "request.ItemIds != null");
+        var menu = new Menu(Guid.NewGuid(), request.Name, 
+            (decimal)request.Price!, request.ItemIds, request.Category, finalRestrictions);
         context.Menu.Add(menu);
         await context.SaveChangesAsync();
         logger.LogInformation("Menu created with Name: {MenuName}", menu.Name);

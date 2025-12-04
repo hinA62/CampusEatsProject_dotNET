@@ -9,7 +9,9 @@ public class UpdateItemValidatorTests
     public void Given_ValidInput_With_Validate_Then_ShouldPass()
     {
         // Arrange
-        var model = new CreateItemRequest(Guid.NewGuid(), "Valid Item Name", 10.99m, "https://example.com/image.jpg", null);
+        var model = new CreateItemRequest
+            (Guid.NewGuid(), "Valid Item Name",
+                10.99m, "https://example.com/image.jpg", null);
         var validator = new CreateItemValidator();
 
         // Act
@@ -26,7 +28,9 @@ public class UpdateItemValidatorTests
     public void Given_NullOrEmptyName_When_Validate_Then_ShouldFail(string name)
     {
         // Arrange
-        var model = new CreateItemRequest(Guid.NewGuid(), name, 10.12m, "https://example.com/image.jpg", null);
+        var model = new CreateItemRequest
+            (Guid.NewGuid(), name, 10.12m,
+                "https://example.com/image.jpg", null);
         var validator = new CreateItemValidator();
 
         // Act
@@ -34,7 +38,8 @@ public class UpdateItemValidatorTests
 
         // Assert
         Assert.False(result.IsValid);
-        Assert.Contains(result.Errors, e => e.PropertyName == "Name");
+        Assert.Contains(result.Errors, e => 
+            e.ErrorMessage == "Name is required.");
     }
 
     [Theory]
@@ -43,7 +48,9 @@ public class UpdateItemValidatorTests
     public void Given_NameLessThan3Characters_When_Validate_Then_ShouldFail(string name)
     {
         // Arrange
-        var model = new CreateItemRequest(Guid.NewGuid(), name, 10.99m, "https://example.com/image.jpg", null);
+        var model = new CreateItemRequest
+            (Guid.NewGuid(), name, 10.99m, 
+                "https://example.com/image.jpg", null);
         var validator = new CreateItemValidator();
 
         // Act
@@ -51,14 +58,17 @@ public class UpdateItemValidatorTests
 
         // Assert
         Assert.False(result.IsValid);
-        Assert.Contains(result.Errors, e => e.PropertyName == "Name" && e.ErrorMessage.Contains("at least 3 characters"));
+        Assert.Contains(result.Errors, e =>
+            e.ErrorMessage == "Name must not be empty and should be at least 3 characters long.");
     }
 
     [Fact]
     public void Given_NullPrice_When_Validate_Then_ShouldFail()
     {
         // Arrange
-        var model = new CreateItemRequest(Guid.NewGuid(), "Valid Item", null, "https://example.com/image.jpg", null);
+        var model = new CreateItemRequest
+            (Guid.NewGuid(), "Valid Item", null,
+                "https://example.com/image.jpg", null);
         var validator = new CreateItemValidator();
 
         // Act
@@ -66,7 +76,8 @@ public class UpdateItemValidatorTests
 
         // Assert
         Assert.False(result.IsValid);
-        Assert.Contains(result.Errors, e => e.PropertyName == "Price");
+        Assert.Contains(result.Errors, e =>
+            e.ErrorMessage == "Price is required.");
     }
 
     [Theory]
@@ -76,7 +87,9 @@ public class UpdateItemValidatorTests
     public void Given_ZeroOrNegativePrice_When_Validate_Then_ShouldFail(decimal price)
     {
         // Arrange
-        var model = new CreateItemRequest(Guid.NewGuid(), "Valid Item", price, "https://example.com/image.jpg", null);
+        var model = new CreateItemRequest
+            (Guid.NewGuid(), "Valid Item", price,
+                "https://example.com/image.jpg", null);
         var validator = new CreateItemValidator();
 
         // Act
@@ -84,14 +97,17 @@ public class UpdateItemValidatorTests
 
         // Assert
         Assert.False(result.IsValid);
-        Assert.Contains(result.Errors, e => e.PropertyName == "Price" && e.ErrorMessage.Contains("greater than 0"));
+        Assert.Contains(result.Errors, e => 
+            e.ErrorMessage == "Price must be greater than 0.");
     }
 
     [Fact]
     public void Given_MultipleInvalidFields_When_Validate_Then_ShouldReturnMultipleErrors()
     {
         // Arrange
-        var model = new CreateItemRequest(Guid.Empty, "ab", -5m, "invalid-url", null);
+        var model = new CreateItemRequest
+            (Guid.Empty, "ab", -5m, 
+                "invalid-url", null);
         var validator = new CreateItemValidator();
 
         // Act
