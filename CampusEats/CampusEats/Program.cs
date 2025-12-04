@@ -276,6 +276,21 @@ app.MapPost("/api/orders", async (PlaceOrderRequest request, PlaceOrderHandler h
     .Produces(403);
 
 
+// Get all orders (Admin only)
+app.MapGet("/api/orders", async (CampusEatsContext db) =>
+{
+    var orders = await db.Order
+        .OrderByDescending(o => o.CreatedAt)
+        .ToListAsync();
+    return Results.Ok(orders);
+})
+    .RequireAuthorization(policy => policy.RequireRole("Admin"))
+    .WithName("GetAllOrders")
+    .WithTags("Orders")
+    .Produces(200)
+    .Produces(401)
+    .Produces(403);
+
 // Get order by id (Client can see their own orders, Admin can see all)
 app.MapGet("/api/orders/{id:guid}", async (Guid id, GetOrderByIdHandler handler) =>
         await handler.Handle(new GetOrderByIdRequest(id)))

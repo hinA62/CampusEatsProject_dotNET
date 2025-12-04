@@ -88,9 +88,9 @@
 
         try
         {
-            var success = await AuthService.RegisterAsync(_registerRequest);
+            var result = await AuthService.RegisterAsync(_registerRequest);
             
-            if (success)
+            if (result.Success)
             {
                 _successMessage = "Account created successfully! Redirecting to login...";
                 await Task.Delay(1500);
@@ -98,7 +98,9 @@
             }
             else
             {
-                _errorMessage = "Registration failed. Email might already exist.";
+                _errorMessage = string.IsNullOrEmpty(result.ErrorMessage) 
+                    ? "Registration failed. Please try again." 
+                    : result.ErrorMessage;
             }
         }
         catch (Exception ex)

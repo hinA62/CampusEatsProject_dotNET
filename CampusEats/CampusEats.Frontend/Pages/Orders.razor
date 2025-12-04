@@ -1,0 +1,140 @@
+@page "/orders"
+@using CampusEatsFrontend.Models.Order
+@using CampusEatsFrontend.Services
+@inject OrderService OrderService
+@inject AuthService AuthService
+@inject NavigationManager Navigation
+
+<PageTitle>Orders Management - CampusEats</PageTitle>
+
+<div class="container mt-4">
+    <h3 class="mb-4">Orders Management</h3>
+
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <select class="form-select" @bind="_statusFilter">
+                <option value="">All Statuses</option>
+                @foreach (var status in Enum.GetValues<OrderStatus>())
+                {
+                    <option value="@status">@status</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-primary" @onclick="ApplyFilter">Filter</button>
+        </div>
+    </div>
+
+    @if (_isLoading)
+    {
+        <div class="text-center">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    }
+    else if (_filteredOrders == null || !_filteredOrders.Any())
+    {
+        <div class="alert alert-info">No orders found.</div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Client ID</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        <th>Created At</th>
+                        <th>Items</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var order in _filteredOrders)
+                    {
+                        <tr>
+                            <td><code>@order.Id.ToString().Substring(0, 8)...</code></td>
+                            <td><code>@order.ClientId.ToString().Substring(0, 8)...</code></td>
+                            <td><strong>$@order.Price.ToString("F2")</strong></td>
+                            <td><span class="badge bg-@GetStatusColor(order.Status)">@order.Status</span></td>
+                            <td>@order.CreatedAt.ToString("MMM dd, yyyy HH:mm")</td>
+                            <td>@(order.MenuIDs.Count) menus, @(order.ItemIDs.Count) items</td>
+                            <td>
+                                @if (order.Status == OrderStatus.Pending)
+                                {
+                                    <button class="btn btn-sm btn-danger" @onclick="() => CancelOrder(order.Id)">
+                                        Cancel
+                                    </button>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+@code {
+    private List<OrderDto>? _allOrders;
+    private List<OrderDto>? _filteredOrders;
+    private string _statusFilter = "";
+    private bool _isLoading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await AuthService.InitializeAsync();
+        
+        if (AuthService.CurrentUser?.Role != "Admin")
+        {
+            Navigation.NavigateTo("/");
+            return;
+        }
+
+        await LoadOrders();
+    }
+
+    private async Task LoadOrders()
+    {
+        _isLoading = true;
+        _allOrders = await OrderService.GetAllOrdersAsync();
+        _filteredOrders = _allOrders;
+        _isLoading = false;
+    }
+
+    private void ApplyFilter()
+    {
+        if (string.IsNullOrEmpty(_statusFilter))
+        {
+            _filteredOrders = _allOrders;
+        }
+        else
+        {
+            var status = Enum.Parse<OrderStatus>(_statusFilter);
+            _filteredOrders = _allOrders?.Where(o => o.Status == status).ToList();
+        }
+    }
+
+    private async Task CancelOrder(Guid orderId)
+    {
+        var response = await OrderService.CancelOrderAsync(orderId);
+        if (response.IsSuccessStatusCode)
+        {
+            await LoadOrders();
+            ApplyFilter();
+        }
+    }
+
+    private string GetStatusColor(OrderStatus status) => status switch
+    {
+        OrderStatus.Pending => "warning",
+        OrderStatus.Confirmed => "info",
+        OrderStatus.Preparing => "primary",
+        OrderStatus.Completed => "success",
+        OrderStatus.Cancelled => "danger",
+        _ => "secondary"
+    };
+}

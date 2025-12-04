@@ -39,10 +39,6 @@ public class GetPendingOrdersHandler(CampusEatsContext context, ILogger<GetPendi
 
         logger.LogInformation("Found {Count} orders", orders.Count);
 
-        return Results.Ok(new
-        {
-            Count = orders.Count,
-            Orders = orders
-        });
+        return Results.Ok(orders);
     }
 }

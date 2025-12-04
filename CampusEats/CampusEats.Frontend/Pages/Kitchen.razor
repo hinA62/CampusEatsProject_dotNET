@@ -1,0 +1,126 @@
+@page "/kitchen"
+@using CampusEatsFrontend.Models.Order
+@using CampusEatsFrontend.Services
+@inject KitchenService KitchenService
+@inject AuthService AuthService
+@inject NavigationManager Navigation
+
+<PageTitle>Kitchen Dashboard - CampusEats</PageTitle>
+
+<div class="container mt-4">
+    <h3 class="mb-4">Kitchen Dashboard</h3>
+
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <select class="form-select" @bind="_statusFilter" @bind:after="LoadOrders">
+                <option value="">All Orders</option>
+                <option value="Pending">Pending</option>
+                <option value="Confirmed">Confirmed</option>
+                <option value="Preparing">Preparing</option>
+            </select>
+        </div>
+    </div>
+
+    @if (_isLoading)
+    {
+        <div class="text-center">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    }
+    else if (_orders == null || !_orders.Any())
+    {
+        <div class="alert alert-info">No active orders in the kitchen.</div>
+    }
+    else
+    {
+        <div class="row">
+            @foreach (var order in _orders.Where(o => o.Status != OrderStatus.Completed && o.Status != OrderStatus.Cancelled))
+            {
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-header bg-@GetStatusColor(order.Status) text-white">
+                            <h5 class="mb-0">Order #@order.Id.ToString().Substring(0, 8)</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-2"><strong>Status:</strong> <span class="badge bg-@GetStatusColor(order.Status)">@order.Status</span></p>
+                            <p class="mb-2"><strong>Created:</strong> @order.CreatedAt.ToString("HH:mm")</p>
+                            <p class="mb-2"><strong>Price:</strong> $@order.Price.ToString("F2")</p>
+                            <p class="mb-2"><strong>Items:</strong> @order.MenuIDs.Count menus, @order.ItemIDs.Count items</p>
+                            
+                            <hr />
+
+                            <div class="d-grid gap-2">
+                                @if (order.Status == OrderStatus.Pending)
+                                {
+                                    <button class="btn btn-primary btn-sm" @onclick="() => UpdateStatus(order.Id, OrderStatus.Confirmed)">
+                                        Confirm Order
+                                    </button>
+                                }
+                                @if (order.Status == OrderStatus.Confirmed)
+                                {
+                                    <button class="btn btn-warning btn-sm" @onclick="() => UpdateStatus(order.Id, OrderStatus.Preparing)">
+                                        Start Preparing
+                                    </button>
+                                }
+                                @if (order.Status == OrderStatus.Preparing)
+                                {
+                                    <button class="btn btn-success btn-sm" @onclick="() => UpdateStatus(order.Id, OrderStatus.Completed)">
+                                        Mark as Completed
+                                    </button>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@code {
+    private List<OrderDto>? _orders;
+    private string _statusFilter = "";
+    private bool _isLoading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await AuthService.InitializeAsync();
+        
+        var userRole = AuthService.CurrentUser?.Role;
+        if (userRole != "Kitchen" && userRole != "Admin")
+        {
+            Navigation.NavigateTo("/");
+            return;
+        }
+
+        await LoadOrders();
+    }
+
+    private async Task LoadOrders()
+    {
+        _isLoading = true;
+        _orders = await KitchenService.GetKitchenOrdersAsync(string.IsNullOrEmpty(_statusFilter) ? null : _statusFilter);
+        _isLoading = false;
+    }
+
+    private async Task UpdateStatus(Guid orderId, OrderStatus newStatus)
+    {
+        var response = await KitchenService.UpdateOrderStatusAsync(orderId, newStatus);
+        if (response.IsSuccessStatusCode)
+        {
+            await LoadOrders();
+        }
+    }
+
+    private string GetStatusColor(OrderStatus status) => status switch
+    {
+        OrderStatus.Pending => "warning",
+        OrderStatus.Confirmed => "info",
+        OrderStatus.Preparing => "primary",
+        OrderStatus.Completed => "success",
+        OrderStatus.Cancelled => "danger",
+        _ => "secondary"
+    };
+}

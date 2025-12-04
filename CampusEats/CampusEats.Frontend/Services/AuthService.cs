@@ -66,16 +66,31 @@ public class AuthService
         }
     }
 
-    public async Task<bool> RegisterAsync(RegisterRequest request)
+    public async Task<RegisterResult> RegisterAsync(RegisterRequest request)
     {
         try
         {
             var response = await _http.PostAsJsonAsync("api/auth/register", request, _jsonOptions);
-            return response.IsSuccessStatusCode;
+            
+            if (response.IsSuccessStatusCode)
+            {
+                return new RegisterResult { Success = true };
+            }
+            
+            var errorContent = await response.Content.ReadAsStringAsync();
+            return new RegisterResult 
+            { 
+                Success = false, 
+                ErrorMessage = $"Status: {response.StatusCode}. Error: {errorContent}" 
+            };
         }
-        catch
+        catch (Exception ex)
         {
-            return false;
+            return new RegisterResult 
+            { 
+                Success = false, 
+                ErrorMessage = $"Exception: {ex.Message}" 
+            };
         }
     }
 

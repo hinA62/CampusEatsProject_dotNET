@@ -72,7 +72,7 @@ public class UpdateMenuHandler (CampusEatsContext context, ILogger<UpdateMenuHan
         var updatedMenu = menu with
         {
             Name = request.Name,
-            Price = request.Price,
+            Price = request.Price ?? menu.Price,
             ItemId = itemIds,
             Category = request.Category,
             Restrictions = finalRestrictions

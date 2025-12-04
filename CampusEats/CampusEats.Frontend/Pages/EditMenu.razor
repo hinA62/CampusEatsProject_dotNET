@@ -1,4 +1,4 @@
-﻿@page "/menus/create"
+@page "/menus/edit/{id:guid}"
 @using CampusEatsFrontend.Models.Menu
 @using CampusEatsFrontend.Models.MenuItem
 @using CampusEatsFrontend.Services
@@ -7,41 +7,46 @@
 @inject MenuItemService MenuItemService
 @inject AuthService AuthService
 
-<PageTitle>Create Menu - CampusEats</PageTitle>
+<PageTitle>Edit Menu - CampusEats</PageTitle>
 
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card shadow">
                 <div class="card-body">
-                    <h3 class="card-title mb-4">Create Menu Collection</h3>
+                    <h3 class="card-title mb-4">Edit Menu Collection</h3>
 
-                    @if (!string.IsNullOrEmpty(_errorMessage))
-                    {
-                        <div class="alert alert-danger" role="alert">
-                            @_errorMessage
-                        </div>
-                    }
-
-                    @if (_isLoadingItems)
+                    @if (_isLoading)
                     {
                         <div class="text-center">
                             <div class="spinner-border" role="status">
-                                <span class="visually-hidden">Loading menu items...</span>
+                                <span class="visually-hidden">Loading...</span>
                             </div>
                         </div>
                     }
+                    else if (_updateRequest == null)
+                    {
+                        <div class="alert alert-danger">Menu not found.</div>
+                        <button class="btn btn-primary" @onclick="Cancel">Back to List</button>
+                    }
                     else
                     {
-                        <EditForm Model="_newMenu" OnValidSubmit="Save">
+                        @if (!string.IsNullOrEmpty(_errorMessage))
+                        {
+                            <div class="alert alert-danger" role="alert">
+                                @_errorMessage
+                            </div>
+                        }
+
+                        <EditForm Model="_updateRequest" OnValidSubmit="Save">
                             <div class="mb-3">
                                 <label class="form-label">Name <span class="text-danger">*</span></label>
-                                <InputText class="form-control" @bind-Value="_newMenu.Name" placeholder="e.g., Breakfast Menu" />
+                                <InputText class="form-control" @bind-Value="_updateRequest.Name" placeholder="e.g., Breakfast Menu" />
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label">Category <span class="text-danger">*</span></label>
-                                <InputSelect class="form-select" @bind-Value="_newMenu.Category">
+                                <InputSelect class="form-select" @bind-Value="_updateRequest.Category">
                                     @foreach (var cat in Enum.GetValues<MenuCategory>())
                                     {
                                         <option value="@cat">@cat</option>
@@ -51,7 +56,7 @@
 
                             <div class="mb-3">
                                 <label class="form-label">Dietary Restrictions</label>
-                                <InputSelect class="form-select" @bind-Value="_newMenu.Restrictions">
+                                <InputSelect class="form-select" @bind-Value="_updateRequest.Restrictions">
                                     @foreach (var rest in Enum.GetValues<DietaryRestrictions>())
                                     {
                                         <option value="@rest">@rest</option>
@@ -61,7 +66,7 @@
 
                             <div class="mb-3">
                                 <label class="form-label">Price ($)</label>
-                                <InputNumber class="form-control" @bind-Value="_newMenu.Price" step="0.01" />
+                                <InputNumber class="form-control" @bind-Value="_updateRequest.Price" step="0.01" />
                                 <small class="form-text text-muted">Optional - total price for the menu</small>
                             </div>
 
@@ -78,11 +83,12 @@
                                     <div class="border rounded p-3" style="max-height: 300px; overflow-y: auto;">
                                         @foreach (var item in _availableMenuItems)
                                         {
+                                            var isSelected = _selectedItemIds.Contains(item.Id);
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" 
                                                        id="item-@item.Id" 
-                                                       checked="@_selectedItemIds.Contains(item.Id)"
-                                                       @onchange="@(() => ToggleMenuItem(item.Id))" />
+                                                       checked="@isSelected"
+                                                       @onchange="@((ChangeEventArgs e) => ToggleMenuItem(item.Id, (bool)e.Value!))" />
                                                 <label class="form-check-label" for="item-@item.Id">
                                                     <strong>@item.Name</strong> - $@item.Price.ToString("F2")
                                                 </label>
@@ -99,11 +105,11 @@
                                     @if (_isSaving)
                                     {
                                         <span class="spinner-border spinner-border-sm me-2"></span>
-                                        <span>Creating...</span>
+                                        <span>Saving...</span>
                                     }
                                     else
                                     {
-                                        <span>Create Menu</span>
+                                        <span>Save Changes</span>
                                     }
                                 </button>
                             </div>
@@ -116,11 +122,14 @@
 </div>
 
 @code {
-    readonly CreateMenuRequest _newMenu = new();
+    [Parameter]
+    public Guid Id { get; set; }
+
+    private UpdateMenuRequest? _updateRequest;
     private List<MenuItemDto>? _availableMenuItems;
     private HashSet<Guid> _selectedItemIds = new();
     private string _errorMessage = string.Empty;
-    private bool _isLoadingItems = true;
+    private bool _isLoading = true;
     private bool _isSaving = false;
 
     protected override async Task OnInitializedAsync()
@@ -133,39 +142,71 @@
             return;
         }
 
-        _availableMenuItems = await MenuItemService.GetAllMenuItemsAsync();
-        _isLoadingItems = false;
+        await LoadData();
     }
 
-    private void ToggleMenuItem(Guid itemId)
+    private async Task LoadData()
     {
-        if (_selectedItemIds.Contains(itemId))
+        _isLoading = true;
+        
+        var menuTask = MenuService.GetMenuByIdAsync(Id);
+        var itemsTask = MenuItemService.GetAllMenuItemsAsync();
+        
+        await Task.WhenAll(menuTask, itemsTask);
+        
+        var menu = await menuTask;
+        _availableMenuItems = await itemsTask;
+
+        if (menu != null)
         {
-            _selectedItemIds.Remove(itemId);
+            _updateRequest = new UpdateMenuRequest
+            {
+                Id = menu.Id,
+                Name = menu.Name,
+                Category = menu.Category,
+                Restrictions = menu.Restrictions,
+                Price = menu.Price,
+                ItemIds = menu.ItemIds
+            };
+
+            _selectedItemIds = new HashSet<Guid>(menu.ItemIds);
         }
-        else
+
+        _isLoading = false;
+    }
+
+    private void ToggleMenuItem(Guid itemId, bool isChecked)
+    {
+        if (isChecked)
         {
             _selectedItemIds.Add(itemId);
         }
+        else
+        {
+            _selectedItemIds.Remove(itemId);
+        }
+        StateHasChanged();
     }
 
     async Task Save()
     {
+        if (_updateRequest == null) return;
+
         _isSaving = true;
         _errorMessage = string.Empty;
 
         try
         {
-            if (string.IsNullOrWhiteSpace(_newMenu.Name))
+            if (string.IsNullOrWhiteSpace(_updateRequest.Name))
             {
                 _errorMessage = "Menu name is required.";
                 _isSaving = false;
                 return;
             }
 
-            _newMenu.ItemIds = _selectedItemIds.ToList();
+            _updateRequest.ItemIds = _selectedItemIds.ToList();
 
-            var response = await MenuService.CreateMenuAsync(_newMenu);
+            var response = await MenuService.UpdateMenuAsync(_updateRequest);
             
             if (response.IsSuccessStatusCode)
             {
@@ -173,7 +214,7 @@
             }
             else
             {
-                _errorMessage = "Failed to create menu. Please try again.";
+                _errorMessage = "Failed to update menu. Please try again.";
             }
         }
         catch (Exception ex)

@@ -1,0 +1,157 @@
+@page "/menu-items/create"
+@using CampusEatsFrontend.Models.MenuItem
+@using CampusEatsFrontend.Services
+@inject MenuItemService MenuItemService
+@inject NavigationManager Navigation
+@inject AuthService AuthService
+
+<PageTitle>Create Menu Item - CampusEats</PageTitle>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h3 class="card-title mb-4">Create Menu Item</h3>
+
+                    @if (!string.IsNullOrEmpty(_errorMessage))
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            @_errorMessage
+                        </div>
+                    }
+
+                    <EditForm Model="@_newItem" OnValidSubmit="@HandleCreate">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
+                            <InputText id="name" class="form-control" @bind-Value="_newItem.Name" placeholder="e.g., Cheeseburger" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="price" class="form-label">Price ($) <span class="text-danger">*</span></label>
+                            <InputNumber id="price" class="form-control" @bind-Value="_newItem.Price" step="0.01" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="imageUrl" class="form-label">Image URL</label>
+                            <InputText id="imageUrl" class="form-control" @bind-Value="_newItem.ImageUrl" placeholder="https://example.com/image.jpg" />
+                            @if (!string.IsNullOrEmpty(_newItem.ImageUrl))
+                            {
+                                <div class="mt-2">
+                                    <img src="@_newItem.ImageUrl" alt="Preview" style="max-width: 200px; max-height: 200px;" class="img-thumbnail" />
+                                </div>
+                            }
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="allergens" class="form-label">Allergens (comma separated)</label>
+                            <InputText id="allergens" class="form-control" @bind-Value="_allergensInput" placeholder="e.g., Peanuts, Dairy, Gluten" />
+                            <small class="form-text text-muted">Separate multiple allergens with commas</small>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <button type="button" class="btn btn-outline-secondary" @onclick="Cancel">Cancel</button>
+                            <button type="submit" class="btn btn-primary" disabled="@_isLoading">
+                                @if (_isLoading)
+                                {
+                                    <span class="spinner-border spinner-border-sm me-2"></span>
+                                    <span>Creating...</span>
+                                }
+                                else
+                                {
+                                    <span>Create Menu Item</span>
+                                }
+                            </button>
+                        </div>
+                    </EditForm>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private CreateMenuItemRequest _newItem = new();
+    private string _allergensInput = string.Empty;
+    private string _errorMessage = string.Empty;
+    private bool _isLoading = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await AuthService.InitializeAsync();
+        
+        if (AuthService.CurrentUser?.Role != "Admin")
+        {
+            Navigation.NavigateTo("/menu-items");
+        }
+    }
+
+    private async Task HandleCreate()
+    {
+        _isLoading = true;
+        _errorMessage = string.Empty;
+
+        try
+        {
+            // Validate
+            if (string.IsNullOrWhiteSpace(_newItem.Name))
+            {
+                _errorMessage = "Name is required.";
+                _isLoading = false;
+                return;
+            }
+
+            if (_newItem.Price <= 0)
+            {
+                _errorMessage = "Price must be greater than 0.";
+                _isLoading = false;
+                return;
+            }
+
+            // Parse allergens
+            if (!string.IsNullOrWhiteSpace(_allergensInput))
+            {
+                _newItem.Allergens = _allergensInput
+                    .Split(',')
+                    .Select(a => a.Trim())
+                    .Where(a => !string.IsNullOrEmpty(a))
+                    .ToList();
+            }
+            else
+            {
+                _newItem.Allergens = null;
+            }
+
+            // Set ImageUrl to null if empty
+            if (string.IsNullOrWhiteSpace(_newItem.ImageUrl))
+            {
+                _newItem.ImageUrl = null;
+            }
+
+            var response = await MenuItemService.CreateMenuItemAsync(_newItem);
+
+            if (response.IsSuccessStatusCode)
+            {
+                Navigation.NavigateTo("/menu-items");
+            }
+            else
+            {
+                var errorContent = await response.Content.ReadAsStringAsync();
+                _errorMessage = $"Failed to create menu item. Status: {response.StatusCode}. Error: {errorContent}";
+            }
+        }
+        catch (Exception ex)
+        {
+            _errorMessage = $"An error occurred: {ex.Message}";
+        }
+        finally
+        {
+            _isLoading = false;
+        }
+    }
+
+    private void Cancel()
+    {
+        Navigation.NavigateTo("/menu-items");
+    }
+}

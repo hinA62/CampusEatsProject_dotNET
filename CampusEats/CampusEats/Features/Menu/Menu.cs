@@ -6,7 +6,7 @@ public record Menu(
     Guid Id,
     string Name, 
     decimal Price, 
-    [property: JsonPropertyName("ItemId")]
+    [property: JsonPropertyName("ItemIds")]
     List<Guid> ItemId, 
     MenuCategory Category, 
     DietaryRestrictions Restrictions

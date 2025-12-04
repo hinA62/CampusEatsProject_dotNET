@@ -9,9 +9,20 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
+// Register AuthorizationMessageHandler
+builder.Services.AddScoped<AuthorizationMessageHandler>();
+
+// Configure HttpClient with authorization handler
 builder.Services.AddScoped(sp =>
 {
-    var httpClient = new HttpClient { BaseAddress = new Uri("http://localhost:5298/") };
+    var authHandler = sp.GetRequiredService<AuthorizationMessageHandler>();
+    authHandler.InnerHandler = new HttpClientHandler();
+    
+    var httpClient = new HttpClient(authHandler) 
+    { 
+        BaseAddress = new Uri("http://localhost:5298/") 
+    };
+    
     return httpClient;
 });
 
@@ -22,6 +33,9 @@ builder.Services.Configure<JsonSerializerOptions>(options =>
 });
 
 builder.Services.AddScoped<MenuService>();
+builder.Services.AddScoped<MenuItemService>();
+builder.Services.AddScoped<OrderService>();
+builder.Services.AddScoped<KitchenService>();
 builder.Services.AddScoped<AuthService>();
 
 await builder.Build().RunAsync();

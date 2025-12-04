@@ -1,0 +1,200 @@
+@page "/menu-items/edit/{id:guid}"
+@using CampusEatsFrontend.Models.MenuItem
+@using CampusEatsFrontend.Services
+@inject MenuItemService MenuItemService
+@inject NavigationManager Navigation
+@inject AuthService AuthService
+
+<PageTitle>Edit Menu Item - CampusEats</PageTitle>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h3 class="card-title mb-4">Edit Menu Item</h3>
+
+                    @if (_isLoadingItem)
+                    {
+                        <div class="text-center">
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                    }
+                    else if (_updateRequest == null)
+                    {
+                        <div class="alert alert-danger">Menu item not found.</div>
+                        <button class="btn btn-primary" @onclick="Cancel">Back to List</button>
+                    }
+                    else
+                    {
+                        @if (!string.IsNullOrEmpty(_errorMessage))
+                        {
+                            <div class="alert alert-danger" role="alert">
+                                @_errorMessage
+                            </div>
+                        }
+
+                        <EditForm Model="@_updateRequest" OnValidSubmit="@HandleUpdate">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
+                                <InputText id="name" class="form-control" @bind-Value="_updateRequest.Name" placeholder="e.g., Cheeseburger" />
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="price" class="form-label">Price ($) <span class="text-danger">*</span></label>
+                                <InputNumber id="price" class="form-control" @bind-Value="_updateRequest.Price" step="0.01" />
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="imageUrl" class="form-label">Image URL</label>
+                                <InputText id="imageUrl" class="form-control" @bind-Value="_updateRequest.ImageUrl" placeholder="https://example.com/image.jpg" />
+                                @if (!string.IsNullOrEmpty(_updateRequest.ImageUrl))
+                                {
+                                    <div class="mt-2">
+                                        <img src="@_updateRequest.ImageUrl" alt="Preview" style="max-width: 200px; max-height: 200px;" class="img-thumbnail" />
+                                    </div>
+                                }
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="allergens" class="form-label">Allergens (comma separated)</label>
+                                <InputText id="allergens" class="form-control" @bind-Value="_allergensInput" placeholder="e.g., Peanuts, Dairy, Gluten" />
+                                <small class="form-text text-muted">Separate multiple allergens with commas</small>
+                            </div>
+
+                            <div class="d-flex justify-content-between">
+                                <button type="button" class="btn btn-outline-secondary" @onclick="Cancel">Cancel</button>
+                                <button type="submit" class="btn btn-primary" disabled="@_isSaving">
+                                    @if (_isSaving)
+                                    {
+                                        <span class="spinner-border spinner-border-sm me-2"></span>
+                                        <span>Saving...</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Save Changes</span>
+                                    }
+                                </button>
+                            </div>
+                        </EditForm>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public Guid Id { get; set; }
+
+    private UpdateMenuItemRequest? _updateRequest;
+    private string _allergensInput = string.Empty;
+    private string _errorMessage = string.Empty;
+    private bool _isLoadingItem = true;
+    private bool _isSaving = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await AuthService.InitializeAsync();
+        
+        if (AuthService.CurrentUser?.Role != "Admin")
+        {
+            Navigation.NavigateTo("/menu-items");
+            return;
+        }
+
+        await LoadMenuItem();
+    }
+
+    private async Task LoadMenuItem()
+    {
+        _isLoadingItem = true;
+        var item = await MenuItemService.GetMenuItemByIdAsync(Id);
+        
+        if (item != null)
+        {
+            _updateRequest = new UpdateMenuItemRequest
+            {
+                Id = item.Id,
+                Name = item.Name,
+                Price = item.Price,
+                ImageUrl = item.ImageUrl,
+                Allergens = item.Allergens
+            };
+
+            if (item.Allergens != null && item.Allergens.Any())
+            {
+                _allergensInput = string.Join(", ", item.Allergens);
+            }
+        }
+
+        _isLoadingItem = false;
+    }
+
+    private async Task HandleUpdate()
+    {
+        if (_updateRequest == null) return;
+
+        _isSaving = true;
+        _errorMessage = string.Empty;
+
+        try
+        {
+            // Validate
+            if (string.IsNullOrWhiteSpace(_updateRequest.Name))
+            {
+                _errorMessage = "Name is required.";
+                _isSaving = false;
+                return;
+            }
+
+            if (_updateRequest.Price <= 0)
+            {
+                _errorMessage = "Price must be greater than 0.";
+                _isSaving = false;
+                return;
+            }
+
+            // Parse allergens
+            if (!string.IsNullOrWhiteSpace(_allergensInput))
+            {
+                _updateRequest.Allergens = _allergensInput
+                    .Split(',')
+                    .Select(a => a.Trim())
+                    .Where(a => !string.IsNullOrEmpty(a))
+                    .ToList();
+            }
+            else
+            {
+                _updateRequest.Allergens = null;
+            }
+
+            var response = await MenuItemService.UpdateMenuItemAsync(_updateRequest);
+
+            if (response.IsSuccessStatusCode)
+            {
+                Navigation.NavigateTo("/menu-items");
+            }
+            else
+            {
+                _errorMessage = "Failed to update menu item. Please try again.";
+            }
+        }
+        catch (Exception ex)
+        {
+            _errorMessage = $"An error occurred: {ex.Message}";
+        }
+        finally
+        {
+            _isSaving = false;
+        }
+    }
+
+    private void Cancel()
+    {
+        Navigation.NavigateTo("/menu-items");
+    }
+}

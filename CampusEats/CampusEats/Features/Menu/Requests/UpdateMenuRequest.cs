@@ -2,7 +2,7 @@
 public record UpdateMenuRequest(
     Guid Id,
     string Name,
-    decimal Price,
+    decimal? Price,
     List<Guid>? ItemIds,
     MenuCategory Category
 );

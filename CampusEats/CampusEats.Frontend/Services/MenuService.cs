@@ -28,6 +28,11 @@ public class MenuService(HttpClient http)
         return await http.PostAsJsonAsync("api/menu", req, _jsonOptions);
     }
 
+    public async Task<HttpResponseMessage> UpdateMenuAsync(UpdateMenuRequest req)
+    {
+        return await http.PutAsJsonAsync($"api/menu/{req.Id}", req, _jsonOptions);
+    }
+
     public async Task<HttpResponseMessage> DeleteMenuAsync(Guid id)
     {
         return await http.DeleteAsync($"api/menu/{id}");
