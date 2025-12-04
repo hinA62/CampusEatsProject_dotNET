@@ -7,6 +7,7 @@ using CampusEats.Features.Kitchen.Handlers;
 using CampusEats.Features.Kitchen.Requests;
 using CampusEats.Features.Auth;
 using CampusEats.Features.Auth.Requests;
+using CampusEats.Features.Auth.Handlers;
 using CampusEats.Features.User;
 using CampusEats.Persistence;
 using CampusEats.Features.Payment.Requests;
@@ -63,6 +64,7 @@ builder.Services.AddScoped<GetPendingOrdersHandler>();
 builder.Services.AddScoped<UpdateOrderStatusHandler>();
 builder.Services.AddScoped<InventoryHandler>();
 builder.Services.AddScoped<JwtService>();
+builder.Services.AddScoped<ChangePasswordHandler>();
 builder.Services.AddScoped<CreatePaymentHandler>();
 builder.Services.AddScoped<CreatePaymentHandler>();
 builder.Services.AddScoped<GetPaymentByIdHandler>();
@@ -381,8 +383,6 @@ app.MapGet("/api/inventory/{date}", async (string date, InventoryHandler svc) =>
     .WithName("GetInventory")
     .WithTags("Inventory")
     .Produces(200)
-    .Produces(401)
-    .Produces(403)
     .Produces(404)
     .Produces(400);
 
@@ -565,6 +565,47 @@ app.MapPost("/api/auth/login", async (
 .WithName("LoginUser")
 .WithTags("Auth")
 .Produces(200)
+.Produces(401);
+
+
+// Logout User (Client-side token deletion, informative endpoint)
+app.MapPost("/api/auth/logout", () =>
+{
+    // JWT logout se face pe client-side prin ștergerea token-ului
+
+    return Results.Ok(new 
+    { 
+        message = "Logged out successfully. Please delete the token on the client side." 
+    });
+})
+.RequireAuthorization()
+.WithName("LogoutUser")
+.WithTags("Auth")
+.Produces(200)
+.Produces(401);
+
+
+// Change Password
+app.MapPost("/api/auth/change-password", async (
+    ChangePasswordRequest request,
+    ChangePasswordHandler handler,
+    IValidator<ChangePasswordRequest> validator,
+    CancellationToken ct) =>
+{
+    // Validare
+    var validationResult = await validator.ValidateAsync(request, ct);
+    if (!validationResult.IsValid)
+        return Results.ValidationProblem(validationResult.ToDictionary());
+
+    return await handler.Handle(request, ct);
+})
+.RequireAuthorization()
+.WithName("ChangePassword")
+.WithTags("Auth")
+.Produces(200)
+.Produces(400)
+.Produces(404)
+.ProducesValidationProblem()
 .Produces(401);
 
 
