@@ -79,7 +79,7 @@ public class UpdateMenuValidatorTests
         // Assert
         Assert.False(result.IsValid);
         Assert.Contains(result.Errors, e => 
-            e.ErrorMessage == "Price must be greater than zero.");
+            e.ErrorMessage == "Price must be greater than zero when provided.");
     }
     
     [Theory]
