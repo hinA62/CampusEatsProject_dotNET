@@ -9,10 +9,10 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-// Register AuthorizationMessageHandler
+
 builder.Services.AddScoped<AuthorizationMessageHandler>();
 
-// Configure HttpClient with authorization handler
+
 builder.Services.AddScoped(sp =>
 {
     var authHandler = sp.GetRequiredService<AuthorizationMessageHandler>();

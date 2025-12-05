@@ -25,20 +25,20 @@ using CampusEats.Features.Inventory.Handlers;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configure JSON options to support string enums
+
 builder.Services.ConfigureHttpJsonOptions(options =>
 {
     options.SerializerOptions.Converters.Add(new JsonStringEnumConverter());
 });
 
-// Add services to the container
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Configure Postgresql Database with JSON support
+
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
-// Create data_source with JSON support
+
 var dataSourceBuilder = new NpgsqlDataSourceBuilder(connectionString);
 dataSourceBuilder.EnableDynamicJson();
 var dataSource = dataSourceBuilder.Build();
@@ -46,10 +46,10 @@ var dataSource = dataSourceBuilder.Build();
 builder.Services.AddDbContext<CampusEatsContext>(options =>
     options.UseNpgsql(dataSource));
 
-// Register FluentValidation
+
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
-// Register Handlers
+
 builder.Services.AddScoped<CreateMenuHandler>();
 builder.Services.AddScoped<UpdateMenuHandler>();
 builder.Services.AddScoped<DeleteMenuHandler>();
@@ -71,7 +71,7 @@ builder.Services.AddScoped<GetPaymentByIdHandler>();
 builder.Services.AddScoped<GetPaymentHistoryHandler>();
 builder.Services.AddScoped<GetLoyaltyBalanceHandler>();
 builder.Services.AddScoped<RedeemPointsHandler>();
-// Add CORS (optional - useful for Blazor)
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
@@ -100,7 +100,7 @@ builder.Services.AddAuthorization();
 var app = builder.Build();
 
 
-// Configure the HTTP request pipeline
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -111,7 +111,7 @@ app.UseCors("AllowAll");
 app.UseAuthentication();
 app.UseAuthorization();
 
-// Apply migrations automatically on startup (Development only)
+
 if (app.Environment.IsDevelopment())
 {
     using var scope = app.Services.CreateScope();
@@ -122,11 +122,11 @@ if (app.Environment.IsDevelopment())
 
 
 
-// ============================================
-// MENU ENDPOINTS
-// ============================================
 
-// Create Menu (Admin only)
+
+
+
+
 app.MapPost("/api/menu", async (CreateMenuRequest request, CreateMenuHandler handler) => 
         await handler.Handle(request))
 .RequireAuthorization(policy => policy.RequireRole("Admin"))
@@ -138,10 +138,10 @@ app.MapPost("/api/menu", async (CreateMenuRequest request, CreateMenuHandler han
 .Produces(403);
 
 
-// Update Menu (Admin only)
+
 app.MapPut("/api/menu/{id:guid}", async (Guid id, UpdateMenuRequest request, UpdateMenuHandler handler) =>
 {
-    // Ensure ID from route matches request
+
     var requestWithId = request with { Id = id };
     return await handler.Handle(requestWithId);
 })
@@ -155,7 +155,7 @@ app.MapPut("/api/menu/{id:guid}", async (Guid id, UpdateMenuRequest request, Upd
 .Produces(404);
 
 
-// Delete Menu (Admin only)
+
 app.MapDelete("/api/menu/{id:guid}", async (Guid id, DeleteMenuHandler handler) => 
         await handler.Handle(new DeleteMenuRequest(id)))
 .RequireAuthorization(policy => policy.RequireRole("Admin"))
@@ -167,7 +167,7 @@ app.MapDelete("/api/menu/{id:guid}", async (Guid id, DeleteMenuHandler handler) 
 .Produces(404);
 
 
-// Get All Menus (Public - no auth required)
+
 app.MapGet("/api/menu", async (CampusEatsContext db) =>
 {
     var menus = await db.Menu.ToListAsync();
@@ -178,7 +178,7 @@ app.MapGet("/api/menu", async (CampusEatsContext db) =>
 .Produces(200);
 
 
-// Get Menu by ID (Public - no auth required)
+
 app.MapGet("/api/menu/{id:guid}", async (Guid id, CampusEatsContext db) =>
 {
     var menu = await db.Menu.FindAsync(id);
@@ -191,11 +191,11 @@ app.MapGet("/api/menu/{id:guid}", async (Guid id, CampusEatsContext db) =>
 
 
 
-// ============================================
-// MENU ITEM ENDPOINTS
-// ============================================
 
-// Create Menu Item (Admin only)
+
+
+
+
 app.MapPost("/api/menu-items", async (CreateItemRequest request, CreateItemHandler handler) =>
         await handler.Handle(request))
 .RequireAuthorization(policy => policy.RequireRole("Admin"))
@@ -207,10 +207,10 @@ app.MapPost("/api/menu-items", async (CreateItemRequest request, CreateItemHandl
 .Produces(403);
 
 
-// Update Menu Item (Admin only)
+
 app.MapPut("/api/menu-items/{id:guid}", async (Guid id, UpdateItemRequest request, UpdateItemHandler handler) =>
 {
-    // Ensure ID from route matches request
+
     var requestWithId = request with { Id = id };
     return await handler.Handle(requestWithId);
 })
@@ -224,7 +224,7 @@ app.MapPut("/api/menu-items/{id:guid}", async (Guid id, UpdateItemRequest reques
 .Produces(404);
 
 
-// Delete Menu Item (Admin only)
+
 app.MapDelete("/api/menu-items/{id:guid}", async (Guid id, DeleteItemHandler handler) =>
         await handler.Handle(new DeleteItemRequest(id)))
 .RequireAuthorization(policy => policy.RequireRole("Admin"))
@@ -236,7 +236,7 @@ app.MapDelete("/api/menu-items/{id:guid}", async (Guid id, DeleteItemHandler han
 .Produces(404);
 
 
-// Get All Menu Items (Public - no auth required)
+
 app.MapGet("/api/menu-items", async (CampusEatsContext db) =>
 {
     var items = await db.MenuItem.ToListAsync();
@@ -247,7 +247,7 @@ app.MapGet("/api/menu-items", async (CampusEatsContext db) =>
 .Produces(200);
 
 
-// Get Menu Item by ID (Public - no auth required)
+
 app.MapGet("/api/menu-items/{id:guid}", async (Guid id, CampusEatsContext db) =>
 {
     var item = await db.MenuItem.FindAsync(id);
@@ -260,11 +260,11 @@ app.MapGet("/api/menu-items/{id:guid}", async (Guid id, CampusEatsContext db) =>
 
 
 
-// ============================================
-// ORDER ENDPOINTS
-// ============================================
 
-// Place order (Client only - authenticated users)
+
+
+
+
 app.MapPost("/api/orders", async (PlaceOrderRequest request, PlaceOrderHandler handler) => 
         await handler.Handle(request))
     .RequireAuthorization(policy => policy.RequireRole("Client", "Admin"))
@@ -276,7 +276,7 @@ app.MapPost("/api/orders", async (PlaceOrderRequest request, PlaceOrderHandler h
     .Produces(403);
 
 
-// Get all orders (Admin only)
+
 app.MapGet("/api/orders", async (CampusEatsContext db) =>
 {
     var orders = await db.Order
@@ -291,7 +291,7 @@ app.MapGet("/api/orders", async (CampusEatsContext db) =>
     .Produces(401)
     .Produces(403);
 
-// Get order by id (Client can see their own orders, Admin can see all)
+
 app.MapGet("/api/orders/{id:guid}", async (Guid id, GetOrderByIdHandler handler) =>
         await handler.Handle(new GetOrderByIdRequest(id)))
     .RequireAuthorization(policy => policy.RequireRole("Client", "Admin", "Kitchen"))
@@ -303,7 +303,7 @@ app.MapGet("/api/orders/{id:guid}", async (Guid id, GetOrderByIdHandler handler)
     .Produces(404);
 
 
-// Get order history for a client (Client can see own, Admin can see all)
+
 app.MapGet("/api/clients/{clientId:guid}/orders", async (Guid clientId, GetOrderHistoryHandler handler) => 
         await handler.Handle(new GetOrderHistoryRequest(clientId)))
     .RequireAuthorization(policy => policy.RequireRole("Client", "Admin"))
@@ -314,7 +314,7 @@ app.MapGet("/api/clients/{clientId:guid}/orders", async (Guid clientId, GetOrder
     .Produces(403);
 
 
-// Cancel pending order (Client can cancel their own orders, Admin can cancel any)
+
 app.MapPost("/api/orders/{id:guid}/cancel", async (Guid id, CancelOrderHandler handler) =>
         await handler.Handle(new CancelOrderRequest(id)))
     .RequireAuthorization(policy => policy.RequireRole("Client", "Admin"))
@@ -328,11 +328,11 @@ app.MapPost("/api/orders/{id:guid}/cancel", async (Guid id, CancelOrderHandler h
 
 
 
-// ============================================
-// KITCHEN ENDPOINTS
-// ============================================
 
-// Get pending/active orders for kitchen view (Kitchen staff only)
+
+
+
+
 app.MapGet("/api/kitchen/orders", async (string? status, GetPendingOrdersHandler handler) => 
         await handler.Handle(new GetPendingOrdersRequest(status)))
     .RequireAuthorization(policy => policy.RequireRole("Kitchen", "Admin"))
@@ -344,7 +344,7 @@ app.MapGet("/api/kitchen/orders", async (string? status, GetPendingOrdersHandler
     .Produces(403);
 
 
-// Update order status (Kitchen staff only)
+
 app.MapPatch("/api/kitchen/orders/{id:guid}/status", async (Guid id, OrderStatus newStatus, UpdateOrderStatusHandler handler) =>
         await handler.Handle(new UpdateOrderStatusRequest(id, newStatus)))
     .RequireAuthorization(policy => policy.RequireRole("Kitchen", "Admin"))
@@ -358,11 +358,11 @@ app.MapPatch("/api/kitchen/orders/{id:guid}/status", async (Guid id, OrderStatus
 
 
 
-// ============================================
-// INVENTORY ENDPOINTS (LEGACY)
-// ============================================
 
-// Rebuild inventory (Admin only)
+
+
+
+
 app.MapPost("/api/inventory/{date}/rebuild", async (string date, InventoryHandler svc) =>
     {
         if (!DateOnly.TryParse(date, out var d)) return Results.BadRequest("Invalid date (YYYY-MM-DD).");
@@ -381,7 +381,7 @@ app.MapPost("/api/inventory/{date}/rebuild", async (string date, InventoryHandle
     .Produces(401)
     .Produces(403);
 
-// Get inventory (Kitchen and Admin can view)
+
 app.MapGet("/api/inventory/{date}", async (string date, InventoryHandler svc) =>
     {
         if (!DateOnly.TryParse(date, out var d)) return Results.BadRequest("Invalid date (YYYY-MM-DD).");
@@ -403,11 +403,11 @@ app.MapGet("/api/inventory/{date}", async (string date, InventoryHandler svc) =>
 
 
 
-// ============================================
-// PAYMENT ENDPOINTS
-// ============================================
 
-// Create payment (Client/Admin)
+
+
+
+
 app.MapPost("/api/payments", async (
         CreatePaymentRequest request,
         CreatePaymentHandler handler,
@@ -429,7 +429,7 @@ app.MapPost("/api/payments", async (
     .Produces(401)
     .Produces(403);
 
-// Get payment by id
+
 app.MapGet("/api/payments/{id:guid}", async (Guid id, GetPaymentByIdHandler handler) =>
         await handler.Handle(new GetPaymentByIdRequest(id)))
     .RequireAuthorization(policy => policy.RequireRole("Client", "Admin"))
@@ -440,7 +440,7 @@ app.MapGet("/api/payments/{id:guid}", async (Guid id, GetPaymentByIdHandler hand
     .Produces(401)
     .Produces(403);
 
-// Get payment history for a user
+
 app.MapGet("/api/users/{userId:guid}/payments", async (Guid userId, GetPaymentHistoryHandler handler) =>
         await handler.Handle(new GetPaymentHistoryRequest(userId)))
     .RequireAuthorization(policy => policy.RequireRole("Client", "Admin"))
@@ -451,11 +451,11 @@ app.MapGet("/api/users/{userId:guid}/payments", async (Guid userId, GetPaymentHi
     .Produces(403);
 
 
-// ============================================
-// LOYALTY ENDPOINTS
-// ============================================
 
-// Get loyalty balance
+
+
+
+
 app.MapGet("/api/loyalty/{userId:guid}/balance", async (Guid userId, GetLoyaltyBalanceHandler handler) =>
         await handler.Handle(new GetLoyaltyBalanceRequest(userId)))
     .RequireAuthorization(policy => policy.RequireRole("Client", "Admin"))
@@ -466,7 +466,7 @@ app.MapGet("/api/loyalty/{userId:guid}/balance", async (Guid userId, GetLoyaltyB
     .Produces(403);
 
 
-// Redeem points
+
 app.MapPost("/api/loyalty/redeem", async (
         RedeemPointsRequest request,
         RedeemPointsHandler handler,
@@ -488,7 +488,7 @@ app.MapPost("/api/loyalty/redeem", async (
     .Produces(401)
     .Produces(403);
 
-// Loyalty transactions history
+
 app.MapGet("/api/loyalty/{userId:guid}/transactions", async (Guid userId, CampusEatsContext db, CancellationToken ct) =>
     {
         var txs = await db.LoyaltyTransactions
@@ -506,23 +506,23 @@ app.MapGet("/api/loyalty/{userId:guid}/transactions", async (Guid userId, Campus
     .Produces(403);
 
 
-// ============================================
-// AUTH ENDPOINTS
-// ============================================
 
-// Register User
+
+
+
+
 app.MapPost("/api/auth/register", async (
     RegisterUserRequest request,
     CampusEatsContext db,
     IValidator<RegisterUserRequest> validator,
     CancellationToken ct) =>
 {
-    // Validare
+
     var validationResult = await validator.ValidateAsync(request, ct);
     if (!validationResult.IsValid)
         return Results.ValidationProblem(validationResult.ToDictionary());
 
-    // Verificare email existent
+
     if (await db.Users.AnyAsync(u => u.Email == request.Email, ct))
         return Results.BadRequest("Email already exists");
 
@@ -554,7 +554,7 @@ app.MapPost("/api/auth/register", async (
 .ProducesValidationProblem();
 
 
-// Login User
+
 app.MapPost("/api/auth/login", async (
     LoginUserRequest request,
     CampusEatsContext db,
@@ -583,10 +583,10 @@ app.MapPost("/api/auth/login", async (
 .Produces(401);
 
 
-// Logout User (Client-side token deletion, informative endpoint)
+
 app.MapPost("/api/auth/logout", () =>
 {
-    // JWT logout se face pe client-side prin ștergerea token-ului
+
 
     return Results.Ok(new 
     { 
@@ -600,14 +600,14 @@ app.MapPost("/api/auth/logout", () =>
 .Produces(401);
 
 
-// Change Password
+
 app.MapPost("/api/auth/change-password", async (
     ChangePasswordRequest request,
     ChangePasswordHandler handler,
     IValidator<ChangePasswordRequest> validator,
     CancellationToken ct) =>
 {
-    // Validare
+
     var validationResult = await validator.ValidateAsync(request, ct);
     if (!validationResult.IsValid)
         return Results.ValidationProblem(validationResult.ToDictionary());
@@ -624,9 +624,9 @@ app.MapPost("/api/auth/change-password", async (
 .Produces(401);
 
 
-// ============================================
-// HEALTH CHECK
-// ============================================
+
+
+
 
 app.MapGet("/health", () => Results.Ok(new { Status = "Healthy", Timestamp = DateTime.UtcNow }))
 .WithName("HealthCheck")

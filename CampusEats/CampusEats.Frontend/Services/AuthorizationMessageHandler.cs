@@ -16,7 +16,7 @@ public class AuthorizationMessageHandler : DelegatingHandler
     {
         try
         {
-            // Get token from localStorage
+
             var token = await _jsRuntime.InvokeAsync<string>("localStorage.getItem", "authToken", cancellationToken);
 
             if (!string.IsNullOrEmpty(token))
@@ -26,7 +26,7 @@ public class AuthorizationMessageHandler : DelegatingHandler
         }
         catch
         {
-            // If localStorage access fails, continue without token
+
         }
 
         return await base.SendAsync(request, cancellationToken);

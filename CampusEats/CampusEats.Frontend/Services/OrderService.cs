@@ -40,12 +40,12 @@ public class OrderService
         return await _http.PostAsync($"api/orders/{orderId}/cancel", null);
     }
 
-    // Admin: Get all orders (we'll need to add this endpoint on backend if not exists)
+
     public async Task<List<OrderDto>?> GetAllOrdersAsync()
     {
         try
         {
-            // This might not exist on backend yet, but we'll create the method for future use
+
             return await _http.GetFromJsonAsync<List<OrderDto>>("api/orders", _jsonOptions);
         }
         catch

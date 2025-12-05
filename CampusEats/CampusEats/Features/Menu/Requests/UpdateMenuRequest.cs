@@ -1,4 +1,4 @@
-﻿namespace CampusEats.Features.Menu.Requests;
+namespace CampusEats.Features.Menu.Requests;
 public record UpdateMenuRequest(
     Guid Id,
     string Name,
