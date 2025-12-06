@@ -48,13 +48,13 @@ public class AuthService
                 Token = result.Token
             };
 
-
+            // Save token in localStorage
             await _js.InvokeVoidAsync("localStorage.setItem", "authToken", result.Token);
             await _js.InvokeVoidAsync("localStorage.setItem", "userId", result.UserId.ToString());
             await _js.InvokeVoidAsync("localStorage.setItem", "username", result.Username);
             await _js.InvokeVoidAsync("localStorage.setItem", "role", result.Role);
 
-
+            // Set authorization header
             _http.DefaultRequestHeaders.Authorization = 
                 new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", result.Token);
 
@@ -98,7 +98,7 @@ public class AuthService
     {
         try
         {
-
+            // Call backend logout (optional, since JWT is stateless)
             if (IsAuthenticated)
             {
                 await _http.PostAsync("api/auth/logout", null);
@@ -107,7 +107,7 @@ public class AuthService
         catch { }
         finally
         {
-
+            // Clear local storage
             await _js.InvokeVoidAsync("localStorage.removeItem", "authToken");
             await _js.InvokeVoidAsync("localStorage.removeItem", "userId");
             await _js.InvokeVoidAsync("localStorage.removeItem", "username");
@@ -129,7 +129,7 @@ public class AuthService
                 return (true, null);
             }
             
-
+            // Try to get error message from response
             var errorContent = await response.Content.ReadAsStringAsync();
             return (false, string.IsNullOrEmpty(errorContent) ? "Failed to change password" : errorContent);
         }

@@ -1,4 +1,4 @@
-namespace CampusEats.Features.Menu;
+﻿namespace CampusEats.Features.Menu;
 
 public record MenuItem(
     Guid Id, 

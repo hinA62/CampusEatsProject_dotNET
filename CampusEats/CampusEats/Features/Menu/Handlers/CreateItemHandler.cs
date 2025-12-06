@@ -1,4 +1,4 @@
-using CampusEats.Features.Menu.Requests;
+﻿using CampusEats.Features.Menu.Requests;
 using CampusEats.Persistence;
 using CampusEats.Validators.Menu;
 
@@ -10,6 +10,7 @@ public class CreateItemHandler (CampusEatsContext context, ILogger<CreateItemHan
     {
         logger.LogInformation($"Creating menu item {request.Name}");
         
+        //data validation
         var validator = new CreateItemValidator();
         var validationResult = await validator.ValidateAsync(request);
         if (!validationResult.IsValid)
@@ -22,6 +23,7 @@ public class CreateItemHandler (CampusEatsContext context, ILogger<CreateItemHan
             return Results.BadRequest(validationResult.Errors);
         }
         
+        //create menu item
         var menuItem = new MenuItem(Guid.NewGuid(), request.Name, (decimal)request.Price!, request.ImageUrl, request.Allergens);
         context.MenuItem.Add(menuItem);
         await context.SaveChangesAsync();

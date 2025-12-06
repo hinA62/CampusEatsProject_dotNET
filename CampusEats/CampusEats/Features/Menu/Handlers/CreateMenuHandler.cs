@@ -1,4 +1,4 @@
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using CampusEats.Features.Menu.Requests;
 using CampusEats.Persistence;
 using CampusEats.Validators.Menu;
@@ -12,7 +12,7 @@ public class CreateMenuHandler(CampusEatsContext context, ILogger<CreateMenuHand
     {
         logger.LogInformation($"Creating menu {request.Name}");
         
-
+        //data validation
         var validator = new CreateMenuValidator();
         var validationResult = await validator.ValidateAsync(request);
         if (!validationResult.IsValid)
@@ -25,12 +25,12 @@ public class CreateMenuHandler(CampusEatsContext context, ILogger<CreateMenuHand
             return Results.BadRequest(validationResult.Errors);
         }
         
-
+        // calculeaza automat restrictii 
         var menuItems = await context.MenuItem
             .Where(item => request.ItemIds != null && request.ItemIds.Contains(item.Id))
             .ToListAsync();
         
-
+        // obtine alergeni
         var allAllergens = menuItems
             .Where(item => item.Allergens != null)
             .SelectMany(item => item.Allergens!)
@@ -69,7 +69,7 @@ public class CreateMenuHandler(CampusEatsContext context, ILogger<CreateMenuHand
         logger.LogInformation("Menu restrictions: {Restrictions} (calculated from allergens: [{Allergens}])", 
             finalRestrictions, allAllergens.Count > 0 ? string.Join(", ", allAllergens) : "none");
         
-
+        //create a menu
         Debug.Assert(request.ItemIds != null, "request.ItemIds != null");
         var menu = new Menu(Guid.NewGuid(), request.Name, 
             request.Price, request.ItemIds, request.Category, finalRestrictions);

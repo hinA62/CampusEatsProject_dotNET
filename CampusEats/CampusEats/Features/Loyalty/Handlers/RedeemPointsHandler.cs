@@ -1,4 +1,4 @@
-using CampusEats.Features.Loyalty.Requests;
+﻿using CampusEats.Features.Loyalty.Requests;
 using CampusEats.Persistence;
 using CampusEats.Validators.Loyalty;
 using Microsoft.EntityFrameworkCore;

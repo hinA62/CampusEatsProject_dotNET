@@ -1,4 +1,4 @@
-using CampusEats.Features.Menu;
+﻿using CampusEats.Features.Menu;
 using CampusEats.Features.Order;
 using CampusEats.Features.Inventory;
 using CampusEats.Features.User;
@@ -23,7 +23,7 @@ public class CampusEatsContext(DbContextOptions<CampusEatsContext> options) : Db
     {
         base.OnModelCreating(modelBuilder);
 
-
+        // menu entity
         modelBuilder.Entity<Menu>(entity =>
         {
             entity.ToTable("Menus");
@@ -45,7 +45,7 @@ public class CampusEatsContext(DbContextOptions<CampusEatsContext> options) : Db
                 .HasConversion<string>()
                 .IsRequired();
             
-
+            // stocheaza lista de guid ca json
             entity.Property(e => e.ItemId)
                 .HasColumnType("jsonb")
                 .IsRequired();
@@ -117,7 +117,7 @@ public class CampusEatsContext(DbContextOptions<CampusEatsContext> options) : Db
                 .OnDelete(DeleteBehavior.Cascade);
         });
 
-
+		//user entity
         
 		modelBuilder.Entity<User>(entity =>
 		{
@@ -148,7 +148,7 @@ public class CampusEatsContext(DbContextOptions<CampusEatsContext> options) : Db
             
 		});
         
-
+        //PAYMENT
         modelBuilder.Entity<Payment>(entity =>
         {
             entity.ToTable("Payments");
@@ -175,7 +175,7 @@ public class CampusEatsContext(DbContextOptions<CampusEatsContext> options) : Db
 
             entity.HasIndex(p => p.UserId);
         });
-
+        // LOYALTY ACCOUNT
         modelBuilder.Entity<LoyaltyAccount>(entity =>
         {
             entity.ToTable("LoyaltyAccounts");
@@ -189,7 +189,7 @@ public class CampusEatsContext(DbContextOptions<CampusEatsContext> options) : Db
                 .HasDefaultValueSql("NOW() AT TIME ZONE 'UTC'");
         });
 
-
+        // LOYALTY TRANSACTION
         modelBuilder.Entity<LoyaltyTransaction>(entity =>
         {
             entity.ToTable("LoyaltyTransactions");

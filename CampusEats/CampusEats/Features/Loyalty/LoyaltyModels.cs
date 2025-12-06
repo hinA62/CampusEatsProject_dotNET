@@ -1,4 +1,4 @@
-namespace CampusEats.Features.Loyalty;
+﻿namespace CampusEats.Features.Loyalty;
 
 public enum LoyaltyTransactionType
 {

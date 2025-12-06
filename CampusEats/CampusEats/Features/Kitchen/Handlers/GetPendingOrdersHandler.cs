@@ -14,7 +14,7 @@ public class GetPendingOrdersHandler(CampusEatsContext context, ILogger<GetPendi
 
         IQueryable<Order.Order> query = context.Order;
 
-
+        // Filter by status if provided
         if (!string.IsNullOrWhiteSpace(request.Status))
         {
             if (Enum.TryParse<OrderStatus>(request.Status, ignoreCase: true, out var statusEnum))
@@ -29,7 +29,7 @@ public class GetPendingOrdersHandler(CampusEatsContext context, ILogger<GetPendi
         }
         else
         {
-
+            // By default, show only active orders (not Completed or Cancelled)
             query = query.Where(o => o.Status != OrderStatus.Completed && o.Status != OrderStatus.Cancelled);
         }
 

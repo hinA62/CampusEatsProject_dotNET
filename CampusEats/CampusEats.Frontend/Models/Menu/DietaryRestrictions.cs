@@ -1,4 +1,4 @@
-namespace CampusEatsFrontend.Models.Menu;
+﻿namespace CampusEatsFrontend.Models.Menu;
 
 public enum DietaryRestrictions
 {

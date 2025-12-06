@@ -1,4 +1,4 @@
-using CampusEats.Features.Loyalty.Requests;
+﻿using CampusEats.Features.Loyalty.Requests;
 using FluentValidation;
 
 namespace CampusEats.Validators.Loyalty;

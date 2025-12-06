@@ -1,3 +1,3 @@
-namespace CampusEats.Features.Payment.Requests;
+﻿namespace CampusEats.Features.Payment.Requests;
 
 public record GetPaymentHistoryRequest(Guid UserId);

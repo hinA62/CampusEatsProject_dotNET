@@ -1,4 +1,4 @@
-namespace CampusEats.Features.Menu.Requests;
+﻿namespace CampusEats.Features.Menu.Requests;
 
 public record CreateItemRequest(
     Guid ItemId,

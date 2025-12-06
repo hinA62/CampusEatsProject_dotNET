@@ -1,4 +1,4 @@
-using CampusEats.Features.Menu.Requests;
+﻿using CampusEats.Features.Menu.Requests;
 using CampusEats.Persistence;
 using CampusEats.Validators.Menu;
 
@@ -10,7 +10,7 @@ public class UpdateItemHandler (CampusEatsContext context, ILogger<UpdateItemHan
     {
         logger.LogInformation($"Updating menu item with ID: {request.Id}");
         
-
+        //data validation
         var validator = new UpdateItemValidator();
         var validationResult = await validator.ValidateAsync(request);
         if (!validationResult.IsValid)
@@ -23,7 +23,7 @@ public class UpdateItemHandler (CampusEatsContext context, ILogger<UpdateItemHan
             return Results.BadRequest(validationResult.Errors);
         }
         
-
+        //update menu item
         var menuItem = await context.MenuItem.FindAsync(request.Id);
         if (menuItem == null)
         {

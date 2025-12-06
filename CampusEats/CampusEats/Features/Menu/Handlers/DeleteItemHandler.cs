@@ -1,4 +1,4 @@
-using CampusEats.Features.Menu.Requests;
+﻿using CampusEats.Features.Menu.Requests;
 using CampusEats.Persistence;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,8 +16,8 @@ public class DeleteItemHandler(CampusEatsContext context, ILogger<DeleteItemHand
             return Results.NotFound($"MenuItem with ID: {request.Id} not found");
         }
 
-
-
+        // Remove this item from all menus that contain it
+        // Load all menus and filter in memory to avoid PostgreSQL array query issues
         var allMenus = await context.Menu.ToListAsync();
         var menusContainingItem = allMenus.Where(m => m.ItemId.Contains(request.Id)).ToList();
 

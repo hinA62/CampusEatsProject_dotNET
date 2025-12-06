@@ -27,7 +27,7 @@ public class UpdateOrderStatusHandler(CampusEatsContext context, ILogger<UpdateO
             return Results.NotFound(new { Message = "Order not found" });
         }
 
-
+        // Check if the transition is valid
         var isValidTransition = IsValidStatusTransition(order.Status, request.NewStatus);
         if (!isValidTransition)
         {
@@ -40,7 +40,7 @@ public class UpdateOrderStatusHandler(CampusEatsContext context, ILogger<UpdateO
             });
         }
 
-
+        // Create a new order record with updated status (records are immutable)
         var updatedOrder = order with { Status = request.NewStatus };
         
         context.Order.Remove(order);
@@ -59,24 +59,24 @@ public class UpdateOrderStatusHandler(CampusEatsContext context, ILogger<UpdateO
 
     private static bool IsValidStatusTransition(OrderStatus currentStatus, OrderStatus newStatus)
     {
-
+        // Define valid transitions
         return (currentStatus, newStatus) switch
         {
-
+            // From Pending
             (OrderStatus.Pending, OrderStatus.Confirmed) => true,
             (OrderStatus.Pending, OrderStatus.Cancelled) => true,
 
-
+            // From Confirmed
             (OrderStatus.Confirmed, OrderStatus.Preparing) => true,
             (OrderStatus.Confirmed, OrderStatus.Cancelled) => true,
 
-
+            // From Preparing
             (OrderStatus.Preparing, OrderStatus.Completed) => true,
 
-
+            // Same status (no-op, but allow it)
             _ when currentStatus == newStatus => true,
 
-
+            // All other transitions are invalid
             _ => false
         };
     }
