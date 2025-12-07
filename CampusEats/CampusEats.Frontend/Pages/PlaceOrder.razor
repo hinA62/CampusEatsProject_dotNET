@@ -1,0 +1,372 @@
+@page "/place-order"
+@using CampusEatsFrontend.Models.Order
+@using CampusEatsFrontend.Models.Menu
+@using CampusEatsFrontend.Models.MenuItem
+@using CampusEatsFrontend.Services
+@using Microsoft.AspNetCore.Components.Web
+@using System.Text.Json
+@inject MenuService MenuService
+@inject MenuItemService MenuItemService
+@inject OrderService OrderService
+@inject AuthService AuthService
+@inject NavigationManager Navigation
+
+<PageTitle>Place Order - CampusEats</PageTitle>
+
+<div class="container mt-4">
+    <h3 class="mb-4">
+        <span class="bi bi-cart-plus"></span> Place New Order
+    </h3>
+
+    @if (_isLoading)
+    {
+        <div class="text-center">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    }
+    else
+    {
+        @if (!string.IsNullOrEmpty(_errorMessage))
+        {
+            <div class="alert alert-danger">
+                <span class="bi bi-exclamation-triangle"></span> @_errorMessage
+            </div>
+        }
+
+        @if (!string.IsNullOrEmpty(_successMessage))
+        {
+            <div class="alert alert-success">
+                <span class="bi bi-check-circle"></span> @_successMessage
+            </div>
+        }
+
+        <div class="row">
+            <!-- Menus Selection -->
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0"><span class="bi bi-card-list"></span> Select Menus</h5>
+                    </div>
+                    <div class="card-body" style="max-height: 400px; overflow-y: auto;">
+                        @if (_menus == null || !_menus.Any())
+                        {
+                            <p class="text-muted">No menus available.</p>
+                        }
+                        else
+                        {
+                            @foreach (var menu in _menus)
+                            {
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="checkbox" id="menu-@menu.Id"
+                                           @onchange="@(e => ToggleMenu(menu.Id, (bool)e.Value!))" />
+                                    <label class="form-check-label w-100" for="menu-@menu.Id">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <strong>@menu.Name</strong>
+                                                <br />
+                                                <small class="text-muted">
+                                                    <span class="badge bg-info">@menu.Category</span>
+                                                    @menu.ItemIds.Count items
+                                                </small>
+                                            </div>
+                                            <div>
+                                                <strong class="text-primary">$@(menu.Price?.ToString("F2") ?? "0.00")</strong>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu Items Selection -->
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0"><span class="bi bi-box-seam"></span> Select Individual Items</h5>
+                    </div>
+                    <div class="card-body" style="max-height: 400px; overflow-y: auto;">
+                        @if (_menuItems == null || !_menuItems.Any())
+                        {
+                            <p class="text-muted">No menu items available.</p>
+                        }
+                        else
+                        {
+                            @foreach (var item in _menuItems)
+                            {
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="checkbox" id="item-@item.Id"
+                                           @onchange="@(e => ToggleItem(item.Id, (bool)e.Value!))" />
+                                    <label class="form-check-label w-100" for="item-@item.Id">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <strong>@item.Name</strong>
+                                                @if (item.Allergens != null && item.Allergens.Any())
+                                                {
+                                                    <br />
+                                                    <small class="text-muted">Allergens: @string.Join(", ", item.Allergens)</small>
+                                                }
+                                            </div>
+                                            <div>
+                                                <strong class="text-success">$@item.Price.ToString("F2")</strong>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="card shadow mb-4">
+            <div class="card-header bg-secondary text-white">
+                <h5 class="mb-0"><span class="bi bi-receipt"></span> Order Summary</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>Selected Menus: (@_selectedMenus.Count)</h6>
+                        @if (_selectedMenus.Any())
+                        {
+                            <ul class="list-unstyled">
+                                @foreach (var menuId in _selectedMenus)
+                                {
+                                    var menu = _menus?.FirstOrDefault(m => m.Id == menuId);
+                                    @if (menu != null)
+                                    {
+                                        <li>• @menu.Name - $@(menu.Price?.ToString("F2") ?? "0.00")</li>
+                                    }
+                                }
+                            </ul>
+                        }
+                        else
+                        {
+                            <p class="text-muted">No menus selected.</p>
+                        }
+                    </div>
+                    <div class="col-md-6">
+                        <h6>Selected Items: (@_selectedItems.Count)</h6>
+                        @if (_selectedItems.Any())
+                        {
+                            <ul class="list-unstyled">
+                                @foreach (var itemId in _selectedItems)
+                                {
+                                    var item = _menuItems?.FirstOrDefault(i => i.Id == itemId);
+                                    @if (item != null)
+                                    {
+                                        <li>• @item.Name - $@item.Price.ToString("F2")</li>
+                                    }
+                                }
+                            </ul>
+                        }
+                        else
+                        {
+                            <p class="text-muted">No items selected.</p>
+                        }
+                    </div>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between align-items-center">
+                    <h4>Total Price:</h4>
+                    <h4 class="text-primary">$@_totalPrice.ToString("F2")</h4>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="d-flex justify-content-between mb-4">
+            <button class="btn btn-secondary" @onclick="Cancel">
+                <span class="bi bi-x-circle"></span> Cancel
+            </button>
+            <button class="btn btn-primary btn-lg" @onclick="SubmitOrder" disabled="@(!CanPlaceOrder() || _isPlacingOrder)">
+                @if (_isPlacingOrder)
+                {
+                    <span class="spinner-border spinner-border-sm me-2"></span>
+                }
+                <span class="bi bi-check-circle"></span> Place Order
+            </button>
+        </div>
+    }
+</div>
+
+@code {
+    private List<MenuDto>? _menus;
+    private List<MenuItemDto>? _menuItems;
+    private List<Guid> _selectedMenus = new();
+    private List<Guid> _selectedItems = new();
+    private decimal _totalPrice = 0;
+    private bool _isLoading = true;
+    private bool _isPlacingOrder = false;
+    private string? _errorMessage;
+    private string? _successMessage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await AuthService.InitializeAsync();
+
+        if (AuthService.CurrentUser == null)
+        {
+            Navigation.NavigateTo("/login");
+            return;
+        }
+
+        await LoadData();
+    }
+
+    private async Task LoadData()
+    {
+        _isLoading = true;
+        
+        try
+        {
+            _menus = await MenuService.GetAllMenusAsync();
+            _menuItems = await MenuItemService.GetAllMenuItemsAsync();
+        }
+        catch (Exception ex)
+        {
+            _errorMessage = $"Error loading data: {ex.Message}";
+        }
+        
+        _isLoading = false;
+    }
+
+    private void ToggleMenu(Guid menuId, bool isChecked)
+    {
+        if (isChecked)
+        {
+            if (!_selectedMenus.Contains(menuId))
+                _selectedMenus.Add(menuId);
+        }
+        else
+        {
+            _selectedMenus.Remove(menuId);
+        }
+        
+        CalculateTotal();
+    }
+
+    private void ToggleItem(Guid itemId, bool isChecked)
+    {
+        if (isChecked)
+        {
+            if (!_selectedItems.Contains(itemId))
+                _selectedItems.Add(itemId);
+        }
+        else
+        {
+            _selectedItems.Remove(itemId);
+        }
+        
+        CalculateTotal();
+    }
+
+    private void CalculateTotal()
+    {
+        _totalPrice = 0;
+
+        if (_menus != null)
+        {
+            foreach (var menuId in _selectedMenus)
+            {
+                var menu = _menus.FirstOrDefault(m => m.Id == menuId);
+                if (menu?.Price != null)
+                    _totalPrice += menu.Price.Value;
+            }
+        }
+
+        if (_menuItems != null)
+        {
+            foreach (var itemId in _selectedItems)
+            {
+                var item = _menuItems.FirstOrDefault(i => i.Id == itemId);
+                if (item != null)
+                    _totalPrice += item.Price;
+            }
+        }
+    }
+
+    private bool CanPlaceOrder()
+    {
+        return _selectedMenus.Any() || _selectedItems.Any();
+    }
+
+    private async Task SubmitOrder()
+    {
+        if (!CanPlaceOrder())
+        {
+            _errorMessage = "Please select at least one menu or item.";
+            return;
+        }
+
+        _isPlacingOrder = true;
+        _errorMessage = null;
+        _successMessage = null;
+
+        try
+        {
+            var request = new PlaceOrderRequest
+            {
+                ClientId = AuthService.CurrentUser!.UserId,
+                MenuIDs = _selectedMenus,
+                ItemIDs = _selectedItems
+            };
+
+            var response = await OrderService.PlaceOrderAsync(request);
+
+            if (response.IsSuccessStatusCode)
+            {
+                _successMessage = "Order placed successfully!";
+                
+                // Get the created order from response with proper JSON options
+                var jsonOptions = new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true,
+                    Converters = { new System.Text.Json.Serialization.JsonStringEnumConverter() }
+                };
+                
+                var orderResponse = await response.Content.ReadFromJsonAsync<OrderDto>(jsonOptions);
+                
+                // Clear selections
+                _selectedMenus.Clear();
+                _selectedItems.Clear();
+                CalculateTotal();
+                
+                // Navigate to payment page
+                await Task.Delay(1000);
+                if (orderResponse != null)
+                {
+                    Navigation.NavigateTo($"/payment/{orderResponse.Id}");
+                }
+                else
+                {
+                    Navigation.NavigateTo("/orders");
+                }
+            }
+            else
+            {
+                var error = await response.Content.ReadAsStringAsync();
+                _errorMessage = $"Failed to place order: {error}";
+            }
+        }
+        catch (Exception ex)
+        {
+            _errorMessage = $"Error placing order: {ex.Message}";
+        }
+        finally
+        {
+            _isPlacingOrder = false;
+        }
+    }
+
+    private void Cancel()
+    {
+        Navigation.NavigateTo("/orders");
+    }
+}

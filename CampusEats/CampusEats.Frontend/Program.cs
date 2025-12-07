@@ -37,5 +37,7 @@ builder.Services.AddScoped<MenuItemService>();
 builder.Services.AddScoped<OrderService>();
 builder.Services.AddScoped<KitchenService>();
 builder.Services.AddScoped<AuthService>();
+builder.Services.AddScoped<LoyaltyService>();
+builder.Services.AddScoped<PaymentService>();
 
 await builder.Build().RunAsync();

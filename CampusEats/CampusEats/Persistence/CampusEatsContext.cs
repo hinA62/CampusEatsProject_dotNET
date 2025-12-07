@@ -184,6 +184,15 @@ public class CampusEatsContext(DbContextOptions<CampusEatsContext> options) : Db
             entity.Property(l => l.Points)
                 .IsRequired();
 
+            entity.Property(l => l.TotalPointsEarned)
+                .IsRequired()
+                .HasDefaultValue(0);
+
+            entity.Property(l => l.CurrentTier)
+                .HasConversion<string>()
+                .IsRequired()
+                .HasDefaultValue(LoyaltyTier.Bronze);
+
             entity.Property(l => l.UpdatedAtUtc)
                 .HasColumnType("timestamp with time zone")
                 .HasDefaultValueSql("NOW() AT TIME ZONE 'UTC'");

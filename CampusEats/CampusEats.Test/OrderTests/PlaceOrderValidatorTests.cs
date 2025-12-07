@@ -43,7 +43,7 @@ public class PlaceOrderValidatorTests
     {
         // Arrange
         var model = new PlaceOrderRequest
-            (Guid.NewGuid(), null, [Guid.NewGuid()]);
+            (Guid.NewGuid(), null!, [Guid.NewGuid()]);
         var validator = new PlaceOrderValidator();
         
         // Act
@@ -59,7 +59,7 @@ public class PlaceOrderValidatorTests
     public void Given_NullItemId_When_Validate_ShouldFail()
     {
         // Arrange
-        var model = new PlaceOrderRequest(Guid.NewGuid(), [Guid.NewGuid()], null);
+        var model = new PlaceOrderRequest(Guid.NewGuid(), [Guid.NewGuid()], null!);
         var validator = new PlaceOrderValidator();
         
         // Act

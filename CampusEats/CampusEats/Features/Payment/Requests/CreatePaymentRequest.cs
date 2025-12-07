@@ -7,4 +7,5 @@ public record CreatePaymentRequest(
     Guid UserId,
     Guid OrderId,
     decimal Amount,
-    PaymentMethod Method);
+    PaymentMethod Method,
+    int? PointsToUse = null); // Optional: points to use for discount

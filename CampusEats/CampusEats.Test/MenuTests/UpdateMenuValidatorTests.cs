@@ -83,13 +83,13 @@ public class UpdateMenuValidatorTests
     }
     
     [Theory]
-    [InlineData(null)]
-    public void Given_NullOrEmptyItemIds_When_Validate_Then_ShouldFail(List<Guid> itemIds)
+    [InlineData(null!)]
+    public void Given_NullOrEmptyItemIds_When_Validate_Then_ShouldFail(List<Guid>? itemIds)
     {
         // Arrange
         var model = new UpdateMenuRequest
         ( Guid.NewGuid(), "Valid Menu", 15.99m, 
-            itemIds, MenuCategory.Dessert);
+            itemIds!, MenuCategory.Dessert);
         var validator = new UpdateMenuValidator();
 
         // Act

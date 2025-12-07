@@ -1,0 +1,313 @@
+@page "/loyalty"
+@using CampusEatsFrontend.Models.Loyalty
+@using CampusEatsFrontend.Services
+@using Microsoft.AspNetCore.Components.Web
+@inject LoyaltyService LoyaltyService
+@inject AuthService AuthService
+@inject NavigationManager Navigation
+
+<PageTitle>Loyalty Program - CampusEats</PageTitle>
+
+<div class="container mt-4">
+    <h3 class="mb-4"><span class="bi bi-trophy-fill text-warning"></span> Loyalty Program</h3>
+
+    @if (_isLoading)
+    {
+        <div class="text-center">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    }
+    else if (_balance != null)
+    {
+        <div class="row">
+            <!-- Current Tier Card -->
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-sm h-100 border-@GetTierColor(_balance.CurrentTier)">
+                    <div class="card-header bg-@GetTierColor(_balance.CurrentTier) text-white">
+                        <h5 class="mb-0"><span class="bi bi-award-fill"></span> Current Tier</h5>
+                    </div>
+                    <div class="card-body text-center">
+                        <h1 class="display-4 text-@GetTierColor(_balance.CurrentTier) mb-3">@_balance.CurrentTier</h1>
+                        <p class="lead mb-2">
+                            <strong>@_balance.Points</strong> points available
+                        </p>
+                        <p class="text-muted mb-0">
+                            = <strong>$@((_balance.Points / 100m).ToString("F2"))</strong> discount value
+                        </p>
+                        <hr />
+                        <div class="d-flex justify-content-around text-center">
+                            <div>
+                                <h6 class="text-muted mb-1">Cashback Rate</h6>
+                                <p class="h4 text-@GetTierColor(_balance.CurrentTier) mb-0">@(_balance.CashbackRate.ToString("F0"))x</p>
+                            </div>
+                            <div>
+                                <h6 class="text-muted mb-1">Total Earned</h6>
+                                <p class="h4 text-@GetTierColor(_balance.CurrentTier) mb-0">@_balance.TotalPointsEarned</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tier Progress Card -->
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header bg-dark text-white">
+                        <h5 class="mb-0"><span class="bi bi-graph-up-arrow"></span> Tier Progress</h5>
+                    </div>
+                    <div class="card-body">
+                        @if (_balance.NextTier.HasValue)
+                        {
+                            var progressPercent = GetProgressPercent();
+                            <p class="mb-2">Next tier: <strong class="text-@GetTierColor(_balance.NextTier.Value)">@_balance.NextTier</strong></p>
+                            <div class="progress mb-3" style="height: 30px;">
+                                <div class="progress-bar bg-@GetTierColor(_balance.NextTier.Value)" 
+                                     role="progressbar" 
+                                     style="width: @(progressPercent)%"
+                                     aria-valuenow="@progressPercent" 
+                                     aria-valuemin="0" 
+                                     aria-valuemax="100">
+                                    @progressPercent.ToString("F1")%
+                                </div>
+                            </div>
+                            <p class="text-muted mb-4">
+                                <strong>@_balance.PointsToNextTier</strong> more points needed to reach <strong>@_balance.NextTier</strong>
+                            </p>
+                        }
+                        else
+                        {
+                            <div class="alert alert-success mb-0">
+                                <h5><span class="bi bi-trophy-fill"></span> Maximum Tier Reached!</h5>
+                                <p class="mb-0">Congratulations! You've reached the highest tier (VIP).</p>
+                            </div>
+                        }
+
+                        <h6 class="mt-4 mb-3">All Tiers</h6>
+                        <div class="list-group">
+                            @foreach (var tier in GetAllTiers())
+                            {
+                                var isCurrentTier = tier == _balance.CurrentTier;
+                                var tierInfo = GetTierInfo(tier);
+                                <div class="list-group-item @(isCurrentTier ? "active" : "")">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="mb-1">
+                                                @if (isCurrentTier)
+                                                {
+                                                    <span class="bi bi-check-circle-fill"></span>
+                                                }
+                                                <strong>@tier</strong>
+                                            </h6>
+                                            <small>@tierInfo.threshold points • @tierInfo.cashback cashback</small>
+                                        </div>
+                                        @if (isCurrentTier)
+                                        {
+                                            <span class="badge bg-light text-dark">Current</span>
+                                        }
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transaction History -->
+            <div class="col-12 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-secondary text-white">
+                        <h5 class="mb-0"><span class="bi bi-clock-history"></span> Transaction History</h5>
+                    </div>
+                    <div class="card-body">
+                        @if (_transactions == null || !_transactions.Any())
+                        {
+                            <p class="text-muted text-center">No transactions yet. Start ordering to earn points!</p>
+                        }
+                        else
+                        {
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Type</th>
+                                            <th>Points</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var tx in _transactions)
+                                        {
+                                            <tr>
+                                                <td>@tx.CreatedAtUtc.ToLocalTime().ToString("MMM dd, yyyy HH:mm")</td>
+                                                <td>
+                                                    @if (tx.Type == LoyaltyTransactionType.Earn)
+                                                    {
+                                                        <span class="badge bg-success">
+                                                            <span class="bi bi-arrow-up"></span> Earn
+                                                        </span>
+                                                    }
+                                                    else if (tx.Type == LoyaltyTransactionType.Redeem)
+                                                    {
+                                                        <span class="badge bg-warning text-dark">
+                                                            <span class="bi bi-arrow-down"></span> Redeem
+                                                        </span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="badge bg-info">
+                                                            <span class="bi bi-star-fill"></span> Cashback
+                                                        </span>
+                                                    }
+                                                </td>
+                                                <td class="@GetPointsClass(tx.Type)">
+                                                    @(tx.Points >= 0 ? "+" : "")@tx.Points
+                                                </td>
+                                                <td>@(tx.Description ?? "N/A")</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Box -->
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-info">
+                    <h5><span class="bi bi-info-circle"></span> How it works</h5>
+                    <ul class="mb-0">
+                        <li><strong>Earn points:</strong> Get points per dollar based on your tier (Bronze: 1pt/$, Silver: 3pts/$, Gold: 5pts/$, Platinum: 8pts/$, VIP: 12pts/$)</li>
+                        <li><strong>Redeem at checkout:</strong> Use your points during payment (100 points = $1 discount)</li>
+                        <li><strong>Tier progression:</strong> Your tier is based on total points earned (lifetime)</li>
+                        <li><strong>Example:</strong> Spend $23 as Bronze tier → earn 23 points → save them to get $0.23 discount later (or reach higher tier for better earning rates!)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    private bool _isLoading = true;
+    private LoyaltyBalanceDto? _balance;
+    private List<LoyaltyTransactionDto>? _transactions;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await AuthService.InitializeAsync();
+
+        if (AuthService.CurrentUser == null)
+        {
+            Navigation.NavigateTo("/login");
+            return;
+        }
+
+        await LoadLoyaltyData();
+    }
+
+    private async Task LoadLoyaltyData()
+    {
+        _isLoading = true;
+        
+        try
+        {
+            var userId = AuthService.CurrentUser!.UserId;
+            
+            _balance = await LoyaltyService.GetLoyaltyBalanceAsync(userId);
+            _transactions = await LoyaltyService.GetLoyaltyTransactionsAsync(userId);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error loading loyalty data: {ex.Message}");
+        }
+        
+        _isLoading = false;
+    }
+
+    private string GetTierColor(LoyaltyTier tier)
+    {
+        return tier switch
+        {
+            LoyaltyTier.Bronze => "secondary",
+            LoyaltyTier.Silver => "secondary",
+            LoyaltyTier.Gold => "warning",
+            LoyaltyTier.Platinum => "info",
+            LoyaltyTier.VIP => "danger",
+            _ => "primary"
+        };
+    }
+
+    private double GetProgressPercent()
+    {
+        if (_balance == null || !_balance.NextTier.HasValue || _balance.PointsToNextTier == 0)
+            return 0;
+
+        var currentTierThreshold = GetTierThreshold(_balance.CurrentTier);
+        var nextTierThreshold = GetTierThreshold(_balance.NextTier.Value);
+        var totalRange = nextTierThreshold - currentTierThreshold;
+        
+        if (totalRange == 0) return 100;
+        
+        var progress = _balance.TotalPointsEarned - currentTierThreshold;
+        return Math.Min(100, (progress / (double)totalRange) * 100);
+    }
+
+    private int GetTierThreshold(LoyaltyTier tier)
+    {
+        return tier switch
+        {
+            LoyaltyTier.Bronze => 0,
+            LoyaltyTier.Silver => 100,
+            LoyaltyTier.Gold => 500,
+            LoyaltyTier.Platinum => 1500,
+            LoyaltyTier.VIP => 5000,
+            _ => 0
+        };
+    }
+
+    private List<LoyaltyTier> GetAllTiers()
+    {
+        return new List<LoyaltyTier> 
+        { 
+            LoyaltyTier.Bronze, 
+            LoyaltyTier.Silver, 
+            LoyaltyTier.Gold, 
+            LoyaltyTier.Platinum, 
+            LoyaltyTier.VIP 
+        };
+    }
+
+    private (string threshold, string cashback) GetTierInfo(LoyaltyTier tier)
+    {
+        var thresholdValue = GetTierThreshold(tier);
+        var cashbackValue = tier switch
+        {
+            LoyaltyTier.Bronze => "1x",
+            LoyaltyTier.Silver => "3x",
+            LoyaltyTier.Gold => "5x",
+            LoyaltyTier.Platinum => "8x",
+            LoyaltyTier.VIP => "12x",
+            _ => "1x"
+        };
+
+        return (thresholdValue.ToString("N0"), cashbackValue);
+    }
+
+    private string GetPointsClass(LoyaltyTransactionType type)
+    {
+        return type switch
+        {
+            LoyaltyTransactionType.Earn => "text-success fw-bold",
+            LoyaltyTransactionType.Redeem => "text-warning fw-bold",
+            LoyaltyTransactionType.CashbackBonus => "text-info fw-bold",
+            _ => ""
+        };
+    }
+}

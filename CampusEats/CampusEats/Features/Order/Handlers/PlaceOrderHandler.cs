@@ -51,7 +51,7 @@ public class PlaceOrderHandler(CampusEatsContext context, ILogger<PlaceOrderHand
         var order = new Order(
             Id: Guid.NewGuid(),
             ClientId: request.ClientId,
-            Price: (decimal)total,
+            Price: total ?? 0,
             MenuIDs: menuIds,
             ItemIDs: itemIds,
             CreatedAt: DateTime.UtcNow,
