@@ -9,18 +9,18 @@
 
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h3>Menu Items (Products)</h3>
+        <h3>Menu Items</h3>
         @if (AuthService.CurrentUser?.Role == "Admin")
         {
             <button class="btn btn-primary" @onclick="GoToCreate">
-                <span class="bi bi-plus-circle"></span> Add Menu Item
+                <span class="bi bi-plus-circle"></span> Adaugă Menu Item
             </button>
         }
     </div>
 
     <div class="row mb-3">
         <div class="col-md-6">
-            <input type="text" class="form-control" placeholder="Search by name..." @bind="_searchTerm" @bind:event="oninput" @onkeyup="FilterItems" />
+            <input type="text" class="form-control" placeholder="Caută după nume..." @bind="_searchTerm" @bind:event="oninput" @onkeyup="FilterItems" />
         </div>
     </div>
 
@@ -28,71 +28,63 @@
     {
         <div class="text-center">
             <div class="spinner-border" role="status">
-                <span class="visually-hidden">Loading...</span>
+                <span class="visually-hidden">Se încarcă...</span>
             </div>
         </div>
     }
     else if (_filteredItems == null || _filteredItems.Count == 0)
     {
-        <div class="alert alert-info">No menu items found.</div>
+        <div class="alert alert-info">Nu au fost găsite articole de meniu.</div>
     }
     else
     {
-        <div class="table-responsive">
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Image</th>
-                        <th>Allergens</th>
-                        @if (AuthService.CurrentUser?.Role == "Admin")
+        <div class="row">
+            @foreach (var item in _filteredItems)
+            {
+                <div class="col-sm-6 col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        @if (!string.IsNullOrEmpty(item.ImageUrl))
                         {
-                            <th>Actions</th>
+                            <img src="@item.ImageUrl" class="card-img-top item-image" alt="@item.Name" />
                         }
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in _filteredItems)
-                    {
-                        <tr>
-                            <td>@item.Name</td>
-                            <td>$@item.Price.ToString("F2")</td>
-                            <td>
-                                @if (!string.IsNullOrEmpty(item.ImageUrl))
-                                {
-                                    <img src="@item.ImageUrl" alt="@item.Name" style="width: 50px; height: 50px; object-fit: cover;" />
-                                }
-                                else
-                                {
-                                    <span class="text-muted">No image</span>
-                                }
-                            </td>
-                            <td>
+                        else
+                        {
+                            <div class="card-img-top item-image d-flex align-items-center justify-content-center bg-light text-muted">
+                                Fără imagine
+                            </div>
+                        }
+
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">@item.Name</h5>
+                            <p class="card-text text-success fw-bold flex-grow-1">$@item.Price.ToString("F2")</p>
+                            
+                            <div class="allergens">
+                                <small class="text-allergens">Alergeni:</small><br />
                                 @if (item.Allergens != null && item.Allergens.Any())
                                 {
-                                    <span>@string.Join(", ", item.Allergens)</span>
+                                    <span class="badge bg-warning text-dark allergens-badge">@string.Join(", ", item.Allergens)</span>
                                 }
                                 else
                                 {
-                                    <span class="text-muted">None</span>
+                                    <span class="text-muted">Niciunul</span>
                                 }
-                            </td>
-                            @if (AuthService.CurrentUser?.Role == "Admin")
-                            {
-                                <td>
-                                    <button class="btn btn-sm btn-outline-primary me-2" @onclick="() => GoToEdit(item.Id)">
-                                        <span class="bi bi-pencil"></span> Edit
-                                    </button>
-                                    <button class="btn btn-sm btn-danger" @onclick="() => DeleteMenuItem(item.Id)">
-                                        <span class="bi bi-trash"></span> Delete
-                                    </button>
-                                </td>
-                            }
-                        </tr>
-                    }
-                </tbody>
-            </table>
+                            </div>
+                        </div>
+
+                        @if (AuthService.CurrentUser?.Role == "Admin")
+                        {
+                            <div class="card-footer d-flex justify-content-between">
+                                <button class="btn btn-sm flex-grow-1 me-2 btn-edit" @onclick="() => GoToEdit(item.Id)">
+                                    <span class="bi bi-pencil"></span> Editează
+                                </button>
+                                <button class="btn btn-sm btn-danger flex-grow-1 btn-delete" @onclick="() => DeleteMenuItem(item.Id)">
+                                    <span class="bi bi-trash"></span> Șterge
+                                </button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
         </div>
     }
 </div>
@@ -115,6 +107,7 @@
         _allItems = await MenuItemService.GetAllMenuItemsAsync();
         _filteredItems = _allItems;
         _isLoading = false;
+        StateHasChanged();
     }
 
     private void FilterItems()
@@ -125,6 +118,7 @@
         }
         else
         {
+            // Utilizare Contains pe Name pentru filtrare
             _filteredItems = _allItems?
                 .Where(i => i.Name.Contains(_searchTerm, StringComparison.OrdinalIgnoreCase))
                 .ToList();
@@ -143,16 +137,26 @@
 
     private async Task DeleteMenuItem(Guid id)
     {
-        if (confirm($"Are you sure you want to delete this menu item?"))
+        if (Confirm($"Sunteți sigur că doriți să ștergeți acest articol de meniu?"))
         {
-            var response = await MenuItemService.DeleteMenuItemAsync(id);
-            if (response.IsSuccessStatusCode)
+            try
             {
-                await LoadItems();
-                StateHasChanged();
+                var response = await MenuItemService.DeleteMenuItemAsync(id);
+                if (response.IsSuccessStatusCode)
+                {
+                    await LoadItems(); 
+                }
+                else
+                {
+                    Console.WriteLine($"Eroare la ștergere: {response.ReasonPhrase}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Excepție la ștergere: {ex.Message}");
             }
         }
     }
 
-    private bool confirm(string message) => true; // Browser confirmation would be handled differently
+    private static bool Confirm(string message) => true; 
 }
