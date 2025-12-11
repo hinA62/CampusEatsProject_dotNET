@@ -1,6 +1,5 @@
 using System.Text.RegularExpressions;
 using CampusEats.Features.Auth.Requests;
-using CampusEats.Features.User;
 using FluentValidation;
 
 namespace CampusEats.Validators.Auth;
@@ -29,9 +28,8 @@ public class RegisterUserValidator : AbstractValidator<RegisterUserRequest>
             .Matches(@"[!@#$%^&*(),.?""':{}|<>]")
             .WithMessage("Password must contain at least one special character.");
 
-        RuleFor(x => x.Role)
-            .NotEmpty().WithMessage("Role is required.")
-            .Must(role => Enum.TryParse<UserRole>(role, true, out _))
-            .WithMessage("Invalid role. Valid roles: Client, Kitchen, Admin.");
+        RuleFor(x => x.ConfirmPassword)
+            .NotEmpty().WithMessage("Confirm Password is required.")
+            .Equal(x => x.Password).WithMessage("Passwords do not match.");
     }
 }

@@ -44,12 +44,8 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="role" class="form-label">Role</label>
-                            <InputSelect id="role" class="form-select" @bind-Value="_registerRequest.Role">
-                                <option value="Client">Client</option>
-                                <option value="Admin">Admin</option>
-                                <option value="Kitchen">Kitchen</option>
-                            </InputSelect>
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <InputText id="confirmPassword" type="password" class="form-control" @bind-Value="_registerRequest.ConfirmPassword" />
                         </div>
 
                         <button type="submit" class="btn btn-success w-100" disabled="@_isLoading">

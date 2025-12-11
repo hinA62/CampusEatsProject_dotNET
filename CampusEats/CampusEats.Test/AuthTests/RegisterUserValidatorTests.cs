@@ -10,7 +10,7 @@ public class RegisterUserValidatorTests
     {
         // Arrange
         var model = new RegisterUserRequest
-            ("Ion", "ion_lungu@mail.com", "SomeP@ssw0rd", "Client");
+            ("Ion", "ion_lungu@mail.com", "SomeP@ssw0rd", "SomeP@ssw0rd");
         var validator = new RegisterUserValidator();
         
         // Act
@@ -26,7 +26,7 @@ public class RegisterUserValidatorTests
     {
         // Arrange
         var model = new RegisterUserRequest
-            ("", "some-valid@mail.ro", "SomeP@ssw0rd", "Client");
+            ("", "some-valid@mail.ro", "SomeP@ssw0rd", "SomeP@ssw0rd");
         var validator = new RegisterUserValidator();
 
         // Act
@@ -45,7 +45,7 @@ public class RegisterUserValidatorTests
     {
         // Arrange
         var model = new RegisterUserRequest
-            (username, "some-valid@mail.com", "SomeP@ssw0rd", "Client");
+            (username, "some-valid@mail.com", "SomeP@ssw0rd", "SomeP@ssw0rd");
         var validator = new RegisterUserValidator();
 
         // Act
@@ -63,7 +63,7 @@ public class RegisterUserValidatorTests
         // Arrange
         var longUsername = new string('a', 51);
         var model = new RegisterUserRequest
-            (longUsername, "some-valid@mail.com", "SomeP@ssw0rd", "Client");
+            (longUsername, "some-valid@mail.com", "SomeP@ssw0rd", "SomeP@ssw0rd");
         var validator = new RegisterUserValidator();
         
         // Act
@@ -80,7 +80,7 @@ public class RegisterUserValidatorTests
     {
         // Arrange
         var model = new RegisterUserRequest
-            ("Ion", "", "SomeP@ssw0rd", "Client");
+            ("Ion", "", "SomeP@ssw0rd", "SomeP@ssw0rd");
         var validator = new RegisterUserValidator();
         
         // Act
@@ -100,7 +100,7 @@ public class RegisterUserValidatorTests
     {
         // Arrange
         var model = new RegisterUserRequest
-            ("Ion", email, "SomeP@ssw0rd", "Client");
+            ("Ion", email, "SomeP@ssw0rd", "SomeP@ssw0rd");
         var validator = new RegisterUserValidator();
 
         // Act
@@ -118,7 +118,7 @@ public class RegisterUserValidatorTests
         // Arrange
         var longEmail = new string('a', 101) + "@mail.com";
         var model = new RegisterUserRequest
-            ("Ion", longEmail, "SomeP@ssw0rd", "Client");
+            ("Ion", longEmail, "SomeP@ssw0rd", "SomeP@ssw0rd");
         var validator = new RegisterUserValidator();
         
         // Act
@@ -135,7 +135,7 @@ public class RegisterUserValidatorTests
     {
         // Arrange
         var model = new RegisterUserRequest
-            ("Ion", "some-valid@mail.com", "", "Client");
+            ("Ion", "some-valid@mail.com", "", "");
         var validator = new RegisterUserValidator();
         
         // Act
@@ -161,7 +161,7 @@ public class RegisterUserValidatorTests
     {
         // Arrange
         var model = new RegisterUserRequest
-            ("Ion", "ion_lungu@mail.com", password, "Client");
+            ("Ion", "ion_lungu@mail.com", password, password);
         var validator = new RegisterUserValidator();
         
         // Act
@@ -183,7 +183,7 @@ public class RegisterUserValidatorTests
     {
         // Arrange
         var model = new RegisterUserRequest
-            ("Ion", "ion_lungu@mail.com", password, "Client");
+            ("Ion", "ion_lungu@mail.com", password, password);
         var validator = new RegisterUserValidator();
         
         // Act
@@ -196,7 +196,7 @@ public class RegisterUserValidatorTests
     }
 
     [Fact]
-    public void Given_EmptyRole_When_Validate_ShouldFail()
+    public void Given_EmptyConfirmPassword_When_Validate_ShouldFail()
     {
         // Arrange
         var model = new RegisterUserRequest
@@ -209,18 +209,15 @@ public class RegisterUserValidatorTests
         // Assert
         Assert.False(result.IsValid);
         Assert.Contains(result.Errors, e =>
-            e.ErrorMessage == "Role is required.");
+            e.ErrorMessage == "Confirm Password is required.");
     }
 
-    [Theory]
-    [InlineData("User")]
-    [InlineData("SuperAdmin")]
-    [InlineData("Guest")]
-    public void Given_InvalidRole_When_Validate_ShouldFail(string role)
+    [Fact]
+    public void Given_MismatchedPasswords_When_Validate_ShouldFail()
     {
         // Arrange
         var model = new RegisterUserRequest
-            ("Ion", "ion_lungu@mail.com", "SomeP@ssw0rd", role);
+            ("Ion", "ion_lungu@mail.com", "SomeP@ssw0rd", "DifferentP@ssw0rd");
         var validator = new RegisterUserValidator();
 
         // Act
@@ -229,6 +226,6 @@ public class RegisterUserValidatorTests
         // Assert
         Assert.False(result.IsValid);
         Assert.Contains(result.Errors, e =>
-            e.ErrorMessage == "Invalid role. Valid roles: Client, Kitchen, Admin.");
+            e.ErrorMessage == "Passwords do not match.");
     }
 }

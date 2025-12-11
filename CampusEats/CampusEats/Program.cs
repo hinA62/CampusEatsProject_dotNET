@@ -552,16 +552,13 @@ app.MapPost("/api/auth/register", async (
     if (await db.Users.AnyAsync(u => u.Email == request.Email, ct))
         return Results.BadRequest("Email already exists");
 
-    if (!Enum.TryParse<UserRole>(request.Role, true, out var role))
-        return Results.BadRequest("Invalid role");
-
     var user = new User
     {
         Id = Guid.NewGuid(),
         Username = request.Username,
         Email = request.Email,
         PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.Password),
-        Role = role,
+        Role = UserRole.Client, // Automat setat ca Client
         CreatedAt = DateTime.UtcNow
     };
 
@@ -648,6 +645,52 @@ app.MapPost("/api/auth/change-password", async (
 .Produces(404)
 .ProducesValidationProblem()
 .Produces(401);
+
+
+// Update User Role (Admin only)
+app.MapPatch("/api/users/{userId:guid}/role", async (
+    Guid userId,
+    UpdateUserRoleRequest request,
+    CampusEatsContext db,
+    IValidator<UpdateUserRoleRequest> validator,
+    CancellationToken ct) =>
+{
+    var requestWithId = request with { UserId = userId };
+    
+    // Validare
+    var validationResult = await validator.ValidateAsync(requestWithId, ct);
+    if (!validationResult.IsValid)
+        return Results.ValidationProblem(validationResult.ToDictionary());
+
+    // Găsire utilizator
+    var user = await db.Users.FindAsync(new object[] { userId }, ct);
+    if (user is null)
+        return Results.NotFound("User not found");
+
+    // Parse rol (validarea e deja făcută de validator)
+    var newRole = Enum.Parse<UserRole>(requestWithId.NewRole, true);
+    
+    user.Role = newRole;
+    await db.SaveChangesAsync(ct);
+
+    return Results.Ok(new
+    {
+        user.Id,
+        user.Username,
+        user.Email,
+        Role = user.Role.ToString(),
+        Message = $"User role successfully updated to {newRole}"
+    });
+})
+.RequireAuthorization(policy => policy.RequireRole("Admin"))
+.WithName("UpdateUserRole")
+.WithTags("Auth")
+.Produces(200)
+.Produces(400)
+.Produces(404)
+.ProducesValidationProblem()
+.Produces(401)
+.Produces(403);
 
 
 // ============================================
