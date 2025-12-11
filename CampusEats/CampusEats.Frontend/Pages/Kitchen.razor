@@ -2,6 +2,7 @@
 @using CampusEatsFrontend.Models.Order
 @using CampusEatsFrontend.Services
 @inject KitchenService KitchenService
+@inject OrderService OrderService
 @inject AuthService AuthService
 @inject NavigationManager Navigation
 
@@ -39,7 +40,7 @@
             @foreach (var order in _orders.Where(o => o.Status != OrderStatus.Completed && o.Status != OrderStatus.Cancelled))
             {
                 <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="card shadow-sm h-100">
+                    <div class="card shadow-sm h-100" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#orderModal-@order.Id" @onclick="() => LoadOrderDetails(order.Id)">
                         <div class="card-header bg-@GetStatusColor(order.Status) text-white">
                             <h5 class="mb-0">Order #@order.Id.ToString().Substring(0, 8)</h5>
                         </div>
@@ -54,22 +55,100 @@
                             <div class="d-grid gap-2">
                                 @if (order.Status == OrderStatus.Pending)
                                 {
-                                    <button class="btn btn-primary btn-sm" @onclick="() => UpdateStatus(order.Id, OrderStatus.Confirmed)">
+                                    <button class="btn btn-primary btn-sm" @onclick="() => UpdateStatus(order.Id, OrderStatus.Confirmed)" @onclick:stopPropagation="true">
                                         Confirm Order
                                     </button>
                                 }
                                 @if (order.Status == OrderStatus.Confirmed)
                                 {
-                                    <button class="btn btn-warning btn-sm" @onclick="() => UpdateStatus(order.Id, OrderStatus.Preparing)">
+                                    <button class="btn btn-warning btn-sm" @onclick="() => UpdateStatus(order.Id, OrderStatus.Preparing)" @onclick:stopPropagation="true">
                                         Start Preparing
                                     </button>
                                 }
                                 @if (order.Status == OrderStatus.Preparing)
                                 {
-                                    <button class="btn btn-success btn-sm" @onclick="() => UpdateStatus(order.Id, OrderStatus.Completed)">
+                                    <button class="btn btn-success btn-sm" @onclick="() => UpdateStatus(order.Id, OrderStatus.Completed)" @onclick:stopPropagation="true">
                                         Mark as Completed
                                     </button>
                                 }
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Modal for Order Details -->
+                    <div class="modal fade" id="orderModal-@order.Id" tabindex="-1" aria-labelledby="orderModalLabel-@order.Id" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header bg-@GetStatusColor(order.Status) text-white">
+                                    <h5 class="modal-title" id="orderModalLabel-@order.Id">Order Details #@order.Id.ToString().Substring(0, 8)</h5>
+                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    @if (_loadingDetails.Contains(order.Id))
+                                    {
+                                        <div class="text-center">
+                                            <div class="spinner-border" role="status">
+                                                <span class="visually-hidden">Loading details...</span>
+                                            </div>
+                                        </div>
+                                    }
+                                    else if (_orderDetails.ContainsKey(order.Id))
+                                    {
+                                        var details = _orderDetails[order.Id];
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <h6>Client Information</h6>
+                                                <p class="mb-1"><strong>Username:</strong> @details.ClientUsername</p>
+                                                <p class="mb-1"><strong>Email:</strong> @details.ClientEmail</p>
+                                                <p class="mb-1"><strong>Client ID:</strong> <code>@details.ClientId.ToString().Substring(0, 8)...</code></p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h6>Order Information</h6>
+                                                <p class="mb-1"><strong>Total Price:</strong> $@details.Price.ToString("F2")</p>
+                                                <p class="mb-1"><strong>Status:</strong> <span class="badge bg-@GetStatusColor(details.Status)">@details.Status</span></p>
+                                                <p class="mb-1"><strong>Created:</strong> @details.CreatedAt.ToString("MMM dd, yyyy HH:mm")</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <hr />
+                                        
+                                        <div class="row">
+                                            @if (details.Menus.Any())
+                                            {
+                                                <div class="col-md-6 mb-3">
+                                                    <h6>Menus (@details.Menus.Count)</h6>
+                                                    <ul class="list-group">
+                                                        @foreach (var menu in details.Menus)
+                                                        {
+                                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                @menu.Name
+                                                                <span class="badge bg-primary rounded-pill">$@menu.Price.ToString("F2")</span>
+                                                            </li>
+                                                        }
+                                                    </ul>
+                                                </div>
+                                            }
+                                            @if (details.Items.Any())
+                                            {
+                                                <div class="col-md-6 mb-3">
+                                                    <h6>Items (@details.Items.Count)</h6>
+                                                    <ul class="list-group">
+                                                        @foreach (var item in details.Items)
+                                                        {
+                                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                @item.Name
+                                                                <span class="badge bg-success rounded-pill">$@item.Price.ToString("F2")</span>
+                                                            </li>
+                                                        }
+                                                    </ul>
+                                                </div>
+                                            }
+                                        </div>
+                                    }
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -81,6 +160,8 @@
 
 @code {
     private List<OrderDto>? _orders;
+    private Dictionary<Guid, OrderDetailsDto> _orderDetails = new();
+    private HashSet<Guid> _loadingDetails = new();
     private string _statusFilter = "";
     private bool _isLoading = true;
 
@@ -105,11 +186,36 @@
         _isLoading = false;
     }
 
+    private async Task LoadOrderDetails(Guid orderId)
+    {
+        if (_orderDetails.ContainsKey(orderId))
+            return;
+
+        _loadingDetails.Add(orderId);
+        StateHasChanged();
+
+        try
+        {
+            var details = await OrderService.GetOrderDetailsAsync(orderId);
+            if (details != null)
+            {
+                _orderDetails[orderId] = details;
+            }
+        }
+        finally
+        {
+            _loadingDetails.Remove(orderId);
+            StateHasChanged();
+        }
+    }
+
     private async Task UpdateStatus(Guid orderId, OrderStatus newStatus)
     {
         var response = await KitchenService.UpdateOrderStatusAsync(orderId, newStatus);
         if (response.IsSuccessStatusCode)
         {
+            // Remove from cache to reload fresh data
+            _orderDetails.Remove(orderId);
             await LoadOrders();
         }
     }

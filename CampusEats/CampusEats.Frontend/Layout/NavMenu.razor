@@ -36,6 +36,11 @@
                 </NavLink>
             </div>
             <div class="nav-item px-3">
+                <NavLink class="nav-link" href="clients">
+                    <span class="bi bi-people-fill" aria-hidden="true"></span> Clients
+                </NavLink>
+            </div>
+            <div class="nav-item px-3">
                 <NavLink class="nav-link" href="place-order">
                     <span class="bi bi-cart-plus" aria-hidden="true"></span> Place Order
                 </NavLink>
@@ -69,6 +74,15 @@
             <div class="nav-item px-3">
                 <NavLink class="nav-link" href="loyalty">
                     <span class="bi bi-star-fill" aria-hidden="true"></span> Loyalty
+                </NavLink>
+            </div>
+        }
+
+        @if (AuthService.IsAuthenticated)
+        {
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="profile">
+                    <span class="bi bi-person-circle" aria-hidden="true"></span> Profile
                 </NavLink>
             </div>
         }

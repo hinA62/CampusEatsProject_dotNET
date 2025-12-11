@@ -335,6 +335,57 @@ app.MapGet("/api/orders/{id:guid}", async (Guid id, GetOrderByIdHandler handler)
     .Produces(403)
     .Produces(404);
 
+// Get order details with client info and items
+app.MapGet("/api/orders/{id:guid}/details", async (
+    Guid id,
+    CampusEatsContext db,
+    CancellationToken ct) =>
+{
+    var order = await db.Order.FindAsync(new object[] { id }, ct);
+    
+    if (order == null)
+        return Results.NotFound($"Order with ID: {id} not found");
+
+    var client = await db.Users.FindAsync(new object[] { order.ClientId }, ct);
+    
+    if (client == null)
+        return Results.NotFound($"Client not found for order {id}");
+
+    var menus = await db.Menu
+        .Where(m => order.MenuIDs.Contains(m.Id))
+        .Select(m => new { m.Id, m.Name, m.Price })
+        .ToListAsync(ct);
+    
+    var items = await db.MenuItem
+        .Where(i => order.ItemIDs.Contains(i.Id))
+        .Select(i => new { i.Id, i.Name, i.Price })
+        .ToListAsync(ct);
+
+    var result = new
+    {
+        order.Id,
+        order.ClientId,
+        ClientUsername = client.Username,
+        ClientEmail = client.Email,
+        order.Price,
+        order.MenuIDs,
+        order.ItemIDs,
+        order.CreatedAt,
+        Status = order.Status.ToString(),
+        Menus = menus,
+        Items = items
+    };
+
+    return Results.Ok(result);
+})
+.RequireAuthorization(policy => policy.RequireRole("Admin", "Kitchen"))
+.WithName("GetOrderDetails")
+.WithTags("Orders")
+.Produces(200)
+.Produces(401)
+.Produces(403)
+.Produces(404);
+
 
 // Get order history for a client (Client can see own, Admin can see all)
 app.MapGet("/api/clients/{clientId:guid}/orders", async (Guid clientId, GetOrderHistoryHandler handler) => 
@@ -564,6 +615,66 @@ app.MapGet("/api/loyalty/{userId:guid}/transactions", async (Guid userId, Campus
     .Produces(401)
     .Produces(403);
 
+
+// ============================================
+// USER ENDPOINTS
+// ============================================
+
+// Get All Users (Admin only)
+app.MapGet("/api/users", async (
+    CampusEatsContext db,
+    CancellationToken ct) =>
+{
+    var users = await db.Users
+        .Select(u => new
+        {
+            u.Id,
+            u.Username,
+            u.Email,
+            Role = u.Role.ToString(),
+            u.CreatedAt
+        })
+        .ToListAsync(ct);
+
+    return Results.Ok(users);
+})
+.RequireAuthorization(policy => policy.RequireRole("Admin"))
+.WithName("GetAllUsers")
+.WithTags("Users")
+.Produces(200)
+.Produces(401)
+.Produces(403);
+
+// Get User by ID (Admin only)
+app.MapGet("/api/users/{userId:guid}", async (
+    Guid userId,
+    CampusEatsContext db,
+    CancellationToken ct) =>
+{
+    var user = await db.Users
+        .Where(u => u.Id == userId)
+        .Select(u => new
+        {
+            u.Id,
+            u.Username,
+            u.Email,
+            Role = u.Role.ToString(),
+            u.CreatedAt
+        })
+        .FirstOrDefaultAsync(ct);
+
+    if (user == null)
+        return Results.NotFound("User not found");
+
+    return Results.Ok(user);
+})
+.RequireAuthorization(policy => policy.RequireRole("Admin"))
+.WithName("GetUserById")
+.WithTags("Users")
+.Produces(200)
+.Produces(404)
+.Produces(401)
+.Produces(403);
 
 // ============================================
 // AUTH ENDPOINTS

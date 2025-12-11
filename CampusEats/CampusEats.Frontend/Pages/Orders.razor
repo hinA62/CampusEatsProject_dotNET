@@ -39,41 +39,33 @@
     }
     else
     {
-        <div class="table-responsive">
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th>Order ID</th>
-                        <th>Client ID</th>
-                        <th>Price</th>
-                        <th>Status</th>
-                        <th>Created At</th>
-                        <th>Items</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var order in _filteredOrders)
-                    {
-                        <tr>
-                            <td><code>@order.Id.ToString().Substring(0, 8)...</code></td>
-                            <td><code>@order.ClientId.ToString().Substring(0, 8)...</code></td>
-                            <td><strong>$@order.Price.ToString("F2")</strong></td>
-                            <td><span class="badge bg-@GetStatusColor(order.Status)">@order.Status</span></td>
-                            <td>@order.CreatedAt.ToString("MMM dd, yyyy HH:mm")</td>
-                            <td>@(order.MenuIDs.Count) menus, @(order.ItemIDs.Count) items</td>
-                            <td>
+        <div class="list-group">
+            @if (_filteredOrders != null)
+            {
+                @foreach (var order in _filteredOrders)
+                {
+                    <div class="list-group-item list-group-item-action mb-2" style="cursor: pointer;" @onclick="() => NavigateToOrder(order.Id)">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>Order #@order.Id.ToString().Substring(0, 8)...</strong>
+                                <span class="text-muted ms-2">($@order.Price.ToString("F2"))</span>
+                                <br />
+                                <small class="text-muted">Client: @order.ClientId.ToString().Substring(0, 8)... | @(order.MenuIDs.Count) menus, @(order.ItemIDs.Count) items</small>
+                            </div>
+                            <div class="d-flex flex-column align-items-end">
+                                <span class="badge bg-@GetStatusColor(order.Status) mb-1">@order.Status</span>
+                                <small class="text-muted">@order.CreatedAt.ToString("MMM dd, HH:mm")</small>
                                 @if (order.Status == OrderStatus.Pending)
                                 {
-                                    <button class="btn btn-sm btn-danger" @onclick="() => CancelOrder(order.Id)">
+                                    <button class="btn btn-sm btn-danger mt-2" @onclick="(e) => CancelOrderFromList(e, order.Id)" @onclick:stopPropagation="true">
                                         Cancel
                                     </button>
                                 }
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
         </div>
     }
 </div>
@@ -118,7 +110,12 @@
         }
     }
 
-    private async Task CancelOrder(Guid orderId)
+    private void NavigateToOrder(Guid orderId)
+    {
+        Navigation.NavigateTo($"/order/{orderId}?returnUrl=/orders");
+    }
+
+    private async Task CancelOrderFromList(MouseEventArgs e, Guid orderId)
     {
         var response = await OrderService.CancelOrderAsync(orderId);
         if (response.IsSuccessStatusCode)

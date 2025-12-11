@@ -1,0 +1,124 @@
+@page "/clients"
+@using CampusEatsFrontend.Models.User
+@using CampusEatsFrontend.Models.Order
+@using CampusEatsFrontend.Services
+@inject UserService UserService
+@inject OrderService OrderService
+@inject AuthService AuthService
+@inject NavigationManager Navigation
+
+<PageTitle>Clients Management - CampusEats</PageTitle>
+
+<div class="container mt-4">
+    <h3 class="mb-4">Clients Management</h3>
+
+    @if (_isLoading)
+    {
+        <div class="text-center">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    }
+    else if (_clients == null || !_clients.Any())
+    {
+        <div class="alert alert-info">No clients found.</div>
+    }
+    else
+    {
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <input type="text" class="form-control" placeholder="Search by username or email..." @bind="_searchFilter" @bind:event="oninput" @onkeyup="ApplySearch" />
+            </div>
+        </div>
+
+        <div class="list-group">
+            @if (_filteredClients != null)
+            {
+                @foreach (var client in _filteredClients)
+                {
+                    <div class="list-group-item list-group-item-action mb-2" style="cursor: pointer;" @onclick="() => NavigateToProfile(client.Id)">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>@client.Username</strong>
+                                <span class="text-muted ms-2">(@client.Email)</span>
+                                <br />
+                                <small class="text-muted">ID: @client.Id.ToString().Substring(0, 8)...</small>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <span class="badge bg-@GetRoleBadgeColor(client.Role)">@client.Role</span>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    }
+</div>
+
+@code {
+    private List<ClientProfileDto>? _clients;
+    private List<ClientProfileDto>? _filteredClients;
+    private string _searchFilter = "";
+    private bool _isLoading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await AuthService.InitializeAsync();
+        
+        if (AuthService.CurrentUser?.Role != "Admin")
+        {
+            Navigation.NavigateTo("/");
+            return;
+        }
+
+        await LoadClients();
+    }
+
+    private async Task LoadClients()
+    {
+        _isLoading = true;
+        _clients = await UserService.GetAllUsersAsync();
+        _filteredClients = _clients;
+        _isLoading = false;
+    }
+
+    private void ApplySearch()
+    {
+        if (string.IsNullOrWhiteSpace(_searchFilter))
+        {
+            _filteredClients = _clients;
+        }
+        else
+        {
+            var filter = _searchFilter.ToLower();
+            _filteredClients = _clients?.Where(c => 
+                c.Username.ToLower().Contains(filter) || 
+                c.Email.ToLower().Contains(filter)
+            ).ToList();
+        }
+    }
+
+    private void NavigateToProfile(Guid userId)
+    {
+        Navigation.NavigateTo($"/profile/{userId}");
+    }
+
+    private string GetRoleBadgeColor(string role) => role switch
+    {
+        "Admin" => "danger",
+        "Kitchen" => "warning",
+        "Client" => "primary",
+        _ => "secondary"
+    };
+
+    private string GetStatusColor(OrderStatus status) => status switch
+    {
+        OrderStatus.Pending => "warning",
+        OrderStatus.Confirmed => "info",
+        OrderStatus.Preparing => "primary",
+        OrderStatus.Completed => "success",
+        OrderStatus.Cancelled => "danger",
+        _ => "secondary"
+    };
+}
