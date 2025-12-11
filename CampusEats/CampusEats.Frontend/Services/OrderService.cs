@@ -53,4 +53,17 @@ public class OrderService
             return new List<OrderDto>();
         }
     }
+
+    // Get order details with client info and items
+    public async Task<OrderDetailsDto?> GetOrderDetailsAsync(Guid orderId)
+    {
+        try
+        {
+            return await _http.GetFromJsonAsync<OrderDetailsDto>($"api/orders/{orderId}/details", _jsonOptions);
+        }
+        catch
+        {
+            return null;
+        }
+    }
 }

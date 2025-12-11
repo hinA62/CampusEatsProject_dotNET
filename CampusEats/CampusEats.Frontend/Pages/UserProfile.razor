@@ -1,0 +1,221 @@
+@page "/profile/{userId:guid}"
+@using CampusEatsFrontend.Models.User
+@using CampusEatsFrontend.Models.Order
+@using CampusEatsFrontend.Services
+@inject UserService UserService
+@inject OrderService OrderService
+@inject AuthService AuthService
+@inject NavigationManager Navigation
+
+<PageTitle>User Profile - CampusEats</PageTitle>
+
+<div class="container mt-4">
+    @if (_isLoading)
+    {
+        <div class="text-center">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    }
+    else if (_userProfile == null)
+    {
+        <div class="alert alert-danger">
+            <h4>Profile Not Found</h4>
+            <p>The profile you're looking for doesn't exist or you don't have permission to view it.</p>
+            <a href="/clients" class="btn btn-primary">Back to Clients</a>
+        </div>
+    }
+    else
+    {
+        <div class="row mb-3">
+            <div class="col">
+                <button class="btn btn-secondary" @onclick="GoBack">
+                    <span class="bi bi-arrow-left"></span> Back
+                </button>
+            </div>
+        </div>
+
+        <div class="card shadow-sm mb-4">
+            <div class="card-header bg-@GetRoleBadgeColor(_userProfile.Role)">
+                <h3 class="text-white mb-0">
+                    <span class="bi bi-person-circle"></span> @_userProfile.Username
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>Profile Information</h5>
+                        <hr />
+                        <p class="mb-2"><strong>User ID:</strong> <code>@_userProfile.Id</code></p>
+                        <p class="mb-2"><strong>Username:</strong> @_userProfile.Username</p>
+                        <p class="mb-2"><strong>Email:</strong> @_userProfile.Email</p>
+                        <p class="mb-2"><strong>Role:</strong> <span class="badge bg-@GetRoleBadgeColor(_userProfile.Role)">@_userProfile.Role</span></p>
+                        <p class="mb-2"><strong>Account Created:</strong> @_userProfile.CreatedAt.ToString("MMMM dd, yyyy 'at' HH:mm")</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h5>Statistics</h5>
+                        <hr />
+                        @if (_orders != null && _orders.Any())
+                        {
+                            <p class="mb-2"><strong>Total Orders:</strong> <span class="badge bg-primary rounded-pill">@_orders.Count</span></p>
+                            <p class="mb-2"><strong>Total Spent:</strong> <span class="text-success fs-5">$@_orders.Sum(o => o.Price).ToString("F2")</span></p>
+                            <p class="mb-2"><strong>Pending Orders:</strong> <span class="badge bg-warning rounded-pill">@_orders.Count(o => o.Status == OrderStatus.Pending)</span></p>
+                            <p class="mb-2"><strong>Completed Orders:</strong> <span class="badge bg-success rounded-pill">@_orders.Count(o => o.Status == OrderStatus.Completed)</span></p>
+                        }
+                        else
+                        {
+                            <p class="text-muted">No orders yet.</p>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card shadow-sm">
+            <div class="card-header bg-light">
+                <h5 class="mb-0">Order History</h5>
+            </div>
+            <div class="card-body">
+                @if (_loadingOrders)
+                {
+                    <div class="text-center">
+                        <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading orders...</span>
+                        </div>
+                    </div>
+                }
+                else if (_orders == null || !_orders.Any())
+                {
+                    <div class="alert alert-info">
+                        <p class="mb-0">This user hasn't placed any orders yet.</p>
+                    </div>
+                }
+                else
+                {
+                    <div class="list-group">
+                        @foreach (var order in _orders.OrderByDescending(o => o.CreatedAt))
+                        {
+                            <div class="list-group-item list-group-item-action" style="cursor: pointer;" @onclick="() => NavigateToOrder(order.Id)">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <strong>Order #@order.Id.ToString().Substring(0, 8)...</strong>
+                                        <span class="text-muted ms-2">($@order.Price.ToString("F2"))</span>
+                                        <br />
+                                        <small class="text-muted">@(order.MenuIDs.Count) menus, @(order.ItemIDs.Count) items</small>
+                                    </div>
+                                    <div class="d-flex flex-column align-items-end">
+                                        <span class="badge bg-@GetStatusColor(order.Status) mb-1">@order.Status</span>
+                                        <small class="text-muted">@order.CreatedAt.ToString("MMM dd, yyyy HH:mm")</small>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public Guid UserId { get; set; }
+
+    private ClientProfileDto? _userProfile;
+    private List<OrderDto>? _orders;
+    private bool _isLoading = true;
+    private bool _loadingOrders = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await AuthService.InitializeAsync();
+
+        if (!AuthService.IsAuthenticated)
+        {
+            Navigation.NavigateTo("/login");
+            return;
+        }
+
+        await LoadUserProfile();
+    }
+
+    private async Task LoadUserProfile()
+    {
+        _isLoading = true;
+        
+        try
+        {
+            _userProfile = await UserService.GetUserByIdAsync(UserId);
+            
+            // Check permissions: Admin can see all, Client can only see their own profile
+            if (_userProfile != null && AuthService.CurrentUser?.Role == "Client")
+            {
+                if (_userProfile.Id != AuthService.CurrentUser.UserId)
+                {
+                    // User trying to access someone else's profile
+                    _userProfile = null;
+                }
+            }
+
+            if (_userProfile != null)
+            {
+                await LoadOrders();
+            }
+        }
+        catch
+        {
+            _userProfile = null;
+        }
+        finally
+        {
+            _isLoading = false;
+        }
+    }
+
+    private async Task LoadOrders()
+    {
+        _loadingOrders = true;
+        
+        try
+        {
+            _orders = await OrderService.GetOrderHistoryAsync(UserId);
+        }
+        catch
+        {
+            _orders = new List<OrderDto>();
+        }
+        finally
+        {
+            _loadingOrders = false;
+        }
+    }
+
+    private void NavigateToOrder(Guid orderId)
+    {
+        Navigation.NavigateTo($"/order/{orderId}?returnUrl=/profile/{UserId}");
+    }
+
+    private void GoBack()
+    {
+        Navigation.NavigateTo("/clients");
+    }
+
+    private string GetRoleBadgeColor(string role) => role switch
+    {
+        "Admin" => "danger",
+        "Kitchen" => "warning",
+        "Client" => "primary",
+        _ => "secondary"
+    };
+
+    private string GetStatusColor(OrderStatus status) => status switch
+    {
+        OrderStatus.Pending => "warning",
+        OrderStatus.Confirmed => "info",
+        OrderStatus.Preparing => "primary",
+        OrderStatus.Completed => "success",
+        OrderStatus.Cancelled => "danger",
+        _ => "secondary"
+    };
+}

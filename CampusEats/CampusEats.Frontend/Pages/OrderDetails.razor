@@ -1,0 +1,207 @@
+@page "/order/{orderId:guid}"
+@using CampusEatsFrontend.Models.Order
+@using CampusEatsFrontend.Services
+@inject OrderService OrderService
+@inject AuthService AuthService
+@inject NavigationManager Navigation
+
+<PageTitle>Order Details - CampusEats</PageTitle>
+
+<div class="container mt-4">
+    @if (_isLoading)
+    {
+        <div class="text-center">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    }
+    else if (_orderDetails == null)
+    {
+        <div class="alert alert-danger">
+            <h4>Order Not Found</h4>
+            <p>The order you're looking for doesn't exist or you don't have permission to view it.</p>
+            <a href="/orders" class="btn btn-primary">Back to Orders</a>
+        </div>
+    }
+    else
+    {
+        <div class="row mb-3">
+            <div class="col">
+                <button class="btn btn-secondary" @onclick="GoBack">
+                    <span class="bi bi-arrow-left"></span> Back
+                </button>
+            </div>
+        </div>
+
+        <div class="card shadow-sm">
+            <div class="card-header bg-@GetStatusColor(_orderDetails.Status)">
+                <h3 class="text-white mb-0">Order #@_orderDetails.Id.ToString().Substring(0, 8)...</h3>
+            </div>
+            <div class="card-body">
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <h5>Client Information</h5>
+                        <hr />
+                        <p class="mb-2"><strong>Username:</strong> @_orderDetails.ClientUsername</p>
+                        <p class="mb-2"><strong>Email:</strong> @_orderDetails.ClientEmail</p>
+                        <p class="mb-2"><strong>Client ID:</strong> <code>@_orderDetails.ClientId</code></p>
+                    </div>
+                    <div class="col-md-6">
+                        <h5>Order Information</h5>
+                        <hr />
+                        <p class="mb-2"><strong>Order ID:</strong> <code>@_orderDetails.Id</code></p>
+                        <p class="mb-2"><strong>Status:</strong> <span class="badge bg-@GetStatusColor(_orderDetails.Status)">@_orderDetails.Status</span></p>
+                        <p class="mb-2"><strong>Total Price:</strong> <span class="text-success fs-4">$@_orderDetails.Price.ToString("F2")</span></p>
+                        <p class="mb-2"><strong>Created:</strong> @_orderDetails.CreatedAt.ToString("MMMM dd, yyyy 'at' HH:mm:ss")</p>
+                    </div>
+                </div>
+
+                <h5>Order Contents</h5>
+                <hr />
+
+                <div class="row">
+                    @if (_orderDetails.Menus.Any())
+                    {
+                        <div class="col-md-6 mb-4">
+                            <h6 class="text-primary">Menus (@_orderDetails.Menus.Count)</h6>
+                            <div class="list-group">
+                                @foreach (var menu in _orderDetails.Menus)
+                                {
+                                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <strong>@menu.Name</strong>
+                                        </div>
+                                        <span class="badge bg-primary rounded-pill">$@menu.Price.ToString("F2")</span>
+                                    </div>
+                                }
+                            </div>
+                            <p class="mt-2 text-muted"><strong>Menus Subtotal:</strong> $@_orderDetails.Menus.Sum(m => m.Price).ToString("F2")</p>
+                        </div>
+                    }
+                    @if (_orderDetails.Items.Any())
+                    {
+                        <div class="col-md-6 mb-4">
+                            <h6 class="text-success">Individual Items (@_orderDetails.Items.Count)</h6>
+                            <div class="list-group">
+                                @foreach (var item in _orderDetails.Items)
+                                {
+                                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <strong>@item.Name</strong>
+                                        </div>
+                                        <span class="badge bg-success rounded-pill">$@item.Price.ToString("F2")</span>
+                                    </div>
+                                }
+                            </div>
+                            <p class="mt-2 text-muted"><strong>Items Subtotal:</strong> $@_orderDetails.Items.Sum(i => i.Price).ToString("F2")</p>
+                        </div>
+                    }
+                </div>
+
+                @if (!_orderDetails.Menus.Any() && !_orderDetails.Items.Any())
+                {
+                    <div class="alert alert-warning">
+                        <p class="mb-0">No items found in this order.</p>
+                    </div>
+                }
+
+                @if (AuthService.CurrentUser?.Role == "Admin" && _orderDetails.Status == OrderStatus.Pending)
+                {
+                    <hr />
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-danger" @onclick="CancelOrder">
+                            <span class="bi bi-x-circle"></span> Cancel Order
+                        </button>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public Guid OrderId { get; set; }
+
+    [SupplyParameterFromQuery(Name = "returnUrl")]
+    public string? ReturnUrl { get; set; }
+
+    private OrderDetailsDto? _orderDetails;
+    private bool _isLoading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await AuthService.InitializeAsync();
+
+        if (!AuthService.IsAuthenticated)
+        {
+            Navigation.NavigateTo("/login");
+            return;
+        }
+
+        await LoadOrderDetails();
+    }
+
+    private async Task LoadOrderDetails()
+    {
+        _isLoading = true;
+        
+        try
+        {
+            _orderDetails = await OrderService.GetOrderDetailsAsync(OrderId);
+            
+            // Check permissions: Admin can see all, Client can only see their own orders
+            if (_orderDetails != null && AuthService.CurrentUser?.Role == "Client")
+            {
+                if (_orderDetails.ClientId != AuthService.CurrentUser.UserId)
+                {
+                    // User trying to access someone else's order
+                    _orderDetails = null;
+                }
+            }
+        }
+        catch
+        {
+            _orderDetails = null;
+        }
+        finally
+        {
+            _isLoading = false;
+        }
+    }
+
+    private async Task CancelOrder()
+    {
+        if (_orderDetails == null) return;
+
+        var response = await OrderService.CancelOrderAsync(_orderDetails.Id);
+        if (response.IsSuccessStatusCode)
+        {
+            await LoadOrderDetails();
+            StateHasChanged();
+        }
+    }
+
+    private void GoBack()
+    {
+        if (!string.IsNullOrEmpty(ReturnUrl))
+        {
+            Navigation.NavigateTo(ReturnUrl);
+        }
+        else
+        {
+            Navigation.NavigateTo(AuthService.CurrentUser?.Role == "Admin" ? "/orders" : "/");
+        }
+    }
+
+    private string GetStatusColor(OrderStatus status) => status switch
+    {
+        OrderStatus.Pending => "warning",
+        OrderStatus.Confirmed => "info",
+        OrderStatus.Preparing => "primary",
+        OrderStatus.Completed => "success",
+        OrderStatus.Cancelled => "danger",
+        _ => "secondary"
+    };
+}
