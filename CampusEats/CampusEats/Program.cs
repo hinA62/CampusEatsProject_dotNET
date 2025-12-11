@@ -21,6 +21,8 @@ using Microsoft.EntityFrameworkCore;
 using Npgsql;
 using System.Text.Json.Serialization;
 using System.Text;
+using Stripe;
+using Stripe.Checkout;
 using CampusEats.Features.Inventory.Handlers;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -30,6 +32,9 @@ builder.Services.ConfigureHttpJsonOptions(options =>
 {
     options.SerializerOptions.Converters.Add(new JsonStringEnumConverter());
 });
+
+// Stripe configuration
+StripeConfiguration.ApiKey = builder.Configuration["Stripe:SecretKey"];
 
 // Add services to the container
 builder.Services.AddEndpointsApiExplorer();
@@ -97,6 +102,8 @@ builder.Services.AddScoped<GetPaymentByIdHandler>();
 builder.Services.AddScoped<GetPaymentHistoryHandler>();
 builder.Services.AddScoped<GetLoyaltyBalanceHandler>();
 builder.Services.AddScoped<RedeemPointsHandler>();
+builder.Services.AddScoped<CreateStripeCheckoutSessionHandler>();
+builder.Services.AddScoped<StripeWebhookHandler>();
 // Add CORS (optional - useful for Blazor)
 builder.Services.AddCors(options =>
 {
@@ -353,7 +360,6 @@ app.MapPost("/api/orders/{id:guid}/cancel", async (Guid id, CancelOrderHandler h
     .Produces(409);
 
 
-
 // ============================================
 // KITCHEN ENDPOINTS
 // ============================================
@@ -476,6 +482,33 @@ app.MapGet("/api/users/{userId:guid}/payments", async (Guid userId, GetPaymentHi
     .Produces(401)
     .Produces(403);
 
+// Stripe: create checkout session
+app.MapPost("/api/payments/stripe/checkout-session", async (
+        CreateStripeCheckoutSessionRequest request,
+        CreateStripeCheckoutSessionHandler handler,
+        CancellationToken ct) =>
+    {
+        return await handler.Handle(request, ct);
+    })
+    .RequireAuthorization(policy => policy.RequireRole("Client", "Admin"))
+    .WithName("CreateStripeCheckoutSession")
+    .WithTags("Payments")
+    .Produces(200)
+    .Produces(400)
+    .Produces(401)
+    .Produces(403)
+    .Produces(404);
+
+
+// Stripe webhook (public endpoint)
+app.MapPost("/api/payments/stripe/webhook", (
+        HttpRequest request,
+        StripeWebhookHandler handler,
+        CancellationToken ct) =>
+        handler.Handle(request, ct))
+    .AllowAnonymous()
+    .WithName("StripeWebhook")
+    .WithTags("Payments");
 
 // ============================================
 // LOYALTY ENDPOINTS

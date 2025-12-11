@@ -1,0 +1,12 @@
+﻿@page "/payment-success"
+@inject NavigationManager Navigation
+
+<h3>Payment successful!</h3>
+
+<p>Your payment was processed. You can view your orders.</p>
+
+<button class="btn btn-primary" @onclick="GoToOrders">Go to Orders</button>
+
+@code {
+    private void GoToOrders() => Navigation.NavigateTo("/orders");
+}

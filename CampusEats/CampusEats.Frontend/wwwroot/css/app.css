@@ -249,3 +249,101 @@ code {
 .dropdown-toggle::after {
     margin-left: 0.5rem;
 }
+
+/* =======================
+   PAYMENT PAGE
+   ======================= */
+
+.payment-page {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+/* card-urile din Payment */
+
+.payment-page .card {
+    border-radius: 0.75rem;
+    border: 1px solid var(--dry-sage);
+}
+
+/* header pentru Order Summary */
+.payment-page .card-header.bg-primary {
+    background-color: var(--hunter-green) !important;
+    color: var(--dust-gray) !important;
+}
+
+/* header pentru Payment Details */
+.payment-page .card-header.bg-success {
+    background-color: var(--fern) !important;
+    color: var(--carbon-black) !important;
+}
+
+/* badge de status & alte badge-uri info */
+.payment-page .badge.bg-info {
+    background-color: var(--yellow) !important;
+    color: var(--carbon-black) !important;
+}
+
+/* alerta cu info Stripe */
+.payment-page .alert.alert-info {
+    background-color: rgba(163, 177, 138, 0.2);
+    border-color: var(--dry-sage);
+    color: var(--dust-gray);
+}
+
+/* box pentru puncte de loialitate */
+.payment-page .card.border-warning {
+    border-color: var(--yellow) !important;
+}
+
+.payment-page .card.border-warning .card-header {
+    background-color: var(--yellow) !important;
+    color: var(--carbon-black) !important;
+}
+
+/* butonul principal "Pay" */
+.payment-page .btn-pay-main {
+    background-color: var(--fern);
+    border-color: var(--fern);
+    color: var(--carbon-black);
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+.payment-page .btn-pay-main:hover,
+.payment-page .btn-pay-main:focus {
+    background-color: var(--hunter-green);
+    border-color: var(--hunter-green);
+    color: var(--dust-gray);
+}
+
+/* buton secundar Cancel */
+.payment-page .btn-cancel-payment {
+    background-color: transparent;
+    border-color: var(--dust-gray);
+    color: var(--dust-gray);
+}
+
+.payment-page .btn-cancel-payment:hover {
+    background-color: var(--dust-gray);
+    color: var(--carbon-black);
+}
+
+/* card de succes după plată */
+.payment-page .payment-success-card {
+    background-color: var(--dust-gray);
+    color: var(--carbon-black);
+    border-radius: 0.75rem;
+    border: 1px solid var(--fern);
+}
+
+.payment-page .payment-success-card .bi-check-circle {
+    font-size: 4rem;
+}
+
+/* small details: cod de comandă etc. */
+.payment-page code {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 0.15rem 0.4rem;
+    border-radius: 0.25rem;
+}

@@ -1,4 +1,4 @@
-namespace CampusEatsFrontend.Models.Payment;
+﻿namespace CampusEatsFrontend.Models.Payment;
 
 public enum PaymentStatus
 {

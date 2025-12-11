@@ -34,4 +34,14 @@ public class PaymentService
     {
         return await _http.GetFromJsonAsync<List<PaymentDto>>($"api/users/{userId}/payments", _jsonOptions);
     }
+    
+    public async Task<string?> CreateStripeCheckoutSessionAsync(CreateStripeCheckoutSessionRequest request)
+    {
+        var response = await _http.PostAsJsonAsync("api/payments/stripe/checkout-session", request, _jsonOptions);
+        if (!response.IsSuccessStatusCode)
+            return null;
+
+        var payload = await response.Content.ReadFromJsonAsync<StripeCheckoutSessionResponse>(_jsonOptions);
+        return payload?.CheckoutUrl;
+    }
 }
