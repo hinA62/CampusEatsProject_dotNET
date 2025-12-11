@@ -1,27 +1,153 @@
-html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+/*=======================
+         GLOBAL 
+=========================*/
+:root {
+    --hunter-green: #3A5A40;
+    --fern: #588157;
+    --dry-sage: #A3B18A;
+    --dust-gray: #DAD7CD;
+    --carbon-black: #1d1e18;
+    
+    --yellow: #f4e285;
+    --red: #da2c38;
 }
 
-h1:focus {
-    outline: none;
+html, body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: var(--hunter-green);
+    color: var(--dust-gray);
 }
 
 a, .btn-link {
-    color: #0071c1;
+    color: var(--dust-gray) !important;
 }
 
 .btn-primary {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
+    color: var(--dry-sage);
+    background-color: var(--hunter-green);
+    border-color: var(--dry-sage);
 }
 
+.btn-primary:hover, 
+.btn-primary:active,
+.btn-primary:focus {
+    color: var(--fern);
+    background-color: var(--dust-gray) !important;
+    border-color: var(--dust-gray) !important;
+    box-shadow: 0 0 0 0.2rem var(--dust-gray) !important;
+}
+
+/*=======================
+        MENU ITEMS 
+=========================*/
+.form-control {
+    background-color: var(--dust-gray);
+    color: var(--fern) !important;
+}
+
+.form-control:focus {
+    background-color: var(--dry-sage);
+    outline: var(--dry-sage);
+}
+
+.form-control:hover {
+    background-color: var(--dust-gray);
+    color: var(--fern);
+}
+
+.card .item-image {
+    width: 100%;
+    height: 300px   ;
+    object-fit: cover;
+}
+
+.card .card-img-top.item-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--dust-gray);
+}
+
+.card {
+    height: 100%;
+    background-color: var(--dust-gray);
+    color: var(--carbon-black);
+}
+
+.card-text {
+    color: var(--carbon-black);
+}
+
+.text-allergens {
+    color: var(--carbon-black) !important;
+}
+
+.allergens-badge {
+    color: var(--carbon-black);
+    background-color: var(--yellow);
+}
+
+.btn-edit {
+    color: var(--carbon-black);
+    background-color: var(--fern);
+}
+
+.btn-edit:hover {
+    color: var(--dust-gray);
+    background-color: var(--hunter-green);
+}
+
+.btn-delete {
+    color: var(--carbon-black);
+    background-color: var(--red);
+}
+
+
+/*=======================
+    CREATE MENU ITEMS 
+=========================*/
+.mb-3 .form-control{
+    background-color: var(--dust-gray);
+    color: var(--carbon-black);
+}
+
+.mb-3 .form-control:hover,
+.mb-3 .form-control:active,
+.mb-3 .form-control:focus {
+    outline: var(--hunter-green) !important;
+    border-color: var(--hunter-green) !important;
+    background-color: var(--dust-gray) !important;
+}
+
+.form-check-input:checked {
+    background-color: var(--hunter-green);
+    border-color: var(--hunter-green);
+}
+
+.btn-cancel {
+    color: var(--carbon-black);
+    background-color: var(--dry-sage);
+}
+
+.allergens-box {
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+
+
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+  box-shadow: 0 0 0 0.1rem var(--dust-gray), 0 0 0 0.25rem var(--dust-gray);
 }
 
 .content {
+    margin-top: 0.7rem;
+    margin-bottom: 0.7rem;
+    margin-left: 0rem;
+    margin-right: 0rem;
     padding-top: 1.1rem;
+    padding-bottom: 1.1rem;
+    background-color: var(--carbon-black);
 }
 
 .valid.modified:not([type=checkbox]) {
@@ -85,7 +211,7 @@ a, .btn-link {
     }
 
         .loading-progress circle:last-child {
-            stroke: #1b6ec2;
+            stroke: #c2c5aa;
             stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
             transition: stroke-dasharray 0.05s ease-in-out;
         }
