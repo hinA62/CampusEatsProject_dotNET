@@ -1,6 +1,8 @@
 @page "/menus"
 @inject MenuService MenuService
+@inject MenuItemService MenuItemService
 @using CampusEatsFrontend.Models.Menu
+@using CampusEatsFrontend.Models.MenuItem
 @using CampusEatsFrontend.Services
 @inject NavigationManager Navigation
 @inject AuthService AuthService
@@ -9,11 +11,11 @@
 
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h3>Menus (Collections)</h3>
+        <h3>Meniuri (Colecții)</h3>
         @if (AuthService.CurrentUser?.Role == "Admin")
         {
             <button class="btn btn-primary" @onclick="GoToCreate">
-                <span class="bi bi-plus-circle"></span> Create Menu
+                <span class="bi bi-plus-circle"></span> Adaugă Meniu
             </button>
         }
     </div>
@@ -22,66 +24,109 @@
     {
         <div class="text-center">
             <div class="spinner-border" role="status">
-                <span class="visually-hidden">Loading...</span>
+                <span class="visually-hidden">Se încarcă...</span>
             </div>
         </div>
     }
     else if (_menus.Count == 0)
     {
-        <div class="alert alert-info">No menus created yet.</div>
+        <div class="alert alert-info">Nu există meniuri create încă.</div>
     }
     else
     {
-        <div class="table-responsive">
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Category</th>
-                        <th>Restrictions</th>
-                        <th>Price</th>
-                        <th># Items</th>
+        <div class="row">
+            @foreach (var menu in _menus)
+            {
+                <div class="col-sm-6 col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        @if (!string.IsNullOrEmpty(menu.ImageUrl))
+                        {
+                            <img src="@menu.ImageUrl" class="card-img-top item-image" alt="@menu.Name" />
+                        }
+                        else
+                        {
+                            <div class="card-img-top item-image d-flex align-items-center justify-content-center bg-light text-muted">
+                                Fără imagine
+                            </div>
+                        }
+                        <div class="card-body">
+                            <h5 class="card-title">@menu.Name</h5>
+                            <p class="card-text">
+                                <strong>Preț:</strong> @(menu.Price.HasValue ? $"{menu.Price.Value:F2} RON" : "N/A")
+                            </p>
+                            <p class="card-text">
+                                <span class="badge bg-info me-2">@menu.Category</span>
+                                @foreach (var restriction in GetRestrictionsList(menu.Restrictions))
+                                {
+                                    <span class="badge bg-warning me-1">@restriction</span>
+                                }
+                            </p>
+                            <div class="mt-2">
+                                <button class="btn btn-sm btn-outline-secondary w-100" @onclick="() => ToggleMenuItems(menu.Id)">
+                                    <span class="bi @(_expandedMenus.Contains(menu.Id) ? "bi-chevron-up" : "bi-chevron-down")"></span>
+                                    @(_expandedMenus.Contains(menu.Id) ? "Ascunde" : "Arată") Articole (@menu.ItemIds.Count)
+                                </button>
+                            </div>
+                            
+                            @if (_expandedMenus.Contains(menu.Id))
+                            {
+                                <div class="mt-3">
+                                    @if (_menuItemsCache.ContainsKey(menu.Id))
+                                    {
+                                        <ul class="list-group list-group-flush">
+                                            @foreach (var item in _menuItemsCache[menu.Id])
+                                            {
+                                                <li class="list-group-item px-0 py-2">
+                                                    <small>
+                                                        <strong>@item.Name</strong><br />
+                                                        <span class="text-muted">@item.Price.ToString("F2") RON</span>
+                                                    </small>
+                                                </li>
+                                            }
+                                        </ul>
+                                    }
+                                    else
+                                    {
+                                        <div class="text-center py-2">
+                                            <div class="spinner-border spinner-border-sm" role="status">
+                                                <span class="visually-hidden">Se încarcă...</span>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            }
+                        </div>
                         @if (AuthService.CurrentUser?.Role == "Admin")
                         {
-                            <th>Actions</th>
+                            <div class="card-footer bg-transparent border-top-0">
+                                <div class="d-flex justify-content-between">
+                                    <button class="btn btn-sm btn-outline-primary" @onclick="() => GoToEdit(menu.Id)">
+                                        <span class="bi bi-pencil"></span> Editează
+                                    </button>
+                                    <button class="btn btn-sm btn-danger" @onclick="() => DeleteMenu(menu.Id)">
+                                        <span class="bi bi-trash"></span> Șterge
+                                    </button>
+                                </div>
+                            </div>
                         }
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var m in _menus)
-                    {
-                        <tr>
-                            <td><strong>@m.Name</strong></td>
-                            <td><span class="badge bg-info">@m.Category</span></td>
-                            <td><span class="badge bg-warning">@m.Restrictions</span></td>
-                            <td>@(m.Price.HasValue ? $"${m.Price.Value:F2}" : "N/A")</td>
-                            <td>@m.ItemIds.Count items</td>
-                            @if (AuthService.CurrentUser?.Role == "Admin")
-                            {
-                                <td>
-                                    <button class="btn btn-sm btn-outline-primary me-2" @onclick="() => GoToEdit(m.Id)">
-                                        <span class="bi bi-pencil"></span> Edit
-                                    </button>
-                                    <button class="btn btn-sm btn-danger" @onclick="() => DeleteMenu(m.Id)">
-                                        <span class="bi bi-trash"></span> Delete
-                                    </button>
-                                </td>
-                            }
-                        </tr>
-                    }
-                </tbody>
-            </table>
+                    </div>
+                </div>
+            }
         </div>
     }
 </div>
 
 @code {
     List<MenuDto>? _menus;
+    HashSet<Guid> _expandedMenus = new();
+    Dictionary<Guid, List<MenuItemDto>> _menuItemsCache = new();
+    List<MenuItemDto>? _allMenuItems;
 
     protected override async Task OnInitializedAsync()
     {
         await AuthService.InitializeAsync();
         await LoadMenus();
+        _allMenuItems = await MenuItemService.GetAllMenuItemsAsync();
     }
 
     protected override async Task OnParametersSetAsync()
@@ -112,5 +157,52 @@
             _menus = await MenuService.GetAllMenusAsync();
             StateHasChanged();
         }
+    }
+
+    private void ToggleMenuItems(Guid menuId)
+    {
+        if (_expandedMenus.Contains(menuId))
+        {
+            _expandedMenus.Remove(menuId);
+        }
+        else
+        {
+            _expandedMenus.Add(menuId);
+            
+            // Load menu items if not already cached
+            if (!_menuItemsCache.ContainsKey(menuId) && _allMenuItems != null)
+            {
+                var menu = _menus?.FirstOrDefault(m => m.Id == menuId);
+                if (menu != null)
+                {
+                    _menuItemsCache[menuId] = _allMenuItems
+                        .Where(item => menu.ItemIds.Contains(item.Id))
+                        .ToList();
+                }
+            }
+        }
+    }
+
+    private List<string> GetRestrictionsList(DietaryRestrictions restrictions)
+    {
+        if (restrictions == DietaryRestrictions.None)
+        {
+            return new List<string> { "None" };
+        }
+
+        var list = new List<string>();
+        
+        if (restrictions.HasFlag(DietaryRestrictions.LactoseFree))
+            list.Add("Fără Lactoză");
+        if (restrictions.HasFlag(DietaryRestrictions.GlutenFree))
+            list.Add("Fără Gluten");
+        if (restrictions.HasFlag(DietaryRestrictions.NutFree))
+            list.Add("Fără Nuci");
+        if (restrictions.HasFlag(DietaryRestrictions.FoodAllergyFriendly))
+            list.Add("Prietenos cu Alergiile");
+        if (restrictions.HasFlag(DietaryRestrictions.SugarFree))
+            list.Add("Fără Zahăr");
+
+        return list.Count > 0 ? list : new List<string> { "None" };
     }
 }

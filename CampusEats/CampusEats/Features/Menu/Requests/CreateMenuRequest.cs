@@ -5,5 +5,6 @@ public record CreateMenuRequest(
     decimal? Price, 
     List<Guid>? ItemIds, 
     MenuCategory Category, 
-    DietaryRestrictions Restrictions
+    DietaryRestrictions Restrictions,
+    string? ImageUrl
     );

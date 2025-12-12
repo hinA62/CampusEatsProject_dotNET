@@ -5,10 +5,10 @@
 @inject AuthService AuthService
 @inject NavigationManager Navigation
 
-<PageTitle>Orders Management - CampusEats</PageTitle>
+<PageTitle>Orders - CampusEats</PageTitle>
 
 <div class="container mt-4">
-    <h3 class="mb-4">Orders Management</h3>
+    <h3 class="mb-4">@(_isAdmin ? "All Orders" : "My Orders")</h3>
 
     <div class="row mb-3">
         <div class="col-md-4">
@@ -48,7 +48,7 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
                                 <strong>Order #@order.Id.ToString().Substring(0, 8)...</strong>
-                                <span class="text-muted ms-2">($@order.Price.ToString("F2"))</span>
+                                <span class="text-muted ms-2">(@order.Price.ToString("F2") RON)</span>
                                 <br />
                                 <small class="text-muted">Client: @order.ClientId.ToString().Substring(0, 8)... | @(order.MenuIDs.Count) menus, @(order.ItemIDs.Count) items</small>
                             </div>
@@ -75,24 +75,26 @@
     private List<OrderDto>? _filteredOrders;
     private string _statusFilter = "";
     private bool _isLoading = true;
+    private bool _isAdmin = false;
 
     protected override async Task OnInitializedAsync()
     {
         await AuthService.InitializeAsync();
-        
-        if (AuthService.CurrentUser?.Role != "Admin")
-        {
-            Navigation.NavigateTo("/");
-            return;
-        }
-
+        _isAdmin = AuthService.CurrentUser?.Role == "Admin";
         await LoadOrders();
     }
 
     private async Task LoadOrders()
     {
         _isLoading = true;
-        _allOrders = await OrderService.GetAllOrdersAsync();
+        if (_isAdmin)
+        {
+            _allOrders = await OrderService.GetAllOrdersAsync();
+        }
+        else if (AuthService.CurrentUser != null)
+        {
+            _allOrders = await OrderService.GetOrderHistoryAsync(AuthService.CurrentUser.UserId) ?? new List<OrderDto>();
+        }
         _filteredOrders = _allOrders;
         _isLoading = false;
     }

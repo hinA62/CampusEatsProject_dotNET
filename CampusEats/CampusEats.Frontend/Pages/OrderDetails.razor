@@ -16,7 +16,7 @@
             </div>
         </div>
     }
-    else if (_orderDetails == null)
+    else if (_orderDetails == null && _basicOrder == null)
     {
         <div class="alert alert-danger">
             <h4>Order Not Found</h4>
@@ -35,25 +35,28 @@
         </div>
 
         <div class="card shadow-sm">
-            <div class="card-header bg-@GetStatusColor(_orderDetails.Status)">
-                <h3 class="text-white mb-0">Order #@_orderDetails.Id.ToString().Substring(0, 8)...</h3>
+            <div class="card-header bg-@DisplayStatusColor">
+                <h3 class="text-white mb-0">Order #@DisplayOrderId.ToString().Substring(0, 8)...</h3>
             </div>
             <div class="card-body">
                 <div class="row mb-4">
                     <div class="col-md-6">
                         <h5>Client Information</h5>
                         <hr />
-                        <p class="mb-2"><strong>Username:</strong> @_orderDetails.ClientUsername</p>
-                        <p class="mb-2"><strong>Email:</strong> @_orderDetails.ClientEmail</p>
-                        <p class="mb-2"><strong>Client ID:</strong> <code>@_orderDetails.ClientId</code></p>
+                        @if (_orderDetails != null)
+                        {
+                            <p class="mb-2"><strong>Username:</strong> @_orderDetails.ClientUsername</p>
+                            <p class="mb-2"><strong>Email:</strong> @_orderDetails.ClientEmail</p>
+                            <p class="mb-2"><strong>Client ID:</strong> <code>@_orderDetails.ClientId</code></p>
+                        }
                     </div>
                     <div class="col-md-6">
                         <h5>Order Information</h5>
                         <hr />
-                        <p class="mb-2"><strong>Order ID:</strong> <code>@_orderDetails.Id</code></p>
-                        <p class="mb-2"><strong>Status:</strong> <span class="badge bg-@GetStatusColor(_orderDetails.Status)">@_orderDetails.Status</span></p>
-                        <p class="mb-2"><strong>Total Price:</strong> <span class="text-success fs-4">$@_orderDetails.Price.ToString("F2")</span></p>
-                        <p class="mb-2"><strong>Created:</strong> @_orderDetails.CreatedAt.ToString("MMMM dd, yyyy 'at' HH:mm:ss")</p>
+                        <p class="mb-2"><strong>Order ID:</strong> <code>@DisplayOrderId</code></p>
+                        <p class="mb-2"><strong>Status:</strong> <span class="badge bg-@DisplayStatusColor">@DisplayStatus</span></p>
+                        <p class="mb-2"><strong>Total Price:</strong> <span class="text-success fs-4">@DisplayPrice.ToString("F2") RON</span></p>
+                        <p class="mb-2"><strong>Created:</strong> @DisplayCreatedAt.ToString("MMMM dd, yyyy 'at' HH:mm:ss")</p>
                     </div>
                 </div>
 
@@ -61,7 +64,7 @@
                 <hr />
 
                 <div class="row">
-                    @if (_orderDetails.Menus.Any())
+                    @if (_orderDetails != null && _orderDetails.Menus.Any())
                     {
                         <div class="col-md-6 mb-4">
                             <h6 class="text-primary">Menus (@_orderDetails.Menus.Count)</h6>
@@ -72,14 +75,14 @@
                                         <div>
                                             <strong>@menu.Name</strong>
                                         </div>
-                                        <span class="badge bg-primary rounded-pill">$@menu.Price.ToString("F2")</span>
+                                        <span class="badge bg-primary rounded-pill">@menu.Price.ToString("F2") RON</span>
                                     </div>
                                 }
                             </div>
-                            <p class="mt-2 text-muted"><strong>Menus Subtotal:</strong> $@_orderDetails.Menus.Sum(m => m.Price).ToString("F2")</p>
+                            <p class="mt-2 text-muted"><strong>Menus Subtotal:</strong> @_orderDetails.Menus.Sum(m => m.Price).ToString("F2") RON</p>
                         </div>
                     }
-                    @if (_orderDetails.Items.Any())
+                    @if (_orderDetails != null && _orderDetails.Items.Any())
                     {
                         <div class="col-md-6 mb-4">
                             <h6 class="text-success">Individual Items (@_orderDetails.Items.Count)</h6>
@@ -90,23 +93,23 @@
                                         <div>
                                             <strong>@item.Name</strong>
                                         </div>
-                                        <span class="badge bg-success rounded-pill">$@item.Price.ToString("F2")</span>
+                                        <span class="badge bg-success rounded-pill">@item.Price.ToString("F2") RON</span>
                                     </div>
                                 }
                             </div>
-                            <p class="mt-2 text-muted"><strong>Items Subtotal:</strong> $@_orderDetails.Items.Sum(i => i.Price).ToString("F2")</p>
+                            <p class="mt-2 text-muted"><strong>Items Subtotal:</strong> @_orderDetails.Items.Sum(i => i.Price).ToString("F2") RON</p>
                         </div>
                     }
                 </div>
 
-                @if (!_orderDetails.Menus.Any() && !_orderDetails.Items.Any())
+                @if (_orderDetails == null)
                 {
                     <div class="alert alert-warning">
-                        <p class="mb-0">No items found in this order.</p>
+                        <p class="mb-0">Detailed items are unavailable, but basic order info is shown.</p>
                     </div>
                 }
 
-                @if (AuthService.CurrentUser?.Role == "Admin" && _orderDetails.Status == OrderStatus.Pending)
+                @if (AuthService.CurrentUser?.Role == "Admin" && _orderDetails != null && _orderDetails.Status == OrderStatus.Pending)
                 {
                     <hr />
                     <div class="d-flex gap-2">
@@ -128,7 +131,13 @@
     public string? ReturnUrl { get; set; }
 
     private OrderDetailsDto? _orderDetails;
+    private OrderDto? _basicOrder;
     private bool _isLoading = true;
+    private Guid DisplayOrderId => _orderDetails?.Id ?? _basicOrder?.Id ?? OrderId;
+    private OrderStatus DisplayStatus => _orderDetails?.Status ?? _basicOrder?.Status ?? OrderStatus.Pending;
+    private string DisplayStatusColor => GetStatusColor(DisplayStatus);
+    private decimal DisplayPrice => _orderDetails?.Price ?? _basicOrder?.Price ?? 0m;
+    private DateTime DisplayCreatedAt => _orderDetails?.CreatedAt ?? _basicOrder?.CreatedAt ?? DateTime.MinValue;
 
     protected override async Task OnInitializedAsync()
     {
@@ -156,7 +165,6 @@
             {
                 if (_orderDetails.ClientId != AuthService.CurrentUser.UserId)
                 {
-                    // User trying to access someone else's order
                     _orderDetails = null;
                 }
             }
@@ -168,6 +176,19 @@
         finally
         {
             _isLoading = false;
+        }
+
+        // Fallback: load basic order if detailed endpoint is unavailable or unauthorized
+        if (_orderDetails == null)
+        {
+            var order = await OrderService.GetOrderByIdAsync(OrderId);
+            if (order != null)
+            {
+                if (AuthService.CurrentUser?.Role == "Admin" || order.ClientId == AuthService.CurrentUser?.UserId)
+                {
+                    _basicOrder = order;
+                }
+            }
         }
     }
 

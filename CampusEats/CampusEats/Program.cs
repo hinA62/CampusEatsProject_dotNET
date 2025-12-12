@@ -378,7 +378,7 @@ app.MapGet("/api/orders/{id:guid}/details", async (
 
     return Results.Ok(result);
 })
-.RequireAuthorization(policy => policy.RequireRole("Admin", "Kitchen"))
+.RequireAuthorization(policy => policy.RequireRole("Admin", "Kitchen", "Client"))
 .WithName("GetOrderDetails")
 .WithTags("Orders")
 .Produces(200)

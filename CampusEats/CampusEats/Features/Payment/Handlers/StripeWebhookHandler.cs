@@ -27,16 +27,21 @@ public class StripeWebhookHandler
         Event stripeEvent;
         try
         {
-            stripeEvent = EventUtility.ConstructEvent(json, signature, webhookSecret);
+            stripeEvent = EventUtility.ConstructEvent(json, signature, webhookSecret, throwOnApiVersionMismatch: false);
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"❌ Stripe webhook error: {ex.Message}");
-            return Results.BadRequest();
+            Console.WriteLine($"❌ Stripe webhook signature validation error: {ex.Message}");
+            return Results.BadRequest($"Webhook signature validation failed: {ex.Message}");
         }
 
+        Console.WriteLine($"✅ Stripe webhook received: {stripeEvent.Type}");
+
         if (stripeEvent.Type != Events.CheckoutSessionCompleted)
+        {
+            Console.WriteLine($"⏩ Ignoring event type: {stripeEvent.Type}");
             return Results.Ok(); // ignorăm alte event-uri
+        }
 
         var session = stripeEvent.Data.Object as Session;
         if (session is null)
@@ -70,7 +75,11 @@ public class StripeWebhookHandler
             pointsToUse
         );
 
+        Console.WriteLine($"✅ Stripe webhook received: userId={userId}, orderId={orderId}, amountTotal={amountTotal}, pointsToUse={pointsToUse}");
+
         // folosim CreatePaymentHandler-ul tău existent (loyalty, tiers, etc.)
-        return await _paymentHandler.Handle(req, ct);
+        var result = await _paymentHandler.Handle(req, ct);
+        Console.WriteLine($"✅ CreatePaymentHandler completed for order {orderId}");
+        return result;
     }
 }

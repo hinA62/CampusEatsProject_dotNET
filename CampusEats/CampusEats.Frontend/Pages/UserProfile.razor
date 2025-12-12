@@ -59,7 +59,7 @@
                         @if (_orders != null && _orders.Any())
                         {
                             <p class="mb-2"><strong>Total Orders:</strong> <span class="badge bg-primary rounded-pill">@_orders.Count</span></p>
-                            <p class="mb-2"><strong>Total Spent:</strong> <span class="text-success fs-5">$@_orders.Sum(o => o.Price).ToString("F2")</span></p>
+                            <p class="mb-2"><strong>Total Spent:</strong> <span class="text-success fs-5">@_orders.Sum(o => o.Price).ToString("F2") RON</span></p>
                             <p class="mb-2"><strong>Pending Orders:</strong> <span class="badge bg-warning rounded-pill">@_orders.Count(o => o.Status == OrderStatus.Pending)</span></p>
                             <p class="mb-2"><strong>Completed Orders:</strong> <span class="badge bg-success rounded-pill">@_orders.Count(o => o.Status == OrderStatus.Completed)</span></p>
                         }
@@ -100,7 +100,7 @@
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div>
                                         <strong>Order #@order.Id.ToString().Substring(0, 8)...</strong>
-                                        <span class="text-muted ms-2">($@order.Price.ToString("F2"))</span>
+                                        <span class="text-muted ms-2">(@order.Price.ToString("F2") RON)</span>
                                         <br />
                                         <small class="text-muted">@(order.MenuIDs.Count) menus, @(order.ItemIDs.Count) items</small>
                                     </div>

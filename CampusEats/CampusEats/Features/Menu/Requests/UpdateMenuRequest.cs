@@ -4,5 +4,6 @@ public record UpdateMenuRequest(
     string Name,
     decimal? Price,
     List<Guid>? ItemIds,
-    MenuCategory Category
+    MenuCategory Category,
+    string? ImageUrl
 );

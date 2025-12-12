@@ -8,4 +8,5 @@ public class UpdateMenuRequest
     public List<Guid> ItemIds { get; set; } = new();
     public MenuCategory Category { get; set; }
     public DietaryRestrictions Restrictions { get; set; }
+    public string? ImageUrl { get; set; }
 }

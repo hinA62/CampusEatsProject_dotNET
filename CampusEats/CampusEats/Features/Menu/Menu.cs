@@ -9,5 +9,6 @@ public record Menu(
     [property: JsonPropertyName("ItemIds")]
     List<Guid> ItemId, 
     MenuCategory Category, 
-    DietaryRestrictions Restrictions
+    DietaryRestrictions Restrictions,
+    string? ImageUrl
     );

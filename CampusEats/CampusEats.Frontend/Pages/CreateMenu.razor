@@ -60,9 +60,15 @@
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label">Price ($)</label>
+                                <label class="form-label">Preț (RON)</label>
                                 <InputNumber class="form-control" @bind-Value="_newMenu.Price" step="0.01" />
                                 <small class="form-text text-muted">Optional - total price for the menu</small>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Image URL</label>
+                                <InputText class="form-control" @bind-Value="_newMenu.ImageUrl" placeholder="https://example.com/image.jpg" />
+                                <small class="form-text text-muted">Optional - URL to menu image</small>
                             </div>
 
                             <div class="mb-3">
@@ -84,7 +90,7 @@
                                                        checked="@_selectedItemIds.Contains(item.Id)"
                                                        @onchange="@(() => ToggleMenuItem(item.Id))" />
                                                 <label class="form-check-label" for="item-@item.Id">
-                                                    <strong>@item.Name</strong> - $@item.Price.ToString("F2")
+                                                    <strong>@item.Name</strong> - @item.Price.ToString("F2") RON
                                                 </label>
                                             </div>
                                         }

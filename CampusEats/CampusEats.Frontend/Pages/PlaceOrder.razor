@@ -72,7 +72,7 @@
                                                 </small>
                                             </div>
                                             <div>
-                                                <strong class="text-primary">$@(menu.Price?.ToString("F2") ?? "0.00")</strong>
+                                                <strong class="text-primary">@(menu.Price?.ToString("F2") ?? "0.00") RON</strong>
                                             </div>
                                         </div>
                                     </label>
@@ -112,7 +112,7 @@
                                                 }
                                             </div>
                                             <div>
-                                                <strong class="text-success">$@item.Price.ToString("F2")</strong>
+                                                <strong class="text-success">@item.Price.ToString("F2") RON</strong>
                                             </div>
                                         </div>
                                     </label>
@@ -141,7 +141,7 @@
                                     var menu = _menus?.FirstOrDefault(m => m.Id == menuId);
                                     @if (menu != null)
                                     {
-                                        <li>• @menu.Name - $@(menu.Price?.ToString("F2") ?? "0.00")</li>
+                                        <li>• @menu.Name - @(menu.Price?.ToString("F2") ?? "0.00") RON</li>
                                     }
                                 }
                             </ul>
@@ -161,7 +161,7 @@
                                     var item = _menuItems?.FirstOrDefault(i => i.Id == itemId);
                                     @if (item != null)
                                     {
-                                        <li>• @item.Name - $@item.Price.ToString("F2")</li>
+                                        <li>• @item.Name - @item.Price.ToString("F2") RON</li>
                                     }
                                 }
                             </ul>
@@ -175,7 +175,7 @@
                 <hr />
                 <div class="d-flex justify-content-between align-items-center">
                     <h4>Total Price:</h4>
-                    <h4 class="text-primary">$@_totalPrice.ToString("F2")</h4>
+                    <h4 class="text-primary">@_totalPrice.ToString("F2") RON</h4>
                 </div>
             </div>
         </div>

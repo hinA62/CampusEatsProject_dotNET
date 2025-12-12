@@ -54,7 +54,7 @@
                             </div>
                             <div class="col-6 text-end">
                                 <p class="mb-1"><strong>Order Total:</strong></p>
-                                <h3 class="text-primary mb-0">$@_order.Price.ToString("F2")</h3>
+                                <h3 class="text-primary mb-0">@_order.Price.ToString("F2") RON</h3>
                             </div>
                         </div>
 
@@ -67,7 +67,7 @@
                                         <strong><span class="bi bi-star-fill"></span> Loyalty Points Available:</strong>
                                         <p class="mb-0">
                                             You have <strong>@_loyaltyBalance.Points points</strong>
-                                            (= $@((_loyaltyBalance.Points / 100m).ToString("F2")) discount)
+                                            (= @((_loyaltyBalance.Points / 100m).ToString("F2")) RON reducere)
                                         </p>
                                         <small class="text-muted">
                                             Tier: @_loyaltyBalance.CurrentTier |

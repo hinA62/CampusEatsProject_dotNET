@@ -72,7 +72,7 @@ public class CreateMenuHandler(CampusEatsContext context, ILogger<CreateMenuHand
         //create a menu
         Debug.Assert(request.ItemIds != null, "request.ItemIds != null");
         var menu = new Menu(Guid.NewGuid(), request.Name, 
-            request.Price, request.ItemIds, request.Category, finalRestrictions);
+            request.Price, request.ItemIds, request.Category, finalRestrictions, request.ImageUrl);
         context.Menu.Add(menu);
         await context.SaveChangesAsync();
         logger.LogInformation("Menu created with Name: {MenuName}", menu.Name);

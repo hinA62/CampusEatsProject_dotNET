@@ -1,0 +1,185 @@
+@page "/"
+@using CampusEatsFrontend.Services
+@inject AuthService AuthService
+@inject NavigationManager Navigation
+
+<PageTitle>CampusEats - Home</PageTitle>
+
+<!-- Hero Section with Image Background -->
+<div class="position-relative mb-5" style="height: 500px; overflow: hidden;">
+    <!-- Background Image (Full Width) -->
+    <img src="/images/hero-banner.jpg" alt="CampusEats Banner" class="w-100 h-100" style="object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1;" />
+    
+    <!-- Dark Overlay for Better Text Readability -->
+    <div class="position-absolute w-100 h-100" style="background: rgba(0, 0, 0, 0.5); z-index: 2; top: 0; left: 0;"></div>
+    
+    <!-- Hero Content Overlay -->
+    <div class="container position-relative h-100 d-flex align-items-center" style="z-index: 3;">
+        <div class="row w-100">
+            <div class="col-lg-8">
+                <h1 class="display-3 fw-bold mb-3 text-white">Bine ai venit la CampusEats</h1>
+                <p class="lead text-white mb-4 fs-5">
+                    Experiența ta de mâncare preferată pe campus, acum la îndemâna ta. 
+                    Comandă mâncăruri delicioase, acumulează puncte de loialitate și bucură-te de livrare rapidă.
+                </p>
+                
+                @if (!AuthService.IsAuthenticated)
+                {
+                    <div class="d-flex gap-3">
+                        <button class="btn btn-primary btn-lg" @onclick='() => Navigation.NavigateTo("/login")'>
+                            <i class="bi bi-box-arrow-in-right me-2"></i>Login
+                        </button>
+                        <button class="btn btn-outline-light btn-lg" @onclick='() => Navigation.NavigateTo("/register")'>
+                            <i class="bi bi-person-plus me-2"></i>Register
+                        </button>
+                    </div>
+                }
+                else
+                {
+                    <div class="d-flex gap-3">
+                        <button class="btn btn-primary btn-lg shadow" @onclick='() => Navigation.NavigateTo("/menus")'>
+                            <i class="bi bi-card-list me-2"></i>Explorează Meniuri
+                        </button>
+                        <button class="btn btn-success btn-lg shadow" @onclick='() => Navigation.NavigateTo("/place-order")'>
+                            <i class="bi bi-cart-plus me-2"></i>Comandă Acum
+                        </button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+
+    <!-- Features Section -->
+    <div class="row g-4 mb-5">
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center p-4">
+                    <div class="mb-3">
+                        <i class="bi bi-lightning-charge-fill text-warning" style="font-size: 48px;"></i>
+                    </div>
+                    <h5 class="card-title">Livrare Rapidă</h5>
+                    <p class="card-text text-muted">Primește comenzile rapid la locația ta din campus</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center p-4">
+                    <div class="mb-3">
+                        <i class="bi bi-star-fill text-warning" style="font-size: 48px;"></i>
+                    </div>
+                    <h5 class="card-title">Recompense Loialitate</h5>
+                    <p class="card-text text-muted">Acumulează puncte la fiecare achiziție și deblochează recompense speciale</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center p-4">
+                    <div class="mb-3">
+                        <i class="bi bi-shield-check-fill text-success" style="font-size: 48px;"></i>
+                    </div>
+                    <h5 class="card-title">Mâncare de Calitate</h5>
+                    <p class="card-text text-muted">Ingrediente proaspete și mâncăruri delicioase preparate zilnic</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if (AuthService.IsAuthenticated)
+    {
+        <!-- Quick Actions -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="card border-0 shadow-sm bg-primary text-white">
+                    <div class="card-body p-4">
+                        <h4 class="card-title mb-3">Acțiuni Rapide</h4>
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <button class="btn btn-light w-100" @onclick='() => Navigation.NavigateTo("/menus")'>
+                                    <i class="bi bi-card-list me-2"></i>Explorează Meniuri
+                                </button>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-light w-100" @onclick='() => Navigation.NavigateTo("/orders")'>
+                                    <i class="bi bi-clipboard-check me-2"></i>Comenzile Mele
+                                </button>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-light w-100" @onclick='() => Navigation.NavigateTo("/loyalty")'>
+                                    <i class="bi bi-star-fill me-2"></i>Puncte Loialitate
+                                </button>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-light w-100" @onclick='() => Navigation.NavigateTo("/profile")'>
+                                    <i class="bi bi-person-circle me-2"></i>Profilul Meu
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    <!-- Info Section -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-5 text-center">
+                    <h3 class="mb-4">Cum Funcționează</h3>
+                    <div class="row g-4">
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                    <strong style="font-size: 24px;">1</strong>
+                                </div>
+                            </div>
+                            <h5>Explorează Meniul</h5>
+                            <p class="text-muted">Descoperă itemele și comburile noastre delicioase</p>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                    <strong style="font-size: 24px;">2</strong>
+                                </div>
+                            </div>
+                            <h5>Comandă</h5>
+                            <p class="text-muted">Selectează produsele și plasează comanda</p>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                    <strong style="font-size: 24px;">3</strong>
+                                </div>
+                            </div>
+                            <h5>Plătește</h5>
+                            <p class="text-muted">Plată securizată cu Stripe</p>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                    <strong style="font-size: 24px;">4</strong>
+                                </div>
+                            </div>
+                            <h5>Savurează!</h5>
+                            <p class="text-muted">Primește mâncarea proaspătă și fierbinte</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await AuthService.InitializeAsync();
+    }
+}

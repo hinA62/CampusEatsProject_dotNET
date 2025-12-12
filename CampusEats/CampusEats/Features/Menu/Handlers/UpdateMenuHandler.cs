@@ -75,7 +75,8 @@ public class UpdateMenuHandler (CampusEatsContext context, ILogger<UpdateMenuHan
             Price = request.Price ?? menu.Price,
             ItemId = itemIds,
             Category = request.Category,
-            Restrictions = finalRestrictions
+            Restrictions = finalRestrictions,
+            ImageUrl = request.ImageUrl ?? menu.ImageUrl
         };
         context.Entry(menu).CurrentValues.SetValues(updatedMenu);
         await context.SaveChangesAsync();
