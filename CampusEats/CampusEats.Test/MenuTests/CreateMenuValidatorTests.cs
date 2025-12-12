@@ -12,7 +12,7 @@ public class CreateMenuValidatorTests
         // Arrange
         var model = new CreateMenuRequest
             ( "Valid Menu Name", 15.99m, [Guid.NewGuid()],
-                MenuCategory.Breakfast, DietaryRestrictions.GlutenFree);
+                MenuCategory.Breakfast, DietaryRestrictions.GlutenFree, null);
         var validator = new CreateMenuValidator();
 
         // Act
@@ -30,7 +30,7 @@ public class CreateMenuValidatorTests
         // Arrange
         var model = new CreateMenuRequest
             (name, 15.99m, [Guid.NewGuid()], 
-                MenuCategory.Vegetarian, DietaryRestrictions.None);
+                MenuCategory.Vegetarian, DietaryRestrictions.None, null);
         var validator = new CreateMenuValidator();
 
         // Act
@@ -49,7 +49,7 @@ public class CreateMenuValidatorTests
         var longName = new string('a', 51);
         var model = new CreateMenuRequest
             (longName, 15.99m, [Guid.NewGuid()],
-                MenuCategory.Traditional, DietaryRestrictions.None);
+                MenuCategory.Traditional, DietaryRestrictions.None, null);
         var validator = new CreateMenuValidator();
 
         // Act
@@ -67,7 +67,7 @@ public class CreateMenuValidatorTests
         // Arrange
         var model = new CreateMenuRequest
             ("Valid Menu", null, [Guid.NewGuid()],
-                MenuCategory.Asian, DietaryRestrictions.LactoseFree);
+                MenuCategory.Asian, DietaryRestrictions.LactoseFree, null);
         var validator = new CreateMenuValidator();
 
         // Act
@@ -88,7 +88,7 @@ public class CreateMenuValidatorTests
         // Arrange
         var model = new CreateMenuRequest
             ("Valid Menu", price, [Guid.NewGuid()], 
-                MenuCategory.Vegan, DietaryRestrictions.SugarFree);
+                MenuCategory.Vegan, DietaryRestrictions.SugarFree, null);
         var validator = new CreateMenuValidator();
 
         // Act
@@ -107,7 +107,7 @@ public class CreateMenuValidatorTests
         // Arrange
         var model = new CreateMenuRequest
         ( "Valid Menu", 15.99m, itemIds!,
-            MenuCategory.Dessert, DietaryRestrictions.None);
+            MenuCategory.Dessert, DietaryRestrictions.None, null);
         var validator = new CreateMenuValidator();
 
         // Act
@@ -125,7 +125,7 @@ public class CreateMenuValidatorTests
         // Arrange
         var model = new CreateMenuRequest
         ("", -5m, null, MenuCategory.Dinner,
-            DietaryRestrictions.FoodAllergyFriendly);
+            DietaryRestrictions.FoodAllergyFriendly, null);
         var validator = new CreateMenuValidator();
 
         // Act

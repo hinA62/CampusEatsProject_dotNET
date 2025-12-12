@@ -12,7 +12,7 @@ public class UpdateMenuValidatorTests
         // Arrange
         var model = new UpdateMenuRequest
         (Guid.NewGuid(), "Valid Menu Name", 15.99m, 
-            [Guid.NewGuid()], MenuCategory.Breakfast);
+            [Guid.NewGuid()], MenuCategory.Breakfast, null);
         var validator = new UpdateMenuValidator();
 
         // Act
@@ -30,7 +30,7 @@ public class UpdateMenuValidatorTests
         // Arrange
         var model = new UpdateMenuRequest
             (Guid.NewGuid(), name, 15.99m,
-                [Guid.NewGuid()], MenuCategory.Vegetarian);
+                [Guid.NewGuid()], MenuCategory.Vegetarian, null);
         var validator = new UpdateMenuValidator();
 
         // Act
@@ -49,7 +49,7 @@ public class UpdateMenuValidatorTests
         var longName = new string('a', 51);
         var model = new UpdateMenuRequest
             (Guid.NewGuid(), longName, 15.99m, 
-                [Guid.NewGuid()], MenuCategory.Traditional);
+                [Guid.NewGuid()], MenuCategory.Traditional, null);
         var validator = new UpdateMenuValidator();
 
         // Act
@@ -70,7 +70,7 @@ public class UpdateMenuValidatorTests
         // Arrange
         var model = new UpdateMenuRequest
         (Guid.NewGuid(), "Valid Menu", price,
-            [Guid.NewGuid()], MenuCategory.Vegan);
+            [Guid.NewGuid()], MenuCategory.Vegan, null);
         var validator = new UpdateMenuValidator();
 
         // Act
@@ -89,7 +89,7 @@ public class UpdateMenuValidatorTests
         // Arrange
         var model = new UpdateMenuRequest
         ( Guid.NewGuid(), "Valid Menu", 15.99m, 
-            itemIds!, MenuCategory.Dessert);
+            itemIds!, MenuCategory.Dessert, null);
         var validator = new UpdateMenuValidator();
 
         // Act
@@ -106,7 +106,7 @@ public class UpdateMenuValidatorTests
     {
         // Arrange
         var model = new UpdateMenuRequest
-            (Guid.NewGuid(),"", -5m, null, MenuCategory.Dinner);
+            (Guid.NewGuid(),"", -5m, null, MenuCategory.Dinner, null);
         var validator = new UpdateMenuValidator();
 
         // Act
