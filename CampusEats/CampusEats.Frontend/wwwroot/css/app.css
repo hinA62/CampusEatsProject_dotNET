@@ -73,6 +73,21 @@ a, .btn-link {
     box-shadow: 0 0 0 0.2rem var(--fern) !important;
 }
 
+.btn-loyalty {
+    color: var(--hunter-green);
+    border-color: var(--hunter-green);
+    background-color: transparent;
+}
+
+.btn-loyalty:hover, 
+.btn-loyalty:active,
+.btn-loyalty:focus {
+    color: var(--hunter-green) !important;
+    border-color: var(--hunter-green) !important;
+    background-color: rgba(58, 90, 64, 0.1) !important;
+    box-shadow: 0 0 0 0.2rem var(--fern) !important;
+}
+
 .form-select {
     background-color: var(--dust-gray) !important;
     color: var(--carbon-black) !important;
@@ -473,4 +488,43 @@ code {
 .role-badge {
     color: var(--dust-gray);
     background-color: var(--hunter-green);
+}
+
+/* Adaptive card styling for Payment page */
+.payment-page .card {
+    height: auto;
+    min-height: auto;
+}
+
+.payment-page .card-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.payment-page .card-body .input-group .input-group-text {
+    background-color: var(--dust-gray) !important;
+    color: var(--carbon-black) !important;
+    border: none !important;
+    border-radius: 0.375rem 0 0 0.375rem !important;
+}
+
+.payment-page .card-body .input-group .form-control {
+    background-color: var(--dust-gray) !important;
+    margin-right: 0.5rem;
+    border-radius: 0.375rem 0 0 0.375rem !important;
+}
+
+.payment-page .card-body .btn-loyalty {
+    border-radius: 0 0.375rem 0.375rem 0 !important;
+}
+
+.payment-page .card-header {
+    padding: 0.75rem 1.25rem;
+}
+
+@media (max-width: 768px) {
+    .payment-page .card {
+        margin-bottom: 1rem;
+    }
 }

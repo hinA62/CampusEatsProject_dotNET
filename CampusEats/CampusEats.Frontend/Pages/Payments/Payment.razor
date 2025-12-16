@@ -2,11 +2,15 @@
 @using CampusEatsFrontend.Models.Payment
 @using CampusEatsFrontend.Models.Order
 @using CampusEatsFrontend.Models.Loyalty
+@using CampusEatsFrontend.Models.Menu
+@using CampusEatsFrontend.Models.MenuItem
 @using CampusEatsFrontend.Services
 @using Microsoft.AspNetCore.Components.Web
 @inject PaymentService PaymentService
 @inject OrderService OrderService
 @inject LoyaltyService LoyaltyService
+@inject MenuService MenuService
+@inject MenuItemService MenuItemService
 @inject AuthService AuthService
 @inject NavigationManager Navigation
 
@@ -32,158 +36,169 @@
             else
             {
                 <!-- Order Summary Card -->
-                <div class="card shadow mb-4">
+                <div class="card shadow">
                     <div class="card-header bg-primary text-white">
                         <h4 class="mb-0"><span class="bi bi-receipt"></span> Rezumat Comandă</h4>
                     </div>
                     <div class="card-body">
-                        <div class="row mb-3">
-                            <div class="col-6 text-end">
-                                <p class="mb-1"><strong>Status:</strong></p>
-                                <p><span class="badge bg-info">@_order.Status</span></p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <p class="mb-1"><strong>Produse:</strong></p>
-                                <p class="text-muted">@_order.MenuIDs.Count meniuri, @_order.ItemIDs.Count feluri individuale</p>
-                            </div>
-                            <div class="col-6 text-end">
-                                <p class="mb-1"><strong>Total:</strong></p>
-                                <h3 class="text mb-0">@_order.Price.ToString("F2") RON</h3>
-                            </div>
-                        </div>
-
-                        @if (_loyaltyBalance != null && _loyaltyBalance.Points > 0)
+                        <!-- Menus Section -->
+                        @if (_order.MenuIDs.Count > 0)
                         {
-                            <hr />
-                            <div class="alert alert-success mb-0">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <strong><span class="bi bi-star-fill"></span> Puncte de Loialitate Disponibile:</strong>
-                                        <p class="mb-0">
-                                            Ai <strong>@_loyaltyBalance.Points (de) puncte de loialitate.</strong>
-                                            (= @((_loyaltyBalance.Points / 100m).ToString("F2")) RON reducere)
-                                        </p>
-                                        <small class="text-muted">
-                                            Nivel: @_loyaltyBalance.CurrentTier |
-                                            Cashback: @(_loyaltyBalance.CashbackRate.ToString("F0")) x puncte
-                                        </small>
-                                    </div>
-                                </div>
+                            <div class="mb-3">
+                                <h6 class="mb-2"><strong>Meniuri</strong></h6>
+                                @foreach (var menuId in _order.MenuIDs)
+                                {
+                                    var menu = _menuDetails.FirstOrDefault(m => m.Id == menuId);
+                                    if (menu != null)
+                                    {
+                                        <div class="ms-3 mb-2">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span>@menu.Name</span>
+                                                <span>@(menu.Price?.ToString("F2") ?? "0.00") RON</span>
+                                            </div>
+                                            <!-- Items din meniu -->
+                                            @if (menu.ItemIds.Count > 0)
+                                            {
+                                                <div class="ms-3">
+                                                    @foreach (var itemId in menu.ItemIds)
+                                                    {
+                                                        var item = _itemDetails.FirstOrDefault(i => i.Id == itemId);
+                                                        if (item != null)
+                                                        {
+                                                            <div style="font-size: 0.9rem; opacity: 0.75; color: #666;">
+                                                                • @item.Name
+                                                            </div>
+                                                        }
+                                                    }
+                                                </div>
+                                            }
+                                        </div>
+                                    }
+                                }
                             </div>
                         }
-                    </div>
-                </div>
 
-                @if (!string.IsNullOrEmpty(_errorMessage))
-                {
-                    <div class="alert alert-danger">
-                        <span class="bi bi-exclamation-triangle"></span> @_errorMessage
-                    </div>
-                }
-
-                @if (_paymentSuccess)
-                {
-                    <div class="card shadow border-success">
-                        <div class="card-body text-center py-5">
-                            <div class="mb-4">
-                                <span class="bi bi-check-circle text-success" style="font-size: 4rem;"></span>
+                        <!-- Individual Items Section -->
+                        @if (_order.ItemIDs.Count > 0)
+                        {
+                            <div class="mb-3">
+                                <h6 class="mb-2"><strong>Feluri Individuale</strong></h6>
+                                @foreach (var itemId in _order.ItemIDs)
+                                {
+                                    var item = _itemDetails.FirstOrDefault(i => i.Id == itemId);
+                                    if (item != null)
+                                    {
+                                        <div class="ms-3 d-flex justify-content-between align-items-center mb-2">
+                                            <span>@item.Name</span>
+                                            <span>@item.Price.ToString("F2") RON</span>
+                                        </div>
+                                    }
+                                }
                             </div>
-                            <h3 class="text-success mb-3">Plată realizată cu succes!</h3>
-                            <p class="text-muted mb-4">Comanda ta a fost achitată cu succes.</p>
-                            <p class="mb-3">
-                                <strong>Puncte de Loialitate Obținute:</strong>
-                                <span class="badge bg-warning text-dark fs-5">+@((int)GetFinalAmount()) (de) puncte</span>
-                            </p>
-                            <button class="btn btn-primary" @onclick="GoToOrders">
-                                <span class="bi bi-clipboard-check"></span> Vezi Comenzile Tale
-                            </button>
-                        </div>
-                    </div>
-                }
-                else
-                {
-                    <div class="card shadow">
-                        <div class="card-header bg-success text-white">
-                            <h4 class="mb-0"><span class="bi bi-credit-card"></span> Detalii de Plată</h4>
-                        </div>
-                        <div class="card-body">
+                        }
 
-                            <!-- Info bar: Stripe test mode -->
-                            <div class="alert m-3">
-                                <span class="bi bi-info-circle"></span>
-                                Plățile sunt procesate folosind <strong>Stripe Checkout</strong> (test mode).
-                                Folosește cardul de test <code>4242 4242 4242 4242</code>, orice dată din viitor și orice CVC.
+                        @if (!string.IsNullOrEmpty(_errorMessage))
+                        {
+                            <hr />
+                            <div class="alert alert-danger mb-0">
+                                <span class="bi bi-exclamation-triangle"></span> @_errorMessage
+                            </div>
+                        }
+
+                        <hr />
+
+                        <!-- Payment Method Selection -->
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label"><strong>Metoda de Plată</strong></label>
+                                <select class="form-select" @bind="_paymentMethod">
+                                    <option value="@PaymentMethod.StripeTest">Card Bancar (Stripe)</option>
+                                    <option value="@PaymentMethod.MockCard">Numerar la Livrare</option>
+                                </select>
                             </div>
 
+                            <!-- Info bar: Stripe test mode - Only show if Card selected -->
+                            @if (_paymentMethod == PaymentMethod.StripeTest)
+                            {
+                                <div class="alert alert-info mb-3" style="color: #2A2A2A;">
+                                    <span class="bi bi-info-circle"></span>
+                                    Plățile sunt procesate folosind <strong>Stripe Checkout</strong> (test mode).
+                                    Folosește cardul de test <code>4242 4242 4242 4242</code>, orice dată din viitor și orice CVC.
+                                </div>
+                            }
+
+                            <!-- Loyalty Points Section - After payment method -->
                             @if (_loyaltyBalance != null && _loyaltyBalance.Points > 0)
                             {
-                                <div class="card mb-3 border-warning">
-                                    <div class="card-header bg-warning text-dark">
-                                        <h6 class="mb-0"><span class="bi bi-star-fill"></span> Folosește Puncte de Loialitate</h6>
+                                <hr />
+                                <div class="card mb-3">
+                                    <div class="card-header bg-primary text-white">
+                                        <h6 class="mb-0"><span class="bi bi-star-fill"></span> Puncte de Loialitate</h6>
                                     </div>
                                     <div class="card-body">
                                         <p class="mb-2">
-                                            Puncte disponibile: <strong>@_loyaltyBalance.Points</strong>
-                                            (Reducere maxim posibilă: $@GetMaxDiscount().ToString("F2"))
+                                            Ai <strong>@_loyaltyBalance.Points (de) puncte de loialitate</strong>
+                                            (Reducere maxim posibilă: @GetMaxDiscount().ToString("F2") RON)
+                                        </p>
+                                        <p class="mb-2">
+                                            <small class="text-muted">
+                                                Nivel: @_loyaltyBalance.CurrentTier |
+                                                Cashback: @(_loyaltyBalance.CashbackRate.ToString("F0")) x puncte
+                                            </small>
                                         </p>
                                         <div class="input-group">
                                             <span class="input-group-text">Puncte de folosit:</span>
                                             <input type="number"
                                                    class="form-control"
-                                                   @bind="_pointsToUse"
+                                                   value="@_pointsToUse"
+                                                   @onchange="OnPointsChanged"
                                                    min="0"
-                                                   max="@GetMaxPoints()"
-                                                   step="100" />
-                                            <button class="btn btn-outline-warning" @onclick="UseMaxPoints">Folosește toate</button>
+                                                   max="@GetMaxPoints()" />
+                                            <button type="button" class="btn btn-loyalty" @onclick="UseMaxPoints">Folosește toate</button>
                                         </div>
                                         @if (_pointsToUse > 0)
                                         {
                                             <div class="mt-2">
-                                                <p class="mb-1"><strong>Reducere: -$@GetPointsDiscount().ToString("F2")</strong></p>
-                                                <p class="mb-0 text-success"><strong>Cost Final: $@GetFinalAmount().ToString("F2")</strong></p>
+                                                <p class="mb-1"><strong>Reducere: -@GetPointsDiscount().ToString("F2") RON</strong></p>
+                                                <p class="mb-0 text-success"><strong>Cost Final: @GetFinalAmount().ToString("F2") RON</strong></p>
                                             </div>
                                         }
                                     </div>
                                 </div>
                             }
 
-                            <form>
-                                <div class="mb-3">
-                                    <label class="form-label">Metoda de Plată</label>
-                                    <select class="form-select" @bind="_paymentMethod">
-                                        <option value="@PaymentMethod.StripeTest">Stripe Checkout (test)</option>
-                                    </select>
+                            <!-- Total Section -->
+                            <hr />
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="mb-0"><strong>Total de plată:</strong></p>
+                                    <h3 class="mb-0">@GetFinalAmount().ToString("F2") RON</h3>
                                 </div>
+                            </div>
 
-                                <div class="d-grid gap-2 mt-4">
-                                    <button type="button"
-                                            class="btn btn-primary btn-lg"
-                                            @onclick="ProcessPayment"
-                                            disabled="@(!CanProcessPayment() || _isProcessing)">
-                                        @if (_isProcessing)
-                                        {
-                                            <span class="spinner-border spinner-border-sm me-2"></span>
-                                        }
-                                        <span class="bi bi-lock-fill"></span>
-                                        Plătește @GetFinalAmount().ToString("F2") RON
-                                        @if (_pointsToUse > 0)
-                                        {
-                                            <small>(S-au folosit @_pointsToUse (de) puncte)</small>
-                                        }
-                                    </button>
+                            <!-- Action Buttons -->
+                            <div class="d-grid gap-2">
+                                <button type="button"
+                                        class="btn btn-primary btn-lg"
+                                        @onclick="ProcessPayment"
+                                        disabled="@(!CanProcessPayment() || _isProcessing)">
+                                    @if (_isProcessing)
+                                    {
+                                        <span class="spinner-border spinner-border-sm me-2"></span>
+                                    }
+                                    <span class="bi bi-lock-fill"></span>
+                                    Plătește
+                                </button>
 
-                                    <button type="button"
-                                            class="btn btn-outline-secondary"
-                                            @onclick="Cancel">
-                                        <span class="bi bi-x-circle"></span> Anulează
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
+                                <button type="button"
+                                        class="btn btn-outline-secondary"
+                                        @onclick="Cancel">
+                                    <span class="bi bi-x-circle"></span> Anulează
+                                </button>
+                            </div>
+                        </form>
                     </div>
-                }
+                </div>
             }
         </div>
     </div>
@@ -196,18 +211,13 @@
 
     private OrderDto? _order;
     private LoyaltyBalanceDto? _loyaltyBalance;
+    private List<MenuDto> _menuDetails = new();
+    private List<MenuItemDto> _itemDetails = new();
     private bool _isLoading = true;
     private bool _isProcessing = false;
-    private bool _paymentSuccess = false;
     private string? _errorMessage;
     private int _pointsToUse = 0;
-
-    // Form fields
-    private string _cardholderName = "";
-    private string _cardNumber = "";
-    private string _expiryDate = "";
-    private string _cvv = "";
-    private PaymentMethod _paymentMethod = PaymentMethod.MockCard;
+    private PaymentMethod _paymentMethod = PaymentMethod.StripeTest;
 
     protected override async Task OnInitializedAsync()
     {
@@ -221,6 +231,7 @@
 
         await LoadOrder();
         await LoadLoyaltyBalance();
+        await LoadMenuAndItemDetails();
     }
 
     private async Task LoadOrder()
@@ -256,6 +267,38 @@
         }
     }
 
+    private async Task LoadMenuAndItemDetails()
+    {
+        try
+        {
+            if (_order == null) return;
+
+            // Load all menus
+            var allMenus = await MenuService.GetAllMenusAsync();
+            if (allMenus != null)
+            {
+                _menuDetails = allMenus.Where(m => _order.MenuIDs.Contains(m.Id)).ToList();
+            }
+
+            // Load all items
+            var allItems = await MenuItemService.GetAllMenuItemsAsync();
+            if (allItems != null)
+            {
+                var itemIdsInMenus = _menuDetails
+                    .SelectMany(m => m.ItemIds)
+                    .Concat(_order.ItemIDs)
+                    .Distinct()
+                    .ToList();
+                
+                _itemDetails = allItems.Where(i => itemIdsInMenus.Contains(i.Id)).ToList();
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error loading menu/item details: {ex.Message}");
+        }
+    }
+
     private decimal GetPointsDiscount()
     {
         return _pointsToUse / 100m;
@@ -286,15 +329,19 @@
         _pointsToUse = GetMaxPoints();
     }
 
+    private void OnPointsChanged(ChangeEventArgs e)
+    {
+        if (int.TryParse(e.Value?.ToString(), out int value))
+        {
+            // Clamp the value between 0 and the maximum allowed points
+            _pointsToUse = Math.Max(0, Math.Min(value, GetMaxPoints()));
+        }
+    }
+
     private bool CanProcessPayment()
     {
-        if (_paymentMethod == PaymentMethod.StripeTest)
-            return true; // stripe nu foloseste campurile de card locale
-        
-        return !string.IsNullOrWhiteSpace(_cardholderName) &&
-               !string.IsNullOrWhiteSpace(_cardNumber) &&
-               !string.IsNullOrWhiteSpace(_expiryDate) &&
-               !string.IsNullOrWhiteSpace(_cvv);
+        // Both payment methods don't require local card fields (Stripe handles it, MockCard is COD)
+        return true;
     }
 
     private async Task ProcessPayment()
@@ -325,8 +372,8 @@
 
                 if (response.IsSuccessStatusCode)
                 {
-                    _paymentSuccess = true;
-                    await LoadLoyaltyBalance();
+                    // Navigate to payment success page
+                    Navigation.NavigateTo("/payment-success");
                 }
                 else
                 {
@@ -365,16 +412,8 @@
         }
     }
 
-
-    private void GoToOrders()
-    {
-        Navigation.NavigateTo("/orders");
-    }
-
     private void Cancel()
     {
         Navigation.NavigateTo("/orders");
     }
-    
-
 }
