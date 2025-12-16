@@ -7,14 +7,14 @@
 @inject MenuItemService MenuItemService
 @inject AuthService AuthService
 
-<PageTitle>Create Menu - CampusEats</PageTitle>
+<PageTitle>Adaugă Meniu</PageTitle>
 
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card shadow">
                 <div class="card-body">
-                    <h3 class="card-title mb-4">Create Menu Collection</h3>
+                    <h3 class="card-title mb-4">Adaugă un meniu nou</h3>
 
                     @if (!string.IsNullOrEmpty(_errorMessage))
                     {
@@ -27,7 +27,7 @@
                     {
                         <div class="text-center">
                             <div class="spinner-border" role="status">
-                                <span class="visually-hidden">Loading menu items...</span>
+                                <span class="visually-hidden">Se încarcă felurile disponibile...</span>
                             </div>
                         </div>
                     }
@@ -35,12 +35,12 @@
                     {
                         <EditForm Model="_newMenu" OnValidSubmit="Save">
                             <div class="mb-3">
-                                <label class="form-label">Name <span class="text-danger">*</span></label>
+                                <label class="form-label">Nume <span class="text-danger">*</span></label>
                                 <InputText class="form-control" @bind-Value="_newMenu.Name" placeholder="e.g., Breakfast Menu" />
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label">Category <span class="text-danger">*</span></label>
+                                <label class="form-label">Categorie <span class="text-danger">*</span></label>
                                 <InputSelect class="form-select" @bind-Value="_newMenu.Category">
                                     @foreach (var cat in Enum.GetValues<MenuCategory>())
                                     {
@@ -50,7 +50,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label">Dietary Restrictions</label>
+                                <label class="form-label">Restricții alimentare</label>
                                 <InputSelect class="form-select" @bind-Value="_newMenu.Restrictions">
                                     @foreach (var rest in Enum.GetValues<DietaryRestrictions>())
                                     {
@@ -62,21 +62,20 @@
                             <div class="mb-3">
                                 <label class="form-label">Preț (RON)</label>
                                 <InputNumber class="form-control" @bind-Value="_newMenu.Price" step="0.01" />
-                                <small class="form-text text-muted">Optional - total price for the menu</small>
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label">Image URL</label>
+                                <label class="form-label">URL Imagine</label>
                                 <InputText class="form-control" @bind-Value="_newMenu.ImageUrl" placeholder="https://example.com/image.jpg" />
-                                <small class="form-text text-muted">Optional - URL to menu image</small>
+                                <small class="form-text text-muted">Opțional</small>
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label">Select Menu Items</label>
+                                <label class="form-label">Selectează feluri</label>
                                 @if (_availableMenuItems == null || !_availableMenuItems.Any())
                                 {
                                     <div class="alert alert-warning">
-                                        No menu items available. Please <a href="/menu-items/create">create menu items</a> first.
+                                        Nu există feluri disponibile. <a href="/menu-items/create">Adaugă un fel de mâncare</a> mai întâi.
                                     </div>
                                 }
                                 else
@@ -100,16 +99,16 @@
                             </div>
 
                             <div class="d-flex justify-content-between">
-                                <button type="button" class="btn btn-outline-secondary" @onclick="Cancel">Cancel</button>
+                                <button type="button" class="btn btn-outline-secondary" @onclick="Cancel">Anulează</button>
                                 <button type="submit" class="btn btn-primary" disabled="@_isSaving">
                                     @if (_isSaving)
                                     {
                                         <span class="spinner-border spinner-border-sm me-2"></span>
-                                        <span>Creating...</span>
+                                        <span>Se adaugă...</span>
                                     }
                                     else
                                     {
-                                        <span>Create Menu</span>
+                                        <span>Adaugă Meniu</span>
                                     }
                                 </button>
                             </div>
@@ -164,7 +163,7 @@
         {
             if (string.IsNullOrWhiteSpace(_newMenu.Name))
             {
-                _errorMessage = "Menu name is required.";
+                _errorMessage = "Numele este obligatoriu.";
                 _isSaving = false;
                 return;
             }
@@ -179,12 +178,12 @@
             }
             else
             {
-                _errorMessage = "Failed to create menu. Please try again.";
+                _errorMessage = "Eroare la adaugarea meniului. Mai încearcă o dată.";
             }
         }
         catch (Exception ex)
         {
-            _errorMessage = $"An error occurred: {ex.Message}";
+            _errorMessage = $"A intervenit o eroare: {ex.Message}";
         }
         finally
         {

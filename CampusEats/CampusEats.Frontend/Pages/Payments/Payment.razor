@@ -10,7 +10,7 @@
 @inject AuthService AuthService
 @inject NavigationManager Navigation
 
-<PageTitle>Payment - CampusEats</PageTitle>
+<PageTitle>Plată</PageTitle>
 
 <div class="container mt-4 payment-page">
     <div class="row justify-content-center">
@@ -19,14 +19,14 @@
             {
                 <div class="text-center">
                     <div class="spinner-border" role="status">
-                        <span class="visually-hidden">Loading...</span>
+                        <span class="visually-hidden">Se încarccă...</span>
                     </div>
                 </div>
             }
             else if (_order == null)
             {
                 <div class="alert alert-danger">
-                    <span class="bi bi-exclamation-triangle"></span> Order not found.
+                    <span class="bi bi-exclamation-triangle"></span> Comanda nu a fost găsită.
                 </div>
             }
             else
@@ -34,14 +34,10 @@
                 <!-- Order Summary Card -->
                 <div class="card shadow mb-4">
                     <div class="card-header bg-primary text-white">
-                        <h4 class="mb-0"><span class="bi bi-receipt"></span> Order Summary</h4>
+                        <h4 class="mb-0"><span class="bi bi-receipt"></span> Rezumat Comandă</h4>
                     </div>
                     <div class="card-body">
                         <div class="row mb-3">
-                            <div class="col-6">
-                                <p class="mb-1"><strong>Order ID:</strong></p>
-                                <p class="text-muted"><code>@_order.Id.ToString().Substring(0, 13)...</code></p>
-                            </div>
                             <div class="col-6 text-end">
                                 <p class="mb-1"><strong>Status:</strong></p>
                                 <p><span class="badge bg-info">@_order.Status</span></p>
@@ -49,12 +45,12 @@
                         </div>
                         <div class="row">
                             <div class="col-6">
-                                <p class="mb-1"><strong>Items:</strong></p>
-                                <p class="text-muted">@_order.MenuIDs.Count menus, @_order.ItemIDs.Count items</p>
+                                <p class="mb-1"><strong>Produse:</strong></p>
+                                <p class="text-muted">@_order.MenuIDs.Count meniuri, @_order.ItemIDs.Count feluri individuale</p>
                             </div>
                             <div class="col-6 text-end">
-                                <p class="mb-1"><strong>Order Total:</strong></p>
-                                <h3 class="text-primary mb-0">@_order.Price.ToString("F2") RON</h3>
+                                <p class="mb-1"><strong>Total:</strong></p>
+                                <h3 class="text mb-0">@_order.Price.ToString("F2") RON</h3>
                             </div>
                         </div>
 
@@ -64,14 +60,14 @@
                             <div class="alert alert-success mb-0">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div>
-                                        <strong><span class="bi bi-star-fill"></span> Loyalty Points Available:</strong>
+                                        <strong><span class="bi bi-star-fill"></span> Puncte de Loialitate Disponibile:</strong>
                                         <p class="mb-0">
-                                            You have <strong>@_loyaltyBalance.Points points</strong>
+                                            Ai <strong>@_loyaltyBalance.Points (de) puncte de loialitate.</strong>
                                             (= @((_loyaltyBalance.Points / 100m).ToString("F2")) RON reducere)
                                         </p>
                                         <small class="text-muted">
-                                            Tier: @_loyaltyBalance.CurrentTier |
-                                            Cashback: @(_loyaltyBalance.CashbackRate.ToString("F0"))x base points
+                                            Nivel: @_loyaltyBalance.CurrentTier |
+                                            Cashback: @(_loyaltyBalance.CashbackRate.ToString("F0")) x puncte
                                         </small>
                                     </div>
                                 </div>
@@ -94,14 +90,14 @@
                             <div class="mb-4">
                                 <span class="bi bi-check-circle text-success" style="font-size: 4rem;"></span>
                             </div>
-                            <h3 class="text-success mb-3">Payment Successful!</h3>
-                            <p class="text-muted mb-4">Your order has been paid successfully.</p>
+                            <h3 class="text-success mb-3">Plată realizată cu succes!</h3>
+                            <p class="text-muted mb-4">Comanda ta a fost achitată cu succes.</p>
                             <p class="mb-3">
-                                <strong>Loyalty Points Earned:</strong>
-                                <span class="badge bg-warning text-dark fs-5">+@((int)GetFinalAmount()) points</span>
+                                <strong>Puncte de Loialitate Obținute:</strong>
+                                <span class="badge bg-warning text-dark fs-5">+@((int)GetFinalAmount()) (de) puncte</span>
                             </p>
                             <button class="btn btn-primary" @onclick="GoToOrders">
-                                <span class="bi bi-clipboard-check"></span> View My Orders
+                                <span class="bi bi-clipboard-check"></span> Vezi Comenzile Tale
                             </button>
                         </div>
                     </div>
@@ -110,43 +106,43 @@
                 {
                     <div class="card shadow">
                         <div class="card-header bg-success text-white">
-                            <h4 class="mb-0"><span class="bi bi-credit-card"></span> Payment Details</h4>
+                            <h4 class="mb-0"><span class="bi bi-credit-card"></span> Detalii de Plată</h4>
                         </div>
                         <div class="card-body">
 
                             <!-- Info bar: Stripe test mode -->
-                            <div class="alert alert-info">
+                            <div class="alert m-3">
                                 <span class="bi bi-info-circle"></span>
-                                Payments are processed via <strong>Stripe Checkout</strong> (test mode).
-                                Use the test card <code>4242 4242 4242 4242</code>, any future expiry date and any CVC.
+                                Plățile sunt procesate folosind <strong>Stripe Checkout</strong> (test mode).
+                                Folosește cardul de test <code>4242 4242 4242 4242</code>, orice dată din viitor și orice CVC.
                             </div>
 
                             @if (_loyaltyBalance != null && _loyaltyBalance.Points > 0)
                             {
                                 <div class="card mb-3 border-warning">
                                     <div class="card-header bg-warning text-dark">
-                                        <h6 class="mb-0"><span class="bi bi-star-fill"></span> Use Loyalty Points</h6>
+                                        <h6 class="mb-0"><span class="bi bi-star-fill"></span> Folosește Puncte de Loialitate</h6>
                                     </div>
                                     <div class="card-body">
                                         <p class="mb-2">
-                                            Available Points: <strong>@_loyaltyBalance.Points</strong>
-                                            (max discount: $@GetMaxDiscount().ToString("F2"))
+                                            Puncte disponibile: <strong>@_loyaltyBalance.Points</strong>
+                                            (Reducere maxim posibilă: $@GetMaxDiscount().ToString("F2"))
                                         </p>
                                         <div class="input-group">
-                                            <span class="input-group-text">Points to use:</span>
+                                            <span class="input-group-text">Puncte de folosit:</span>
                                             <input type="number"
                                                    class="form-control"
                                                    @bind="_pointsToUse"
                                                    min="0"
                                                    max="@GetMaxPoints()"
                                                    step="100" />
-                                            <button class="btn btn-outline-warning" @onclick="UseMaxPoints">Use Max</button>
+                                            <button class="btn btn-outline-warning" @onclick="UseMaxPoints">Folosește toate</button>
                                         </div>
                                         @if (_pointsToUse > 0)
                                         {
                                             <div class="mt-2">
-                                                <p class="mb-1"><strong>Discount: -$@GetPointsDiscount().ToString("F2")</strong></p>
-                                                <p class="mb-0 text-success"><strong>Final Amount: $@GetFinalAmount().ToString("F2")</strong></p>
+                                                <p class="mb-1"><strong>Reducere: -$@GetPointsDiscount().ToString("F2")</strong></p>
+                                                <p class="mb-0 text-success"><strong>Cost Final: $@GetFinalAmount().ToString("F2")</strong></p>
                                             </div>
                                         }
                                     </div>
@@ -155,7 +151,7 @@
 
                             <form>
                                 <div class="mb-3">
-                                    <label class="form-label">Payment Method</label>
+                                    <label class="form-label">Metoda de Plată</label>
                                     <select class="form-select" @bind="_paymentMethod">
                                         <option value="@PaymentMethod.StripeTest">Stripe Checkout (test)</option>
                                     </select>
@@ -163,7 +159,7 @@
 
                                 <div class="d-grid gap-2 mt-4">
                                     <button type="button"
-                                            class="btn btn-success btn-lg"
+                                            class="btn btn-primary btn-lg"
                                             @onclick="ProcessPayment"
                                             disabled="@(!CanProcessPayment() || _isProcessing)">
                                         @if (_isProcessing)
@@ -171,17 +167,17 @@
                                             <span class="spinner-border spinner-border-sm me-2"></span>
                                         }
                                         <span class="bi bi-lock-fill"></span>
-                                        Pay $@GetFinalAmount().ToString("F2")
+                                        Plătește @GetFinalAmount().ToString("F2") RON
                                         @if (_pointsToUse > 0)
                                         {
-                                            <small>(Using @_pointsToUse points)</small>
+                                            <small>(S-au folosit @_pointsToUse (de) puncte)</small>
                                         }
                                     </button>
 
                                     <button type="button"
                                             class="btn btn-outline-secondary"
                                             @onclick="Cancel">
-                                        <span class="bi bi-x-circle"></span> Cancel
+                                        <span class="bi bi-x-circle"></span> Anulează
                                     </button>
                                 </div>
                             </form>

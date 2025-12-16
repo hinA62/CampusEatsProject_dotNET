@@ -18,20 +18,20 @@
     <div class="container position-relative h-100 d-flex align-items-center" style="z-index: 3;">
         <div class="row w-100">
             <div class="col-lg-8">
-                <h1 class="display-3 fw-bold mb-3 text-white">Bine ai venit la CampusEats</h1>
-                <p class="lead text-white mb-4 fs-5">
-                    Experiența ta de mâncare preferată pe campus, acum la îndemâna ta. 
-                    Comandă mâncăruri delicioase, acumulează puncte de loialitate și bucură-te de livrare rapidă.
+                <h1 class="display-3 fw-bold mb-3 text header1">Bine ai venit la CampusEats!</h1>
+                <p class="lead text mb-4 fs-5">
+                    Mâncarea ta preferată, acum la un click distanță. 
+                    Comandă ușor, acumulează puncte de loialitate și bucură-te de o masă delicioasă.
                 </p>
                 
                 @if (!AuthService.IsAuthenticated)
                 {
                     <div class="d-flex gap-3">
                         <button class="btn btn-primary btn-lg" @onclick='() => Navigation.NavigateTo("/login")'>
-                            <i class="bi bi-box-arrow-in-right me-2"></i>Login
+                            <i class="bi bi-box-arrow-in-right me-2"></i>Conectează-te
                         </button>
                         <button class="btn btn-outline-light btn-lg" @onclick='() => Navigation.NavigateTo("/register")'>
-                            <i class="bi bi-person-plus me-2"></i>Register
+                            <i class="bi bi-person-plus me-2"></i>Înregistrează-te
                         </button>
                     </div>
                 }
@@ -41,7 +41,7 @@
                         <button class="btn btn-primary btn-lg shadow" @onclick='() => Navigation.NavigateTo("/menus")'>
                             <i class="bi bi-card-list me-2"></i>Explorează Meniuri
                         </button>
-                        <button class="btn btn-success btn-lg shadow" @onclick='() => Navigation.NavigateTo("/place-order")'>
+                        <button class="btn btn-outline-light btn-lg" @onclick='() => Navigation.NavigateTo("/place-order")'>
                             <i class="bi bi-cart-plus me-2"></i>Comandă Acum
                         </button>
                     </div>
@@ -61,8 +61,8 @@
                     <div class="mb-3">
                         <i class="bi bi-lightning-charge-fill text-warning" style="font-size: 48px;"></i>
                     </div>
-                    <h5 class="card-title">Livrare Rapidă</h5>
-                    <p class="card-text text-muted">Primește comenzile rapid la locația ta din campus</p>
+                    <h5 class="card-title">Eficiență și Confort</h5>
+                    <p class="card-text text-muted">Meniurile campusului tău la un click distanță</p>
                 </div>
             </div>
         </div>
@@ -91,41 +91,6 @@
             </div>
         </div>
     </div>
-
-    @if (AuthService.IsAuthenticated)
-    {
-        <!-- Quick Actions -->
-        <div class="row mb-5">
-            <div class="col-12">
-                <div class="card border-0 shadow-sm bg-primary text-white">
-                    <div class="card-body p-4">
-                        <h4 class="card-title mb-3">Acțiuni Rapide</h4>
-                        <div class="row g-3">
-                            <div class="col-md-3">
-                                <button class="btn btn-light w-100" @onclick='() => Navigation.NavigateTo("/menus")'>
-                                    <i class="bi bi-card-list me-2"></i>Explorează Meniuri
-                                </button>
-                            </div>
-                            <div class="col-md-3">
-                                <button class="btn btn-light w-100" @onclick='() => Navigation.NavigateTo("/orders")'>
-                                    <i class="bi bi-clipboard-check me-2"></i>Comenzile Mele
-                                </button>
-                            </div>
-                            <div class="col-md-3">
-                                <button class="btn btn-light w-100" @onclick='() => Navigation.NavigateTo("/loyalty")'>
-                                    <i class="bi bi-star-fill me-2"></i>Puncte Loialitate
-                                </button>
-                            </div>
-                            <div class="col-md-3">
-                                <button class="btn btn-light w-100" @onclick='() => Navigation.NavigateTo("/profile")'>
-                                    <i class="bi bi-person-circle me-2"></i>Profilul Meu
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     }
 
     <!-- Info Section -->
@@ -133,20 +98,20 @@
         <div class="col-12">
             <div class="card border-0 shadow-sm">
                 <div class="card-body p-5 text-center">
-                    <h3 class="mb-4">Cum Funcționează</h3>
+                    <h3 class="mb-4">Cum Funcționează?</h3>
                     <div class="row g-4">
                         <div class="col-md-3">
                             <div class="mb-3">
-                                <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center circle" style="width: 60px; height: 60px;">
                                     <strong style="font-size: 24px;">1</strong>
                                 </div>
                             </div>
                             <h5>Explorează Meniul</h5>
-                            <p class="text-muted">Descoperă itemele și comburile noastre delicioase</p>
+                            <p class="text-muted">Descoperă felurile și meniurile noastre delicioase</p>
                         </div>
                         <div class="col-md-3">
                             <div class="mb-3">
-                                <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center circle" style="width: 60px; height: 60px;">
                                     <strong style="font-size: 24px;">2</strong>
                                 </div>
                             </div>
@@ -155,20 +120,20 @@
                         </div>
                         <div class="col-md-3">
                             <div class="mb-3">
-                                <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center circle" style="width: 60px; height: 60px;">
                                     <strong style="font-size: 24px;">3</strong>
                                 </div>
                             </div>
                             <h5>Plătește</h5>
-                            <p class="text-muted">Plată securizată cu Stripe</p>
+                            <p class="text-muted">Efectuează plată securizată cu Stripe</p>
                         </div>
                         <div class="col-md-3">
                             <div class="mb-3">
-                                <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center circle" style="width: 60px; height: 60px;">
                                     <strong style="font-size: 24px;">4</strong>
                                 </div>
                             </div>
-                            <h5>Savurează!</h5>
+                            <h5>Savurează</h5>
                             <p class="text-muted">Primește mâncarea proaspătă și fierbinte</p>
                         </div>
                     </div>

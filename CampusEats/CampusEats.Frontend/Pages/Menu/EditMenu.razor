@@ -7,27 +7,27 @@
 @inject MenuItemService MenuItemService
 @inject AuthService AuthService
 
-<PageTitle>Edit Menu - CampusEats</PageTitle>
+<PageTitle>Modifică Meniu</PageTitle>
 
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card shadow">
                 <div class="card-body">
-                    <h3 class="card-title mb-4">Edit Menu Collection</h3>
+                    <h3 class="card-title mb-4">Modifică un Meniu</h3>
 
                     @if (_isLoading)
                     {
                         <div class="text-center">
                             <div class="spinner-border" role="status">
-                                <span class="visually-hidden">Loading...</span>
+                                <span class="visually-hidden">Se încarcă...</span>
                             </div>
                         </div>
                     }
                     else if (_updateRequest == null)
                     {
-                        <div class="alert alert-danger">Menu not found.</div>
-                        <button class="btn btn-primary" @onclick="Cancel">Back to List</button>
+                        <div class="alert alert-danger">Meniul nu a fost găsit.</div>
+                        <button class="btn btn-primary" @onclick="Cancel">Înapoi</button>
                     }
                     else
                     {
@@ -40,12 +40,12 @@
 
                         <EditForm Model="_updateRequest" OnValidSubmit="Save">
                             <div class="mb-3">
-                                <label class="form-label">Name <span class="text-danger">*</span></label>
+                                <label class="form-label">Nume <span class="text-danger">*</span></label>
                                 <InputText class="form-control" @bind-Value="_updateRequest.Name" placeholder="e.g., Breakfast Menu" />
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label">Category <span class="text-danger">*</span></label>
+                                <label class="form-label">Categorie <span class="text-danger">*</span></label>
                                 <InputSelect class="form-select" @bind-Value="_updateRequest.Category">
                                     @foreach (var cat in Enum.GetValues<MenuCategory>())
                                     {
@@ -55,7 +55,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label">Dietary Restrictions</label>
+                                <label class="form-label">Restricții alimentare</label>
                                 <InputSelect class="form-select" @bind-Value="_updateRequest.Restrictions">
                                     @foreach (var rest in Enum.GetValues<DietaryRestrictions>())
                                     {
@@ -67,21 +67,20 @@
                             <div class="mb-3">
                                 <label class="form-label">Preț (RON)</label>
                                 <InputNumber class="form-control" @bind-Value="_updateRequest.Price" step="0.01" />
-                                <small class="form-text text-muted">Optional - total price for the menu</small>
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label">Image URL</label>
+                                <label class="form-label">URL Imagine</label>
                                 <InputText class="form-control" @bind-Value="_updateRequest.ImageUrl" placeholder="https://example.com/image.jpg" />
-                                <small class="form-text text-muted">Optional - URL to menu image</small>
+                                <small class="form-text text-muted">Opțional</small>
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label">Select Menu Items</label>
+                                <label class="form-label">Selectează feluri de mâncare</label>
                                 @if (_availableMenuItems == null || !_availableMenuItems.Any())
                                 {
                                     <div class="alert alert-warning">
-                                        No menu items available. Please <a href="/menu-items/create">create menu items</a> first.
+                                        Nu există feluri disponibile. <a href="/menu-items/create">Adaugă un fel de mâncare</a> mai întâi.
                                     </div>
                                 }
                                 else
@@ -106,16 +105,16 @@
                             </div>
 
                             <div class="d-flex justify-content-between">
-                                <button type="button" class="btn btn-outline-secondary" @onclick="Cancel">Cancel</button>
+                                <button type="button" class="btn btn-outline-secondary" @onclick="Cancel">Anulează</button>
                                 <button type="submit" class="btn btn-primary" disabled="@_isSaving">
                                     @if (_isSaving)
                                     {
                                         <span class="spinner-border spinner-border-sm me-2"></span>
-                                        <span>Saving...</span>
+                                        <span>Se salvează...</span>
                                     }
                                     else
                                     {
-                                        <span>Save Changes</span>
+                                        <span>Salvează Modificările</span>
                                     }
                                 </button>
                             </div>

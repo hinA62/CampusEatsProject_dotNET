@@ -74,8 +74,8 @@
                         @if (AuthService.CurrentUser?.Role == "Admin")
                         {
                             <div class="card-footer d-flex justify-content-between">
-                                <button class="btn btn-sm flex-grow-1 me-2 btn-edit" @onclick="() => GoToEdit(item.Id)">
-                                    <span class="bi bi-pencil"></span> Editează
+                                <button class="btn btn-sm flex-grow-1 me-2 btn-outline-secondary" @onclick="() => GoToEdit(item.Id)">
+                                    <span class="bi bi-pencil"></span> Modifică
                                 </button>
                                 <button class="btn btn-sm btn-danger flex-grow-1 btn-delete" @onclick="() => DeleteMenuItem(item.Id)">
                                     <span class="bi bi-trash"></span> Șterge

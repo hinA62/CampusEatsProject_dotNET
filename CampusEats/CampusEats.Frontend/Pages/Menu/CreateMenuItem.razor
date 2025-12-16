@@ -79,7 +79,7 @@
                                 }
                                 else
                                 {
-                                    <span>Menu Item adăugat!</span>
+                                    <span>Adaugă</span>
                                 }
                             </button>
                         </div>
@@ -91,19 +91,21 @@
 </div>
 
 @code {
-    private CreateMenuItemRequest _newItem = new();
+    private readonly CreateMenuItemRequest _newItem = new();
     
     private string _errorMessage = string.Empty;
     private bool _isLoading = false;
 
-    private List<string> _availableAllergens = new List<string>
-    {
-        "Dairy", "Milk", "Lactose", "Cheese", "Egg", "Gluten", 
-        "Wheat", "Nut", "Peanut", "Almond", "Cashew", 
-        "Fish", "Molluscs", "Shellfish", "Citrus", "Soya"
-    };
+    private readonly List<string> _availableAllergens =
+    [
+        "Lapte", "Lactoză", "Brânzeturi", "Ouă",
+        "Gluten", "Grâu",
+        "Nuci", "Arahide", "Migdale", "Cashew",
+        "Pește", "Moluște", "Crustacee",
+        "Citrice", "Soya"
+    ];
     
-    private List<string> _selectedAllergens = new List<string>();
+    private readonly List<string> _selectedAllergens = [];
 
     protected override async Task OnInitializedAsync()
     {
@@ -164,7 +166,7 @@
             else
             {
                 var errorContent = await response.Content.ReadAsStringAsync();
-                _errorMessage = $"Eroare la crearea menu itemului. Status: {response.StatusCode}. Error: {errorContent}";
+                _errorMessage = $"Eroare la crearea felului. Status: {response.StatusCode}. Error: {errorContent}";
             }
         }
         catch (Exception ex)

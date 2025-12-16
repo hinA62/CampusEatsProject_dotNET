@@ -1,0 +1,12 @@
+﻿@page "/payment-success"
+@inject NavigationManager Navigation
+
+<h3>Plată realizată cu succes!</h3>
+
+<p>Plata a fost procesată. Poți vizualiza comenzile tale.</p>
+
+<button class="btn btn-primary" @onclick="GoToOrders">Mergi la Comenzi</button>
+
+@code {
+    private void GoToOrders() => Navigation.NavigateTo("/orders");
+}

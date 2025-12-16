@@ -5,27 +5,27 @@
 @inject NavigationManager Navigation
 @inject AuthService AuthService
 
-<PageTitle>Edit Menu Item - CampusEats</PageTitle>
+<PageTitle>Modifică felul de mâncare</PageTitle>
 
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card shadow">
                 <div class="card-body">
-                    <h3 class="card-title mb-4">Edit Menu Item</h3>
+                    <h3 class="card-title mb-4">Modifică felul de mâncare</h3>
 
                     @if (_isLoadingItem)
                     {
                         <div class="text-center">
                             <div class="spinner-border" role="status">
-                                <span class="visually-hidden">Loading...</span>
+                                <span class="visually-hidden">Se încarcă...</span>
                             </div>
                         </div>
                     }
                     else if (_updateRequest == null)
                     {
-                        <div class="alert alert-danger">Menu item not found.</div>
-                        <button class="btn btn-primary" @onclick="Cancel">Back to List</button>
+                        <div class="alert alert-danger">Felul de mîncare nu a fost găsit</div>
+                        <button class="btn btn-primary" @onclick="Cancel">Anulează</button>
                     }
                     else
                     {
@@ -38,7 +38,7 @@
 
                         <EditForm Model="@_updateRequest" OnValidSubmit="@HandleUpdate">
                             <div class="mb-3">
-                                <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
+                                <label for="name" class="form-label">Nume <span class="text-danger">*</span></label>
                                 <InputText id="name" class="form-control" @bind-Value="_updateRequest.Name" placeholder="e.g., Cheeseburger" />
                             </div>
 
@@ -48,7 +48,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="imageUrl" class="form-label">Image URL</label>
+                                <label for="imageUrl" class="form-label">URL Imagine</label>
                                 <InputText id="imageUrl" class="form-control" @bind-Value="_updateRequest.ImageUrl" placeholder="https://example.com/image.jpg" />
                                 @if (!string.IsNullOrEmpty(_updateRequest.ImageUrl))
                                 {
@@ -59,22 +59,41 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="allergens" class="form-label">Allergens (comma separated)</label>
-                                <InputText id="allergens" class="form-control" @bind-Value="_allergensInput" placeholder="e.g., Peanuts, Dairy, Gluten" />
-                                <small class="form-text text-muted">Separate multiple allergens with commas</small>
+                                <label for="allergens" class="form-label">Alergeni</label>
+                                <div class="border p-3 rounded allergens-box">
+                                    @foreach (var allergen in _availableAllergens)
+                                    {
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" 
+                                                   type="checkbox" 
+                                                   id="@allergen" 
+                                                   checked="@(_selectedAllergens.Contains(allergen))"
+                                                   @onchange="() => ToggleAllergen(allergen)" />
+                                            <label class="form-check-label" for="@allergen">
+                                                @allergen
+                                            </label>
+                                        </div>
+                                    }
+                                </div>
+                                <small class="form-text text-muted">Selectați alergenii aplicați.</small>
+    
+                                @if (!_selectedAllergens.Any())
+                                {
+                                    <p class="text-success mt-2">Niciun alergen selectat.</p>
+                                }
                             </div>
 
                             <div class="d-flex justify-content-between">
-                                <button type="button" class="btn btn-outline-secondary" @onclick="Cancel">Cancel</button>
+                                <button type="button" class="btn btn-outline-light" @onclick="Cancel">Anulează</button>
                                 <button type="submit" class="btn btn-primary" disabled="@_isSaving">
                                     @if (_isSaving)
                                     {
                                         <span class="spinner-border spinner-border-sm me-2"></span>
-                                        <span>Saving...</span>
+                                        <span>Se salvează modificările...</span>
                                     }
                                     else
                                     {
-                                        <span>Save Changes</span>
+                                        <span>Salvează modificările</span>
                                     }
                                 </button>
                             </div>
@@ -90,12 +109,22 @@
     [Parameter]
     public Guid Id { get; set; }
 
-    private UpdateMenuItemRequest? _updateRequest;
-    private string _allergensInput = string.Empty;
+    private UpdateMenuItemRequest _updateRequest = new();
+    
     private string _errorMessage = string.Empty;
     private bool _isLoadingItem = true;
     private bool _isSaving = false;
 
+    private readonly List<string> _availableAllergens =
+    [
+        "Lapte", "Lactoză", "Brânzeturi", "Ouă", 
+        "Gluten", "Grâu", 
+        "Nuci", "Arahide", "Migdale", "Cashew", 
+        "Pește", "Moluște", "Crustacee",
+        "Citrice", "Soya"
+    ];
+    
+    private readonly List<string> _selectedAllergens = [];
     protected override async Task OnInitializedAsync()
     {
         await AuthService.InitializeAsync();
@@ -124,10 +153,11 @@
                 ImageUrl = item.ImageUrl,
                 Allergens = item.Allergens
             };
-
-            if (item.Allergens != null && item.Allergens.Any())
+            
+           _selectedAllergens.Clear();
+            if (item.Allergens != null)
             {
-                _allergensInput = string.Join(", ", item.Allergens);
+                _selectedAllergens.AddRange(item.Allergens);
             }
         }
 
@@ -136,8 +166,6 @@
 
     private async Task HandleUpdate()
     {
-        if (_updateRequest == null) return;
-
         _isSaving = true;
         _errorMessage = string.Empty;
 
@@ -146,32 +174,19 @@
             // Validate
             if (string.IsNullOrWhiteSpace(_updateRequest.Name))
             {
-                _errorMessage = "Name is required.";
+                _errorMessage = "Numele este obligatoriu.";
                 _isSaving = false;
                 return;
             }
 
             if (_updateRequest.Price <= 0)
             {
-                _errorMessage = "Price must be greater than 0.";
+                _errorMessage = "Prețul trebuie să fie mai mare decât 0.";
                 _isSaving = false;
                 return;
             }
-
-            // Parse allergens
-            if (!string.IsNullOrWhiteSpace(_allergensInput))
-            {
-                _updateRequest.Allergens = _allergensInput
-                    .Split(',')
-                    .Select(a => a.Trim())
-                    .Where(a => !string.IsNullOrEmpty(a))
-                    .ToList();
-            }
-            else
-            {
-                _updateRequest.Allergens = null;
-            }
-
+            _updateRequest.Allergens = _selectedAllergens.ToList();
+            
             var response = await MenuItemService.UpdateMenuItemAsync(_updateRequest);
 
             if (response.IsSuccessStatusCode)
@@ -180,17 +195,30 @@
             }
             else
             {
-                _errorMessage = "Failed to update menu item. Please try again.";
+                _errorMessage = "Eroare la modificare. Încreacă din nou.";
             }
         }
         catch (Exception ex)
         {
-            _errorMessage = $"An error occurred: {ex.Message}";
+            _errorMessage = $"A intervenit o eroare: {ex.Message}";
         }
         finally
         {
             _isSaving = false;
         }
+    }
+    
+    private void ToggleAllergen(string allergen)
+    {
+        if (_selectedAllergens.Contains(allergen))
+        {
+            _selectedAllergens.Remove(allergen);
+        }
+        else
+        {
+            _selectedAllergens.Add(allergen);
+        }
+        StateHasChanged();
     }
 
     private void Cancel()

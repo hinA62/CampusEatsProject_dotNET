@@ -7,22 +7,22 @@
 @inject AuthService AuthService
 @inject NavigationManager Navigation
 
-<PageTitle>Clients Management - CampusEats</PageTitle>
+<PageTitle>Gestionează Utilizatorii</PageTitle>
 
 <div class="container mt-4">
-    <h3 class="mb-4">Clients Management</h3>
+    <h3 class="mb-4">Gestiunea Utilizatorilor</h3>
 
     @if (_isLoading)
     {
         <div class="text-center">
             <div class="spinner-border" role="status">
-                <span class="visually-hidden">Loading...</span>
+                <span class="visually-hidden">Se încarcă...</span>
             </div>
         </div>
     }
     else if (_clients == null || !_clients.Any())
     {
-        <div class="alert alert-info">No clients found.</div>
+        <div class="alert alert-info">Nu există utilizatori înregistrați.</div>
     }
     else
     {
@@ -46,7 +46,7 @@
                                 <small class="text-muted">ID: @client.Id.ToString().Substring(0, 8)...</small>
                             </div>
                             <div class="d-flex align-items-center">
-                                <span class="badge bg-@GetRoleBadgeColor(client.Role)">@client.Role</span>
+                                <span class="badge badge-primary">@client.Role</span>
                             </div>
                         </div>
                     </div>
@@ -104,21 +104,13 @@
         Navigation.NavigateTo($"/profile/{userId}");
     }
 
-    private string GetRoleBadgeColor(string role) => role switch
-    {
-        "Admin" => "danger",
-        "Kitchen" => "warning",
-        "Client" => "primary",
-        _ => "secondary"
-    };
-
     private string GetStatusColor(OrderStatus status) => status switch
     {
-        OrderStatus.Pending => "warning",
-        OrderStatus.Confirmed => "info",
-        OrderStatus.Preparing => "primary",
-        OrderStatus.Completed => "success",
-        OrderStatus.Cancelled => "danger",
-        _ => "secondary"
+        OrderStatus.Pending => "#F4E285",
+        OrderStatus.Confirmed => "#A3B18A",
+        OrderStatus.Preparing => "#3A5A40",
+        OrderStatus.Completed => "#588157",
+        OrderStatus.Cancelled => "#DA2C38",
+        _ => "#DAD7CD"
     };
 }

@@ -8,8 +8,8 @@
     --dust-gray: #DAD7CD;
     --carbon-black: #1d1e18;
     
-    --yellow: #f4e285;
-    --red: #da2c38;
+    --yellow: #F4E285;
+    --red: #DA2C38;
 }
 
 html, body {
@@ -19,22 +19,119 @@ html, body {
 }
 
 a, .btn-link {
-    color: var(--dust-gray) !important;
+    color: var(--dry-sage) !important;
 }
 
 .btn-primary {
-    color: var(--dry-sage);
+    color: var(--dust-gray);
     background-color: var(--hunter-green);
     border-color: var(--dry-sage);
 }
 
 .btn-primary:hover, 
 .btn-primary:active,
-.btn-primary:focus {
+.btn-primary:focus-visible {
+    color: var(--hunter-green);
+    background-color: var(--dust-gray) !important;
+    border-color: var(--hunter-green) !important;
+    box-shadow: 0 0 0 0.2rem var(--dust-gray) !important;
+}
+
+.btn-primary:disabled {
+    color: var(--dust-gray) !important;
+    background-color: var(--hunter-green) !important;
+    border-color: var(--dust-gray) !important;
+}
+
+.btn-outline-light {
+    color: var(--dust-gray);
+    border-color: var(--dust-gray);
+    background-color: transparent;
+}
+
+.btn-outline-light:hover, 
+.btn-outline-light:active,
+.btn-outline-light:focus {
     color: var(--fern);
     background-color: var(--dust-gray) !important;
     border-color: var(--dust-gray) !important;
     box-shadow: 0 0 0 0.2rem var(--dust-gray) !important;
+}
+
+.btn-outline-secondary {
+    color: var(--hunter-green);
+    border-color: var(--hunter-green);
+    background-color: transparent;    
+}
+
+.btn-outline-secondary:hover, 
+.btn-outline-secondary:active,
+.btn-outline-secondary:focus {
+    color: var(--hunter-green) !important;
+    border-color: var(--hunter-green) !important;
+    background-color: transparent !important;
+    box-shadow: 0 0 0 0.2rem var(--fern) !important;
+}
+
+.form-select {
+    background-color: var(--dust-gray) !important;
+    color: var(--carbon-black) !important;
+}
+
+.form-select:focus,
+.form-select:active,
+.form-select:hover {
+    background-color: var(--dust-gray) !important;
+    border-color: var(--hunter-green) !important;
+    box-shadow: 0 0 0 0.2rem var(--dust-gray) !important;
+}
+
+.form-select:disabled {
+    color: var(--carbon-black) !important;
+    background-color: transparent;
+    border-color: var(--hunter-green) !important;
+}
+
+.badge-primary {
+    color: var(--dust-gray) !important;
+    background-color: var(--hunter-green) !important;
+}
+
+.mb-0 {
+    color: var(--carbon-black) !important;
+    background-color: transparent;
+}
+
+.mb-1 {
+    color: var(--carbon-black) !important;
+}
+
+.col-md-6 {
+    color: var(--carbon-black) !important;
+}
+
+/*========================
+           HOME
+ =========================*/
+.col-lg-8 {
+    color: var(--dust-gray);
+}
+
+.mb-5 {
+    color: var(--carbon-black);
+}
+
+.mb-3 .circle {
+    background-color: var(--hunter-green) !important;
+    color: var(--dust-gray) !important;
+}
+
+
+/*========================
+           AUTH
+ =========================*/
+.auth-link {
+    color: var(--hunter-green) !important;
 }
 
 /*=======================
@@ -42,17 +139,15 @@ a, .btn-link {
 =========================*/
 .form-control {
     background-color: var(--dust-gray);
-    color: var(--fern) !important;
+    color: var(--carbon-black) !important;
+    border-color: var(--hunter-green);
 }
 
-.form-control:focus {
-    background-color: var(--dry-sage);
-    outline: var(--dry-sage);
-}
-
+.form-control:focus,
+.form-control:active,
 .form-control:hover {
-    background-color: var(--dust-gray);
-    color: var(--fern);
+    background-color: var(--dry-sage) !important;
+    color: var(--carbon-black) !important;
 }
 
 .card .item-image {
@@ -117,6 +212,11 @@ a, .btn-link {
     outline: var(--hunter-green) !important;
     border-color: var(--hunter-green) !important;
     background-color: var(--dust-gray) !important;
+}
+
+.form-check-input {
+    background-color: var(--dust-gray);
+    border-color: var(--hunter-green);
 }
 
 .form-check-input:checked {
@@ -251,7 +351,7 @@ code {
 }
 
 /* =======================
-   PAYMENT PAGE
+        PAYMENT PAGE
    ======================= */
 
 .payment-page {
@@ -346,4 +446,31 @@ code {
     background-color: rgba(0, 0, 0, 0.2);
     padding: 0.15rem 0.4rem;
     border-radius: 0.25rem;
+}
+
+
+/*======================
+        PROFILE
+ =======================*/
+.profile-text {
+    color: var(--carbon-black);
+}
+
+.btn-outline-primary {
+    color: var(--hunter-green) !important;
+    border-color: var(--hunter-green);
+}
+
+.btn-outline-primary:hover, 
+.btn-outline-primary:active,
+.btn-outline-primary:focus {
+    color: var(--dust-gray) !important;
+    background-color: var(--hunter-green) !important;
+    border-color: var(--hunter-green) !important;
+    box-shadow: 0 0 0 0.2rem var(--hunter-green) !important;
+}
+
+.role-badge {
+    color: var(--dust-gray);
+    background-color: var(--hunter-green);
 }

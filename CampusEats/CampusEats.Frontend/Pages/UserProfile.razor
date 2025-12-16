@@ -7,65 +7,65 @@
 @inject AuthService AuthService
 @inject NavigationManager Navigation
 
-<PageTitle>User Profile - CampusEats</PageTitle>
+<PageTitle>Profil de utilizator</PageTitle>
 
 <div class="container mt-4">
     @if (_isLoading)
     {
         <div class="text-center">
             <div class="spinner-border" role="status">
-                <span class="visually-hidden">Loading...</span>
+                <span class="visually-hidden">Se încarcă...</span>
             </div>
         </div>
     }
     else if (_userProfile == null)
     {
         <div class="alert alert-danger">
-            <h4>Profile Not Found</h4>
-            <p>The profile you're looking for doesn't exist or you don't have permission to view it.</p>
-            <a href="/clients" class="btn btn-primary">Back to Clients</a>
+            <h4>Eroare la încărcarea profilului</h4>
+            <p>A intervenit o eroare la încărcarea profilului. Verifică să fii conectat.</p>
+            <a href="/clients" class="btn btn-primary">Înapoi</a>
         </div>
     }
     else
     {
         <div class="row mb-3">
             <div class="col">
-                <button class="btn btn-secondary" @onclick="GoBack">
-                    <span class="bi bi-arrow-left"></span> Back
+                <button class="btn btn-primary" @onclick="GoBack">
+                    <span class="bi bi-arrow-left"></span> Înapoi
                 </button>
             </div>
         </div>
 
         <div class="card shadow-sm mb-4">
-            <div class="card-header bg-@GetRoleBadgeColor(_userProfile.Role)">
-                <h3 class="text-white mb-0">
+            <div class="card-header badge-primary">
+                <h3 class="mb-0">
                     <span class="bi bi-person-circle"></span> @_userProfile.Username
                 </h3>
             </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6">
-                        <h5>Profile Information</h5>
+                        <h5>Informațiile de profil</h5>
                         <hr />
-                        <p class="mb-2"><strong>User ID:</strong> <code>@_userProfile.Id</code></p>
-                        <p class="mb-2"><strong>Username:</strong> @_userProfile.Username</p>
+                        <p class="mb-2"><strong>ID:</strong> <code>@_userProfile.Id</code></p>
+                        <p class="mb-2"><strong>Nume:</strong> @_userProfile.Username</p>
                         <p class="mb-2"><strong>Email:</strong> @_userProfile.Email</p>
-                        <p class="mb-2"><strong>Role:</strong> <span class="badge bg-@GetRoleBadgeColor(_userProfile.Role)">@_userProfile.Role</span></p>
-                        <p class="mb-2"><strong>Account Created:</strong> @_userProfile.CreatedAt.ToString("MMMM dd, yyyy 'at' HH:mm")</p>
+                        <p class="mb-2"><strong>Rol:</strong> <span class="badge badge-primary">@_userProfile.Role</span></p>
+                        <p class="mb-2"><strong>Cont creat la:</strong> @_userProfile.CreatedAt.ToString("MMMM dd, yyyy 'at' HH:mm")</p>
                     </div>
                     <div class="col-md-6">
-                        <h5>Statistics</h5>
+                        <h5>Statistici</h5>
                         <hr />
                         @if (_orders != null && _orders.Any())
                         {
-                            <p class="mb-2"><strong>Total Orders:</strong> <span class="badge bg-primary rounded-pill">@_orders.Count</span></p>
-                            <p class="mb-2"><strong>Total Spent:</strong> <span class="text-success fs-5">@_orders.Sum(o => o.Price).ToString("F2") RON</span></p>
-                            <p class="mb-2"><strong>Pending Orders:</strong> <span class="badge bg-warning rounded-pill">@_orders.Count(o => o.Status == OrderStatus.Pending)</span></p>
-                            <p class="mb-2"><strong>Completed Orders:</strong> <span class="badge bg-success rounded-pill">@_orders.Count(o => o.Status == OrderStatus.Completed)</span></p>
+                            <p class="mb-2"><strong>Total Comenzi:</strong> <span class="badge badge-primary rounded-pill">@_orders.Count</span></p>
+                            <p class="mb-2"><strong>Total Plăți (suma):</strong> <span class="text-success fs-5">@_orders.Sum(o => o.Price).ToString("F2") RON</span></p>
+                            <p class="mb-2"><strong>Comenzi în așteptare:</strong> <span class="badge allergens-badge rounded-pill">@_orders.Count(o => o.Status == OrderStatus.Pending)</span></p>
+                            <p class="mb-2"><strong>Comenzi îndeplinite:</strong> <span class="badge badge-primary rounded-pill">@_orders.Count(o => o.Status == OrderStatus.Completed)</span></p>
                         }
                         else
                         {
-                            <p class="text-muted">No orders yet.</p>
+                            <p class="text-muted">Încă nu există comenzi.</p>
                         }
                     </div>
                 </div>
@@ -74,21 +74,21 @@
 
         <div class="card shadow-sm">
             <div class="card-header bg-light">
-                <h5 class="mb-0">Order History</h5>
+                <h5 class="mb-0">Istoric Comenzi</h5>
             </div>
             <div class="card-body">
                 @if (_loadingOrders)
                 {
                     <div class="text-center">
                         <div class="spinner-border" role="status">
-                            <span class="visually-hidden">Loading orders...</span>
+                            <span class="visually-hidden">Se încarcă...</span>
                         </div>
                     </div>
                 }
                 else if (_orders == null || !_orders.Any())
                 {
                     <div class="alert alert-info">
-                        <p class="mb-0">This user hasn't placed any orders yet.</p>
+                        <p class="mb-0">Acest utilizator nu a plasat nicio comandă.</p>
                     </div>
                 }
                 else
@@ -105,7 +105,7 @@
                                         <small class="text-muted">@(order.MenuIDs.Count) menus, @(order.ItemIDs.Count) items</small>
                                     </div>
                                     <div class="d-flex flex-column align-items-end">
-                                        <span class="badge bg-@GetStatusColor(order.Status) mb-1">@order.Status</span>
+                                        <span class="badge mb-5">@order.Status</span>
                                         <small class="text-muted">@order.CreatedAt.ToString("MMM dd, yyyy HH:mm")</small>
                                     </div>
                                 </div>
@@ -201,21 +201,4 @@
         Navigation.NavigateTo("/clients");
     }
 
-    private string GetRoleBadgeColor(string role) => role switch
-    {
-        "Admin" => "danger",
-        "Kitchen" => "warning",
-        "Client" => "primary",
-        _ => "secondary"
-    };
-
-    private string GetStatusColor(OrderStatus status) => status switch
-    {
-        OrderStatus.Pending => "warning",
-        OrderStatus.Confirmed => "info",
-        OrderStatus.Preparing => "primary",
-        OrderStatus.Completed => "success",
-        OrderStatus.Cancelled => "danger",
-        _ => "secondary"
-    };
 }

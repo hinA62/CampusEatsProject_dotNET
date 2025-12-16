@@ -11,7 +11,7 @@
         <div class="col-md-5">
             <div class="card shadow">
                 <div class="card-body">
-                    <h3 class="card-title text-center mb-4">Register</h3>
+                    <h3 class="card-title text-center mb-4">Înregistrare</h3>
                     
                     @if (!string.IsNullOrEmpty(_errorMessage))
                     {
@@ -29,7 +29,7 @@
 
                     <EditForm Model="@_registerRequest" OnValidSubmit="@HandleRegister">
                         <div class="mb-3">
-                            <label for="username" class="form-label">Username</label>
+                            <label for="username" class="form-label">Nume de utilizator</label>
                             <InputText id="username" class="form-control" @bind-Value="_registerRequest.Username" placeholder="johndoe" />
                         </div>
 
@@ -39,30 +39,30 @@
                         </div>
                         
                         <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
+                            <label for="password" class="form-label">Parolă</label>
                             <InputText id="password" type="password" class="form-control" @bind-Value="_registerRequest.Password" />
                         </div>
 
                         <div class="mb-3">
-                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <label for="confirmPassword" class="form-label">Confirmă Parola</label>
                             <InputText id="confirmPassword" type="password" class="form-control" @bind-Value="_registerRequest.ConfirmPassword" />
                         </div>
 
-                        <button type="submit" class="btn btn-success w-100" disabled="@_isLoading">
+                        <button type="submit" class="btn btn-primary w-100" disabled="@_isLoading">
                             @if (_isLoading)
                             {
                                 <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-                                <span>Creating account...</span>
+                                <span>Se crează contul tău...</span>
                             }
                             else
                             {
-                                <span>Register</span>
+                                <span>Înregistrare</span>
                             }
                         </button>
                     </EditForm>
 
                     <div class="mt-3 text-center">
-                        <p class="mb-0">Already have an account? <a href="/login">Login here</a></p>
+                        <p class="mb-0">Ai dega un cont? <a href="/login" class="auth-link">Conectează-te aici</a></p>
                     </div>
                 </div>
             </div>

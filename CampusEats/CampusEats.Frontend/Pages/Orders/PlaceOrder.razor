@@ -3,7 +3,6 @@
 @using CampusEatsFrontend.Models.Menu
 @using CampusEatsFrontend.Models.MenuItem
 @using CampusEatsFrontend.Services
-@using Microsoft.AspNetCore.Components.Web
 @using System.Text.Json
 @inject MenuService MenuService
 @inject MenuItemService MenuItemService
@@ -11,18 +10,18 @@
 @inject AuthService AuthService
 @inject NavigationManager Navigation
 
-<PageTitle>Place Order - CampusEats</PageTitle>
+<PageTitle>Plasează comanda</PageTitle>
 
 <div class="container mt-4">
     <h3 class="mb-4">
-        <span class="bi bi-cart-plus"></span> Place New Order
+        <span class="bi bi-cart-plus"></span> Plasează comanda
     </h3>
 
     @if (_isLoading)
     {
         <div class="text-center">
             <div class="spinner-border" role="status">
-                <span class="visually-hidden">Loading...</span>
+                <span class="visually-hidden">Se încarcă...</span>
             </div>
         </div>
     }
@@ -46,13 +45,13 @@
             <!-- Menus Selection -->
             <div class="col-md-6 mb-4">
                 <div class="card shadow-sm">
-                    <div class="card-header bg-primary text-white">
-                        <h5 class="mb-0"><span class="bi bi-card-list"></span> Select Menus</h5>
+                    <div class="card-header badge-primary">
+                        <h5 class="mb-0"><span class="bi bi-card-list"></span> Alege Meniuri</h5>
                     </div>
                     <div class="card-body" style="max-height: 400px; overflow-y: auto;">
-                        @if (_menus == null || !_menus.Any())
+                        @if (_menus == null || !_menus.Any())   
                         {
-                            <p class="text-muted">No menus available.</p>
+                            <p class="text-muted">Momentan, nu există meniuri disponibile.</p>
                         }
                         else
                         {
@@ -60,19 +59,19 @@
                             {
                                 <div class="form-check mb-3">
                                     <input class="form-check-input" type="checkbox" id="menu-@menu.Id"
-                                           @onchange="@(e => ToggleMenu(menu.Id, (bool)e.Value!))" />
+                                           @onchange="@((ChangeEventArgs e) => ToggleMenu(menu.Id, e.Value is bool b && b))" />
                                     <label class="form-check-label w-100" for="menu-@menu.Id">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div>
                                                 <strong>@menu.Name</strong>
                                                 <br />
                                                 <small class="text-muted">
-                                                    <span class="badge bg-info">@menu.Category</span>
+                                                    <span class="badge badge-primary">@menu.Category</span>
                                                     @menu.ItemIds.Count items
                                                 </small>
                                             </div>
                                             <div>
-                                                <strong class="text-primary">@(menu.Price?.ToString("F2") ?? "0.00") RON</strong>
+                                                <strong class="text">@(menu.Price?.ToString("F2") ?? "0.00") RON</strong>
                                             </div>
                                         </div>
                                     </label>
@@ -86,13 +85,13 @@
             <!-- Menu Items Selection -->
             <div class="col-md-6 mb-4">
                 <div class="card shadow-sm">
-                    <div class="card-header bg-success text-white">
-                        <h5 class="mb-0"><span class="bi bi-box-seam"></span> Select Individual Items</h5>
+                    <div class="card-header badge-primary">
+                        <h5 class="mb-0"><span class="bi bi-box-seam"></span> Alege feluri de mâncare</h5>
                     </div>
                     <div class="card-body" style="max-height: 400px; overflow-y: auto;">
                         @if (_menuItems == null || !_menuItems.Any())
                         {
-                            <p class="text-muted">No menu items available.</p>
+                            <p class="text-muted">Momentan, nu există feluri de mâncare disponibile.</p>
                         }
                         else
                         {
@@ -100,7 +99,7 @@
                             {
                                 <div class="form-check mb-3">
                                     <input class="form-check-input" type="checkbox" id="item-@item.Id"
-                                           @onchange="@(e => ToggleItem(item.Id, (bool)e.Value!))" />
+                                           @onchange="@((ChangeEventArgs e) => ToggleItem(item.Id, e.Value is bool b && b))" />
                                     <label class="form-check-label w-100" for="item-@item.Id">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div>
@@ -108,11 +107,11 @@
                                                 @if (item.Allergens != null && item.Allergens.Any())
                                                 {
                                                     <br />
-                                                    <small class="text-muted">Allergens: @string.Join(", ", item.Allergens)</small>
+                                                    <small class="text-muted">Alergeni: @string.Join(", ", item.Allergens)</small>
                                                 }
                                             </div>
                                             <div>
-                                                <strong class="text-success">@item.Price.ToString("F2") RON</strong>
+                                                <strong class="text">@item.Price.ToString("F2") RON</strong>
                                             </div>
                                         </div>
                                     </label>
@@ -126,13 +125,13 @@
 
         <!-- Order Summary -->
         <div class="card shadow mb-4">
-            <div class="card-header bg-secondary text-white">
-                <h5 class="mb-0"><span class="bi bi-receipt"></span> Order Summary</h5>
+            <div class="card-header badge-primary text-white">
+                <h5 class="mb-0"><span class="bi bi-receipt"></span> Rezumat Comandă</h5>
             </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6">
-                        <h6>Selected Menus: (@_selectedMenus.Count)</h6>
+                        <h6>Meniuri Selectate: (@_selectedMenus.Count)</h6>
                         @if (_selectedMenus.Any())
                         {
                             <ul class="list-unstyled">
@@ -148,11 +147,11 @@
                         }
                         else
                         {
-                            <p class="text-muted">No menus selected.</p>
+                            <p class="text-muted">Nu ai ales niciun meniu.</p>
                         }
                     </div>
                     <div class="col-md-6">
-                        <h6>Selected Items: (@_selectedItems.Count)</h6>
+                        <h6>Feluri selectate: (@_selectedItems.Count)</h6>
                         @if (_selectedItems.Any())
                         {
                             <ul class="list-unstyled">
@@ -168,29 +167,29 @@
                         }
                         else
                         {
-                            <p class="text-muted">No items selected.</p>
+                            <p class="text-muted">Nu ai ales niciun fel individual.</p>
                         }
                     </div>
                 </div>
                 <hr />
                 <div class="d-flex justify-content-between align-items-center">
-                    <h4>Total Price:</h4>
-                    <h4 class="text-primary">@_totalPrice.ToString("F2") RON</h4>
+                    <h4>Total:</h4>
+                    <h4 class="text">@_totalPrice.ToString("F2") RON</h4>
                 </div>
             </div>
         </div>
 
         <!-- Action Buttons -->
         <div class="d-flex justify-content-between mb-4">
-            <button class="btn btn-secondary" @onclick="Cancel">
-                <span class="bi bi-x-circle"></span> Cancel
+            <button class="btn btn-outline-secondary" @onclick="Cancel">
+                <span class="bi bi-x-circle"></span> Anulează
             </button>
             <button class="btn btn-primary btn-lg" @onclick="SubmitOrder" disabled="@(!CanPlaceOrder() || _isPlacingOrder)">
                 @if (_isPlacingOrder)
                 {
                     <span class="spinner-border spinner-border-sm me-2"></span>
                 }
-                <span class="bi bi-check-circle"></span> Place Order
+                <span class="bi bi-check-circle btn-primary"></span> Plasează Comanda
             </button>
         </div>
     }

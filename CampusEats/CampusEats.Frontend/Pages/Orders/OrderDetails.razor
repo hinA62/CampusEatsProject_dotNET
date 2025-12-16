@@ -5,23 +5,23 @@
 @inject AuthService AuthService
 @inject NavigationManager Navigation
 
-<PageTitle>Order Details - CampusEats</PageTitle>
+<PageTitle>Detalii Comandă</PageTitle>
 
 <div class="container mt-4">
     @if (_isLoading)
     {
         <div class="text-center">
             <div class="spinner-border" role="status">
-                <span class="visually-hidden">Loading...</span>
+                <span class="visually-hidden">Se încarcă...</span>
             </div>
         </div>
     }
     else if (_orderDetails == null && _basicOrder == null)
     {
         <div class="alert alert-danger">
-            <h4>Order Not Found</h4>
-            <p>The order you're looking for doesn't exist or you don't have permission to view it.</p>
-            <a href="/orders" class="btn btn-primary">Back to Orders</a>
+            <h4>Comanda nu a fost găsită</h4>
+            <p>Comanda pe care o cauți nu există sau nu ai permisiuni de a o vizualiza.</p>
+            <a href="/orders" class="btn btn-primary">Înapoi la Comenzi</a>
         </div>
     }
     else
@@ -29,45 +29,44 @@
         <div class="row mb-3">
             <div class="col">
                 <button class="btn btn-secondary" @onclick="GoBack">
-                    <span class="bi bi-arrow-left"></span> Back
+                    <span class="bi bi-arrow-left"></span> Înapoi
                 </button>
             </div>
         </div>
 
         <div class="card shadow-sm">
             <div class="card-header bg-@DisplayStatusColor">
-                <h3 class="text-white mb-0">Order #@DisplayOrderId.ToString().Substring(0, 8)...</h3>
+                <h3 class="text-white mb-0">Comandă #@DisplayOrderId.ToString().Substring(0, 8)...</h3>
             </div>
             <div class="card-body">
                 <div class="row mb-4">
                     <div class="col-md-6">
-                        <h5>Client Information</h5>
+                        <h5>Informații Client</h5>
                         <hr />
                         @if (_orderDetails != null)
                         {
-                            <p class="mb-2"><strong>Username:</strong> @_orderDetails.ClientUsername</p>
+                            <p class="mb-2"><strong>Nume:</strong> @_orderDetails.ClientUsername</p>
                             <p class="mb-2"><strong>Email:</strong> @_orderDetails.ClientEmail</p>
-                            <p class="mb-2"><strong>Client ID:</strong> <code>@_orderDetails.ClientId</code></p>
                         }
                     </div>
                     <div class="col-md-6">
-                        <h5>Order Information</h5>
+                        <h5>Informații Comandă</h5>
                         <hr />
-                        <p class="mb-2"><strong>Order ID:</strong> <code>@DisplayOrderId</code></p>
+                        <p class="mb-2"><strong>ID Comandă:</strong> <code>@DisplayOrderId</code></p>
                         <p class="mb-2"><strong>Status:</strong> <span class="badge bg-@DisplayStatusColor">@DisplayStatus</span></p>
-                        <p class="mb-2"><strong>Total Price:</strong> <span class="text-success fs-4">@DisplayPrice.ToString("F2") RON</span></p>
-                        <p class="mb-2"><strong>Created:</strong> @DisplayCreatedAt.ToString("MMMM dd, yyyy 'at' HH:mm:ss")</p>
+                        <p class="mb-2"><strong>Total:</strong> <span class="text-success fs-4">@DisplayPrice.ToString("F2") RON</span></p>
+                        <p class="mb-2"><strong>Plasată la:</strong> @DisplayCreatedAt.ToString("MMMM dd, yyyy 'at' HH:mm:ss")</p>
                     </div>
                 </div>
 
-                <h5>Order Contents</h5>
+                <h5>Conținut Comandă</h5>
                 <hr />
 
                 <div class="row">
                     @if (_orderDetails != null && _orderDetails.Menus.Any())
                     {
                         <div class="col-md-6 mb-4">
-                            <h6 class="text-primary">Menus (@_orderDetails.Menus.Count)</h6>
+                            <h6 class="text-primary">Meniuri (@_orderDetails.Menus.Count)</h6>
                             <div class="list-group">
                                 @foreach (var menu in _orderDetails.Menus)
                                 {
@@ -79,13 +78,13 @@
                                     </div>
                                 }
                             </div>
-                            <p class="mt-2 text-muted"><strong>Menus Subtotal:</strong> @_orderDetails.Menus.Sum(m => m.Price).ToString("F2") RON</p>
+                            <p class="mt-2 text-muted"><strong>Subtotal Meniuri:</strong> @_orderDetails.Menus.Sum(m => m.Price).ToString("F2") RON</p>
                         </div>
                     }
                     @if (_orderDetails != null && _orderDetails.Items.Any())
                     {
                         <div class="col-md-6 mb-4">
-                            <h6 class="text-success">Individual Items (@_orderDetails.Items.Count)</h6>
+                            <h6 class="text-success">Feluri individuale (@_orderDetails.Items.Count)</h6>
                             <div class="list-group">
                                 @foreach (var item in _orderDetails.Items)
                                 {
@@ -97,7 +96,7 @@
                                     </div>
                                 }
                             </div>
-                            <p class="mt-2 text-muted"><strong>Items Subtotal:</strong> @_orderDetails.Items.Sum(i => i.Price).ToString("F2") RON</p>
+                            <p class="mt-2 text-muted"><strong>Subtotal Feluri individuale:</strong> @_orderDetails.Items.Sum(i => i.Price).ToString("F2") RON</p>
                         </div>
                     }
                 </div>
@@ -105,7 +104,7 @@
                 @if (_orderDetails == null)
                 {
                     <div class="alert alert-warning">
-                        <p class="mb-0">Detailed items are unavailable, but basic order info is shown.</p>
+                        <p class="mb-0">Informațiile detaliate nu sunt disponibile, dar poți vedea informația principală.</p>
                     </div>
                 }
 
@@ -114,7 +113,7 @@
                     <hr />
                     <div class="d-flex gap-2">
                         <button class="btn btn-danger" @onclick="CancelOrder">
-                            <span class="bi bi-x-circle"></span> Cancel Order
+                            <span class="bi bi-x-circle"></span> Anulează Comanda
                         </button>
                     </div>
                 }
@@ -160,7 +159,6 @@
         {
             _orderDetails = await OrderService.GetOrderDetailsAsync(OrderId);
             
-            // Check permissions: Admin can see all, Client can only see their own orders
             if (_orderDetails != null && AuthService.CurrentUser?.Role == "Client")
             {
                 if (_orderDetails.ClientId != AuthService.CurrentUser.UserId)

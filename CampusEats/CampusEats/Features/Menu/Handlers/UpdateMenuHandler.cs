@@ -45,24 +45,43 @@ public class UpdateMenuHandler (CampusEatsContext context, ILogger<UpdateMenuHan
             .Distinct()
             .ToList();
         
-        var calculatedRestrictions = DietaryRestrictions.None;
+        var calculatedRestrictions = DietaryRestrictions.FoodAllergyFriendly;
         
-        if (!allAllergens.Any(a => a.Contains("dairy") || a.Contains("milk") || a.Contains("lactose") || a.Contains("cheese")))
+        if (!allAllergens.Any(a => a.Contains("Lapte") || 
+                                   a.Contains("Lactoză")))
         {
             calculatedRestrictions |= DietaryRestrictions.LactoseFree;
         }
         
-        if (!allAllergens.Any(a => a.Contains("gluten") || a.Contains("wheat")))
+        if (!allAllergens.Any(a => a.Contains("Gluten") || 
+                                   a.Contains("Grâu")))
         {
             calculatedRestrictions |= DietaryRestrictions.GlutenFree;
         }
         
-        if (!allAllergens.Any(a => a.Contains("nut") || a.Contains("peanut") || a.Contains("almond") || a.Contains("cashew")))
+        if (!allAllergens.Any(a => a.Contains("Nuci") ||
+                                   a.Contains("Arahide") || 
+                                   a.Contains("Migdale") || 
+                                   a.Contains("Cashew")))
         {
             calculatedRestrictions |= DietaryRestrictions.NutFree;
         }
         
-        var finalRestrictions = calculatedRestrictions != DietaryRestrictions.None 
+        if (!allAllergens.Any(a => a.Contains("Pește") ||
+                                   a.Contains("Moluște") || 
+                                   a.Contains("Crustacee")))
+        {
+            calculatedRestrictions |= DietaryRestrictions.NoSeafood;
+        }
+
+        if (!allAllergens.Any(a => a.Contains("Brânzeturi") ||
+                                   a.Contains("Lapte") ||
+                                   a.Contains("Ouă")))
+        {
+            calculatedRestrictions |= DietaryRestrictions.DairyFree;
+        }
+        
+        var finalRestrictions = calculatedRestrictions != DietaryRestrictions.FoodAllergyFriendly
             ? calculatedRestrictions 
             : menu.Restrictions;
         
