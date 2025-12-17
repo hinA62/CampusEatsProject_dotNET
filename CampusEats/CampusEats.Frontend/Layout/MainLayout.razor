@@ -1,10 +1,12 @@
 ﻿@inherits LayoutComponentBase
 @using CampusEatsFrontend.Services
+@using CampusEatsFrontend.Pages.Cart
 @inject AuthService AuthService
+@inject CartService CartService
 
 <div class="page">
     <div class="sidebar">
-        <NavMenu />
+        <NavMenu OnCartButtonClick="OpenCartSidebar" />
     </div>
 
     <main>
@@ -14,10 +16,20 @@
     </main>
 </div>
 
+<CartSidebar @ref="_cartSidebar" />
+
 @code {
+    private CartSidebar? _cartSidebar;
+
     protected override async Task OnInitializedAsync()
     {
         await AuthService.InitializeAsync();
+        await CartService.InitializeAsync();
+    }
+
+    private void OpenCartSidebar()
+    {
+        _cartSidebar?.Open();
     }
 
     private async Task HandleLogout()
@@ -26,4 +38,3 @@
         StateHasChanged();
     }
 }
-

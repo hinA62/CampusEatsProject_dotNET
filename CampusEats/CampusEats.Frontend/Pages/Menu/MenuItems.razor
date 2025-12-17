@@ -2,6 +2,7 @@
 @using CampusEatsFrontend.Models.MenuItem
 @using CampusEatsFrontend.Services
 @inject MenuItemService MenuItemService
+@inject CartService CartService
 @inject NavigationManager Navigation
 @inject AuthService AuthService
 
@@ -17,6 +18,14 @@
             </button>
         }
     </div>
+
+    @if (!string.IsNullOrEmpty(_successMessage))
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="bi bi-check-circle"></i> @_successMessage
+            <button type="button" class="btn-close" @onclick="() => _successMessage = string.Empty"></button>
+        </div>
+    }
 
     <div class="row mb-3">
         <div class="col-md-6">
@@ -58,7 +67,7 @@
                             <h5 class="card-title">@item.Name</h5>
                             <p class="card-text text-success fw-bold flex-grow-1">@item.Price.ToString("F2") RON</p>
                             
-                            <div class="allergens">
+                            <div class="allergens mb-3">
                                 <small class="text-allergens">Alergeni:</small><br />
                                 @if (item.Allergens != null && item.Allergens.Any())
                                 {
@@ -69,6 +78,14 @@
                                     <span class="text-muted">Niciunul</span>
                                 }
                             </div>
+
+                            @* Add to Cart Button - visible for all authenticated users *@
+                            @if (AuthService.IsAuthenticated && item.Price > 0)
+                            {
+                                <button class="btn btn-success w-100 mb-2" @onclick="async () => await AddToCart(item)">
+                                    <i class="bi bi-cart-plus"></i> Adaugă în coș
+                                </button>
+                            }
                         </div>
 
                         @if (AuthService.CurrentUser?.Role == "Admin")
@@ -93,11 +110,13 @@
     private List<MenuItemDto>? _allItems;
     private List<MenuItemDto>? _filteredItems;
     private string _searchTerm = string.Empty;
+    private string _successMessage = string.Empty;
     private bool _isLoading = true;
 
     protected override async Task OnInitializedAsync()
     {
         await AuthService.InitializeAsync();
+        await CartService.InitializeAsync();
         await LoadItems();
     }
 
@@ -156,6 +175,19 @@
                 Console.WriteLine($"Excepție la ștergere: {ex.Message}");
             }
         }
+    }
+
+    private async Task AddToCart(MenuItemDto item)
+    {
+        await CartService.AddMenuItemAsync(item);
+        _successMessage = $"✓ {item.Name} a fost adăugat în coș!";
+        
+        // Clear success message after 3 seconds
+        _ = Task.Delay(3000).ContinueWith(_ => 
+        {
+            _successMessage = string.Empty;
+            InvokeAsync(StateHasChanged);
+        });
     }
 
     private static bool Confirm(string message) => true; 

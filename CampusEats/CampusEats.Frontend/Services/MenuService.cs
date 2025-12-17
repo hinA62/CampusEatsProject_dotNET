@@ -10,7 +10,7 @@ public class MenuService(HttpClient http)
     private readonly JsonSerializerOptions _jsonOptions = new()
     {
         PropertyNameCaseInsensitive = true,
-        Converters = { new JsonStringEnumConverter() }
+        Converters = { new JsonStringEnumConverter(JsonNamingPolicy.CamelCase) }
     };
 
     public async Task<List<MenuDto>?> GetAllMenusAsync()
@@ -23,9 +23,11 @@ public class MenuService(HttpClient http)
         return await http.GetFromJsonAsync<MenuDto>($"api/menu/{id}", _jsonOptions);
     }
 
-    public async Task<HttpResponseMessage> CreateMenuAsync(CreateMenuRequest req)
+    public async Task<MenuDto> CreateMenuAsync(CreateMenuRequest menu)
     {
-        return await http.PostAsJsonAsync("api/menu", req, _jsonOptions);
+        var response = await http.PostAsJsonAsync("api/menu", menu, _jsonOptions);
+        response.EnsureSuccessStatusCode();
+        return await response.Content.ReadFromJsonAsync<MenuDto>(_jsonOptions) ?? throw new Exception("Failed to create menu");
     }
 
     public async Task<HttpResponseMessage> UpdateMenuAsync(UpdateMenuRequest req)

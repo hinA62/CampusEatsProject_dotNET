@@ -24,20 +24,26 @@ public class PlaceOrderHandler(CampusEatsContext context, ILogger<PlaceOrderHand
         }
 
         Debug.Assert(request.MenuIDs != null, "request.MenuIDs != null");
-        var menuIds = request.MenuIDs.Distinct().ToList();
-        var itemIds = request.ItemIDs.Distinct().ToList();
+        
+        // Nu folosim Distinct() pentru a păstra cantitățile (duplicatele = cantitate)
+        var menuIds = request.MenuIDs.ToList();
+        var itemIds = request.ItemIDs.ToList();
+        
+        // Obținem ID-urile unice pentru verificare
+        var uniqueMenuIds = menuIds.Distinct().ToList();
+        var uniqueItemIds = itemIds.Distinct().ToList();
 
         var menus = await context.Menu
-            .Where(m => menuIds.Contains(m.Id))
-            .Select(m => new { m.Id, m.Price })
+            .Where(m => uniqueMenuIds.Contains(m.Id))
+            .Select(m => new { m.Id, Price = (decimal?)m.Price })
             .ToListAsync();
         var items = await context.MenuItem
-            .Where(i => itemIds.Contains(i.Id))
-            .Select(i => new { i.Id, i.Price })
+            .Where(i => uniqueItemIds.Contains(i.Id))
+            .Select(i => new { i.Id, Price = (decimal)i.Price })
             .ToListAsync();
 
-        var missingMenus = menuIds.Except(menus.Select(m => m.Id)).ToList();
-        var missingItems = itemIds.Except(items.Select(i => i.Id)).ToList();
+        var missingMenus = uniqueMenuIds.Except(menus.Select(m => m.Id)).ToList();
+        var missingItems = uniqueItemIds.Except(items.Select(i => i.Id)).ToList();
         if (missingMenus.Any() || missingItems.Any())
         {
             logger.LogWarning("Missing refs. Menus: {Menus} Items: {Items}",
@@ -46,14 +52,35 @@ public class PlaceOrderHandler(CampusEatsContext context, ILogger<PlaceOrderHand
                 MissingMenuIDs = missingMenus, MissingItemIDs = missingItems });
         }
 
-        decimal? total = menus.Sum(m => m.Price) + items.Sum(i => i.Price);
+        // Calculăm prețul bazat pe fiecare ID din listă (inclusiv duplicate pentru cantități)
+        decimal total = 0;
+        
+        // Pentru fiecare menu ID (inclusiv duplicate), adăugăm prețul
+        foreach (var menuId in menuIds)
+        {
+            var menu = menus.FirstOrDefault(m => m.Id == menuId);
+            if (menu != null && menu.Price.HasValue)
+            {
+                total += menu.Price.Value;
+            }
+        }
+        
+        // Pentru fiecare item ID (inclusiv duplicate), adăugăm prețul
+        foreach (var itemId in itemIds)
+        {
+            var item = items.FirstOrDefault(i => i.Id == itemId);
+            if (item != null)
+            {
+                total += item.Price;
+            }
+        }
 
         var order = new Order(
             Id: Guid.NewGuid(),
             ClientId: request.ClientId,
-            Price: total ?? 0,
-            MenuIDs: menuIds,
-            ItemIDs: itemIds,
+            Price: total,
+            MenuIDs: menuIds, // Salvăm CU duplicate pentru a păstra cantitățile!
+            ItemIDs: itemIds, // Salvăm CU duplicate pentru a păstra cantitățile!
             CreatedAt: DateTime.UtcNow,
             Status: OrderStatus.Pending
         );
@@ -61,7 +88,7 @@ public class PlaceOrderHandler(CampusEatsContext context, ILogger<PlaceOrderHand
         context.Order.Add(order);
         await context.SaveChangesAsync();
 
-        logger.LogInformation("Order {OrderId} created for Client {ClientId}", order.Id, order.ClientId);
+        logger.LogInformation("Order {OrderId} created for Client {ClientId} with total {Total}", order.Id, order.ClientId, total);
         return Results.Created($"/orders/{order.Id}", order);
     }
 }

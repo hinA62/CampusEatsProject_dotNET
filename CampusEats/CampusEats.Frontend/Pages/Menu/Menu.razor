@@ -1,6 +1,7 @@
 @page "/menus"
 @inject MenuService MenuService
 @inject MenuItemService MenuItemService
+@inject CartService CartService
 @using CampusEatsFrontend.Models.Menu
 @using CampusEatsFrontend.Models.MenuItem
 @using CampusEatsFrontend.Services
@@ -19,6 +20,14 @@
             </button>
         }
     </div>
+
+    @if (!string.IsNullOrEmpty(_successMessage))
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="bi bi-check-circle"></i> @_successMessage
+            <button type="button" class="btn-close" @onclick="() => _successMessage = string.Empty"></button>
+        </div>
+    }
 
     @if (_menus == null)
     {
@@ -61,6 +70,15 @@
                                     <span class="badge bg-warning me-1 allergens-badge">@restriction</span>
                                 }
                             </p>
+                            
+                            @* Add to Cart Button - visible for all authenticated users *@
+                            @if (AuthService.IsAuthenticated && menu.Price.HasValue && menu.Price.Value > 0)
+                            {
+                                <button class="btn btn-success w-100 mb-2" @onclick="async () => await AddToCart(menu)">
+                                    <i class="bi bi-cart-plus"></i> Adaugă în coș
+                                </button>
+                            }
+                            
                             <div class="mt-2">
                                 <button class="btn btn-sm btn-outline-secondary w-100" @onclick="() => ToggleMenuItems(menu.Id)">
                                     <span class="bi @(_expandedMenus.Contains(menu.Id) ? "bi-chevron-up" : "bi-chevron-down") btn-outline-secondary"></span>
@@ -121,10 +139,12 @@
     HashSet<Guid> _expandedMenus = new();
     Dictionary<Guid, List<MenuItemDto>> _menuItemsCache = new();
     List<MenuItemDto>? _allMenuItems;
+    string _successMessage = string.Empty;
 
     protected override async Task OnInitializedAsync()
     {
         await AuthService.InitializeAsync();
+        await CartService.InitializeAsync();
         await LoadMenus();
         _allMenuItems = await MenuItemService.GetAllMenuItemsAsync();
     }
@@ -183,6 +203,19 @@
         }
     }
 
+    private async Task AddToCart(MenuDto menu)
+    {
+        await CartService.AddItemAsync(menu);
+        _successMessage = $"✓ {menu.Name} a fost adăugat în coș!";
+        
+        // Clear success message after 3 seconds
+        _ = Task.Delay(3000).ContinueWith(_ => 
+        {
+            _successMessage = string.Empty;
+            InvokeAsync(StateHasChanged);
+        });
+    }
+
     private List<string> GetRestrictionsList(DietaryRestrictions restrictions)
     {
         var list = new List<string>();
@@ -194,8 +227,10 @@
             list.Add("Fără Gluten");
         if (restrictions.HasFlag(DietaryRestrictions.NutFree))
             list.Add("Fără Nuci");
-        if (restrictions.HasFlag(DietaryRestrictions.SugarFree))
-            list.Add("Fără Zahăr");
+        if (restrictions.HasFlag(DietaryRestrictions.DairyFree))
+            list.Add("Fără Lactate");
+        if (restrictions.HasFlag(DietaryRestrictions.NoSeafood))
+            list.Add("Fără Fructe de Mare");
         if (restrictions.HasFlag(DietaryRestrictions.FoodAllergyFriendly))
             list.Add("Fără alergeni suplimentari");
         
