@@ -39,7 +39,7 @@ public class PlaceOrderHandler(CampusEatsContext context, ILogger<PlaceOrderHand
             .ToListAsync();
         var items = await context.MenuItem
             .Where(i => uniqueItemIds.Contains(i.Id))
-            .Select(i => new { i.Id, Price = (decimal)i.Price })
+            .Select(i => new { i.Id, i.Price })
             .ToListAsync();
 
         var missingMenus = uniqueMenuIds.Except(menus.Select(m => m.Id)).ToList();
@@ -69,10 +69,7 @@ public class PlaceOrderHandler(CampusEatsContext context, ILogger<PlaceOrderHand
         foreach (var itemId in itemIds)
         {
             var item = items.FirstOrDefault(i => i.Id == itemId);
-            if (item != null)
-            {
-                total += item.Price;
-            }
+            total += item?.Price ?? 0;
         }
 
         var order = new Order(

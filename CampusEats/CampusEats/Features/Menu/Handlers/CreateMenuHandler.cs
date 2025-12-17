@@ -30,7 +30,7 @@ public class CreateMenuHandler(CampusEatsContext context, ILogger<CreateMenuHand
             .Where(item => request.ItemIds != null && request.ItemIds.Contains(item.Id))
             .ToListAsync();
         
-        // obtine alergeni
+        // obtine alergeni din toate item-urile meniului
         var allAllergens = menuItems
             .Where(item => item.Allergens != null)
             .SelectMany(item => item.Allergens!)
@@ -38,50 +38,51 @@ public class CreateMenuHandler(CampusEatsContext context, ILogger<CreateMenuHand
             .Distinct()
             .ToList();
         
-        var calculatedRestrictions = DietaryRestrictions.FoodAllergyFriendly;
+        // START cu toate restricțiile (presupunem că totul e safe)
+        var calculatedRestrictions = DietaryRestrictions.LactoseFree | 
+                                     DietaryRestrictions.GlutenFree | 
+                                     DietaryRestrictions.NutFree | 
+                                     DietaryRestrictions.DairyFree | 
+                                     DietaryRestrictions.NoSeafood;
         
-        if (!allAllergens.Any(a => a.Contains("Lapte") || 
-                                   a.Contains("Lactoză")))
+        // ELIMINĂ restricțiile dacă găsim alergenii corespunzători
+        if (allAllergens.Any(a => a.Contains("lapte") || a.Contains("lactoză")))
         {
-            calculatedRestrictions |= DietaryRestrictions.LactoseFree;
+            calculatedRestrictions &= ~DietaryRestrictions.LactoseFree;
         }
         
-        if (!allAllergens.Any(a => a.Contains("Gluten") || 
-                                   a.Contains("Grâu")))
+        if (allAllergens.Any(a => a.Contains("gluten") || a.Contains("grâu")))
         {
-            calculatedRestrictions |= DietaryRestrictions.GlutenFree;
+            calculatedRestrictions &= ~DietaryRestrictions.GlutenFree;
         }
         
-        if (!allAllergens.Any(a => a.Contains("Nuci") ||
-                                   a.Contains("Arahide") || 
-                                   a.Contains("Migdale") || 
-                                   a.Contains("Cashew")))
+        if (allAllergens.Any(a => a.Contains("nuci") || a.Contains("arahide") || 
+                                  a.Contains("migdale") || a.Contains("cashew")))
         {
-            calculatedRestrictions |= DietaryRestrictions.NutFree;
+            calculatedRestrictions &= ~DietaryRestrictions.NutFree;
         }
         
-        if (!allAllergens.Any(a => a.Contains("Pește") ||
-                                   a.Contains("Moluște") || 
-                                   a.Contains("Crustacee")))
+        if (allAllergens.Any(a => a.Contains("pește") || a.Contains("moluște") || 
+                                  a.Contains("crustacee")))
         {
-            calculatedRestrictions |= DietaryRestrictions.NoSeafood;
+            calculatedRestrictions &= ~DietaryRestrictions.NoSeafood;
         }
 
-        if (!allAllergens.Any(a => a.Contains("Brânzeturi") ||
-                                   a.Contains("Lapte") ||
-                                   a.Contains("Ouă")))
+        if (allAllergens.Any(a => a.Contains("brânzeturi") || a.Contains("lapte") || 
+                                  a.Contains("ouă")))
         {
-            calculatedRestrictions |= DietaryRestrictions.DairyFree;
+            calculatedRestrictions &= ~DietaryRestrictions.DairyFree;
         }
         
-        var finalRestrictions = calculatedRestrictions != DietaryRestrictions.FoodAllergyFriendly
+        // Dacă nu avem item-uri, nu putem calcula restricții
+        var finalRestrictions = menuItems.Any() 
             ? calculatedRestrictions 
-            : request.Restrictions;
+            : DietaryRestrictions.None;
         
         logger.LogInformation("Menu restrictions: {Restrictions} (calculated from allergens: [{Allergens}])", 
             finalRestrictions, allAllergens.Count > 0 ? string.Join(", ", allAllergens) : "none");
         
-        //create a menu
+        // create a menu cu restricții calculate automat
         Debug.Assert(request.ItemIds != null, "request.ItemIds != null");
         var menu = new Menu(Guid.NewGuid(), request.Name, 
             request.Price, request.ItemIds, request.Category, finalRestrictions, request.ImageUrl);

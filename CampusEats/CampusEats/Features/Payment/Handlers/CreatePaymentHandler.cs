@@ -2,6 +2,8 @@
 using CampusEats.Features.Loyalty;
 using CampusEats.Persistence;
 using Microsoft.EntityFrameworkCore;
+using OrderEntity = CampusEats.Features.Order.Order;
+using CampusEats.Features.Order;
 
 namespace CampusEats.Features.Payment.Handlers;
 
@@ -10,20 +12,92 @@ public class CreatePaymentHandler(CampusEatsContext db)
     public async Task<IResult> Handle
         (CreatePaymentRequest request, CancellationToken ct = default)
     {
-        // verificăm că există comanda
-        var order = await db.Order.FirstOrDefaultAsync
-            (o => o.Id == request.OrderId, ct);
-        if (order is null)
-        {
-            return Results.NotFound("Order not found");
-        }
-
         // de verificat și User dacă vrei extra safe:
         var userExists = await db.Users.AnyAsync
             (u => u.Id == request.UserId, ct);
         if (!userExists)
         {
             return Results.NotFound("User not found");
+        }
+
+        // NEW FLOW: If OrderId is null, create order from MenuIDs/ItemIDs
+        OrderEntity? order = null;
+        Guid orderId;
+        
+        if (request.OrderId.HasValue)
+        {
+            // OLD FLOW: OrderId provided, fetch existing order
+            order = await db.Order.FirstOrDefaultAsync
+                (o => o.Id == request.OrderId.Value, ct);
+            if (order is null)
+            {
+                return Results.NotFound("Order not found");
+            }
+            orderId = order.Id;
+        }
+        else
+        {
+            // NEW FLOW: Create order from cart data
+            if ((request.MenuIDs == null || !request.MenuIDs.Any()) && 
+                (request.ItemIDs == null || !request.ItemIDs.Any()))
+            {
+                return Results.BadRequest("Either OrderId or MenuIDs/ItemIDs must be provided");
+            }
+
+            var menuIds = request.MenuIDs ?? new List<Guid>();
+            var itemIds = request.ItemIDs ?? new List<Guid>();
+            
+            // Get unique IDs for validation
+            var uniqueMenuIds = menuIds.Distinct().ToList();
+            var uniqueItemIds = itemIds.Distinct().ToList();
+
+            var menus = await db.Menu
+                .Where(m => uniqueMenuIds.Contains(m.Id))
+                .Select(m => new { m.Id, Price = (decimal?)m.Price })
+                .ToListAsync(ct);
+            var items = await db.MenuItem
+                .Where(i => uniqueItemIds.Contains(i.Id))
+                .Select(i => new { i.Id, i.Price })
+                .ToListAsync(ct);
+
+            var missingMenus = uniqueMenuIds.Except(menus.Select(m => m.Id)).ToList();
+            var missingItems = uniqueItemIds.Except(items.Select(i => i.Id)).ToList();
+            if (missingMenus.Any() || missingItems.Any())
+            {
+                return Results.BadRequest(new { Message = "Some MenuIDs/ItemIDs do not exist", 
+                    MissingMenuIDs = missingMenus, MissingItemIDs = missingItems });
+            }
+
+            // Calculate total price (with duplicates for quantities)
+            decimal total = 0;
+            foreach (var menuId in menuIds)
+            {
+                var menu = menus.FirstOrDefault(m => m.Id == menuId);
+                if (menu != null && menu.Price.HasValue)
+                {
+                    total += menu.Price.Value;
+                }
+            }
+            foreach (var itemId in itemIds)
+            {
+                var item = items.FirstOrDefault(i => i.Id == itemId);
+                total += item?.Price ?? 0;
+            }
+
+            // Create new order
+            order = new OrderEntity(
+                Id: Guid.NewGuid(),
+                ClientId: request.UserId,
+                Price: total,
+                MenuIDs: menuIds,
+                ItemIDs: itemIds,
+                CreatedAt: DateTime.UtcNow,
+                Status: OrderStatus.Pending
+            );
+
+            db.Order.Add(order);
+            await db.SaveChangesAsync(ct); // Save order before payment
+            orderId = order.Id;
         }
 
         // Get or create loyalty account
@@ -79,7 +153,7 @@ public class CreatePaymentHandler(CampusEatsContext db)
                 UserId = request.UserId,
                 Type = LoyaltyTransactionType.Redeem,
                 Points = -pointsUsed, // Negative for deduction
-                Description = $"Redeemed {pointsUsed} points for ${discount:F2} discount on order {order.Id}",
+                Description = $"Redeemed {pointsUsed} points for ${discount:F2} discount on order {orderId}",
                 CreatedAtUtc = DateTime.UtcNow
             };
             await db.LoyaltyTransactions.AddAsync(redeemTx, ct);
@@ -90,7 +164,7 @@ public class CreatePaymentHandler(CampusEatsContext db)
         {
             Id = Guid.NewGuid(),
             UserId = request.UserId,
-            OrderId = request.OrderId,
+            OrderId = orderId, // Use the orderId variable (from existing or newly created order)
             Amount = finalAmount, // Use final amount after discount
             Method = request.Method,
             Status = PaymentStatus.Succeeded,

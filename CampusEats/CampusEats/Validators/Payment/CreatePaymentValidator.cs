@@ -10,9 +10,6 @@ public class CreatePaymentValidator : AbstractValidator<CreatePaymentRequest>
         RuleFor(x => x.UserId)
             .NotEmpty().WithMessage("UserId is required.");
 
-        RuleFor(x => x.OrderId)
-            .NotEmpty().WithMessage("OrderId is required.");
-
         RuleFor(x => x.Amount)
             .GreaterThan(0).WithMessage("Amount must be greater than 0.");
     }

@@ -42,11 +42,11 @@ public class CreatePaymentValidatorTests
     }
 
     [Fact]
-    public void Given_EmptyOrderId_When_Validate_ShouldFail()
+    public void Given_EmptyOrderId_When_Validate_ShouldPass()
     {
-        // Arrange
+        // Arrange - OrderId is now optional
         var model = new CreatePaymentRequest
-            (Guid.NewGuid(), Guid.Empty,
+            (Guid.NewGuid(), null,
                  13.75m, PaymentMethod.MockCard);
         var validator = new CreatePaymentValidator();
         
@@ -54,9 +54,8 @@ public class CreatePaymentValidatorTests
         var result = validator.Validate(model);
         
         // Assert
-        Assert.False(result.IsValid);
-        Assert.Contains(result.Errors, e => 
-            e.ErrorMessage == "OrderId is required.");
+        Assert.True(result.IsValid);
+        Assert.Empty(result.Errors);
     }
 
     [Fact]
@@ -91,6 +90,6 @@ public class CreatePaymentValidatorTests
         
         // Assert
         Assert.False(result.IsValid);
-        Assert.Equal(3, result.Errors.Count);
+        Assert.Equal(2, result.Errors.Count); // Only UserId and Amount errors (OrderId is optional)
     }
 }

@@ -29,6 +29,83 @@
         </div>
     }
 
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <input type="text" class="form-control" placeholder="Caută după nume..." @bind="_searchTerm" @bind:event="oninput" @bind:after="FilterMenus" />
+        </div>
+        <div class="col-md-3">
+            <div class="dropdown">
+                <button class="form-select text-start dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    @(_selectedCategory == "" ? "Toate categoriile" : _selectedCategory)
+                </button>
+                <ul class="dropdown-menu" style="min-width: 250px;">
+                    <li class="px-2 py-1">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="categoryRadio" id="radioAllCategories" 
+                                   checked="@(_selectedCategory == string.Empty)" 
+                                   @onchange="@(() => SelectCategory(string.Empty))" 
+                                   @onclick:stopPropagation="true">
+                            <label class="form-check-label" for="radioAllCategories">Toate categoriile</label>
+                        </div>
+                    </li>
+                    @foreach (var category in Enum.GetValues<MenuCategory>())
+                    {
+                        var categoryStr = category.ToString();
+                        var radioId = $"radio{categoryStr}";
+                        <li class="px-2 py-1">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="categoryRadio" id="@radioId" 
+                                       checked="@(_selectedCategory == categoryStr)" 
+                                       @onchange="@(() => SelectCategory(categoryStr))" 
+                                       @onclick:stopPropagation="true">
+                                <label class="form-check-label" for="@radioId">@categoryStr</label>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="dropdown">
+                <button class="form-select text-start dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Restricții alimentare
+                </button>
+                <ul class="dropdown-menu p-2" style="min-width: 250px;">
+                    <li class="px-2 py-1">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="checkLactoseFree" @bind="_filterLactoseFree" @bind:after="FilterMenus" @onclick:stopPropagation="true">
+                            <label class="form-check-label" for="checkLactoseFree">Fără lactoză</label>
+                        </div>
+                    </li>
+                    <li class="px-2 py-1">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="checkGlutenFree" @bind="_filterGlutenFree" @bind:after="FilterMenus" @onclick:stopPropagation="true">
+                            <label class="form-check-label" for="checkGlutenFree">Fără gluten</label>
+                        </div>
+                    </li>
+                    <li class="px-2 py-1">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="checkNutFree" @bind="_filterNutFree" @bind:after="FilterMenus" @onclick:stopPropagation="true">
+                            <label class="form-check-label" for="checkNutFree">Fără nuci</label>
+                        </div>
+                    </li>
+                    <li class="px-2 py-1">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="checkDairyFree" @bind="_filterDairyFree" @bind:after="FilterMenus" @onclick:stopPropagation="true">
+                            <label class="form-check-label" for="checkDairyFree">Fără lactate</label>
+                        </div>
+                    </li>
+                    <li class="px-2 py-1">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="checkNoSeafoodMenu" @bind="_filterNoSeafood" @bind:after="FilterMenus" @onclick:stopPropagation="true">
+                            <label class="form-check-label" for="checkNoSeafoodMenu">Fără fructe de mare</label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     @if (_menus == null)
     {
         <div class="text-center">
@@ -37,14 +114,14 @@
             </div>
         </div>
     }
-    else if (_menus.Count == 0)
+    else if (_filteredMenus == null || _filteredMenus.Count == 0)
     {
-        <div class="alert alert-info">Momentan, nu există meniuri.</div>
+        <div class="alert alert-info">Nu s-au găsit meniuri pentru filtrele selectate.</div>
     }
     else
     {
         <div class="row">
-            @foreach (var menu in _menus)
+            @foreach (var menu in _filteredMenus)
             {
                 <div class="col-sm-6 col-md-4 mb-4">
                     <div class="card h-100 shadow-sm">
@@ -58,12 +135,12 @@
                                 Fără imagine
                             </div>
                         }
-                        <div class="card-body">
+                        <div class="card-body d-flex flex-column">
                             <h5 class="card-title">@menu.Name</h5>
                             <p class="card-text">
                                 <strong>Preț:</strong> @(menu.Price.HasValue ? $"{menu.Price.Value:F2} RON" : "N/A")
                             </p>
-                            <p class="card-text">
+                            <p class="card-text flex-grow-1">
                                 <span class="badge bg-info me-2 badge-primary">@menu.Category</span>
                                 @foreach (var restriction in GetRestrictionsList(menu.Restrictions))
                                 {
@@ -71,10 +148,10 @@
                                 }
                             </p>
                             
-                            @* Add to Cart Button - visible for all authenticated users *@
+                            @* Add to Cart Button - visible for all authenticated users - anchored to bottom *@
                             @if (AuthService.IsAuthenticated && menu.Price.HasValue && menu.Price.Value > 0)
                             {
-                                <button class="btn btn-success w-100 mb-2" @onclick="async () => await AddToCart(menu)">
+                                <button class="btn btn-success w-100 mb-2 mt-auto" @onclick="async () => await AddToCart(menu)">
                                     <i class="bi bi-cart-plus"></i> Adaugă în coș
                                 </button>
                             }
@@ -136,10 +213,18 @@
 
 @code {
     List<MenuDto>? _menus;
+    List<MenuDto>? _filteredMenus;
     HashSet<Guid> _expandedMenus = new();
     Dictionary<Guid, List<MenuItemDto>> _menuItemsCache = new();
     List<MenuItemDto>? _allMenuItems;
     string _successMessage = string.Empty;
+    string _searchTerm = string.Empty;
+    string _selectedCategory = string.Empty;
+    bool _filterLactoseFree = false;
+    bool _filterGlutenFree = false;
+    bool _filterNutFree = false;
+    bool _filterDairyFree = false;
+    bool _filterNoSeafood = false;
 
     protected override async Task OnInitializedAsync()
     {
@@ -157,6 +242,54 @@
     private async Task LoadMenus()
     {
         _menus = await MenuService.GetAllMenusAsync();
+        _filteredMenus = _menus;
+    }
+
+    private void SelectCategory(string category)
+    {
+        _selectedCategory = category;
+        FilterMenus();
+    }
+
+    private void FilterMenus()
+    {
+        _filteredMenus = _menus;
+
+        // Filter by search term
+        if (!string.IsNullOrWhiteSpace(_searchTerm))
+        {
+            _filteredMenus = _filteredMenus?
+                .Where(m => m.Name.Contains(_searchTerm, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+        }
+
+        // Filter by category
+        if (!string.IsNullOrWhiteSpace(_selectedCategory) && Enum.TryParse<MenuCategory>(_selectedCategory, out var category))
+        {
+            _filteredMenus = _filteredMenus?.Where(m => m.Category == category).ToList();
+        }
+
+        // Filter by multiple dietary restrictions (menus WITH the selected restrictions)
+        if (_filterLactoseFree)
+        {
+            _filteredMenus = _filteredMenus?.Where(m => m.Restrictions.HasFlag(DietaryRestrictions.LactoseFree)).ToList();
+        }
+        if (_filterGlutenFree)
+        {
+            _filteredMenus = _filteredMenus?.Where(m => m.Restrictions.HasFlag(DietaryRestrictions.GlutenFree)).ToList();
+        }
+        if (_filterNutFree)
+        {
+            _filteredMenus = _filteredMenus?.Where(m => m.Restrictions.HasFlag(DietaryRestrictions.NutFree)).ToList();
+        }
+        if (_filterDairyFree)
+        {
+            _filteredMenus = _filteredMenus?.Where(m => m.Restrictions.HasFlag(DietaryRestrictions.DairyFree)).ToList();
+        }
+        if (_filterNoSeafood)
+        {
+            _filteredMenus = _filteredMenus?.Where(m => m.Restrictions.HasFlag(DietaryRestrictions.NoSeafood)).ToList();
+        }
     }
 
     void GoToCreate()

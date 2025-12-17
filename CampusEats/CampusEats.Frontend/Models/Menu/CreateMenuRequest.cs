@@ -6,6 +6,5 @@ public class CreateMenuRequest
     public decimal? Price { get; set; }
     public List<Guid>? ItemIds { get; set; } = [];
     public MenuCategory Category { get; set; }
-    public DietaryRestrictions Restrictions { get; set; }
     public string? ImageUrl { get; set; }
 }

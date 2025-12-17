@@ -61,7 +61,7 @@ public class CreateStripeCheckoutSessionHandler
                     Quantity = 1,
                     PriceData = new SessionLineItemPriceDataOptions
                     {
-                        Currency = "usd",
+                        Currency = "ron",
                         UnitAmount = (long)(finalAmount * 100), 
                         ProductData = new SessionLineItemPriceDataProductDataOptions
                         {
