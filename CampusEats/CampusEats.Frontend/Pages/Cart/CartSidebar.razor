@@ -182,18 +182,18 @@
         }
     }
 
-    private async Task PlaceOrderAndCheckout()
+    private Task PlaceOrderAndCheckout()
     {
         if (!CartService.Items.Any())
         {
             _errorMessage = "Coșul este gol.";
-            return;
+            return Task.CompletedTask;
         }
 
         if (AuthService.CurrentUser == null)
         {
             _errorMessage = "Trebuie să fii autentificat pentru a plasa o comandă.";
-            return;
+            return Task.CompletedTask;
         }
 
         _isPlacingOrder = true;
@@ -221,47 +221,15 @@
                 }
             }
             
-            var request = new PlaceOrderRequest
-            {
-                ClientId = AuthService.CurrentUser.UserId,
-                MenuIDs = menuIds,
-                ItemIDs = itemIds
-            };
-
-            var response = await OrderService.PlaceOrderAsync(request);
-
-            if (response.IsSuccessStatusCode)
-            {
-                // Get the created order from response - exact ca în PlaceOrder.razor
-                var jsonOptions = new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true,
-                    Converters = { new JsonStringEnumConverter() }
-                };
-                
-                var orderResponse = await response.Content.ReadFromJsonAsync<OrderDto>(jsonOptions);
-                
-                // Golim coșul după plasarea comenzii
-                await CartService.ClearAsync();
-                
-                // Închidem sidebar-ul
-                Close();
-                
-                // Navigate to payment page cu ID-ul comenzii - exact ca în PlaceOrder.razor
-                if (orderResponse != null)
-                {
-                    Navigation.NavigateTo($"/payment/{orderResponse.Id}");
-                }
-                else
-                {
-                    Navigation.NavigateTo("/orders");
-                }
-            }
-            else
-            {
-                var error = await response.Content.ReadAsStringAsync();
-                _errorMessage = $"Eroare la plasarea comenzii: {error}";
-            }
+            // Navigate directly to payment page with cart data (no order created yet)
+            var menuIdsStr = string.Join(",", menuIds);
+            var itemIdsStr = string.Join(",", itemIds);
+            
+            // Închidem sidebar-ul
+            Close();
+            
+            // Navigate to payment - order will be created after payment success
+            Navigation.NavigateTo($"/payment?menus={menuIdsStr}&items={itemIdsStr}");
         }
         catch (Exception ex)
         {
@@ -271,6 +239,8 @@
         {
             _isPlacingOrder = false;
         }
+
+        return Task.CompletedTask;
     }
 
     public void Dispose()

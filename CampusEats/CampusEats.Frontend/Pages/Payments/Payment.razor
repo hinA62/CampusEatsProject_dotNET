@@ -1,4 +1,5 @@
 @page "/payment/{orderId:guid}"
+@page "/payment"
 @using CampusEatsFrontend.Models.Payment
 @using CampusEatsFrontend.Models.Order
 @using CampusEatsFrontend.Models.Loyalty
@@ -6,6 +7,7 @@
 @using CampusEatsFrontend.Models.MenuItem
 @using CampusEatsFrontend.Services
 @using Microsoft.AspNetCore.Components.Web
+@using System.Web
 @inject PaymentService PaymentService
 @inject OrderService OrderService
 @inject LoyaltyService LoyaltyService
@@ -27,10 +29,10 @@
                     </div>
                 </div>
             }
-            else if (_order == null)
+            else if (_cartMenuIds.Count == 0 && _cartItemIds.Count == 0)
             {
                 <div class="alert alert-danger">
-                    <span class="bi bi-exclamation-triangle"></span> Comanda nu a fost găsită.
+                    <span class="bi bi-exclamation-triangle"></span> Nu există articole în coș.
                 </div>
             }
             else
@@ -42,11 +44,11 @@
                     </div>
                     <div class="card-body">
                         <!-- Menus Section -->
-                        @if (_order.MenuIDs.Count > 0)
+                        @if (_cartMenuIds.Count > 0)
                         {
                             <div class="mb-3">
                                 <h6 class="mb-2"><strong>Meniuri</strong></h6>
-                                @foreach (var menuGroup in _order.MenuIDs.GroupBy(id => id))
+                                @foreach (var menuGroup in _cartMenuIds.GroupBy(id => id))
                                 {
                                     var menuId = menuGroup.Key;
                                     var quantity = menuGroup.Count();
@@ -83,11 +85,11 @@
                         }
 
                         <!-- Individual Items Section -->
-                        @if (_order.ItemIDs.Count > 0)
+                        @if (_cartItemIds.Count > 0)
                         {
                             <div class="mb-3">
                                 <h6 class="mb-2"><strong>Feluri Individuale</strong></h6>
-                                @foreach (var itemGroup in _order.ItemIDs.GroupBy(id => id))
+                                @foreach (var itemGroup in _cartItemIds.GroupBy(id => id))
                                 {
                                     var itemId = itemGroup.Key;
                                     var quantity = itemGroup.Count();
@@ -221,6 +223,9 @@
     private LoyaltyBalanceDto? _loyaltyBalance;
     private List<MenuDto> _menuDetails = new();
     private List<MenuItemDto> _itemDetails = new();
+    private List<Guid> _cartMenuIds = new();
+    private List<Guid> _cartItemIds = new();
+    private decimal _totalPrice = 0;
     private bool _isLoading = true;
     private bool _isProcessing = false;
     private string? _errorMessage;
@@ -237,9 +242,63 @@
             return;
         }
 
-        await LoadOrder();
+        // Check if we have query params (new flow) or OrderId (old flow)
+        var uri = new Uri(Navigation.Uri);
+        var query = HttpUtility.ParseQueryString(uri.Query);
+        var menusParam = query["menus"];
+        var itemsParam = query["items"];
+
+        if (!string.IsNullOrEmpty(menusParam) || !string.IsNullOrEmpty(itemsParam))
+        {
+            // New flow: load from query params (no order created yet)
+            await LoadFromQueryParams(menusParam, itemsParam);
+        }
+        else if (OrderId != Guid.Empty)
+        {
+            // Old flow: load existing order
+            await LoadOrder();
+        }
+        else
+        {
+            _errorMessage = "Invalid payment request.";
+            _isLoading = false;
+            return;
+        }
+
         await LoadLoyaltyBalance();
         await LoadMenuAndItemDetails();
+    }
+
+    private Task LoadFromQueryParams(string? menusParam, string? itemsParam)
+    {
+        _isLoading = true;
+
+        try
+        {
+            if (!string.IsNullOrEmpty(menusParam))
+            {
+                _cartMenuIds = menusParam.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                    .Select(id => Guid.Parse(id))
+                    .ToList();
+            }
+
+            if (!string.IsNullOrEmpty(itemsParam))
+            {
+                _cartItemIds = itemsParam.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                    .Select(id => Guid.Parse(id))
+                    .ToList();
+            }
+        }
+        catch (Exception ex)
+        {
+            _errorMessage = $"Error parsing cart data: {ex.Message}";
+        }
+        finally
+        {
+            _isLoading = false;
+        }
+
+        return Task.CompletedTask;
     }
 
     private async Task LoadOrder()
@@ -253,6 +312,12 @@
             if (_order == null)
             {
                 _errorMessage = "Order not found.";
+            }
+            else
+            {
+                _cartMenuIds = _order.MenuIDs;
+                _cartItemIds = _order.ItemIDs;
+                _totalPrice = _order.Price;
             }
         }
         catch (Exception ex)
@@ -279,13 +344,11 @@
     {
         try
         {
-            if (_order == null) return;
-
             // Load all menus
             var allMenus = await MenuService.GetAllMenusAsync();
             if (allMenus != null)
             {
-                _menuDetails = allMenus.Where(m => _order.MenuIDs.Contains(m.Id)).ToList();
+                _menuDetails = allMenus.Where(m => _cartMenuIds.Contains(m.Id)).ToList();
             }
 
             // Load all items
@@ -294,12 +357,16 @@
             {
                 var itemIdsInMenus = _menuDetails
                     .SelectMany(m => m.ItemIds)
-                    .Concat(_order.ItemIDs)
+                    .Concat(_cartItemIds)
                     .Distinct()
                     .ToList();
                 
                 _itemDetails = allItems.Where(i => itemIdsInMenus.Contains(i.Id)).ToList();
             }
+
+            // Calculate total price
+            _totalPrice = _menuDetails.Sum(m => m.Price ?? 0) + 
+                         _itemDetails.Where(i => _cartItemIds.Contains(i.Id)).Sum(i => i.Price);
         }
         catch (Exception ex)
         {
@@ -314,21 +381,20 @@
 
     private decimal GetFinalAmount()
     {
-        if (_order == null) return 0;
-        return _order.Price - GetPointsDiscount();
+        return _totalPrice - GetPointsDiscount();
     }
 
     private decimal GetMaxDiscount()
     {
-        if (_loyaltyBalance == null || _order == null) return 0;
+        if (_loyaltyBalance == null) return 0;
         var maxPointsValue = _loyaltyBalance.Points / 100m;
-        return Math.Min(maxPointsValue, _order.Price);
+        return Math.Min(maxPointsValue, _totalPrice);
     }
 
     private int GetMaxPoints()
     {
-        if (_loyaltyBalance == null || _order == null) return 0;
-        var maxPointsForOrder = (int)(_order.Price * 100);
+        if (_loyaltyBalance == null) return 0;
+        var maxPointsForOrder = (int)(_totalPrice * 100);
         return Math.Min(_loyaltyBalance.Points, maxPointsForOrder);
     }
 
@@ -354,9 +420,9 @@
 
     private async Task ProcessPayment()
     {
-        if (_order == null)
+        if (_cartMenuIds.Count == 0 && _cartItemIds.Count == 0)
         {
-            _errorMessage = "Order not found.";
+            _errorMessage = "Nu există articole în coș.";
             return;
         }
 
@@ -365,13 +431,55 @@
 
         try
         {
+            Guid orderId;
+
+            // Step 1: Create the order FIRST (only if not already created)
+            if (OrderId == Guid.Empty)
+            {
+                var orderRequest = new PlaceOrderRequest
+                {
+                    ClientId = AuthService.CurrentUser!.UserId,
+                    MenuIDs = _cartMenuIds,
+                    ItemIDs = _cartItemIds
+                };
+
+                var orderResponse = await OrderService.PlaceOrderAsync(orderRequest);
+
+                if (!orderResponse.IsSuccessStatusCode)
+                {
+                    var error = await orderResponse.Content.ReadAsStringAsync();
+                    _errorMessage = $"Failed to create order: {error}";
+                    return;
+                }
+
+                var jsonOptions = new System.Text.Json.JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true,
+                    Converters = { new System.Text.Json.Serialization.JsonStringEnumConverter() }
+                };
+
+                var createdOrder = await orderResponse.Content.ReadFromJsonAsync<OrderDto>(jsonOptions);
+                if (createdOrder == null)
+                {
+                    _errorMessage = "Failed to parse created order.";
+                    return;
+                }
+
+                orderId = createdOrder.Id;
+            }
+            else
+            {
+                orderId = OrderId;
+            }
+
+            // Step 2: Process payment
             if (_paymentMethod == PaymentMethod.MockCard)
             {
                 var request = new CreatePaymentRequest
                 {
                     UserId = AuthService.CurrentUser!.UserId,
-                    OrderId = OrderId,
-                    Amount = _order.Price,
+                    OrderId = orderId,
+                    Amount = _totalPrice,
                     Method = PaymentMethod.MockCard,
                     PointsToUse = _pointsToUse > 0 ? _pointsToUse : null
                 };
@@ -394,7 +502,7 @@
                 var stripeRequest = new CreateStripeCheckoutSessionRequest
                 {
                     UserId = AuthService.CurrentUser!.UserId,
-                    OrderId = OrderId,
+                    OrderId = orderId,
                     PointsToUse = _pointsToUse > 0 ? _pointsToUse : null
                 };
 
