@@ -10,33 +10,21 @@ public class CreatePaymentHandler(CampusEatsContext db)
     public async Task<IResult> Handle
         (CreatePaymentRequest request, CancellationToken ct = default)
     {
-        Console.WriteLine($"\n💳 ===== CreatePaymentHandler START =====");
-        Console.WriteLine($"💳 UserId: {request.UserId}");
-        Console.WriteLine($"💳 OrderId: {request.OrderId}");
-        Console.WriteLine($"💳 Amount: ${request.Amount}");
-        Console.WriteLine($"💳 PointsToUse: {request.PointsToUse}");
-
         // verificăm că există comanda
         var order = await db.Order.FirstOrDefaultAsync
             (o => o.Id == request.OrderId, ct);
         if (order is null)
         {
-            Console.WriteLine($"❌ Order not found: {request.OrderId}");
             return Results.NotFound("Order not found");
         }
-
-        Console.WriteLine($"✅ Order found: {order.Id}, Price: ${order.Price}");
 
         // de verificat și User dacă vrei extra safe:
         var userExists = await db.Users.AnyAsync
             (u => u.Id == request.UserId, ct);
         if (!userExists)
         {
-            Console.WriteLine($"❌ User not found: {request.UserId}");
             return Results.NotFound("User not found");
         }
-
-        Console.WriteLine($"✅ User exists: {request.UserId}");
 
         // Get or create loyalty account
         var account = await db.LoyaltyAccounts.FirstOrDefaultAsync
@@ -44,7 +32,6 @@ public class CreatePaymentHandler(CampusEatsContext db)
         
         if (account is null)
         {
-            Console.WriteLine($"📝 Creating new loyalty account for user {request.UserId}");
             account = new LoyaltyAccount
             {
                 UserId = request.UserId,
@@ -55,11 +42,6 @@ public class CreatePaymentHandler(CampusEatsContext db)
             };
             await db.LoyaltyAccounts.AddAsync(account, ct);
             await db.SaveChangesAsync(ct); // Save to get the account
-            Console.WriteLine($"✅ New loyalty account created. Points: {account.Points}, Tier: {account.CurrentTier}");
-        }
-        else
-        {
-            Console.WriteLine($"✅ Existing loyalty account found. Current Points: {account.Points}, Tier: {account.CurrentTier}");
         }
 
         // Handle points usage for discount
@@ -70,7 +52,6 @@ public class CreatePaymentHandler(CampusEatsContext db)
         {
             if (request.PointsToUse.Value > account.Points)
             {
-                Console.WriteLine($"❌ Insufficient points. Have: {account.Points}, Need: {request.PointsToUse.Value}");
                 return Results.BadRequest($"Insufficient points. You have {account.Points} points.");
             }
             
@@ -90,8 +71,6 @@ public class CreatePaymentHandler(CampusEatsContext db)
             // Deduct points
             account.Points -= pointsUsed;
             account.UpdatedAtUtc = DateTime.UtcNow;
-            
-            Console.WriteLine($"🎯 Points redeemed: {pointsUsed}, Discount: ${discount:F2}, FinalAmount: ${finalAmount:F2}");
             
             // Create redeem transaction
             var redeemTx = new LoyaltyTransaction
@@ -130,13 +109,6 @@ public class CreatePaymentHandler(CampusEatsContext db)
             var cashbackRate = LoyaltyTierHelper.GetCashbackRate(account.CurrentTier);
             var pointsEarned = (int)Math.Floor(finalAmount * cashbackRate);
 
-            Console.WriteLine($"🎁 ===== LOYALTY EARNING =====");
-            Console.WriteLine($"🎁 Current Tier: {account.CurrentTier}");
-            Console.WriteLine($"🎁 Cashback Rate: {cashbackRate}x");
-            Console.WriteLine($"🎁 Final Amount: ${finalAmount:F2}");
-            Console.WriteLine($"🎁 Points to Add: {pointsEarned}");
-            Console.WriteLine($"🎁 Current Points Before: {account.Points}");
-
             // Add points
             account.Points += pointsEarned;
             account.TotalPointsEarned += pointsEarned;
@@ -146,13 +118,8 @@ public class CreatePaymentHandler(CampusEatsContext db)
             account.CurrentTier = newTier;
             account.UpdatedAtUtc = DateTime.UtcNow;
 
-            Console.WriteLine($"🎁 Current Points After: {account.Points}");
-            Console.WriteLine($"🎁 Total Points Earned (All Time): {account.TotalPointsEarned}");
-            Console.WriteLine($"🎁 New Tier: {newTier}");
-
             // Mark account as modified for EF Core
             db.LoyaltyAccounts.Update(account);
-            Console.WriteLine($"🎁 ✅ Loyalty account marked for update in EF Core");
 
             // Create single cashback transaction
             var cashbackTx = new LoyaltyTransaction
@@ -165,17 +132,9 @@ public class CreatePaymentHandler(CampusEatsContext db)
                 CreatedAtUtc = DateTime.UtcNow
             };
             await db.LoyaltyTransactions.AddAsync(cashbackTx, ct);
-            Console.WriteLine($"🎁 ✅ Loyalty transaction created (ID: {cashbackTx.Id})");
-        }
-        else
-        {
-            Console.WriteLine($"⚠️ FinalAmount is 0 or negative (${finalAmount:F2}), no loyalty points earned");
         }
 
-        Console.WriteLine($"\n💾 Saving all changes to database...");
-        var saveResult = await db.SaveChangesAsync(ct);
-        Console.WriteLine($"💾 ✅ SaveChangesAsync returned: {saveResult} changes");
-        Console.WriteLine($"💳 ===== CreatePaymentHandler COMPLETE =====\n");
+        await db.SaveChangesAsync(ct);
 
         return Results.Created($"/api/payments/{payment.Id}", new 
         { 
