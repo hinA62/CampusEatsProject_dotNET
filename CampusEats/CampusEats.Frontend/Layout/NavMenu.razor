@@ -1,14 +1,74 @@
 ﻿@using CampusEatsFrontend.Services
 @inject AuthService AuthService
+@inject CartService CartService
+@inject NavigationManager Navigation
+@implements IDisposable
 
 <div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">CampusEats</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="d-flex align-items-center gap-3">
+            @* Cart Button with Badge *@
+            @if (AuthService.IsAuthenticated)
+            {
+                <button class="btn btn-link text-white position-relative p-0 cart-button" @onclick="OpenCartSidebar" @onclick:stopPropagation="true" title="Coș de cumpărături">
+                    <i class="bi bi-cart3" style="font-size: 1.5rem;"></i>
+                    @if (CartService.TotalItems > 0)
+                    {
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger pulse-badge" style="font-size: 0.75rem;">
+                            @CartService.TotalItems
+                        </span>
+                    }
+                </button>
+            }
+            <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
     </div>
 </div>
+
+<style>
+    .cart-button {
+        transition: all 0.3s ease;
+        text-decoration: none !important;
+        z-index: 1000;
+        border: none;
+        background: transparent;
+    }
+    
+    .cart-button:hover {
+        transform: scale(1.1);
+        filter: brightness(1.2);
+        text-decoration: none !important;
+    }
+    
+    .cart-button:active {
+        transform: scale(0.95);
+    }
+    
+    .cart-button:focus {
+        outline: none;
+        box-shadow: none;
+    }
+    
+    .pulse-badge {
+        animation: pulse 2s infinite;
+        z-index: 1001;
+    }
+    
+    @@keyframes pulse {
+        0% {
+            box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7);
+        }
+        70% {
+            box-shadow: 0 0 0 10px rgba(220, 53, 69, 0);
+        }
+        100% {
+            box-shadow: 0 0 0 0 rgba(220, 53, 69, 0);
+        }
+    }
+</style>
 
 <div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
     <nav class="nav flex-column">
@@ -38,11 +98,6 @@
             <div class="nav-item px-3">
                 <NavLink class="nav-link" href="clients">
                     <span class="bi bi-people-fill" aria-hidden="true"></span> Clients
-                </NavLink>
-            </div>
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="place-order">
-                    <span class="bi bi-cart-plus" aria-hidden="true"></span> Place Order
                 </NavLink>
             </div>
             <div class="nav-item px-3">
@@ -82,11 +137,6 @@
                 </NavLink>
             </div>
             <div class="nav-item px-3">
-                <NavLink class="nav-link" href="place-order">
-                    <span class="bi bi-cart-plus" aria-hidden="true"></span> Place Order
-                </NavLink>
-            </div>
-            <div class="nav-item px-3">
                 <NavLink class="nav-link" href="loyalty">
                     <span class="bi bi-star-fill" aria-hidden="true"></span> Loyalty
                 </NavLink>
@@ -106,6 +156,9 @@
 
 @code {
     private bool collapseNavMenu = true;
+    
+    [Parameter]
+    public EventCallback OnCartButtonClick { get; set; }
 
     private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
@@ -117,5 +170,17 @@
     protected override async Task OnInitializedAsync()
     {
         await AuthService.InitializeAsync();
+        await CartService.InitializeAsync();
+        CartService.OnChange += StateHasChanged;
+    }
+
+    private async Task OpenCartSidebar()
+    {
+        await OnCartButtonClick.InvokeAsync();
+    }
+
+    public void Dispose()
+    {
+        CartService.OnChange -= StateHasChanged;
     }
 }

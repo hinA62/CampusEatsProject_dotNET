@@ -46,15 +46,19 @@
                         {
                             <div class="mb-3">
                                 <h6 class="mb-2"><strong>Meniuri</strong></h6>
-                                @foreach (var menuId in _order.MenuIDs)
+                                @foreach (var menuGroup in _order.MenuIDs.GroupBy(id => id))
                                 {
+                                    var menuId = menuGroup.Key;
+                                    var quantity = menuGroup.Count();
                                     var menu = _menuDetails.FirstOrDefault(m => m.Id == menuId);
                                     if (menu != null)
                                     {
                                         <div class="ms-3 mb-2">
                                             <div class="d-flex justify-content-between align-items-center">
-                                                <span>@menu.Name</span>
-                                                <span>@(menu.Price?.ToString("F2") ?? "0.00") RON</span>
+                                                <span>
+                                                    @menu.Name@(quantity > 1 ? $" x{quantity}" : "")
+                                                </span>
+                                                <span>@((menu.Price * quantity)?.ToString("F2") ?? "0.00") RON</span>
                                             </div>
                                             <!-- Items din meniu -->
                                             @if (menu.ItemIds.Count > 0)
@@ -83,14 +87,18 @@
                         {
                             <div class="mb-3">
                                 <h6 class="mb-2"><strong>Feluri Individuale</strong></h6>
-                                @foreach (var itemId in _order.ItemIDs)
+                                @foreach (var itemGroup in _order.ItemIDs.GroupBy(id => id))
                                 {
+                                    var itemId = itemGroup.Key;
+                                    var quantity = itemGroup.Count();
                                     var item = _itemDetails.FirstOrDefault(i => i.Id == itemId);
                                     if (item != null)
                                     {
                                         <div class="ms-3 d-flex justify-content-between align-items-center mb-2">
-                                            <span>@item.Name</span>
-                                            <span>@item.Price.ToString("F2") RON</span>
+                                            <span>
+                                                @item.Name@(quantity > 1 ? $" x{quantity}" : "")
+                                            </span>
+                                            <span>@((item.Price * quantity).ToString("F2")) RON</span>
                                         </div>
                                     }
                                 }

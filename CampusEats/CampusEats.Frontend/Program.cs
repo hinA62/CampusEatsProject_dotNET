@@ -40,5 +40,6 @@ builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<LoyaltyService>();
 builder.Services.AddScoped<PaymentService>();
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<CartService>();
 
 await builder.Build().RunAsync();
