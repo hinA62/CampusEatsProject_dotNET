@@ -12,13 +12,13 @@ public class DeleteMenuHandler (CampusEatsContext context, ILogger<DeleteMenuHan
         var menu = await context.Menu.FindAsync(request.Id);
         if (menu == null)
         {
-            logger.LogWarning("Menu with ID: {MenuId} not found", request.Id);
+            logger.LogWarning("Menu not found");
             return Results.NotFound($"Menu with ID: {request.Id} not found");
         }
         
         context.Menu.Remove(menu);
         await context.SaveChangesAsync();
-        logger.LogInformation("Menu with ID: {MenuId} deleted successfully", request.Id);
+        logger.LogInformation("Menu deleted successfully");
         
         return Results.Ok($"Menu with ID: {request.Id} deleted successfully");
     }

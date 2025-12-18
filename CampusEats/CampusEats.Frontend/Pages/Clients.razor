@@ -103,14 +103,4 @@
     {
         Navigation.NavigateTo($"/profile/{userId}");
     }
-
-    private string GetStatusColor(OrderStatus status) => status switch
-    {
-        OrderStatus.Pending => "#F4E285",
-        OrderStatus.Confirmed => "#A3B18A",
-        OrderStatus.Preparing => "#3A5A40",
-        OrderStatus.Completed => "#588157",
-        OrderStatus.Cancelled => "#DA2C38",
-        _ => "#DAD7CD"
-    };
 }

@@ -104,7 +104,6 @@ public class AuthService
                 await _http.PostAsync("api/auth/logout", null);
             }
         }
-        catch { }
         finally
         {
             // Clear local storage
@@ -166,13 +165,16 @@ public class AuthService
                     new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
             }
         }
-        catch { }
+        catch
+        {
+            // Ignore errors during initialization
+        }
     }
 
     private class LoginResponse
     {
         public string Token { get; set; } = string.Empty;
-        public Guid UserId { get; set; }
+        public Guid UserId { get; }
         public string Username { get; set; } = string.Empty;
         public string Role { get; set; } = string.Empty;
     }

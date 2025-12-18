@@ -36,7 +36,7 @@ public class PlaceOrderHandlerTests : IDisposable
         await _context.Users.AddAsync(user);
         
         var menuId = Guid.NewGuid();
-        var menu = new Menu(menuId, "Lunch Special", 15.99m, new List<Guid>(), MenuCategory.Meat, DietaryRestrictions.FoodAllergyFriendly, null);
+        var menu = new Menu(menuId, "Lunch Special", 15.99m, new List<Guid>(), MenuCategory.Meat, DietaryRestrictions.None, null);
         await _context.Menu.AddAsync(menu);
         
         var itemId = Guid.NewGuid();
@@ -109,7 +109,7 @@ public class PlaceOrderHandlerTests : IDisposable
         await _context.Users.AddAsync(user);
         
         var menuId = Guid.NewGuid();
-        var menu = new Menu(menuId, "Burger", 10.00m, new List<Guid>(), MenuCategory.Meat, DietaryRestrictions.FoodAllergyFriendly, null);
+        var menu = new Menu(menuId, "Burger", 10.00m, new List<Guid>(), MenuCategory.Meat, DietaryRestrictions.None, null);
         await _context.Menu.AddAsync(menu);
         
         await _context.SaveChangesAsync();
@@ -136,9 +136,9 @@ public class PlaceOrderHandlerTests : IDisposable
         await _context.Users.AddAsync(user);
         
         var menu1Id = Guid.NewGuid();
-        var menu1 = new Menu(menu1Id, "Burger", 12.50m, new List<Guid>(), MenuCategory.Meat, DietaryRestrictions.FoodAllergyFriendly, null);
+        var menu1 = new Menu(menu1Id, "Burger", 12.50m, new List<Guid>(), MenuCategory.Meat, DietaryRestrictions.None, null);
         var menu2Id = Guid.NewGuid();
-        var menu2 = new Menu(menu2Id, "Fries", 5.00m, new List<Guid>(), MenuCategory.Vegetarian, DietaryRestrictions.FoodAllergyFriendly, null);
+        var menu2 = new Menu(menu2Id, "Fries", 5.00m, new List<Guid>(), MenuCategory.Vegetarian, DietaryRestrictions.None, null);
         
         var item1Id = Guid.NewGuid();
         var item1 = new MenuItem(item1Id, "Cheese", 1.50m, null, null);

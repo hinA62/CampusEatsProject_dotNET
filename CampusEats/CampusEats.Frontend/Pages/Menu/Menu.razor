@@ -136,8 +136,8 @@
 
 @code {
     List<MenuDto>? _menus;
-    HashSet<Guid> _expandedMenus = new();
-    Dictionary<Guid, List<MenuItemDto>> _menuItemsCache = new();
+    readonly HashSet<Guid> _expandedMenus = new();
+    readonly Dictionary<Guid, List<MenuItemDto>> _menuItemsCache = new();
     List<MenuItemDto>? _allMenuItems;
     string _successMessage = string.Empty;
 

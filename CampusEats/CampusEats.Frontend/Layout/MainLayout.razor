@@ -31,10 +31,4 @@
     {
         _cartSidebar?.Open();
     }
-
-    private async Task HandleLogout()
-    {
-        await AuthService.LogoutAsync();
-        StateHasChanged();
-    }
 }

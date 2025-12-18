@@ -13,7 +13,7 @@ public class PlaceOrderHandler(CampusEatsContext context, ILogger<PlaceOrderHand
 {
     public async Task<IResult> Handle(PlaceOrderRequest request)
     {
-        logger.LogInformation("Placing order for Client {ClientId}", request.ClientId);
+        logger.LogInformation("Placing order...");
 
         var validator = new CampusEats.Validators.Order.PlaceOrderValidator();
         var validation = await validator.ValidateAsync(request);
@@ -39,7 +39,7 @@ public class PlaceOrderHandler(CampusEatsContext context, ILogger<PlaceOrderHand
             .ToListAsync();
         var items = await context.MenuItem
             .Where(i => uniqueItemIds.Contains(i.Id))
-            .Select(i => new { i.Id, Price = (decimal)i.Price })
+            .Select(i => new { i.Id, Price = (decimal)i.Price! })
             .ToListAsync();
 
         var missingMenus = uniqueMenuIds.Except(menus.Select(m => m.Id)).ToList();

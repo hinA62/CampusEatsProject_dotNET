@@ -160,8 +160,8 @@
 
 @code {
     private List<OrderDto>? _orders;
-    private Dictionary<Guid, OrderDetailsDto> _orderDetails = new();
-    private HashSet<Guid> _loadingDetails = new();
+    private readonly Dictionary<Guid, OrderDetailsDto> _orderDetails = new();
+    private readonly HashSet<Guid> _loadingDetails = new();
     private string _statusFilter = "";
     private bool _isLoading = true;
 

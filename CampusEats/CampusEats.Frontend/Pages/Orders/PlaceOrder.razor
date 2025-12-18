@@ -198,8 +198,8 @@
 @code {
     private List<MenuDto>? _menus;
     private List<MenuItemDto>? _menuItems;
-    private List<Guid> _selectedMenus = new();
-    private List<Guid> _selectedItems = new();
+    private readonly List<Guid> _selectedMenus = new();
+    private readonly List<Guid> _selectedItems = new();
     private decimal _totalPrice = 0;
     private bool _isLoading = true;
     private bool _isPlacingOrder = false;

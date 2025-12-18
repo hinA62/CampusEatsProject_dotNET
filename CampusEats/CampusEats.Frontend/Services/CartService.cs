@@ -28,7 +28,7 @@ public class CartService
     public async Task InitializeAsync()
     {
         if (_initialized) return;
-        
+
         try
         {
             var json = await _jsRuntime.InvokeAsync<string?>("localStorage.getItem", "cart");
@@ -42,7 +42,10 @@ public class CartService
                 }
             }
         }
-        catch { }
+        catch
+        {
+            // Ignore errors during initialization
+        }
         
         _initialized = true;
         NotifyStateChanged();
@@ -162,7 +165,10 @@ public class CartService
             var json = JsonSerializer.Serialize(_items);
             await _jsRuntime.InvokeVoidAsync("localStorage.setItem", "cart", json);
         }
-        catch { }
+        catch
+        {
+            // Ignore errors
+        }
     }
 
     private void NotifyStateChanged() => OnChange?.Invoke();

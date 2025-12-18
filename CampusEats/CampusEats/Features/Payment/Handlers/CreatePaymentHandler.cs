@@ -26,7 +26,7 @@ public class CreatePaymentHandler(CampusEatsContext db)
             return Results.NotFound("User not found");
         }
 
-        // Get or create loyalty account
+        // Get or create the loyalty account
         var account = await db.LoyaltyAccounts.FirstOrDefaultAsync
             (a => a.UserId == request.UserId, ct);
         
@@ -91,7 +91,7 @@ public class CreatePaymentHandler(CampusEatsContext db)
             Id = Guid.NewGuid(),
             UserId = request.UserId,
             OrderId = request.OrderId,
-            Amount = finalAmount, // Use final amount after discount
+            Amount = finalAmount, // Use the final amount after discount
             Method = request.Method,
             Status = PaymentStatus.Succeeded,
             CreatedAtUtc = DateTime.UtcNow,

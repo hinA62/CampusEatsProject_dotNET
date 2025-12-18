@@ -123,7 +123,7 @@
 @code {
     readonly CreateMenuRequest _newMenu = new();
     private List<MenuItemDto>? _availableMenuItems;
-    private HashSet<Guid> _selectedItemIds = new();
+    private readonly HashSet<Guid> _selectedItemIds = new();
     private string _errorMessage = string.Empty;
     private bool _isLoadingItems = true;
     private bool _isSaving = false;

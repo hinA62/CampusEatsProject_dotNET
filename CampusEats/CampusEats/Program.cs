@@ -849,4 +849,4 @@ app.MapGet("/health", () => Results.Ok(new { Status = "Healthy", Timestamp = Dat
 app.Logger.LogInformation("CampusEats API is starting...");
 app.Logger.LogInformation("Swagger UI: http://localhost:5298/swagger");
 
-app.Run();
+await app.RunAsync();

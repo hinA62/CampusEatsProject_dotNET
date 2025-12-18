@@ -4,9 +4,7 @@ using Microsoft.EntityFrameworkCore;
 namespace CampusEats.Features.Inventory.Handlers;
 
 public class InventoryHandler(CampusEatsContext ctx, ILogger<InventoryHandler> log)
-{
-    private readonly ILogger<InventoryHandler> _log = log;
-
+{   
     public async Task<InventoryDay> RebuildAsync(DateOnly date)
     {
         var start = date.ToDateTime(TimeOnly.MinValue, DateTimeKind.Utc);

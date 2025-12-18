@@ -3,7 +3,7 @@
 [Flags]
 public enum DietaryRestrictions
 {
-    FoodAllergyFriendly = 0,
+    None = 0,
     LactoseFree = 1,
     GlutenFree = 2,
     NutFree = 4,

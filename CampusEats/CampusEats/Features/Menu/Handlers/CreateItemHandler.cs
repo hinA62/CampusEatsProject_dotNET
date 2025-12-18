@@ -8,7 +8,7 @@ public class CreateItemHandler (CampusEatsContext context, ILogger<CreateItemHan
 {
     public async Task<IResult> Handle(CreateItemRequest request)
     {
-        logger.LogInformation($"Creating menu item {request.Name}");
+        logger.LogInformation("Creating menu item...");
         
         //data validation
         var validator = new CreateItemValidator();
@@ -27,7 +27,7 @@ public class CreateItemHandler (CampusEatsContext context, ILogger<CreateItemHan
         var menuItem = new MenuItem(Guid.NewGuid(), request.Name, (decimal)request.Price!, request.ImageUrl, request.Allergens);
         context.MenuItem.Add(menuItem);
         await context.SaveChangesAsync();
-        logger.LogInformation("Menu item created with ID: {MenuItemId}", menuItem.Id);
+        logger.LogInformation("Menu item created successfully.");
         
         return Results.Created($"/menu/{menuItem.Id}", menuItem);
     }

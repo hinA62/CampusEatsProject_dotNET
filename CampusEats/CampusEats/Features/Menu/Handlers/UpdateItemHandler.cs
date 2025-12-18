@@ -27,7 +27,7 @@ public class UpdateItemHandler (CampusEatsContext context, ILogger<UpdateItemHan
         var menuItem = await context.MenuItem.FindAsync(request.Id);
         if (menuItem == null)
         {
-            logger.LogWarning("Menu item with ID: {MenuItemId} not found", request.Id);
+            logger.LogWarning("Menu item not found");
             return Results.NotFound($"Menu item with ID: {request.Id} not found");
         }
         
@@ -40,7 +40,7 @@ public class UpdateItemHandler (CampusEatsContext context, ILogger<UpdateItemHan
         };
         context.Entry(menuItem).CurrentValues.SetValues(updatedMenuItem);
         await context.SaveChangesAsync();
-        logger.LogInformation("Menu item with ID: {MenuItemId} updated successfully", request.Id);
+        logger.LogInformation("Menu item updated successfully");
         
         return Results.Ok(updatedMenuItem);
     }

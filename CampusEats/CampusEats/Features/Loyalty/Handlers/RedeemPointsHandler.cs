@@ -50,7 +50,7 @@ public class RedeemPointsHandler(CampusEatsContext db, ILogger<RedeemPointsHandl
 
         await db.LoyaltyTransactions.AddAsync(tx, ct);
         await db.SaveChangesAsync(ct);
-        logger.LogInformation($"Points redeemed for user {request.UserId}: {request.PointsToRedeem}");
+        logger.LogInformation("Points redeemed successfully.");
 
         return Results.Ok(new {
             account.UserId,

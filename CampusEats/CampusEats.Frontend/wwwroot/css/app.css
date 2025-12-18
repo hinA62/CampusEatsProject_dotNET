@@ -490,18 +490,6 @@ code {
     background-color: var(--hunter-green);
 }
 
-/* Adaptive card styling for Payment page */
-.payment-page .card {
-    height: auto;
-    min-height: auto;
-}
-
-.payment-page .card-body {
-    padding: 1.25rem;
-    display: flex;
-    flex-direction: column;
-}
-
 .payment-page .card-body .input-group .input-group-text {
     background-color: var(--dust-gray) !important;
     color: var(--carbon-black) !important;

@@ -71,7 +71,7 @@
 </div>
 
 @code {
-    private RegisterRequest _registerRequest = new();
+    private readonly RegisterRequest _registerRequest = new();
     private string _errorMessage = string.Empty;
     private string _successMessage = string.Empty;
     private bool _isLoading = false;

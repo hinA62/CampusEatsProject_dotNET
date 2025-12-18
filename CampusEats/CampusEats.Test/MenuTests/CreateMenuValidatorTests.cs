@@ -30,7 +30,7 @@ public class CreateMenuValidatorTests
         // Arrange
         var model = new CreateMenuRequest
             (name, 15.99m, [Guid.NewGuid()], 
-                MenuCategory.Vegetarian, DietaryRestrictions.FoodAllergyFriendly, null);
+                MenuCategory.Vegetarian, DietaryRestrictions.None, null);
         var validator = new CreateMenuValidator();
 
         // Act
@@ -49,7 +49,7 @@ public class CreateMenuValidatorTests
         var longName = new string('a', 51);
         var model = new CreateMenuRequest
             (longName, 15.99m, [Guid.NewGuid()],
-                MenuCategory.Traditional, DietaryRestrictions.FoodAllergyFriendly, null);
+                MenuCategory.Traditional, DietaryRestrictions.None, null);
         var validator = new CreateMenuValidator();
 
         // Act
@@ -107,7 +107,7 @@ public class CreateMenuValidatorTests
         // Arrange
         var model = new CreateMenuRequest
         ( "Valid Menu", 15.99m, itemIds!,
-            MenuCategory.Dessert, DietaryRestrictions.FoodAllergyFriendly, null);
+            MenuCategory.Dessert, DietaryRestrictions.None, null);
         var validator = new CreateMenuValidator();
 
         // Act
@@ -125,7 +125,7 @@ public class CreateMenuValidatorTests
         // Arrange
         var model = new CreateMenuRequest
         ("", -5m, null, MenuCategory.Dinner,
-            DietaryRestrictions.FoodAllergyFriendly, null);
+            DietaryRestrictions.None, null);
         var validator = new CreateMenuValidator();
 
         // Act
