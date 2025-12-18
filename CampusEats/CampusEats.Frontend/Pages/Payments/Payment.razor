@@ -236,7 +236,7 @@
     {
         await AuthService.InitializeAsync();
 
-        if (AuthService.CurrentUser == null)
+        if (!AuthService.IsAuthenticated || AuthService.CurrentUser == null)
         {
             Navigation.NavigateTo("/login");
             return;
@@ -445,6 +445,18 @@
             return;
         }
 
+        // Debug info
+        Console.WriteLine($"ProcessPayment - IsAuthenticated: {AuthService.IsAuthenticated}");
+        Console.WriteLine($"ProcessPayment - CurrentUser: {AuthService.CurrentUser?.Username}");
+        Console.WriteLine($"ProcessPayment - UserId: {AuthService.CurrentUser?.UserId}");
+
+        if (!AuthService.IsAuthenticated || AuthService.CurrentUser == null || AuthService.CurrentUser.UserId == Guid.Empty)
+        {
+            _errorMessage = "Trebuie să fiți autentificat pentru a procesa plata.";
+            Navigation.NavigateTo("/login");
+            return;
+        }
+
         _isProcessing = true;
         _errorMessage = null;
 
@@ -457,7 +469,7 @@
             {
                 var orderRequest = new PlaceOrderRequest
                 {
-                    ClientId = AuthService.CurrentUser!.UserId,
+                    ClientId = AuthService.CurrentUser.UserId,
                     MenuIDs = _cartMenuIds,
                     ItemIDs = _cartItemIds
                 };
