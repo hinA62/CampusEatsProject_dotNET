@@ -49,14 +49,8 @@
                                 </InputSelect>
                             </div>
 
-                            <div class="mb-3">
-                                <label class="form-label">Restricții alimentare</label>
-                                <InputSelect class="form-select" @bind-Value="_newMenu.Restrictions">
-                                    @foreach (var rest in Enum.GetValues<DietaryRestrictions>())
-                                    {
-                                        <option value="@rest">@rest</option>
-                                    }
-                                </InputSelect>
+                            <div class="alert alert-info">
+                                <i class="bi bi-info-circle"></i> <strong>Restricțiile alimentare</strong> se calculează automat din alergenii felurilor selectate.
                             </div>
 
                             <div class="mb-3">

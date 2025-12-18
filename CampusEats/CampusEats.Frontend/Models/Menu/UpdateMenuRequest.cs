@@ -7,6 +7,5 @@ public class UpdateMenuRequest
     public decimal? Price { get; set; }
     public List<Guid> ItemIds { get; set; } = new();
     public MenuCategory Category { get; set; }
-    public DietaryRestrictions Restrictions { get; set; }
     public string? ImageUrl { get; set; }
 }

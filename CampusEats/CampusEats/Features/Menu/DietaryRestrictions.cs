@@ -8,5 +8,5 @@ public enum DietaryRestrictions
     GlutenFree = 2,
     NutFree = 4,
     DairyFree = 8,
-    NoSeafood = 16,
+    NoSeafood = 16
 }

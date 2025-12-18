@@ -364,9 +364,28 @@
                 _itemDetails = allItems.Where(i => itemIdsInMenus.Contains(i.Id)).ToList();
             }
 
-            // Calculate total price
-            _totalPrice = _menuDetails.Sum(m => m.Price ?? 0) + 
-                         _itemDetails.Where(i => _cartItemIds.Contains(i.Id)).Sum(i => i.Price);
+            // Calculate total price WITH QUANTITIES
+            decimal totalMenuPrice = 0;
+            foreach (var menuId in _cartMenuIds)
+            {
+                var menu = _menuDetails.FirstOrDefault(m => m.Id == menuId);
+                if (menu != null && menu.Price.HasValue)
+                {
+                    totalMenuPrice += menu.Price.Value;
+                }
+            }
+
+            decimal totalItemPrice = 0;
+            foreach (var itemId in _cartItemIds)
+            {
+                var item = _itemDetails.FirstOrDefault(i => i.Id == itemId);
+                if (item != null)
+                {
+                    totalItemPrice += item.Price;
+                }
+            }
+
+            _totalPrice = totalMenuPrice + totalItemPrice;
         }
         catch (Exception ex)
         {

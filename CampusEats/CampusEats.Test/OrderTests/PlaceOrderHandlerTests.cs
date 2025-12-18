@@ -101,7 +101,7 @@ public class PlaceOrderHandlerTests : IDisposable
     }
 
     [Fact]
-    public async Task Given_DuplicateIds_When_Handle_Then_ShouldDeduplicateAndCalculateCorrectly()
+    public async Task Given_DuplicateIds_When_Handle_Then_ShouldKeepDuplicatesForQuantity()
     {
         // Arrange
         var clientId = Guid.NewGuid();
@@ -114,7 +114,7 @@ public class PlaceOrderHandlerTests : IDisposable
         
         await _context.SaveChangesAsync();
         
-        // Request with duplicate menuIds
+        // Request with duplicate menuIds (quantity = 3)
         var request = new PlaceOrderRequest(clientId, new List<Guid> { menuId, menuId, menuId }, new List<Guid>());
         
         // Act
@@ -123,8 +123,9 @@ public class PlaceOrderHandlerTests : IDisposable
         // Assert
         var order = await _context.Order.FirstOrDefaultAsync();
         order.Should().NotBeNull();
-        order!.MenuIDs.Should().ContainSingle().Which.Should().Be(menuId);
-        order.Price.Should().Be(10.00m); // Should only count once
+        order!.MenuIDs.Should().HaveCount(3); // Keep duplicates for quantity
+        order!.MenuIDs.Should().OnlyContain(id => id == menuId);
+        order.Price.Should().Be(30.00m); // 3 x 10.00 = 30.00
     }
 
     [Fact]
