@@ -32,7 +32,7 @@ public class CreateMenuHandler(CampusEatsContext context, ILogger<CreateMenuHand
             .ToList();
 
         // 3. Calcul restricții (Logic extrasă pentru a reduce complexitatea)
-        var finalRestrictions = CalculateFinalRestrictions(allAllergens, request.Restrictions);
+        var finalRestrictions = CalculateFinalRestrictions(allAllergens);
 
         logger.LogInformation("Menu restrictions calculated from allergens.");
 
@@ -47,28 +47,35 @@ public class CreateMenuHandler(CampusEatsContext context, ILogger<CreateMenuHand
         return Results.Created($"/menu/{menu.Name}", menu);
     }
 
-    private DietaryRestrictions CalculateFinalRestrictions(List<string> allergens, DietaryRestrictions requestedRestrictions)
+    private DietaryRestrictions CalculateFinalRestrictions(List<string> allergens)
     {
-        var calculated = DietaryRestrictions.None;
+        // Start with ALL restrictions
+        var calculated = DietaryRestrictions.LactoseFree | 
+                        DietaryRestrictions.GlutenFree | 
+                        DietaryRestrictions.NutFree | 
+                        DietaryRestrictions.DairyFree | 
+                        DietaryRestrictions.NoSeafood;
 
-        // Mapare cuvinte cheie -> Restricție
-        var rules = new Dictionary<DietaryRestrictions, string[]>
-        {
-            { DietaryRestrictions.LactoseFree, ["lapte", "lactoză"] },
-            { DietaryRestrictions.GlutenFree,  ["gluten", "grâu"] },
-            { DietaryRestrictions.NutFree,     ["nuci", "arahide", "migdale", "cashew"] },
-            { DietaryRestrictions.NoSeafood,   ["pește", "moluște", "crustacee"] },
-            { DietaryRestrictions.DairyFree,   ["brânzeturi", "lapte", "ouă"] }
-        };
+        // Remove restriction if allergen found
+        if (allergens.Any(a => a.Contains("lapte", StringComparison.OrdinalIgnoreCase) || 
+                              a.Contains("lactoză", StringComparison.OrdinalIgnoreCase)))
+            calculated &= ~DietaryRestrictions.LactoseFree;
 
-        foreach (var rule in rules)
-        {
-            if (!allergens.Any(a => rule.Value.Any(keyword => a.Contains(keyword))))
-            {
-                calculated |= rule.Key;
-            }
-        }
+        if (allergens.Any(a => a.Contains("gluten", StringComparison.OrdinalIgnoreCase)))
+            calculated &= ~DietaryRestrictions.GlutenFree;
 
-        return calculated != DietaryRestrictions.None ? calculated : requestedRestrictions;
+        if (allergens.Any(a => a.Contains("nuci", StringComparison.OrdinalIgnoreCase) || 
+                              a.Contains("alune", StringComparison.OrdinalIgnoreCase)))
+            calculated &= ~DietaryRestrictions.NutFree;
+
+        if (allergens.Any(a => a.Contains("lactate", StringComparison.OrdinalIgnoreCase) ||
+                              a.Contains("brânză", StringComparison.OrdinalIgnoreCase)))
+            calculated &= ~DietaryRestrictions.DairyFree;
+
+        if (allergens.Any(a => a.Contains("pește", StringComparison.OrdinalIgnoreCase) || 
+                              a.Contains("fructe de mare", StringComparison.OrdinalIgnoreCase)))
+            calculated &= ~DietaryRestrictions.NoSeafood;
+
+        return calculated;
     }
 }

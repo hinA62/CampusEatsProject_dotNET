@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CampusEats.Features.Inventory.Handlers;
 
-public class InventoryHandler(CampusEatsContext ctx, ILogger<InventoryHandler> log)
+public class InventoryHandler(CampusEatsContext ctx)
 {   
     public async Task<InventoryDay> RebuildAsync(DateOnly date)
     {
