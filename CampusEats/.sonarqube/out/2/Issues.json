@@ -35,15 +35,15 @@
         {
           "ruleId": "CA1816",
           "level": "note",
-          "message": "Change CancelOrderHandlerTests.Dispose() to call GC.SuppressFinalize(object). This will prevent derived types that introduce a finalizer from needing to re-implement 'IDisposable' to call it.",
+          "message": "Change GetOrderHistoryHandlerTests.Dispose() to call GC.SuppressFinalize(object). This will prevent derived types that introduce a finalizer from needing to re-implement 'IDisposable' to call it.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/OrderTests/CancelOrderHandlerTests.cs",
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/OrderTests/GetOrderHistoryHandlerTests.cs",
                 "region": {
-                  "startLine": 166,
+                  "startLine": 129,
                   "startColumn": 17,
-                  "endLine": 166,
+                  "endLine": 129,
                   "endColumn": 24
                 }
               }
@@ -56,15 +56,15 @@
         {
           "ruleId": "CA1816",
           "level": "note",
-          "message": "Change GetOrderHistoryHandlerTests.Dispose() to call GC.SuppressFinalize(object). This will prevent derived types that introduce a finalizer from needing to re-implement 'IDisposable' to call it.",
+          "message": "Change CancelOrderHandlerTests.Dispose() to call GC.SuppressFinalize(object). This will prevent derived types that introduce a finalizer from needing to re-implement 'IDisposable' to call it.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/OrderTests/GetOrderHistoryHandlerTests.cs",
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/OrderTests/CancelOrderHandlerTests.cs",
                 "region": {
-                  "startLine": 129,
+                  "startLine": 166,
                   "startColumn": 17,
-                  "endLine": 129,
+                  "endLine": 166,
                   "endColumn": 24
                 }
               }
@@ -104,9 +104,9 @@
               "resultFile": {
                 "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/OrderTests/PlaceOrderHandlerTests.cs",
                 "region": {
-                  "startLine": 163,
+                  "startLine": 164,
                   "startColumn": 17,
-                  "endLine": 163,
+                  "endLine": 164,
                   "endColumn": 24
                 }
               }

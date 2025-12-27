@@ -6,7 +6,6 @@
 @using CampusEatsFrontend.Models.Menu
 @using CampusEatsFrontend.Models.MenuItem
 @using CampusEatsFrontend.Services
-@using Microsoft.AspNetCore.Components.Web
 @using System.Web
 @inject PaymentService PaymentService
 @inject OrderService OrderService
@@ -431,7 +430,7 @@
         }
     }
 
-    private bool CanProcessPayment()
+    private static bool CanProcessPayment()
     {
         // Both payment methods don't require local card fields (Stripe handles it, MockCard is COD)
         return true;

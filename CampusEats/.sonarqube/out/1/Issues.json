@@ -20,9 +20,9 @@
               "resultFile": {
                 "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/AuthService.cs",
                 "region": {
-                  "startLine": 174,
+                  "startLine": 175,
                   "startColumn": 19,
-                  "endLine": 174,
+                  "endLine": 175,
                   "endColumn": 32
                 }
               }
@@ -62,9 +62,9 @@
               "resultFile": {
                 "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/AuthService.cs",
                 "region": {
-                  "startLine": 177,
+                  "startLine": 178,
                   "startColumn": 21,
-                  "endLine": 177,
+                  "endLine": 178,
                   "endColumn": 27
                 }
               }
@@ -75,186 +75,24 @@
           }
         },
         {
-          "ruleId": "S1192",
+          "ruleId": "S1144",
           "level": "warning",
-          "message": "Define a constant instead of using this literal 'localStorage.setItem' 4 times.",
+          "message": "Remove the unused private set accessor in property 'UserId'.",
           "locations": [
             {
               "resultFile": {
                 "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/AuthService.cs",
                 "region": {
-                  "startLine": 52,
-                  "startColumn": 39,
-                  "endLine": 52,
-                  "endColumn": 61
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/AuthService.cs",
-                "region": {
-                  "startLine": 53,
-                  "startColumn": 39,
-                  "endLine": 53,
-                  "endColumn": 61
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/AuthService.cs",
-                "region": {
-                  "startLine": 54,
-                  "startColumn": 39,
-                  "endLine": 54,
-                  "endColumn": 61
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/AuthService.cs",
-                "region": {
-                  "startLine": 55,
-                  "startColumn": 39,
-                  "endLine": 55,
-                  "endColumn": 61
+                  "startLine": 178,
+                  "startColumn": 35,
+                  "endLine": 178,
+                  "endColumn": 38
                 }
               }
             }
           ],
           "properties": {
-            "warningLevel": 1,
-            "customProperties": {
-              "0": null,
-              "1": null,
-              "2": null
-            }
-          }
-        },
-        {
-          "ruleId": "S1192",
-          "level": "warning",
-          "message": "Define a constant instead of using this literal 'localStorage.removeItem' 4 times.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/AuthService.cs",
-                "region": {
-                  "startLine": 110,
-                  "startColumn": 39,
-                  "endLine": 110,
-                  "endColumn": 64
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/AuthService.cs",
-                "region": {
-                  "startLine": 111,
-                  "startColumn": 39,
-                  "endLine": 111,
-                  "endColumn": 64
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/AuthService.cs",
-                "region": {
-                  "startLine": 112,
-                  "startColumn": 39,
-                  "endLine": 112,
-                  "endColumn": 64
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/AuthService.cs",
-                "region": {
-                  "startLine": 113,
-                  "startColumn": 39,
-                  "endLine": 113,
-                  "endColumn": 64
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1,
-            "customProperties": {
-              "0": null,
-              "1": null,
-              "2": null
-            }
-          }
-        },
-        {
-          "ruleId": "S1192",
-          "level": "warning",
-          "message": "Define a constant instead of using this literal 'localStorage.getItem' 4 times.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/AuthService.cs",
-                "region": {
-                  "startLine": 145,
-                  "startColumn": 56,
-                  "endLine": 145,
-                  "endColumn": 78
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/AuthService.cs",
-                "region": {
-                  "startLine": 150,
-                  "startColumn": 60,
-                  "endLine": 150,
-                  "endColumn": 82
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/AuthService.cs",
-                "region": {
-                  "startLine": 151,
-                  "startColumn": 59,
-                  "endLine": 151,
-                  "endColumn": 81
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/AuthService.cs",
-                "region": {
-                  "startLine": 152,
-                  "startColumn": 55,
-                  "endLine": 152,
-                  "endColumn": 77
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1,
-            "customProperties": {
-              "0": null,
-              "1": null,
-              "2": null
-            }
+            "warningLevel": 1
           }
         },
         {
@@ -270,6 +108,27 @@
                   "startColumn": 31,
                   "endLine": 23,
                   "endColumn": 55
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S112",
+          "level": "warning",
+          "message": "'System.Exception' should not be thrown by user code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/MenuService.cs",
+                "region": {
+                  "startLine": 30,
+                  "startColumn": 89,
+                  "endLine": 30,
+                  "endColumn": 127
                 }
               }
             }
@@ -316,90 +175,6 @@
           }
         },
         {
-          "ruleId": "S112",
-          "level": "warning",
-          "message": "'System.Exception' should not be thrown by user code.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/MenuService.cs",
-                "region": {
-                  "startLine": 30,
-                  "startColumn": 89,
-                  "endLine": 30,
-                  "endColumn": 127
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S2325",
-          "level": "warning",
-          "message": "Make 'GetTierColor' a static method.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Loyalty.razor",
-                "region": {
-                  "startLine": 234,
-                  "startColumn": 20,
-                  "endLine": 234,
-                  "endColumn": 32
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S2325",
-          "level": "warning",
-          "message": "Make 'GetTierThreshold' a static method.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Loyalty.razor",
-                "region": {
-                  "startLine": 262,
-                  "startColumn": 17,
-                  "endLine": 262,
-                  "endColumn": 33
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S2325",
-          "level": "warning",
-          "message": "Make 'GetAllTiers' a static method.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Loyalty.razor",
-                "region": {
-                  "startLine": 275,
-                  "startColumn": 31,
-                  "endLine": 275,
-                  "endColumn": 42
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
           "ruleId": "S1172",
           "level": "warning",
           "message": "Remove this unused method parameter 'message'.",
@@ -408,9 +183,9 @@
               "resultFile": {
                 "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Menu/MenuItems.razor",
                 "region": {
-                  "startLine": 193,
+                  "startLine": 260,
                   "startColumn": 33,
-                  "endLine": 193,
+                  "endLine": 260,
                   "endColumn": 47
                 }
               }
@@ -424,18 +199,39 @@
           }
         },
         {
-          "ruleId": "S2325",
+          "ruleId": "S2589",
           "level": "warning",
-          "message": "Make 'GetPointsClass' a static method.",
+          "message": "Change this condition so that it does not always evaluate to 'True'.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Loyalty.razor",
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Orders/Orders.razor",
                 "region": {
-                  "startLine": 303,
-                  "startColumn": 20,
-                  "endLine": 303,
-                  "endColumn": 34
+                  "startLine": 43,
+                  "startColumn": 18,
+                  "endLine": 43,
+                  "endColumn": 41
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3400",
+          "level": "warning",
+          "message": "Remove this method and declare a constant for this value.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 433,
+                  "startColumn": 25,
+                  "endLine": 433,
+                  "endColumn": 42
                 }
               }
             }
@@ -519,48 +315,6 @@
           }
         },
         {
-          "ruleId": "S1481",
-          "level": "warning",
-          "message": "Remove the unused local variable 'result'.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Menu/CreateMenu.razor",
-                "region": {
-                  "startLine": 173,
-                  "startColumn": 17,
-                  "endLine": 173,
-                  "endColumn": 23
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S2325",
-          "level": "warning",
-          "message": "Make 'GetStatusColor' a static method.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Orders/OrderDetails.razor",
-                "region": {
-                  "startLine": 217,
-                  "startColumn": 20,
-                  "endLine": 217,
-                  "endColumn": 34
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
           "ruleId": "S1172",
           "level": "warning",
           "message": "Remove this unused method parameter 'e'.",
@@ -585,101 +339,17 @@
           }
         },
         {
-          "ruleId": "S2325",
-          "level": "warning",
-          "message": "Make 'GetStatusColor' a static method.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Orders/Orders.razor",
-                "region": {
-                  "startLine": 130,
-                  "startColumn": 20,
-                  "endLine": 130,
-                  "endColumn": 34
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S2325",
-          "level": "warning",
-          "message": "Make 'GetRestrictionsList' a static method.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Menu/Menu.razor",
-                "region": {
-                  "startLine": 219,
-                  "startColumn": 26,
-                  "endLine": 219,
-                  "endColumn": 45
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S2325",
-          "level": "warning",
-          "message": "Make 'CanProcessPayment' a static method.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
-                "region": {
-                  "startLine": 415,
-                  "startColumn": 18,
-                  "endLine": 415,
-                  "endColumn": 35
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S3400",
-          "level": "warning",
-          "message": "Remove this method and declare a constant for this value.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
-                "region": {
-                  "startLine": 415,
-                  "startColumn": 18,
-                  "endLine": 415,
-                  "endColumn": 35
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
           "ruleId": "S3776",
           "level": "warning",
-          "message": "Refactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.",
+          "message": "Refactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.",
           "locations": [
             {
               "resultFile": {
                 "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
                 "region": {
-                  "startLine": 421,
+                  "startLine": 439,
                   "startColumn": 24,
-                  "endLine": 421,
+                  "endLine": 439,
                   "endColumn": 38
                 }
               }
@@ -690,9 +360,9 @@
               "physicalLocation": {
                 "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
                 "region": {
-                  "startLine": 423,
+                  "startLine": 441,
                   "startColumn": 9,
-                  "endLine": 423,
+                  "endLine": 441,
                   "endColumn": 11
                 }
               }
@@ -701,9 +371,9 @@
               "physicalLocation": {
                 "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
                 "region": {
-                  "startLine": 423,
+                  "startLine": 441,
                   "startColumn": 37,
-                  "endLine": 423,
+                  "endLine": 441,
                   "endColumn": 39
                 }
               }
@@ -712,9 +382,31 @@
               "physicalLocation": {
                 "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
                 "region": {
-                  "startLine": 437,
+                  "startLine": 452,
+                  "startColumn": 9,
+                  "endLine": 452,
+                  "endColumn": 11
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 452,
+                  "startColumn": 42,
+                  "endLine": 452,
+                  "endColumn": 44
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 467,
                   "startColumn": 13,
-                  "endLine": 437,
+                  "endLine": 467,
                   "endColumn": 15
                 }
               }
@@ -723,9 +415,9 @@
               "physicalLocation": {
                 "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
                 "region": {
-                  "startLine": 448,
+                  "startLine": 478,
                   "startColumn": 17,
-                  "endLine": 448,
+                  "endLine": 478,
                   "endColumn": 19
                 }
               }
@@ -734,65 +426,10 @@
               "physicalLocation": {
                 "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
                 "region": {
-                  "startLine": 462,
+                  "startLine": 492,
                   "startColumn": 17,
-                  "endLine": 462,
+                  "endLine": 492,
                   "endColumn": 19
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
-                "region": {
-                  "startLine": 470,
-                  "startColumn": 13,
-                  "endLine": 470,
-                  "endColumn": 17
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
-                "region": {
-                  "startLine": 476,
-                  "startColumn": 13,
-                  "endLine": 476,
-                  "endColumn": 15
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
-                "region": {
-                  "startLine": 484,
-                  "startColumn": 52,
-                  "endLine": 484,
-                  "endColumn": 53
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
-                "region": {
-                  "startLine": 489,
-                  "startColumn": 17,
-                  "endLine": 489,
-                  "endColumn": 19
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
-                "region": {
-                  "startLine": 494,
-                  "startColumn": 17,
-                  "endLine": 494,
-                  "endColumn": 21
                 }
               }
             },
@@ -812,8 +449,19 @@
                 "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
                 "region": {
                   "startLine": 506,
-                  "startColumn": 52,
+                  "startColumn": 13,
                   "endLine": 506,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 514,
+                  "startColumn": 52,
+                  "endLine": 514,
                   "endColumn": 53
                 }
               }
@@ -822,9 +470,9 @@
               "physicalLocation": {
                 "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
                 "region": {
-                  "startLine": 511,
+                  "startLine": 519,
                   "startColumn": 17,
-                  "endLine": 511,
+                  "endLine": 519,
                   "endColumn": 19
                 }
               }
@@ -833,9 +481,9 @@
               "physicalLocation": {
                 "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
                 "region": {
-                  "startLine": 515,
+                  "startLine": 524,
                   "startColumn": 17,
-                  "endLine": 515,
+                  "endLine": 524,
                   "endColumn": 21
                 }
               }
@@ -844,9 +492,53 @@
               "physicalLocation": {
                 "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
                 "region": {
-                  "startLine": 521,
+                  "startLine": 530,
+                  "startColumn": 13,
+                  "endLine": 530,
+                  "endColumn": 17
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 536,
+                  "startColumn": 52,
+                  "endLine": 536,
+                  "endColumn": 53
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 541,
+                  "startColumn": 17,
+                  "endLine": 541,
+                  "endColumn": 19
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 545,
+                  "startColumn": 17,
+                  "endLine": 545,
+                  "endColumn": 21
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 551,
                   "startColumn": 9,
-                  "endLine": 521,
+                  "endLine": 551,
                   "endColumn": 14
                 }
               }
@@ -857,19 +549,21 @@
             "customProperties": {
               "0": "+1",
               "1": "+1",
-              "10": "+1",
-              "11": "+2 (incl 1 for nesting)",
-              "12": "+2 (incl 1 for nesting)",
-              "13": "+1",
-              "14": "+1",
+              "10": "+2 (incl 1 for nesting)",
+              "11": "+1",
+              "12": "+1",
+              "13": "+2 (incl 1 for nesting)",
+              "14": "+2 (incl 1 for nesting)",
+              "15": "+1",
+              "16": "+1",
               "2": "+1",
-              "3": "+2 (incl 1 for nesting)",
-              "4": "+2 (incl 1 for nesting)",
-              "5": "+1",
-              "6": "+1",
-              "7": "+2 (incl 1 for nesting)",
-              "8": "+2 (incl 1 for nesting)",
-              "9": "+1"
+              "3": "+1",
+              "4": "+1",
+              "5": "+2 (incl 1 for nesting)",
+              "6": "+2 (incl 1 for nesting)",
+              "7": "+1",
+              "8": "+1",
+              "9": "+2 (incl 1 for nesting)"
             }
           }
         }
@@ -924,6 +618,23 @@
             ]
           }
         },
+        "S1144": {
+          "id": "S1144",
+          "shortDescription": "Unused private types or members should be removed",
+          "fullDescription": "This rule raises an issue when a private/internal type or member is never referenced in the code.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1144",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
         "S1172": {
           "id": "S1172",
           "shortDescription": "Unused method parameters should be removed",
@@ -941,56 +652,6 @@
             ]
           }
         },
-        "S1192": {
-          "id": "S1192",
-          "shortDescription": "String literals should not be duplicated",
-          "fullDescription": "Duplicated string literals make the process of refactoring complex and error-prone, as any change would need to be propagated on all occurrences.",
-          "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1192",
-          "properties": {
-            "category": "Minor Code Smell",
-            "isEnabledByDefault": false,
-            "tags": [
-              "C#",
-              "MainSourceScope",
-              "SonarWay"
-            ]
-          }
-        },
-        "S1481": {
-          "id": "S1481",
-          "shortDescription": "Unused local variables should be removed",
-          "fullDescription": "An unused local variable is a variable that has been declared but is not used anywhere in the block of code where it is defined. It is dead code, contributing to unnecessary complexity and leading to confusion when reading the code. Therefore, it should be removed from your code to maintain clarity and efficiency.",
-          "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1481",
-          "properties": {
-            "category": "Minor Code Smell",
-            "isEnabledByDefault": true,
-            "tags": [
-              "C#",
-              "MainSourceScope",
-              "TestSourceScope",
-              "SonarWay"
-            ]
-          }
-        },
-        "S2325": {
-          "id": "S2325",
-          "shortDescription": "Methods and properties that don't access instance data should be static",
-          "fullDescription": "Methods and properties that don’t access instance data should be marked as static for the following reasons:",
-          "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2325",
-          "properties": {
-            "category": "Minor Code Smell",
-            "isEnabledByDefault": true,
-            "tags": [
-              "C#",
-              "MainSourceScope",
-              "TestSourceScope",
-              "SonarWay"
-            ]
-          }
-        },
         "S2346": {
           "id": "S2346",
           "shortDescription": "Flags enumerations zero-value members should be named \"None\"",
@@ -999,6 +660,23 @@
           "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2346",
           "properties": {
             "category": "Critical Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2589": {
+          "id": "S2589",
+          "shortDescription": "Boolean expressions should not be gratuitous",
+          "fullDescription": "Gratuitous boolean expressions are conditions that do not change the evaluation of a program. This issue can indicate logical errors and affect the correctness of an application, as well as its maintainability.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2589",
+          "properties": {
+            "category": "Major Code Smell",
             "isEnabledByDefault": true,
             "tags": [
               "C#",

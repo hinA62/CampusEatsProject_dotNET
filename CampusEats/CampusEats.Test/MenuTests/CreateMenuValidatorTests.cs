@@ -11,8 +11,8 @@ public class CreateMenuValidatorTests
     {
         // Arrange
         var model = new CreateMenuRequest
-            ( "Valid Menu Name", 15.99m, [Guid.NewGuid()],
-                MenuCategory.Breakfast, DietaryRestrictions.GlutenFree, null);
+            (Guid.NewGuid(),"Valid Menu Name", 15.99m, [Guid.NewGuid(), Guid.NewGuid()],
+                MenuCategory.Vegan, "http://example.com/image.jpg");
         var validator = new CreateMenuValidator();
 
         // Act
@@ -29,8 +29,8 @@ public class CreateMenuValidatorTests
     {
         // Arrange
         var model = new CreateMenuRequest
-            (name, 15.99m, [Guid.NewGuid()], 
-                MenuCategory.Vegetarian, DietaryRestrictions.None, null);
+            (Guid.NewGuid(), name, 15.99m, [Guid.NewGuid()], 
+                MenuCategory.Vegetarian, null);
         var validator = new CreateMenuValidator();
 
         // Act
@@ -48,8 +48,8 @@ public class CreateMenuValidatorTests
         // Arrange
         var longName = new string('a', 51);
         var model = new CreateMenuRequest
-            (longName, 15.99m, [Guid.NewGuid()],
-                MenuCategory.Traditional, DietaryRestrictions.None, null);
+            (Guid.NewGuid(), longName, 15.99m, [Guid.NewGuid()],
+                MenuCategory.Traditional, null);
         var validator = new CreateMenuValidator();
 
         // Act
@@ -66,8 +66,8 @@ public class CreateMenuValidatorTests
     {
         // Arrange
         var model = new CreateMenuRequest
-            ("Valid Menu", null, [Guid.NewGuid()],
-                MenuCategory.Asian, DietaryRestrictions.LactoseFree, null);
+            (Guid.NewGuid(), "Valid Menu", null, [Guid.NewGuid()],
+                MenuCategory.Asian, null);
         var validator = new CreateMenuValidator();
 
         // Act
@@ -87,8 +87,8 @@ public class CreateMenuValidatorTests
     {
         // Arrange
         var model = new CreateMenuRequest
-            ("Valid Menu", price, [Guid.NewGuid()], 
-                MenuCategory.Vegan, DietaryRestrictions.DairyFree, null);
+            (Guid.NewGuid(), "Valid Menu", price, [Guid.NewGuid()], 
+                MenuCategory.Vegan, null);
         var validator = new CreateMenuValidator();
 
         // Act
@@ -106,8 +106,8 @@ public class CreateMenuValidatorTests
     {
         // Arrange
         var model = new CreateMenuRequest
-        ( "Valid Menu", 15.99m, itemIds!,
-            MenuCategory.Dessert, DietaryRestrictions.None, null);
+        ( Guid.NewGuid(), "Valid Menu", 15.99m, itemIds!,
+            MenuCategory.Dessert, null);
         var validator = new CreateMenuValidator();
 
         // Act
@@ -124,8 +124,7 @@ public class CreateMenuValidatorTests
     {
         // Arrange
         var model = new CreateMenuRequest
-        ("", -5m, null, MenuCategory.Dinner,
-            DietaryRestrictions.None, null);
+        (Guid.NewGuid(), "", -5m, null, MenuCategory.Dinner, null);
         var validator = new CreateMenuValidator();
 
         // Act

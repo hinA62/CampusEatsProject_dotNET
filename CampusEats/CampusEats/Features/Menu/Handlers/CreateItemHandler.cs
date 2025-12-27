@@ -17,7 +17,7 @@ public class CreateItemHandler (CampusEatsContext context, ILogger<CreateItemHan
         {
             foreach (var error in validationResult.Errors)
             {
-                logger.LogError(error.ErrorMessage);
+                logger.LogError("A validation error occurred.");
             }
 
             return Results.BadRequest(validationResult.Errors);

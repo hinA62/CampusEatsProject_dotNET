@@ -164,7 +164,6 @@
 
             _newMenu.ItemIds = _selectedItemIds.ToList();
 
-            var result = await MenuService.CreateMenuAsync(_newMenu);
             Navigation.NavigateTo("/menus");
         }
         catch (Exception ex)

@@ -7,19 +7,19 @@ public class DeleteMenuHandler (CampusEatsContext context, ILogger<DeleteMenuHan
 {
     public async Task<IResult> Handle(DeleteMenuRequest request)
     {
-        logger.LogInformation($"Deleting menu with ID: {request.Id}");
+        logger.LogInformation("Deleting menu with ID: {RequestId}", request.Id);
         
         var menu = await context.Menu.FindAsync(request.Id);
         if (menu == null)
         {
             logger.LogWarning("Menu not found");
-            return Results.NotFound($"Menu with ID: {request.Id} not found");
+            return Results.NotFound("Menu not found");
         }
         
         context.Menu.Remove(menu);
         await context.SaveChangesAsync();
         logger.LogInformation("Menu deleted successfully");
         
-        return Results.Ok($"Menu with ID: {request.Id} deleted successfully");
+        return Results.Ok("Menu deleted successfully");
     }
 }

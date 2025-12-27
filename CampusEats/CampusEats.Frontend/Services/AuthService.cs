@@ -12,6 +12,7 @@ public class AuthService
     private readonly IJSRuntime _js;
     private readonly JsonSerializerOptions _jsonOptions;
     private UserDto? _currentUser;
+    private const string Identifier = "localStorage.setItem";
 
     public AuthService(HttpClient http, IJSRuntime js)
     {
@@ -47,12 +48,12 @@ public class AuthService
                 Role = result.Role,
                 Token = result.Token
             };
-
+            
             // Save token in localStorage
-            await _js.InvokeVoidAsync("localStorage.setItem", "authToken", result.Token);
-            await _js.InvokeVoidAsync("localStorage.setItem", "userId", result.UserId.ToString());
-            await _js.InvokeVoidAsync("localStorage.setItem", "username", result.Username);
-            await _js.InvokeVoidAsync("localStorage.setItem", "role", result.Role);
+            await _js.InvokeVoidAsync(Identifier, "authToken", result.Token);
+            await _js.InvokeVoidAsync(Identifier, "userId", result.UserId.ToString());
+            await _js.InvokeVoidAsync(Identifier, "username", result.Username);
+            await _js.InvokeVoidAsync(Identifier, "role", result.Role);
 
             // Set authorization header
             _http.DefaultRequestHeaders.Authorization = 
@@ -107,10 +108,10 @@ public class AuthService
         finally
         {
             // Clear local storage
-            await _js.InvokeVoidAsync("localStorage.removeItem", "authToken");
-            await _js.InvokeVoidAsync("localStorage.removeItem", "userId");
-            await _js.InvokeVoidAsync("localStorage.removeItem", "username");
-            await _js.InvokeVoidAsync("localStorage.removeItem", "role");
+            await _js.InvokeVoidAsync(Identifier, "authToken");
+            await _js.InvokeVoidAsync(Identifier, "userId");
+            await _js.InvokeVoidAsync(Identifier, "username");
+            await _js.InvokeVoidAsync(Identifier, "role");
 
             _currentUser = null;
             _http.DefaultRequestHeaders.Authorization = null;
@@ -128,7 +129,7 @@ public class AuthService
                 return (true, null);
             }
             
-            // Try to get error message from response
+            // Try to get the error message from response
             var errorContent = await response.Content.ReadAsStringAsync();
             return (false, string.IsNullOrEmpty(errorContent) ? "Failed to change password" : errorContent);
         }
@@ -147,9 +148,9 @@ public class AuthService
             if (string.IsNullOrEmpty(token))
                 return;
 
-            var userIdStr = await _js.InvokeAsync<string?>("localStorage.getItem", "userId");
-            var username = await _js.InvokeAsync<string?>("localStorage.getItem", "username");
-            var role = await _js.InvokeAsync<string?>("localStorage.getItem", "role");
+            var userIdStr = await _js.InvokeAsync<string?>(Identifier, "userId");
+            var username = await _js.InvokeAsync<string?>(Identifier, "username");
+            var role = await _js.InvokeAsync<string?>(Identifier, "role");
 
             if (!string.IsNullOrEmpty(userIdStr) && Guid.TryParse(userIdStr, out var userId))
             {

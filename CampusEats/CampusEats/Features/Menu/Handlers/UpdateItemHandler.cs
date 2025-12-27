@@ -8,7 +8,7 @@ public class UpdateItemHandler (CampusEatsContext context, ILogger<UpdateItemHan
 {
     public async Task<IResult> Handle(UpdateItemRequest request)
     {
-        logger.LogInformation($"Updating menu item with ID: {request.Id}");
+        logger.LogInformation("Updating menu item with ID: {RequestId}", request.Id);
         
         //data validation
         var validator = new UpdateItemValidator();
@@ -17,7 +17,7 @@ public class UpdateItemHandler (CampusEatsContext context, ILogger<UpdateItemHan
         {
             foreach (var error in validationResult.Errors)
             {
-                logger.LogError(error.ErrorMessage);
+                logger.LogError("A validation error occurred.");
             }
             
             return Results.BadRequest(validationResult.Errors);
@@ -28,7 +28,7 @@ public class UpdateItemHandler (CampusEatsContext context, ILogger<UpdateItemHan
         if (menuItem == null)
         {
             logger.LogWarning("Menu item not found");
-            return Results.NotFound($"Menu item with ID: {request.Id} not found");
+            return Results.NotFound("Menu not found");
         }
         
         var updatedMenuItem = menuItem with

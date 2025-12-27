@@ -127,7 +127,7 @@
         }
     }
 
-    private string GetStatusColor(OrderStatus status) => status switch
+    private static string GetStatusColor(OrderStatus status) => status switch
     {
         OrderStatus.Pending => "warning",
         OrderStatus.Confirmed => "info",

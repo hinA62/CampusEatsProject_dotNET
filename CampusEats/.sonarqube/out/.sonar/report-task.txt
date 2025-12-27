@@ -1,6 +1,7 @@
-projectKey=CampusEats
-serverUrl=http://localhost:9000
-serverVersion=25.12.0.117093
-dashboardUrl=http://localhost:9000/dashboard?id=CampusEats
-ceTaskId=516f17fa-04db-40d7-b911-157875fb019d
-ceTaskUrl=http://localhost:9000/api/ce/task?id=516f17fa-04db-40d7-b911-157875fb019d
+organization=hina62
+projectKey=hinA62_CampusEatsProject_dotNET
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.78018
+dashboardUrl=https://sonarcloud.io/dashboard?id=hinA62_CampusEatsProject_dotNET
+ceTaskId=AZtgFJZTx0mWaziK7h2F
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZtgFJZTx0mWaziK7h2F
