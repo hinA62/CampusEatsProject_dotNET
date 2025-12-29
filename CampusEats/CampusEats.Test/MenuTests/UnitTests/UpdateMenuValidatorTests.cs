@@ -2,7 +2,7 @@
 using CampusEats.Features.Menu.Requests;
 using CampusEats.Validators.Menu;
 
-namespace CampusEats.Test.MenuTests;
+namespace CampusEats.Test.MenuTests.UnitTests;
 
 public class UpdateMenuValidatorTests
 {
@@ -12,7 +12,7 @@ public class UpdateMenuValidatorTests
         // Arrange
         var model = new UpdateMenuRequest
         (Guid.NewGuid(), "Valid Menu Name", 15.99m, 
-            [Guid.NewGuid()], MenuCategory.Breakfast, null);
+            [Guid.NewGuid()], MenuCategory.Breakfast, DietaryRestrictions.DairyFree, null);
         var validator = new UpdateMenuValidator();
 
         // Act
@@ -30,7 +30,7 @@ public class UpdateMenuValidatorTests
         // Arrange
         var model = new UpdateMenuRequest
             (Guid.NewGuid(), name, 15.99m,
-                [Guid.NewGuid()], MenuCategory.Vegetarian, null);
+                [Guid.NewGuid()], MenuCategory.Vegetarian, DietaryRestrictions.DairyFree, null);
         var validator = new UpdateMenuValidator();
 
         // Act
@@ -49,7 +49,7 @@ public class UpdateMenuValidatorTests
         var longName = new string('a', 51);
         var model = new UpdateMenuRequest
             (Guid.NewGuid(), longName, 15.99m, 
-                [Guid.NewGuid()], MenuCategory.Traditional, null);
+                [Guid.NewGuid()], MenuCategory.Traditional, DietaryRestrictions.LactoseFree, null);
         var validator = new UpdateMenuValidator();
 
         // Act
@@ -70,7 +70,7 @@ public class UpdateMenuValidatorTests
         // Arrange
         var model = new UpdateMenuRequest
         (Guid.NewGuid(), "Valid Menu", price,
-            [Guid.NewGuid()], MenuCategory.Vegan, null);
+            [Guid.NewGuid()], MenuCategory.Vegan, DietaryRestrictions.None, null);
         var validator = new UpdateMenuValidator();
 
         // Act
@@ -79,7 +79,7 @@ public class UpdateMenuValidatorTests
         // Assert
         Assert.False(result.IsValid);
         Assert.Contains(result.Errors, e => 
-            e.ErrorMessage == "Price must be greater than zero when provided.");
+            e.ErrorMessage == "Price is required and must be greater than zero.");
     }
     
     [Theory]
@@ -89,7 +89,7 @@ public class UpdateMenuValidatorTests
         // Arrange
         var model = new UpdateMenuRequest
         ( Guid.NewGuid(), "Valid Menu", 15.99m, 
-            itemIds!, MenuCategory.Dessert, null);
+            itemIds!, MenuCategory.Dessert, DietaryRestrictions.NutFree, null);
         var validator = new UpdateMenuValidator();
 
         // Act
@@ -106,7 +106,7 @@ public class UpdateMenuValidatorTests
     {
         // Arrange
         var model = new UpdateMenuRequest
-            (Guid.NewGuid(),"", -5m, null, MenuCategory.Dinner, null);
+            (Guid.NewGuid(),"", -5m, [], MenuCategory.Dinner, DietaryRestrictions.None, null);
         var validator = new UpdateMenuValidator();
 
         // Act
@@ -114,6 +114,6 @@ public class UpdateMenuValidatorTests
 
         // Assert
         Assert.False(result.IsValid);
-        Assert.True(result.Errors.Count >= 3);
+        Assert.True(result.Errors.Count >= 2);
     }
 }

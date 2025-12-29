@@ -12,7 +12,7 @@ public class DeleteItemHandler(CampusEatsContext context, ILogger<DeleteItemHand
         var menuItem = await context.MenuItem.FindAsync(request.Id);
         if (menuItem == null)
         {
-            logger.LogInformation("MenuItem with ID: {MenuItemId} not found", request.Id);
+            logger.LogInformation("MenuItem not found");
             return Results.NotFound($"MenuItem with ID: {request.Id} not found");
         }
 

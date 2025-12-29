@@ -1,18 +1,20 @@
 using CampusEats.Features.Order;
-using CampusEats.Features.Order.Requests;
 using CampusEats.Features.Order.Handlers;
+using CampusEats.Features.Order.Requests;
 using CampusEats.Persistence;
+using FluentAssertions;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace CampusEats.Test.OrderTests;
+namespace CampusEats.Test.OrderTests.IntegrationTests;
 
 public class CancelOrderHandlerTests : IDisposable
 {
     private readonly CampusEatsContext _context;
     private readonly CancelOrderHandler _handler;
-    private readonly ILogger<CancelOrderHandler> _logger;
-    
+
     public CancelOrderHandlerTests()
     {
         var options = new DbContextOptionsBuilder<CampusEatsContext>()
@@ -20,8 +22,22 @@ public class CancelOrderHandlerTests : IDisposable
             .Options;
         
         _context = new CampusEatsContext(options);
-        _logger = LoggerFactory.Create(builder => builder.AddConsole()).CreateLogger<CancelOrderHandler>();
-        _handler = new CancelOrderHandler(_context, _logger);
+        var logger = LoggerFactory.Create(builder => builder.AddConsole()).CreateLogger<CancelOrderHandler>();
+        _handler = new CancelOrderHandler(_context, logger);
+    }
+    
+    [Fact]
+    public async Task Given_InvalidRequest_When_Handle_Then_ShouldReturnBadRequest()
+    {
+        // Arrange
+        var request = new CancelOrderRequest(Guid.Empty);
+
+        // Act
+        var result = await _handler.Handle(request);
+
+        // Assert
+        result.Should().BeAssignableTo<IStatusCodeHttpResult>()
+            .Which.StatusCode.Should().Be(StatusCodes.Status400BadRequest);
     }
     
     [Fact]
@@ -46,6 +62,7 @@ public class CancelOrderHandlerTests : IDisposable
         var result = await _handler.Handle(request);
         
         // Assert
+        result.Should().BeOfType<Ok<Order>>();
         var updatedOrder = await _context.Order.FindAsync(order.Id);
         Assert.Equal(OrderStatus.Cancelled, updatedOrder!.Status);
     }

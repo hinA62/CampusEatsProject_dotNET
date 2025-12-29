@@ -11,9 +11,9 @@ public class UpdateMenuValidator : AbstractValidator<UpdateMenuRequest>
             .NotEmpty().WithMessage("Menu name is required.")
             .MaximumLength(50).WithMessage("Menu name must not exceed 50 characters.");
 
-        RuleFor(x => x.Price)
-            .Must(p => p == null || p > 0)
-            .WithMessage("Price must be greater than zero when provided.");
+        RuleFor(x => x.Price).NotEmpty()
+            .Must(p => p > 0)
+            .WithMessage("Price is required and must be greater than zero.");
 
         RuleFor(x => x.ItemIds)
             .NotNull().WithMessage("At least one menu item is required.");

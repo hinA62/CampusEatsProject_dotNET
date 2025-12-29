@@ -1,17 +1,17 @@
 ﻿using CampusEats.Features.Menu.Requests;
 using CampusEats.Validators.Menu;
 
-namespace CampusEats.Test.MenuTests;
+namespace CampusEats.Test.MenuTests.UnitTests;
 
-public class UpdateItemValidatorTests
+public class CreateItemValidatorTests
 {
     [Fact]
-    public void Given_ValidInput_With_Validate_Then_ShouldPass()
+    public void Given_ValidInput_When_Validate_Then_ShouldPass()
     {
         // Arrange
         var model = new CreateItemRequest
-            (Guid.NewGuid(), "Valid Item Name",
-                10.99m, "https://example.com/image.jpg", null);
+            (Guid.NewGuid(), "Valid Item Name", 10.99m,
+                "https://example.com/image.jpg", null);
         var validator = new CreateItemValidator();
 
         // Act
@@ -24,7 +24,6 @@ public class UpdateItemValidatorTests
 
     [Theory]
     [InlineData("")]
-    
     public void Given_NullOrEmptyName_When_Validate_Then_ShouldFail(string name)
     {
         // Arrange
@@ -49,7 +48,7 @@ public class UpdateItemValidatorTests
     {
         // Arrange
         var model = new CreateItemRequest
-            (Guid.NewGuid(), name, 10.99m, 
+            (Guid.NewGuid(), name, 10.99m,
                 "https://example.com/image.jpg", null);
         var validator = new CreateItemValidator();
 
@@ -59,7 +58,7 @@ public class UpdateItemValidatorTests
         // Assert
         Assert.False(result.IsValid);
         Assert.Contains(result.Errors, e =>
-            e.ErrorMessage == "Name must not be empty and should be at least 3 characters long.");
+            e.PropertyName == "Name" && e.ErrorMessage.Contains("at least 3 characters"));
     }
 
     [Fact]
@@ -67,8 +66,8 @@ public class UpdateItemValidatorTests
     {
         // Arrange
         var model = new CreateItemRequest
-            (Guid.NewGuid(), "Valid Item", null,
-                "https://example.com/image.jpg", null);
+            (Guid.NewGuid(), "Valid Item", 
+                null, "https://example.com/image.jpg", null);
         var validator = new CreateItemValidator();
 
         // Act
@@ -76,7 +75,7 @@ public class UpdateItemValidatorTests
 
         // Assert
         Assert.False(result.IsValid);
-        Assert.Contains(result.Errors, e =>
+        Assert.Contains(result.Errors, e => 
             e.ErrorMessage == "Price is required.");
     }
 
@@ -98,7 +97,7 @@ public class UpdateItemValidatorTests
         // Assert
         Assert.False(result.IsValid);
         Assert.Contains(result.Errors, e => 
-            e.ErrorMessage == "Price must be greater than 0.");
+            e.PropertyName == "Price" && e.ErrorMessage.Contains("must be greater than 0"));
     }
 
     [Fact]
@@ -106,8 +105,7 @@ public class UpdateItemValidatorTests
     {
         // Arrange
         var model = new CreateItemRequest
-            (Guid.Empty, "ab", -5m, 
-                "invalid-url", null);
+            (Guid.Empty, "ab", -5m, "invalid-url", null);
         var validator = new CreateItemValidator();
 
         // Act

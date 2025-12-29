@@ -59,10 +59,7 @@ public class PlaceOrderHandler(CampusEatsContext context, ILogger<PlaceOrderHand
         foreach (var menuId in menuIds)
         {
             var menu = menus.FirstOrDefault(m => m.Id == menuId);
-            if (menu != null && menu.Price.HasValue)
-            {
-                total += menu.Price.Value;
-            }
+            total += menus.First(m => m.Id == menuId).Price ?? 0;
         }
         
         // Pentru fiecare item ID (inclusiv duplicate), adăugăm prețul

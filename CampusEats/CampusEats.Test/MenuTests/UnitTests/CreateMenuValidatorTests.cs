@@ -2,7 +2,7 @@
 using CampusEats.Features.Menu.Requests;
 using CampusEats.Validators.Menu;
 
-namespace CampusEats.Test.MenuTests;
+namespace CampusEats.Test.MenuTests.UnitTests;
 
 public class CreateMenuValidatorTests
 {

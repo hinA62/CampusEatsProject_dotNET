@@ -1,21 +1,20 @@
+using CampusEats.Features.Menu;
 using CampusEats.Features.Order;
 using CampusEats.Features.Order.Handlers;
 using CampusEats.Features.Order.Requests;
 using CampusEats.Features.User;
-using CampusEats.Features.Menu;
 using CampusEats.Persistence;
 using FluentAssertions;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using Xunit;
 
-namespace CampusEats.Test.OrderTests;
+namespace CampusEats.Test.OrderTests.IntegrationTests;
 
 public class PlaceOrderHandlerTests : IDisposable
 {
     private readonly CampusEatsContext _context;
     private readonly PlaceOrderHandler _handler;
-    private readonly ILogger<PlaceOrderHandler> _logger;
 
     public PlaceOrderHandlerTests()
     {
@@ -23,8 +22,8 @@ public class PlaceOrderHandlerTests : IDisposable
             .UseInMemoryDatabase($"TestDb_{Guid.NewGuid()}")
             .Options;
         _context = new CampusEatsContext(options);
-        _logger = LoggerFactory.Create(builder => builder.AddConsole()).CreateLogger<PlaceOrderHandler>();
-        _handler = new PlaceOrderHandler(_context, _logger);
+        var logger = LoggerFactory.Create(builder => builder.AddConsole()).CreateLogger<PlaceOrderHandler>();
+        _handler = new PlaceOrderHandler(_context, logger);
     }
 
     [Fact]
@@ -36,7 +35,7 @@ public class PlaceOrderHandlerTests : IDisposable
         await _context.Users.AddAsync(user);
         
         var menuId = Guid.NewGuid();
-        var menu = new Menu(menuId, "Lunch Special", 15.99m, new List<Guid>(), MenuCategory.Meat, DietaryRestrictions.None, null);
+        var menu = new Menu(menuId, "Lunch Special", 15.99m, [], MenuCategory.Meat, DietaryRestrictions.None, null);
         await _context.Menu.AddAsync(menu);
         
         var itemId = Guid.NewGuid();
@@ -45,19 +44,35 @@ public class PlaceOrderHandlerTests : IDisposable
         
         await _context.SaveChangesAsync();
         
-        var request = new PlaceOrderRequest(clientId, new List<Guid> { menuId }, new List<Guid> { itemId });
+        var request = new PlaceOrderRequest(clientId, [menuId], [itemId]);
+        
+        // Act
+        var result = await _handler.Handle(request);
+        var order = await _context.Order.FirstOrDefaultAsync();
+        
+        // Assert
+        result.Should().NotBeNull();
+        
+        order.Should().NotBeNull();
+        order.ClientId.Should().Be(clientId);
+        order.MenuIDs.Should().ContainSingle().Which.Should().Be(menuId);
+        order.ItemIDs.Should().ContainSingle().Which.Should().Be(itemId);
+        order.Price.Should().Be(18.49m); // 15.99 + 2.50
+        order.Status.Should().Be(OrderStatus.Pending);
+    }
+
+    [Fact]
+    public async Task Given_FailedValidation_When_Handle_Then_ShouldReturnBadRequest()
+    {
+        //Arrange
+        var request = new PlaceOrderRequest(Guid.Empty, [], []); // Empty clientId should fail validation
         
         // Act
         var result = await _handler.Handle(request);
         
         // Assert
-        var order = await _context.Order.FirstOrDefaultAsync();
-        order.Should().NotBeNull();
-        order!.ClientId.Should().Be(clientId);
-        order.MenuIDs.Should().ContainSingle().Which.Should().Be(menuId);
-        order.ItemIDs.Should().ContainSingle().Which.Should().Be(itemId);
-        order.Price.Should().Be(18.49m); // 15.99 + 2.50
-        order.Status.Should().Be(OrderStatus.Pending);
+        result.Should().BeOfType<Microsoft.AspNetCore.Http.HttpResults
+            .BadRequest<List<FluentValidation.Results.ValidationFailure>>>();
     }
 
     [Fact]
@@ -70,12 +85,18 @@ public class PlaceOrderHandlerTests : IDisposable
         await _context.SaveChangesAsync();
         
         var nonExistentMenuId = Guid.NewGuid();
-        var request = new PlaceOrderRequest(clientId, new List<Guid> { nonExistentMenuId }, new List<Guid>());
+        var request = new PlaceOrderRequest(clientId, [nonExistentMenuId], new List<Guid>());
         
         // Act
         var result = await _handler.Handle(request);
         
         // Assert
+        var statusCodeResult = result.Should().BeAssignableTo<IStatusCodeHttpResult>().Subject;
+        statusCodeResult.StatusCode.Should().Be(400);
+
+        var valueResult = result.Should().BeAssignableTo<IValueHttpResult>().Subject;
+        valueResult.Value.Should().NotBeNull();
+        
         var orders = await _context.Order.ToListAsync();
         orders.Should().BeEmpty();
     }
@@ -90,12 +111,18 @@ public class PlaceOrderHandlerTests : IDisposable
         await _context.SaveChangesAsync();
         
         var nonExistentItemId = Guid.NewGuid();
-        var request = new PlaceOrderRequest(clientId, new List<Guid>(), new List<Guid> { nonExistentItemId });
+        var request = new PlaceOrderRequest(clientId, [], [nonExistentItemId]);
         
         // Act
         var result = await _handler.Handle(request);
         
         // Assert
+        var statusCodeResult = result.Should().BeAssignableTo<IStatusCodeHttpResult>().Subject;
+        statusCodeResult.StatusCode.Should().Be(400);
+
+        var valueResult = result.Should().BeAssignableTo<IValueHttpResult>().Subject;
+        valueResult.Value.Should().NotBeNull();
+        
         var orders = await _context.Order.ToListAsync();
         orders.Should().BeEmpty();
     }
@@ -109,22 +136,24 @@ public class PlaceOrderHandlerTests : IDisposable
         await _context.Users.AddAsync(user);
         
         var menuId = Guid.NewGuid();
-        var menu = new Menu(menuId, "Burger", 10.00m, new List<Guid>(), MenuCategory.Meat, DietaryRestrictions.None, null);
+        var menu = new Menu(menuId, "Burger", 10.00m, [], MenuCategory.Meat, DietaryRestrictions.None, null);
         await _context.Menu.AddAsync(menu);
         
         await _context.SaveChangesAsync();
         
         // Request with duplicate menuIds (quantity = 3)
-        var request = new PlaceOrderRequest(clientId, new List<Guid> { menuId, menuId, menuId }, new List<Guid>());
+        var request = new PlaceOrderRequest(clientId, [menuId, menuId, menuId], new List<Guid>());
         
         // Act
         var result = await _handler.Handle(request);
+        var order = await _context.Order.FirstOrDefaultAsync();
         
         // Assert
-        var order = await _context.Order.FirstOrDefaultAsync();
+        result.Should().NotBeNull();
+        
         order.Should().NotBeNull();
-        order!.MenuIDs.Should().HaveCount(3); // Keep duplicates for quantity
-        order!.MenuIDs.Should().OnlyContain(id => id == menuId);
+        order.MenuIDs.Should().HaveCount(3); // Keep duplicates for quantity
+        order.MenuIDs.Should().OnlyContain(id => id == menuId);
         order.Price.Should().Be(30.00m); // 3 x 10.00 = 30.00
     }
 
@@ -137,9 +166,9 @@ public class PlaceOrderHandlerTests : IDisposable
         await _context.Users.AddAsync(user);
         
         var menu1Id = Guid.NewGuid();
-        var menu1 = new Menu(menu1Id, "Burger", 12.50m, new List<Guid>(), MenuCategory.Meat, DietaryRestrictions.None, null);
+        var menu1 = new Menu(menu1Id, "Burger", 12.50m, [], MenuCategory.Meat, DietaryRestrictions.None, null);
         var menu2Id = Guid.NewGuid();
-        var menu2 = new Menu(menu2Id, "Fries", 5.00m, new List<Guid>(), MenuCategory.Vegetarian, DietaryRestrictions.None, null);
+        var menu2 = new Menu(menu2Id, "Fries", 5.00m, [], MenuCategory.Vegetarian, DietaryRestrictions.None, null);
         
         var item1Id = Guid.NewGuid();
         var item1 = new MenuItem(item1Id, "Cheese", 1.50m, null, null);
@@ -150,15 +179,17 @@ public class PlaceOrderHandlerTests : IDisposable
         await _context.MenuItem.AddRangeAsync(item1, item2);
         await _context.SaveChangesAsync();
         
-        var request = new PlaceOrderRequest(clientId, new List<Guid> { menu1Id, menu2Id }, new List<Guid> { item1Id, item2Id });
+        var request = new PlaceOrderRequest(clientId, [menu1Id, menu2Id], [item1Id, item2Id]);
         
         // Act
         var result = await _handler.Handle(request);
+        var order = await _context.Order.FirstOrDefaultAsync();
         
         // Assert
-        var order = await _context.Order.FirstOrDefaultAsync();
+        result.Should().NotBeNull();
+        
         order.Should().NotBeNull();
-        order!.Price.Should().Be(21.00m); // 12.50 + 5.00 + 1.50 + 2.00
+        order.Price.Should().Be(21.00m); // 12.50 + 5.00 + 1.50 + 2.00
     }
 
     public void Dispose()

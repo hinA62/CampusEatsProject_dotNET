@@ -2,8 +2,9 @@
 public record UpdateMenuRequest(
     Guid Id,
     string Name,
-    decimal? Price,
-    List<Guid>? ItemIds,
+    decimal Price,
+    List<Guid> ItemIds,
     MenuCategory Category,
+    DietaryRestrictions Restrictions,
     string? ImageUrl
 );

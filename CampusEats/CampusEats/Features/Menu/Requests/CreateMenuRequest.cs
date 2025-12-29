@@ -4,7 +4,7 @@ public record CreateMenuRequest(
     Guid Id,
     string Name, 
     decimal? Price, 
-    List<Guid>? ItemIds, 
+    List<Guid> ItemIds, 
     MenuCategory Category, 
     string? ImageUrl
 );

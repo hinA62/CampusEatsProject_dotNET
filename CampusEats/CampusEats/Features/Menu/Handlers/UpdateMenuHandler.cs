@@ -34,7 +34,7 @@ public class UpdateMenuHandler(CampusEatsContext context, ILogger<UpdateMenuHand
         var updatedMenu = menu with
         {
             Name = request.Name,
-            Price = request.Price ?? menu.Price,
+            Price = request.Price,
             ItemId = itemIds,
             Category = request.Category,
             Restrictions = finalRestrictions,
@@ -49,12 +49,15 @@ public class UpdateMenuHandler(CampusEatsContext context, ILogger<UpdateMenuHand
 
     private async Task<DietaryRestrictions> CalculateMenuRestrictions(List<Guid> itemIds, DietaryRestrictions currentRestrictions)
     {
-        var allAllergens = await context.MenuItem
+        var items = await context.MenuItem
             .Where(item => itemIds.Contains(item.Id) && item.Allergens != null)
+            .ToListAsync();
+        
+        var allAllergens = items
             .SelectMany(item => item.Allergens!)
             .Select(a => a.ToLower())
             .Distinct()
-            .ToListAsync();
+            .ToList();
 
         if (allAllergens.Count == 0) return currentRestrictions;
 

@@ -1,11 +1,11 @@
 using CampusEats.Features.Order;
-using CampusEats.Features.Order.Requests;
 using CampusEats.Features.Order.Handlers;
+using CampusEats.Features.Order.Requests;
 using CampusEats.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace CampusEats.Test.OrderTests;
+namespace CampusEats.Test.OrderTests.IntegrationTests;
 
 public class GetOrderByIdHandlerTests : IDisposable
 {

@@ -1,7 +1,7 @@
 ﻿using CampusEats.Features.Order.Requests;
 using CampusEats.Validators.Order;
 
-namespace CampusEats.Test.OrderTests;
+namespace CampusEats.Test.OrderTests.UnitTests;
 
 public class CancelOrderValidatorTests
 {
