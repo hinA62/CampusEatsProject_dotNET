@@ -146,43 +146,39 @@
 ∑∑ 
 ∫∫N T
 
-ΩΩ ⁄
-ïC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\MenuTests\IntegrationTests\UpdateMenuHandlerTests.cs
+ΩΩ ∞
+ëC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\OrderTests\UnitTests\PlaceOrderValidatorTests.cs
 
- #Z
-' / ) 1&& '' WW YY hh ii <
-' / -- #== #JJ #__ #
+ %
 
-0 7
- ) 0
- 3 9
-* 15 <
- ; D
+		 >
+ ( -
+  
+   
 
-   T
-## $$$ *)), 2
-$$ &&% 1
-)) --+ 2
--- 00 
-00 11 22 
+ A
+ !!( -
+ !! 
+!! $$ %% 
+%%' (&& 
 
-66 U
-99 ==+ 2
-== @@ 
+** >
+-- 22( -
+// 22 
+22 55 66 
+66' (77 
 
-DD S
-GG JJ+ 2
-JJ MM 
+;; 9
+>> BB( -
+?? BB 
+BB EE FF 
+FF' (GG 
 
-QQ ]
-TT WW. 4[[, 2
-UU XX 2cc1 D
-VV WWD J[[B H
-[[ __+ 2
-__ bb 
-bb cc 
-
-ff Á
+KK A
+NN RR( -
+OO RR 
+RR UU VV 
+VV' (WW Á
 íC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\OrderTests\UnitTests\CancelOrderValidatorTests.cs
 
  &
@@ -508,7 +504,47 @@
 ii Y
 ll qq( -
 nn qq 
-qq tt uu Ÿ
+qq tt uu …
+êC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\MenuTests\UnitTests\UpdateItemValidatorTests.cs
+
+ %
+
+		 >
+ ( -
+  
+   
+
+ C
+K O   !
+ %%( -
+"" %% 
+%% (( )) 
+))' (** 
+
+00 K
+00S W44 !
+33 99( -
+66 99 
+99 << == 
+==' (>> 
+
+BB =
+EE KK( -
+HH KK 
+KK NN OO 
+OO' (PP 
+
+WW G
+WWP U[[+ 0
+ZZ ``( -
+]] `` 
+`` cc dd 
+dd' (ee 
+
+ii Y
+ll rr( -
+oo rr 
+rr uu vv Ÿ
 êC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\MenuTests\UnitTests\CreateMenuValidatorTests.cs
 
  %
@@ -603,39 +639,43 @@
 hh Y
 kk pp( -
 mm pp 
-pp ss tt ∞
-ëC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\OrderTests\UnitTests\PlaceOrderValidatorTests.cs
+pp ss tt ⁄
+ïC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\MenuTests\IntegrationTests\UpdateMenuHandlerTests.cs
 
- %
+ #Z
+' / ) 1&& '' WW YY hh ii <
+' / -- #== #JJ #__ #
 
-		 >
- ( -
-  
-   
+0 7
+ ) 0
+ 3 9
+* 15 <
+ ; D
 
- A
- !!( -
- !! 
-!! $$ %% 
-%%' (&& 
+   T
+## $$$ *)), 2
+$$ &&% 1
+)) --+ 2
+-- 00 
+00 11 22 
 
-** >
--- 22( -
-// 22 
-22 55 66 
-66' (77 
+66 U
+99 ==+ 2
+== @@ 
 
-;; 9
->> BB( -
-?? BB 
-BB EE FF 
-FF' (GG 
+DD S
+GG JJ+ 2
+JJ MM 
 
-KK A
-NN RR( -
-OO RR 
-RR UU VV 
-VV' (WW å
+QQ ]
+TT WW. 4[[, 2
+UU XX 2cc1 D
+VV WWD J[[B H
+[[ __+ 2
+__ bb 
+bb cc 
+
+ff å
 ïC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\MenuTests\IntegrationTests\UpdateItemHandlerTests.cs
 
  #P
@@ -679,7 +719,33 @@
 ++ ..+ 2
 .. 11N T
 
-44 ∏
+44 ¥
+ïC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\MenuTests\IntegrationTests\DeleteItemHandlerTests.cs
+
+ #d
+' / ) 1"" '' )) 44  (77  (JJ KK (
+' / .. #BB #
+0 73 :
+ ) 0
+ $( /
+
+ T<
+   !!$ *%%7 =++, 244< B880 6
+!! "") 1
+$$ %% "778 >
+%% ''% )
+++ ..+ 2
+.. 11 $
+
+11 
+44 55 
+77 88 
+
+<< N
+?? BB+ 2
+BB EEN T
+
+HH ∏
 ïC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\MenuTests\IntegrationTests\CreateMenuHandlerTests.cs
 
  #Z
@@ -711,53 +777,7 @@
 oo pp 
 oo= >ooB C
 
-ss ¥
-ïC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\MenuTests\IntegrationTests\DeleteItemHandlerTests.cs
-
- #d
-' / ) 1"" '' )) 44  (77  (JJ KK (
-' / .. #BB #
-0 73 :
- ) 0
- $( /
-
- T<
-   !!$ *%%7 =++, 244< B880 6
-!! "") 1
-$$ %% "778 >
-%% ''% )
-++ ..+ 2
-.. 11 $
-
-11 
-44 55 
-77 88 
-
-<< N
-?? BB+ 2
-BB EEN T
-
-HH Œ
-ãC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\LoyaltyTests\RedeemPointsValidatorTests.cs
-
- '
-
-		 >
- ( -
-  
-   
-
- 8
- ( -
-  
- "" ## 
-##' ($$ 
-
-(( =
-++ //( -
-,, // 
-// 22 33 
-33' (44 ¿
+ss ¿
 ïC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\MenuTests\IntegrationTests\CreateItemHandlerTests.cs
 
  #F
@@ -779,7 +799,97 @@
 88 ;; 
 >> ?? 
 
-BB Â
+BB ÿ
+ïC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\LoyaltyTests\UnitTests\RedeemPointsValidatorTests.cs
+
+ '
+
+		 >
+ ( -
+  
+   
+
+ 8
+ ( -
+  
+ "" ## 
+##' ($$ 
+
+(( =
+++ //( -
+,, // 
+// 22 33 
+33' (44 ß
+öC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\LoyaltyTests\IntegrationTests\RedeemPointsHandlerTests.cs
+
+ %Z
+' / + 3)) ** ^^ __ nn oo <
+) 1 // #<< #II #dd #
+2 9 5 <
+ ) 0
+' .2 9
+
+ X
+ ## ,,. 4
+!! ))0 7
+,, //+ 2
+// 22 
+
+66 U
+99 <<+ 2
+<< ?? 
+
+CC S
+FF II+ 2
+II LL 
+LL MM NN 
+
+RR c
+UU XX aa. 4
+VV ^^0 7
+aa dd+ 2
+dd gg 
+gg hh ii 
+
+ll Æ
+üC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\LoyaltyTests\IntegrationTests\GetLoyaltyBalanceHandlerTests.cs
+
+ *r
+' / 0 8** ++ UU \\ ww ~~ 
+èè 
+êê >
+. 6 00 #== #aa #
+ÅÅ #
+ ) 0
+
+ e
+   $$ --3 9
+"" **0 7
+-- 00+ 2
+00 33 
+
+77 ^
+:: ==+ 2EE 
+== @@ 
+@@ AA 
+AA CC 
+
+PP h(
+SS WW ^^3 9hh 
+^^ aa+ 2
+aa dd 
+dd ff 
+
+
+ss b,
+vv yy 
+ÅÅH N
+ÜÜ 
+
+ÅÅ 
+ÑÑ 
+
+çç Â
 êC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\KitchenTests\UpdateOrderStatusValidatorTests.cs
 
  ,
@@ -820,47 +930,7 @@
 ee Y
 hh ll( -
 ii ll 
-ll oo pp …
-êC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\MenuTests\UnitTests\UpdateItemValidatorTests.cs
-
- %
-
-		 >
- ( -
-  
-   
-
- C
-K O   !
- %%( -
-"" %% 
-%% (( )) 
-))' (** 
-
-00 K
-00S W44 !
-33 99( -
-66 99 
-99 << == 
-==' (>> 
-
-BB =
-EE KK( -
-HH KK 
-KK NN OO 
-OO' (PP 
-
-WW G
-WWP U[[+ 0
-ZZ ``( -
-]] `` 
-`` cc dd 
-dd' (ee 
-
-ii Y
-ll rr( -
-oo rr 
-rr uu vv π
+ll oo pp π
 àC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\AuthTests\RegisterUserValidatorTests.cs
 
  '

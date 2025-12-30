@@ -20,8 +20,10 @@ vC:\Users\Veronica\.nuget\packages\microsoft.net.test.sdk\17.12.0\build\netcorea
 ïC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\MenuTests\IntegrationTests\DeleteMenuHandlerTests.csutf-8ü
 ïC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\MenuTests\IntegrationTests\DeleteItemHandlerTests.csutf-8ü
 ïC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\MenuTests\IntegrationTests\CreateMenuHandlerTests.csutf-8ü
-ïC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\MenuTests\IntegrationTests\CreateItemHandlerTests.csutf-8ï
-ãC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\LoyaltyTests\RedeemPointsValidatorTests.csutf-8ö
+ïC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\MenuTests\IntegrationTests\CreateItemHandlerTests.csutf-8ü
+ïC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\LoyaltyTests\UnitTests\RedeemPointsValidatorTests.csutf-8§
+öC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\LoyaltyTests\IntegrationTests\RedeemPointsHandlerTests.csutf-8©
+üC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\LoyaltyTests\IntegrationTests\GetLoyaltyBalanceHandlerTests.csutf-8ö
 êC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\KitchenTests\UpdateOrderStatusValidatorTests.csutf-8î
 äC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\AuthTests\UpdateUserRoleValidatorTests.csutf-8í
 àC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\AuthTests\RegisterUserValidatorTests.csutf-8î

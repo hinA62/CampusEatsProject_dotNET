@@ -574,7 +574,125 @@ Validators 
 )G H
 ;H I
 } 
-} ◊
+} ≠
+ÇC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Menu\CreateMenuValidator.cs
+	namespace 	
+
+CampusEats
+ 
+. 
+
+Validators 
+.  
+Menu  $
+;$ %
+public 
+class 
+CreateMenuValidator  
+:! "
+AbstractValidator# 4
+<4 5
+CreateMenuRequest5 F
+>F G
+{ 
+public 
+
+CreateMenuValidator 
+( 
+)  
+{		 
+RuleFor
+
+ 
+(
+
+ 
+x
+
+ 
+=>
+
+ 
+x
+
+ 
+.
+
+ 
+Name
+
+ 
+)
+
+ 
+. 
+NotEmpty 
+( 
+) 
+. 
+WithMessage #
+(# $
+$str$ <
+)< =
+. 
+MaximumLength 
+( 
+$num 
+) 
+. 
+WithMessage *
+(* +
+$str+ S
+)S T
+;T U
+RuleFor 
+( 
+x 
+=> 
+x 
+. 
+Price 
+) 
+. 
+NotNull 
+( 
+) 
+. 
+WithMessage "
+(" #
+$str# 7
+)7 8
+. 
+GreaterThan 
+( 
+$num 
+) 
+. 
+WithMessage '
+(' (
+$str( J
+)J K
+;K L
+RuleFor 
+( 
+x 
+=> 
+x 
+. 
+ItemIds 
+) 
+. 
+NotNull 
+( 
+) 
+. 
+WithMessage "
+(" #
+$str# M
+)M N
+;N O
+} 
+} ◊
 ÇC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Menu\CreateItemValidator.cs
 	namespace 	
 
@@ -757,8 +875,8 @@ Validators 
 )G H
 ;H I
 } 
-} ≠
-ÇC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Menu\CreateMenuValidator.cs
+} Ã	
+áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Loyalty\RedeemPointsValidator.cs
 	namespace 	
 
 CampusEats
@@ -766,23 +884,23 @@ CampusEats
 . 
 
 Validators 
-.  
-Menu  $
-;$ %
+.  
+Loyalty  '
+;' (
 public 
-class 
-CreateMenuValidator  
-:! "
-AbstractValidator# 4
-<4 5
-CreateMenuRequest5 F
->F G
+class !
+RedeemPointsValidator "
+:# $
+AbstractValidator% 6
+<6 7
+RedeemPointsRequest7 J
+>J K
 { 
 public 
-
-CreateMenuValidator 
-( 
-)  
+!
+RedeemPointsValidator  
+(  !
+)! "
 {		 
 RuleFor
 
@@ -801,81 +919,264 @@ Validators 
  
 .
 
- 
-Name
+ 
+UserId
 
- 
+ 
 )
 
- 
-. 
-NotEmpty 
-( 
-) 
-. 
-WithMessage #
-(# $
-$str$ <
-)< =
-. 
-MaximumLength 
-( 
-$num 
-) 
-. 
-WithMessage *
-(* +
-$str+ S
-)S T
-;T U
+ 
+.
+
+ 
+NotEmpty
+
+ '
+(
+
+' (
+)
+
+( )
+.
+
+) *
+WithMessage
+
+* 5
+(
+
+5 6
+$str
+
+6 L
+)
+
+L M
+;
+
+M N
+RuleFor 
+( 
+x 
+=> 
+x 
+. 
+PointsToRedeem %
+)% &
+. 
+GreaterThan 
+( 
+$num 
+) 
+. 
+WithMessage '
+(' (
+$str( R
+)R S
+;S T
+} 
+} À
+ÜC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Auth\UpdateUserRoleValidator.cs
+	namespace 	
+
+CampusEats
+ 
+. 
+
+Validators 
+.  
+Auth  $
+;$ %
+public 
+class #
+UpdateUserRoleValidator $
+:% &
+AbstractValidator' 8
+<8 9!
+UpdateUserRoleRequest9 N
+>N O
+{ 
+public		 
+#
+UpdateUserRoleValidator		 "
+(		" #
+)		# $
+{
+
+ 
+RuleFor 
+( 
+x 
+=> 
+x 
+. 
+UserId 
+) 
+. 
+NotEmpty 
+( 
+) 
+. 
+WithMessage #
+(# $
+$str$ :
+): ;
+;; <
 RuleFor 
 ( 
 x 
 => 
 x 
-. 
-Price 
-) 
-. 
-NotNull 
-( 
-) 
-. 
-WithMessage "
-(" #
-$str# 7
+. 
+NewRole 
+) 
+. 
+NotEmpty 
+( 
+) 
+. 
+WithMessage #
+(# $
+$str$ 7
 )7 8
-. 
-GreaterThan 
-( 
-$num 
-) 
-. 
-WithMessage '
-(' (
-$str( J
-)J K
-;K L
-RuleFor 
-( 
-x 
-=> 
-x 
-. 
-ItemIds 
-) 
-. 
-NotNull 
-( 
-) 
-. 
-WithMessage "
-(" #
-$str# M
+. 
+Must 
+( 
+role 
+=> 
+role 
+. 
+Equals %
+(% &
+$str& .
+,. /
+StringComparison0 @
+.@ A
+OrdinalIgnoreCaseA R
+)R S
+||T V
+role 
+. 
+Equals $
+($ %
+$str% .
+,. /
+StringComparison0 @
+.@ A
+OrdinalIgnoreCaseA R
+)R S
+||T V
+role 
+. 
+Equals $
+($ %
+$str% ,
+,, -
+StringComparison. >
+.> ?
+OrdinalIgnoreCase? P
+)P Q
+)Q R
+. 
+WithMessage 
+( 
+$str M
 )M N
 ;N O
 } 
-} ã
+} ˚
+åC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Kitchen\UpdateOrderStatusValidator.cs
+	namespace 	
+
+CampusEats
+ 
+. 
+
+Validators 
+.  
+Kitchen  '
+;' (
+public 
+class &
+UpdateOrderStatusValidator '
+:( )
+AbstractValidator* ;
+<; <$
+UpdateOrderStatusRequest< T
+>T U
+{ 
+public		 
+&
+UpdateOrderStatusValidator		 %
+(		% &
+)		& '
+{
+
+ 
+RuleFor 
+( 
+x 
+=> 
+x 
+. 
+OrderId 
+) 
+. 
+NotEmpty 
+( 
+) 
+. 
+WithMessage 
+( 
+$str .
+). /
+;/ 0
+RuleFor 
+( 
+x 
+=> 
+x 
+. 
+	NewStatus  
+)  !
+. 
+IsInEnum 
+( 
+) 
+. 
+WithMessage 
+( 
+$str /
+)/ 0
+;0 1
+RuleFor 
+( 
+x 
+=> 
+x 
+. 
+	NewStatus  
+)  !
+. 
+Must 
+( 
+status 
+=> 
+status "
+!=# %
+OrderStatus& 1
+.1 2
+	Cancelled2 ;
+); <
+. 
+WithMessage 
+( 
+$str Y
+)Y Z
+;Z [
+} 
+} ã
 ÑC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Auth\RegisterUserValidator.cs
 	namespace 	
 
@@ -1080,308 +1381,7 @@ Validators 
 )!!I J
 ;!!J K
 }"" 
-}## ˚
-åC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Kitchen\UpdateOrderStatusValidator.cs
-	namespace 	
-
-CampusEats
- 
-. 
-
-Validators 
-.  
-Kitchen  '
-;' (
-public 
-class &
-UpdateOrderStatusValidator '
-:( )
-AbstractValidator* ;
-<; <$
-UpdateOrderStatusRequest< T
->T U
-{ 
-public		 
-&
-UpdateOrderStatusValidator		 %
-(		% &
-)		& '
-{
-
- 
-RuleFor 
-( 
-x 
-=> 
-x 
-. 
-OrderId 
-) 
-. 
-NotEmpty 
-( 
-) 
-. 
-WithMessage 
-( 
-$str .
-). /
-;/ 0
-RuleFor 
-( 
-x 
-=> 
-x 
-. 
-	NewStatus  
-)  !
-. 
-IsInEnum 
-( 
-) 
-. 
-WithMessage 
-( 
-$str /
-)/ 0
-;0 1
-RuleFor 
-( 
-x 
-=> 
-x 
-. 
-	NewStatus  
-)  !
-. 
-Must 
-( 
-status 
-=> 
-status "
-!=# %
-OrderStatus& 1
-.1 2
-	Cancelled2 ;
-); <
-. 
-WithMessage 
-( 
-$str Y
-)Y Z
-;Z [
-} 
-} À
-ÜC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Auth\UpdateUserRoleValidator.cs
-	namespace 	
-
-CampusEats
- 
-. 
-
-Validators 
-.  
-Auth  $
-;$ %
-public 
-class #
-UpdateUserRoleValidator $
-:% &
-AbstractValidator' 8
-<8 9!
-UpdateUserRoleRequest9 N
->N O
-{ 
-public		 
-#
-UpdateUserRoleValidator		 "
-(		" #
-)		# $
-{
-
- 
-RuleFor 
-( 
-x 
-=> 
-x 
-. 
-UserId 
-) 
-. 
-NotEmpty 
-( 
-) 
-. 
-WithMessage #
-(# $
-$str$ :
-): ;
-;; <
-RuleFor 
-( 
-x 
-=> 
-x 
-. 
-NewRole 
-) 
-. 
-NotEmpty 
-( 
-) 
-. 
-WithMessage #
-(# $
-$str$ 7
-)7 8
-. 
-Must 
-( 
-role 
-=> 
-role 
-. 
-Equals %
-(% &
-$str& .
-,. /
-StringComparison0 @
-.@ A
-OrdinalIgnoreCaseA R
-)R S
-||T V
-role 
-. 
-Equals $
-($ %
-$str% .
-,. /
-StringComparison0 @
-.@ A
-OrdinalIgnoreCaseA R
-)R S
-||T V
-role 
-. 
-Equals $
-($ %
-$str% ,
-,, -
-StringComparison. >
-.> ?
-OrdinalIgnoreCase? P
-)P Q
-)Q R
-. 
-WithMessage 
-( 
-$str M
-)M N
-;N O
-} 
-} Ã	
-áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Loyalty\RedeemPointsValidator.cs
-	namespace 	
-
-CampusEats
- 
-. 
-
-Validators 
-.  
-Loyalty  '
-;' (
-public 
-class !
-RedeemPointsValidator "
-:# $
-AbstractValidator% 6
-<6 7
-RedeemPointsRequest7 J
->J K
-{ 
-public 
-!
-RedeemPointsValidator  
-(  !
-)! "
-{		 
-RuleFor
-
- 
-(
-
- 
-x
-
- 
-=>
-
- 
-x
-
- 
-.
-
- 
-UserId
-
- 
-)
-
- 
-.
-
- 
-NotEmpty
-
- '
-(
-
-' (
-)
-
-( )
-.
-
-) *
-WithMessage
-
-* 5
-(
-
-5 6
-$str
-
-6 L
-)
-
-L M
-;
-
-M N
-RuleFor 
-( 
-x 
-=> 
-x 
-. 
-PointsToRedeem %
-)% &
-. 
-GreaterThan 
-( 
-$num 
-) 
-. 
-WithMessage '
-(' (
-$str( R
-)R S
-;S T
-} 
-} Å
+}## Å
 ÜC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Auth\ChangePasswordValidator.cs
 	namespace 	
 
@@ -14514,7 +14514,199 @@ StripeTest 
 set( +
 ;+ ,
 }- .
-} ·2
+} µ
+ëC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Handlers\GetPaymentHistoryHandler.cs
+	namespace 	
+
+CampusEats
+ 
+. 
+Features 
+. 
+Payment %
+.% &
+Handlers& .
+;. /
+public 
+class $
+GetPaymentHistoryHandler %
+{ 
+private		 
+readonly		 
+CampusEatsContext		 &
+_db		' *
+;		* +
+public 
+$
+GetPaymentHistoryHandler #
+(# $
+CampusEatsContext$ 5
+db6 8
+)8 9
+{ 
+_db 
+= 
+db 
+; 
+} 
+public 
+
+async 
+Task 
+< 
+IResult 
+> 
+Handle %
+(% &$
+GetPaymentHistoryRequest& >
+request? F
+,F G
+CancellationTokenH Y
+ctZ \
+=] ^
+default_ f
+)f g
+{ 
+var 
+payments 
+= 
+await 
+_db  
+.  !
+Payments! )
+. 
+Where 
+( 
+p 
+=> 
+p 
+. 
+UserId  
+==! #
+request$ +
+.+ ,
+UserId, 2
+)2 3
+. 
+OrderByDescending 
+( 
+p  
+=>! #
+p$ %
+.% &
+CreatedAtUtc& 2
+)2 3
+. 
+ToListAsync 
+( 
+ct 
+) 
+; 
+return 
+Results 
+. 
+Ok 
+( 
+payments "
+)" #
+;# $
+} 
+} á
+éC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Handlers\GetPaymentByIdHandler.cs
+	namespace 	
+
+CampusEats
+ 
+. 
+Features 
+. 
+Payment %
+.% &
+Handlers& .
+;. /
+public 
+class !
+GetPaymentByIdHandler "
+{ 
+private		 
+readonly		 
+CampusEatsContext		 &
+_db		' *
+;		* +
+public 
+!
+GetPaymentByIdHandler  
+(  !
+CampusEatsContext! 2
+db3 5
+)5 6
+{ 
+_db 
+= 
+db 
+; 
+} 
+public 
+
+async 
+Task 
+< 
+IResult 
+> 
+Handle %
+(% &!
+GetPaymentByIdRequest& ;
+request< C
+,C D
+CancellationTokenE V
+ctW Y
+=Z [
+default\ c
+)c d
+{ 
+var 
+payment 
+= 
+await 
+_db 
+.  
+Payments  (
+.( )
+FirstOrDefaultAsync) <
+(< =
+p= >
+=>? A
+pB C
+.C D
+IdD F
+==G I
+requestJ Q
+.Q R
+	PaymentIdR [
+,[ \
+ct] _
+)_ `
+;` a
+return 
+payment 
+is 
+null 
+?  
+Results! (
+.( )
+NotFound) 1
+(1 2
+)2 3
+:4 5
+Results6 =
+.= >
+Ok> @
+(@ A
+paymentA H
+)H I
+;I J
+} 
+} ·2
 çC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Handlers\StripeWebhookHandler.cs
 	namespace 	
 
@@ -14887,199 +15079,7 @@ StripeTestFF $
 )KK3 4
 ;KK4 5
 }LL 
-}MM µ
-ëC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Handlers\GetPaymentHistoryHandler.cs
-	namespace 	
-
-CampusEats
- 
-. 
-Features 
-. 
-Payment %
-.% &
-Handlers& .
-;. /
-public 
-class $
-GetPaymentHistoryHandler %
-{ 
-private		 
-readonly		 
-CampusEatsContext		 &
-_db		' *
-;		* +
-public 
-$
-GetPaymentHistoryHandler #
-(# $
-CampusEatsContext$ 5
-db6 8
-)8 9
-{ 
-_db 
-= 
-db 
-; 
-} 
-public 
-
-async 
-Task 
-< 
-IResult 
-> 
-Handle %
-(% &$
-GetPaymentHistoryRequest& >
-request? F
-,F G
-CancellationTokenH Y
-ctZ \
-=] ^
-default_ f
-)f g
-{ 
-var 
-payments 
-= 
-await 
-_db  
-.  !
-Payments! )
-. 
-Where 
-( 
-p 
-=> 
-p 
-. 
-UserId  
-==! #
-request$ +
-.+ ,
-UserId, 2
-)2 3
-. 
-OrderByDescending 
-( 
-p  
-=>! #
-p$ %
-.% &
-CreatedAtUtc& 2
-)2 3
-. 
-ToListAsync 
-( 
-ct 
-) 
-; 
-return 
-Results 
-. 
-Ok 
-( 
-payments "
-)" #
-;# $
-} 
-} á
-éC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Handlers\GetPaymentByIdHandler.cs
-	namespace 	
-
-CampusEats
- 
-. 
-Features 
-. 
-Payment %
-.% &
-Handlers& .
-;. /
-public 
-class !
-GetPaymentByIdHandler "
-{ 
-private		 
-readonly		 
-CampusEatsContext		 &
-_db		' *
-;		* +
-public 
-!
-GetPaymentByIdHandler  
-(  !
-CampusEatsContext! 2
-db3 5
-)5 6
-{ 
-_db 
-= 
-db 
-; 
-} 
-public 
-
-async 
-Task 
-< 
-IResult 
-> 
-Handle %
-(% &!
-GetPaymentByIdRequest& ;
-request< C
-,C D
-CancellationTokenE V
-ctW Y
-=Z [
-default\ c
-)c d
-{ 
-var 
-payment 
-= 
-await 
-_db 
-.  
-Payments  (
-.( )
-FirstOrDefaultAsync) <
-(< =
-p= >
-=>? A
-pB C
-.C D
-IdD F
-==G I
-requestJ Q
-.Q R
-	PaymentIdR [
-,[ \
-ct] _
-)_ `
-;` a
-return 
-payment 
-is 
-null 
-?  
-Results! (
-.( )
-NotFound) 1
-(1 2
-)2 3
-:4 5
-Results6 =
-.= >
-Ok> @
-(@ A
-paymentA H
-)H I
-;I J
-} 
-} £?
+}MM £?
 õC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Handlers\CreateStripeCheckoutSessionHandler.cs
 	namespace 	
 
@@ -20796,7 +20796,7 @@ BadRequest## %
 ;::
  
 };; 
-}<< Ë!
+}<< Ê
 ëC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Loyalty\Handlers\GetLoyaltyBalanceHandler.cs
 	namespace 	
 
@@ -20811,221 +20811,209 @@ CampusEats
 ;. /
 public 
 class $
-GetLoyaltyBalanceHandler %
-{ 
-private		 
-readonly		 
-CampusEatsContext		 &
-_db		' *
-;		* +
-public 
-$
-GetLoyaltyBalanceHandler #
-(# $
-CampusEatsContext$ 5
-db6 8
-)8 9
-{ 
-_db 
-= 
-db 
-; 
-} 
-public 
+GetLoyaltyBalanceHandler %
+(% &
+CampusEatsContext& 7
+db8 :
+): ;
+{ 
+public		 
 
-async 
-Task 
-< 
-IResult 
-> 
-Handle %
-(% &$
-GetLoyaltyBalanceRequest& >
-request? F
-,F G
-CancellationTokenH Y
-ctZ \
-=] ^
-default_ f
-)f g
-{ 
-var 
-account 
-= 
-await 
-_db 
-.  
-LoyaltyAccounts  /
-./ 0
-FirstOrDefaultAsync0 C
-(C D
-aD E
-=>F H
-aI J
-.J K
-UserIdK Q
-==R T
-requestU \
-.\ ]
-UserId] c
-,c d
-cte g
-)g h
-;h i
-if 
+async		 
+Task		 
+<		 
+IResult		 
+>		 
+Handle		 %
+(		% &$
+GetLoyaltyBalanceRequest		& >
+request		? F
+,		F G
+CancellationToken		H Y
+ct		Z \
+=		] ^
+default		_ f
+)		f g
+{
+
+ 
+var 
+account 
+= 
+await 
+db 
+. 
+LoyaltyAccounts .
+.. /
+FirstOrDefaultAsync/ B
+(B C
+aC D
+=>E G
+aH I
+.I J
+UserIdJ P
+==Q S
+requestT [
+.[ \
+UserId\ b
+,b c
+ctd f
+)f g
+;g h
+if 
 
-( 
-account 
-is 
-null 
-) 
-{ 	
-return 
-Results 
-. 
-Ok 
-( 
-new !
-{ 
-userId 
-= 
-request  
-.  !
-UserId! '
-,' (
-points 
-= 
-$num 
-, 
-totalPointsEarned !
-=" #
-$num$ %
-,% &
-currentTier 
-= 
-LoyaltyTier )
-.) *
-Bronze* 0
-,0 1
-cashbackRate 
-= 
-LoyaltyTierHelper 0
-.0 1
-GetCashbackRate1 @
-(@ A
-LoyaltyTierA L
-.L M
-BronzeM S
-)S T
-,T U
-nextTier 
-= 
-LoyaltyTier &
-.& '
-Silver' -
-,- .
-pointsToNextTier  
-=! "
-LoyaltyTierHelper# 4
-.4 5
-GetTierThreshold5 E
-(E F
-LoyaltyTierF Q
-.Q R
-SilverR X
-)X Y
-} 
-) 
-; 
-}   	
-var"" 
-nextTier"" 
-="" 
-LoyaltyTierHelper"" (
-.""( )
-GetNextTier"") 4
-(""4 5
-account""5 <
-.""< =
-CurrentTier""= H
-)""H I
-;""I J
-var## 
-pointsToNext## 
-=## 
-nextTier## #
-.### $
-HasValue##$ ,
-?$$ 
-LoyaltyTierHelper$$ 
-.$$  
-GetPointsToNextTier$$  3
-($$3 4
-account$$4 ;
-.$$; <
-TotalPointsEarned$$< M
-,$$M N
-account$$O V
-.$$V W
-CurrentTier$$W b
-)$$b c
-:%% 
-$num%% 
-;%% 
-return'' 
-Results'' 
-.'' 
-Ok'' 
-('' 
-new'' 
-{(( 	
-userId)) 
-=)) 
-request)) 
-.)) 
-UserId)) #
-,))# $
-points** 
-=** 
-account** 
-.** 
-Points** #
-,**# $
-totalPointsEarned++ 
-=++ 
-account++  '
-.++' (
-TotalPointsEarned++( 9
-,++9 :
-currentTier,, 
-=,, 
-account,, !
-.,,! "
-CurrentTier,," -
-,,,- .
-cashbackRate-- 
-=-- 
-LoyaltyTierHelper-- ,
-.--, -
-GetCashbackRate--- <
-(--< =
-account--= D
-.--D E
-CurrentTier--E P
-)--P Q
-,--Q R
-nextTier.. 
-,.. 
-pointsToNextTier// 
-=// 
-pointsToNext// +
-}00 	
-)00	 
+( 
+account 
+is 
+null 
+) 
+{ 	
+return 
+Results 
+. 
+Ok 
+( 
+new !
+{ 
+userId 
+= 
+request  
+.  !
+UserId! '
+,' (
+points 
+= 
+$num 
+, 
+totalPointsEarned !
+=" #
+$num$ %
+,% &
+currentTier 
+= 
+LoyaltyTier )
+.) *
+Bronze* 0
+,0 1
+cashbackRate 
+= 
+LoyaltyTierHelper 0
+.0 1
+GetCashbackRate1 @
+(@ A
+LoyaltyTierA L
+.L M
+BronzeM S
+)S T
+,T U
+nextTier 
+= 
+LoyaltyTier &
+.& '
+Silver' -
+,- .
+pointsToNextTier  
+=! "
+LoyaltyTierHelper# 4
+.4 5
+GetTierThreshold5 E
+(E F
+LoyaltyTierF Q
+.Q R
+SilverR X
+)X Y
+} 
+) 
+; 
+} 	
+var 
+nextTier 
+= 
+LoyaltyTierHelper (
+.( )
+GetNextTier) 4
+(4 5
+account5 <
+.< =
+CurrentTier= H
+)H I
+;I J
+var 
+pointsToNext 
+= 
+nextTier #
+.# $
+HasValue$ ,
+? 
+LoyaltyTierHelper 
+.  
+GetPointsToNextTier  3
+(3 4
+account4 ;
+.; <
+TotalPointsEarned< M
+,M N
+accountO V
+.V W
+CurrentTierW b
+)b c
+: 
+$num 
+; 
+return   
+Results   
+.   
+Ok   
+(   
+new   
+{!! 	
+userId"" 
+="" 
+request"" 
+."" 
+UserId"" #
+,""# $
+points## 
+=## 
+account## 
+.## 
+Points## #
+,### $
+totalPointsEarned$$ 
+=$$ 
+account$$  '
+.$$' (
+TotalPointsEarned$$( 9
+,$$9 :
+currentTier%% 
+=%% 
+account%% !
+.%%! "
+CurrentTier%%" -
+,%%- .
+cashbackRate&& 
+=&& 
+LoyaltyTierHelper&& ,
+.&&, -
+GetCashbackRate&&- <
+(&&< =
+account&&= D
+.&&D E
+CurrentTier&&E P
+)&&P Q
+,&&Q R
+nextTier'' 
+,'' 
+pointsToNextTier(( 
+=(( 
+pointsToNext(( +
+})) 	
+)))	 
 
-;00
+;))
  
-}11 
-}22 õ
+}** 
+}++ õ
 ëC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Kitchen\Requests\UpdateOrderStatusRequest.cs
 	namespace 	
 

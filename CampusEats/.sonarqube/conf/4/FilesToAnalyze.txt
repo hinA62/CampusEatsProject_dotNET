@@ -2,7 +2,9 @@
 C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\AuthTests\RegisterUserValidatorTests.cs
 C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\AuthTests\UpdateUserRoleValidatorTests.cs
 C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\KitchenTests\UpdateOrderStatusValidatorTests.cs
-C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\LoyaltyTests\RedeemPointsValidatorTests.cs
+C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\LoyaltyTests\IntegrationTests\GetLoyaltyBalanceHandlerTests.cs
+C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\LoyaltyTests\IntegrationTests\RedeemPointsHandlerTests.cs
+C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\LoyaltyTests\UnitTests\RedeemPointsValidatorTests.cs
 C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\MenuTests\IntegrationTests\CreateItemHandlerTests.cs
 C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\MenuTests\IntegrationTests\CreateMenuHandlerTests.cs
 C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\MenuTests\IntegrationTests\DeleteItemHandlerTests.cs

@@ -1,7 +1,7 @@
 ﻿using CampusEats.Features.Loyalty.Requests;
 using CampusEats.Validators.Loyalty;
 
-namespace CampusEats.Test.LoyaltyTests;
+namespace CampusEats.Test.LoyaltyTests.UnitTests;
 
 public class RedeemPointsValidatorTests
 {

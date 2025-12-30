@@ -2,21 +2,21 @@ $env:SONAR_TOKEN="TOKENUL"
 
 
 dotnet sonarscanner begin `
->>   /k:"hinA62_CampusEatsProject_dotNET" `
->>   /o:"hina62" `
->>   /d:sonar.host.url="https://sonarcloud.io" `
->>   /d:sonar.login="$env:SONAR_TOKEN" `
->>   /d:sonar.cs.opencover.reportsPaths="**/TestResults/coverage.opencover.xml"
+   /k:"hinA62_CampusEatsProject_dotNET" `
+   /o:"hina62" `
+   /d:sonar.host.url="https://sonarcloud.io" `
+   /d:sonar.login="$env:SONAR_TOKEN" `
+   /d:sonar.cs.opencover.reportsPaths="**/TestResults/coverage.opencover.xml"
 
 
 dotnet build
 
 
 dotnet test CampusEats.Test `
->>   /p:CollectCoverage=true `
->>   /p:CoverletOutputFormat=opencover `
->>   /p:CoverletOutput="TestResults/"
+   /p:CollectCoverage=true `
+   /p:CoverletOutputFormat=opencover `
+   /p:CoverletOutput="TestResults/"
 
 
 dotnet sonarscanner end `
->>   /d:sonar.login="$env:SONAR_TOKEN"
+   /d:sonar.login="$env:SONAR_TOKEN"
