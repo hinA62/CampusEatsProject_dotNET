@@ -180,7 +180,7 @@
         if (_orderDetails == null)
         {
             var order = await OrderService.GetOrderByIdAsync(OrderId);
-            if order != null
+            if (order != null)
             {
                 if (AuthService.CurrentUser?.Role == "Admin" || order.ClientId == AuthService.CurrentUser?.UserId)
                 {

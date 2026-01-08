@@ -105,6 +105,123 @@ public class RedeemPointsHandlerTests : IDisposable
         badRequest!.Value.Should().Be("Not enough points.");
     }
 
+    [Fact]
+    public async Task Given_ExactPointsAvailable_When_Handle_Then_ShouldRedeemAllPoints()
+    {
+        var userId = Guid.NewGuid();
+        var account = new LoyaltyAccount
+        {
+            UserId = userId,
+            Points = 250,
+            TotalPointsEarned = 500,
+            CurrentTier = LoyaltyTier.Silver,
+            UpdatedAtUtc = DateTime.UtcNow
+        };
+        await _context.LoyaltyAccounts.AddAsync(account);
+        await _context.SaveChangesAsync();
+
+        var request = new RedeemPointsRequest(userId, 250);
+        var result = await _handler.Handle(request, CancellationToken.None);
+
+        result.Should().NotBeNull();
+        var resultType = result.GetType().Name;
+        resultType.Should().Contain("Ok");
+        var updatedAccount = await _context.LoyaltyAccounts.FirstAsync(a => a.UserId == userId);
+        updatedAccount.Points.Should().Be(0);
+    }
+
+    [Fact]
+    public async Task Given_SuccessfulRedemption_When_Handle_Then_ShouldCreateTransaction()
+    {
+        var userId = Guid.NewGuid();
+        var account = new LoyaltyAccount
+        {
+            UserId = userId,
+            Points = 300,
+            TotalPointsEarned = 600,
+            CurrentTier = LoyaltyTier.Gold,
+            UpdatedAtUtc = DateTime.UtcNow
+        };
+        await _context.LoyaltyAccounts.AddAsync(account);
+        await _context.SaveChangesAsync();
+
+        var request = new RedeemPointsRequest(userId, 150);
+        var result = await _handler.Handle(request, CancellationToken.None);
+
+        var transaction = await _context.LoyaltyTransactions
+            .FirstOrDefaultAsync(t => t.UserId == userId && t.Type == LoyaltyTransactionType.Redeem);
+        
+        transaction.Should().NotBeNull();
+        transaction!.Points.Should().Be(150);
+        transaction.Description.Should().Be("Redeemed points");
+    }
+
+    [Fact]
+    public async Task Given_SuccessfulRedemption_When_Handle_Then_ShouldUpdateTimestamp()
+    {
+        var userId = Guid.NewGuid();
+        var oldTimestamp = DateTime.UtcNow.AddDays(-5);
+        var account = new LoyaltyAccount
+        {
+            UserId = userId,
+            Points = 200,
+            TotalPointsEarned = 400,
+            CurrentTier = LoyaltyTier.Bronze,
+            UpdatedAtUtc = oldTimestamp
+        };
+        await _context.LoyaltyAccounts.AddAsync(account);
+        await _context.SaveChangesAsync();
+
+        var request = new RedeemPointsRequest(userId, 50);
+        var result = await _handler.Handle(request, CancellationToken.None);
+
+        var updatedAccount = await _context.LoyaltyAccounts.FirstAsync(a => a.UserId == userId);
+        updatedAccount.UpdatedAtUtc.Should().BeAfter(oldTimestamp);
+    }
+
+    [Fact]
+    public async Task Given_ZeroPointRedemption_When_Handle_Then_ShouldReturnBadRequest()
+    {
+        var userId = Guid.NewGuid();
+        var account = new LoyaltyAccount
+        {
+            UserId = userId,
+            Points = 100,
+            TotalPointsEarned = 200,
+            CurrentTier = LoyaltyTier.Bronze,
+            UpdatedAtUtc = DateTime.UtcNow
+        };
+        await _context.LoyaltyAccounts.AddAsync(account);
+        await _context.SaveChangesAsync();
+
+        var request = new RedeemPointsRequest(userId, 0);
+        var result = await _handler.Handle(request, CancellationToken.None);
+
+        result.Should().BeOfType<BadRequest<List<FluentValidation.Results.ValidationFailure>>>();
+    }
+
+    [Fact]
+    public async Task Given_MultipleRedemptions_When_Handle_Then_ShouldDecrementPointsCorrectly()
+    {
+        var userId = Guid.NewGuid();
+        var account = new LoyaltyAccount
+        {
+            UserId = userId,
+            Points = 500,
+            TotalPointsEarned = 1000,
+            CurrentTier = LoyaltyTier.Gold,
+            UpdatedAtUtc = DateTime.UtcNow
+        };
+        await _context.LoyaltyAccounts.AddAsync(account);
+        await _context.SaveChangesAsync();
+
+        await _handler.Handle(new RedeemPointsRequest(userId, 100), CancellationToken.None);
+        await _handler.Handle(new RedeemPointsRequest(userId, 150), CancellationToken.None);
+
+        var updatedAccount = await _context.LoyaltyAccounts.FirstAsync(a => a.UserId == userId);
+        updatedAccount.Points.Should().Be(250);
+    }
+
     public void Dispose()
     {
         _context.Database.EnsureDeleted();

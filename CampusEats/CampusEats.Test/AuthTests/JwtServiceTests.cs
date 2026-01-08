@@ -2,6 +2,8 @@ using CampusEats.Features.Auth;
 using CampusEats.Features.User;
 using FluentAssertions;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using Moq;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 
@@ -23,7 +25,8 @@ public class JwtServiceTests
             }!)
             .Build();
 
-        _service = new JwtService(config);
+        var logger = new Mock<ILogger<JwtService>>();
+        _service = new JwtService(config, logger.Object);
     }
 
     [Fact]
