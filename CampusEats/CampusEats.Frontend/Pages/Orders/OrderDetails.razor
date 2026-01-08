@@ -138,21 +138,6 @@
     private decimal DisplayPrice => _orderDetails?.Price ?? _basicOrder?.Price ?? 0m;
     private DateTime DisplayCreatedAt => _orderDetails?.CreatedAt ?? _basicOrder?.CreatedAt ?? DateTime.MinValue;
 
-    // Whitelist de URL-uri permise pentru returnUrl
-    // Include atât rute simple cât și rute cu parametri (ex: /profile/{guid})
-    private static readonly HashSet<string> AllowedReturnUrls = new(StringComparer.OrdinalIgnoreCase)
-    {
-        "/",
-        "/orders",
-        "/menu",
-        "/cart",
-        "/profile",
-        "/loyalty",
-        "/payment",
-        "/kitchen",
-        "/clients" // pentru admin care vizualizează lista de clienți
-    };
-
     protected override async Task OnInitializedAsync()
     {
         await AuthService.InitializeAsync();
@@ -219,75 +204,26 @@
 
     private void GoBack()
     {
-        var safeReturnUrl = GetSafeReturnUrl();
-        Navigation.NavigateTo(safeReturnUrl);
+        if (!string.IsNullOrEmpty(ReturnUrl) && IsLocalUrl(ReturnUrl))
+        {
+            Navigation.NavigateTo(ReturnUrl);
+        }
+        else
+        {
+            Navigation.NavigateTo(AuthService.CurrentUser?.Role == "Admin" ? "/orders" : "/");
+        }
     }
 
     /// <summary>
-    /// Validează și returnează un URL sigur pentru redirectare.
-    /// Previne atacurile de tip Open Redirect prin validarea că URL-ul este local.
+    /// Verifică dacă URL-ul este local (relativ) și nu conține caractere periculoase.
     /// </summary>
-    private string GetSafeReturnUrl()
+    private bool IsLocalUrl(string url)
     {
-        // Dacă ReturnUrl este null sau gol, folosim URL-ul default
-        if (string.IsNullOrWhiteSpace(ReturnUrl))
-        {
-            return AuthService.CurrentUser?.Role == "Admin" ? "/orders" : "/";
-        }
-
-        // Validare 1: URL-ul trebuie să fie relativ (să înceapă cu /)
-        if (!ReturnUrl.StartsWith("/"))
-        {
-            return AuthService.CurrentUser?.Role == "Admin" ? "/orders" : "/";
-        }
-
-        // Validare 2: Previne URL-uri care încep cu // (protocol-relative URLs)
-        if (ReturnUrl.StartsWith("//"))
-        {
-            return AuthService.CurrentUser?.Role == "Admin" ? "/orders" : "/";
-        }
-
-        // Validare 3: Previne URL-uri cu caractere periculoase
-        if (ReturnUrl.Contains("://") || ReturnUrl.Contains("\\"))
-        {
-            return AuthService.CurrentUser?.Role == "Admin" ? "/orders" : "/";
-        }
-
-        // Validare 4: Verifică dacă URL-ul este în whitelist
-        // Extragem path-ul fără query string
-        var path = ReturnUrl.Split('?')[0];
-        
-        // Verificăm dacă path-ul exact este în whitelist
-        if (AllowedReturnUrls.Contains(path))
-        {
-            return ReturnUrl;
-        }
-
-        // Verificăm dacă path-ul începe cu unul din path-urile permise (pentru subroute-uri)
-        foreach (var allowedPath in AllowedReturnUrls)
-        {
-            if (path.StartsWith(allowedPath + "/", StringComparison.OrdinalIgnoreCase))
-            {
-                // Validare suplimentară: verificăm că parametrul este un GUID valid
-                // pentru rute precum /profile/{guid}
-                var segments = path.Split('/');
-                if (segments.Length >= 3 && allowedPath == "/profile")
-                {
-                    // Verificăm că al treilea segment este un GUID valid
-                    if (Guid.TryParse(segments[2], out _))
-                    {
-                        return ReturnUrl;
-                    }
-                }
-                else
-                {
-                    return ReturnUrl;
-                }
-            }
-        }
-
-        // Dacă nu trece nicio validare, returnăm URL-ul default
-        return AuthService.CurrentUser?.Role == "Admin" ? "/orders" : "/";
+        // URL-ul trebuie să înceapă cu / și să nu aibă // (evită //evil.com)
+        return !string.IsNullOrEmpty(url) && 
+               url.StartsWith("/") && 
+               !url.StartsWith("//") && 
+               !url.StartsWith("/\\");
     }
 
     private static string GetStatusColor(OrderStatus status) => status switch
