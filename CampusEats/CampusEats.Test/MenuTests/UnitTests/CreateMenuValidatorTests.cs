@@ -11,8 +11,8 @@ public class CreateMenuValidatorTests
     {
         // Arrange
         var model = new CreateMenuRequest
-            (Guid.NewGuid(),"Valid Menu Name", 15.99m, [Guid.NewGuid(), Guid.NewGuid()],
-                MenuCategory.Vegan, "http://example.com/image.jpg");
+            ( "Valid Menu Name", 15.99m, [Guid.NewGuid()],
+                MenuCategory.Breakfast, null);
         var validator = new CreateMenuValidator();
 
         // Act
@@ -29,7 +29,7 @@ public class CreateMenuValidatorTests
     {
         // Arrange
         var model = new CreateMenuRequest
-            (Guid.NewGuid(), name, 15.99m, [Guid.NewGuid()], 
+            (name, 15.99m, [Guid.NewGuid()], 
                 MenuCategory.Vegetarian, null);
         var validator = new CreateMenuValidator();
 
@@ -48,7 +48,7 @@ public class CreateMenuValidatorTests
         // Arrange
         var longName = new string('a', 51);
         var model = new CreateMenuRequest
-            (Guid.NewGuid(), longName, 15.99m, [Guid.NewGuid()],
+            (longName, 15.99m, [Guid.NewGuid()],
                 MenuCategory.Traditional, null);
         var validator = new CreateMenuValidator();
 
@@ -66,7 +66,7 @@ public class CreateMenuValidatorTests
     {
         // Arrange
         var model = new CreateMenuRequest
-            (Guid.NewGuid(), "Valid Menu", null, [Guid.NewGuid()],
+            ("Valid Menu", null, [Guid.NewGuid()],
                 MenuCategory.Asian, null);
         var validator = new CreateMenuValidator();
 
@@ -87,7 +87,7 @@ public class CreateMenuValidatorTests
     {
         // Arrange
         var model = new CreateMenuRequest
-            (Guid.NewGuid(), "Valid Menu", price, [Guid.NewGuid()], 
+            ("Valid Menu", price, [Guid.NewGuid()], 
                 MenuCategory.Vegan, null);
         var validator = new CreateMenuValidator();
 
@@ -106,7 +106,7 @@ public class CreateMenuValidatorTests
     {
         // Arrange
         var model = new CreateMenuRequest
-        ( Guid.NewGuid(), "Valid Menu", 15.99m, itemIds!,
+        ( "Valid Menu", 15.99m, itemIds!,
             MenuCategory.Dessert, null);
         var validator = new CreateMenuValidator();
 
@@ -124,7 +124,7 @@ public class CreateMenuValidatorTests
     {
         // Arrange
         var model = new CreateMenuRequest
-        (Guid.NewGuid(), "", -5m, null, MenuCategory.Dinner, null);
+        ("", -5m, null, MenuCategory.Dinner, null);
         var validator = new CreateMenuValidator();
 
         // Act

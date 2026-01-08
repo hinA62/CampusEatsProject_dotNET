@@ -112,3 +112,4 @@ package-lock.json
 
 # Rider/VS indexes
 .idea/.idea.*
+*.cache
