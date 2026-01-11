@@ -16,7 +16,7 @@ public class CreateMenuHandler(CampusEatsContext context, ILogger<CreateMenuHand
         var validationResult = await new CreateMenuValidator().ValidateAsync(request);
         if (!validationResult.IsValid)
         {
-            validationResult.Errors.ForEach(e => logger.LogError(e.ErrorMessage));
+            validationResult.Errors.ForEach(e => logger.LogInformation("A validation error occurred."));
             return Results.BadRequest(validationResult.Errors);
         }
 
@@ -47,7 +47,7 @@ public class CreateMenuHandler(CampusEatsContext context, ILogger<CreateMenuHand
         return Results.Created($"/menu/{menu.Name}", menu);
     }
 
-    private DietaryRestrictions CalculateFinalRestrictions(List<string> allergens)
+    private static DietaryRestrictions CalculateFinalRestrictions(List<string> allergens)
     {
         // Start with ALL restrictions
         var calculated = DietaryRestrictions.LactoseFree | 

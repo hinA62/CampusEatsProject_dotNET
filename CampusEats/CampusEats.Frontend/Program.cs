@@ -12,6 +12,7 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 // Register AuthorizationMessageHandler
 builder.Services.AddScoped<AuthorizationMessageHandler>();
 
+var apiBaseUrl = builder.Configuration["ApiBaseUrl"] ?? "http://localhost:5298/";
 // Configure HttpClient with authorization handler
 builder.Services.AddScoped(sp =>
 {
@@ -20,7 +21,7 @@ builder.Services.AddScoped(sp =>
     
     var httpClient = new HttpClient(authHandler) 
     { 
-        BaseAddress = new Uri("http://localhost:5298/") 
+        BaseAddress = new Uri(apiBaseUrl) 
     };
     
     return httpClient;

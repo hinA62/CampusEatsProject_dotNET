@@ -33,18 +33,76 @@
           }
         },
         {
-          "ruleId": "S2346",
+          "ruleId": "S1075",
           "level": "warning",
-          "message": "Rename 'FoodAllergyFriendly' to 'None'.",
+          "message": "Refactor your code not to use hardcoded absolute paths or URIs.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Models/Menu/DietaryRestrictions.cs",
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Program.cs",
                 "region": {
-                  "startLine": 6,
-                  "startColumn": 5,
-                  "endLine": 6,
-                  "endColumn": 28
+                  "startLine": 15,
+                  "startColumn": 57,
+                  "endLine": 15,
+                  "endColumn": 81
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1066",
+          "level": "warning",
+          "message": "Merge this if statement with the enclosing one.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/UserProfile.razor",
+                "region": {
+                  "startLine": 154,
+                  "startColumn": 17,
+                  "endLine": 154,
+                  "endColumn": 19
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/UserProfile.razor",
+                "region": {
+                  "startLine": 152,
+                  "startColumn": 13,
+                  "endLine": 152,
+                  "endColumn": 15
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": "Merge this if statement with its nested one."
+            }
+          }
+        },
+        {
+          "ruleId": "S112",
+          "level": "warning",
+          "message": "'System.Exception' should not be thrown by user code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/MenuService.cs",
+                "region": {
+                  "startLine": 30,
+                  "startColumn": 89,
+                  "endLine": 30,
+                  "endColumn": 127
                 }
               }
             }
@@ -218,39 +276,18 @@
           }
         },
         {
-          "ruleId": "S1075",
+          "ruleId": "S3776",
           "level": "warning",
-          "message": "Refactor your code not to use hardcoded absolute paths or URIs.",
+          "message": "Refactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Program.cs",
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
                 "region": {
-                  "startLine": 23,
-                  "startColumn": 31,
-                  "endLine": 23,
-                  "endColumn": 55
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1066",
-          "level": "warning",
-          "message": "Merge this if statement with the enclosing one.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/UserProfile.razor",
-                "region": {
-                  "startLine": 154,
-                  "startColumn": 17,
-                  "endLine": 154,
-                  "endColumn": 19
+                  "startLine": 435,
+                  "startColumn": 24,
+                  "endLine": 435,
+                  "endColumn": 38
                 }
               }
             }
@@ -258,87 +295,213 @@
           "relatedLocations": [
             {
               "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/UserProfile.razor",
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
                 "region": {
-                  "startLine": 152,
+                  "startLine": 437,
+                  "startColumn": 9,
+                  "endLine": 437,
+                  "endColumn": 11
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 437,
+                  "startColumn": 37,
+                  "endLine": 437,
+                  "endColumn": 39
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 448,
+                  "startColumn": 9,
+                  "endLine": 448,
+                  "endColumn": 11
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 448,
+                  "startColumn": 42,
+                  "endLine": 448,
+                  "endColumn": 44
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 463,
                   "startColumn": 13,
-                  "endLine": 152,
+                  "endLine": 463,
                   "endColumn": 15
                 }
               }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1,
-            "customProperties": {
-              "0": "Merge this if statement with its nested one."
-            }
-          }
-        },
-        {
-          "ruleId": "S112",
-          "level": "warning",
-          "message": "'System.Exception' should not be thrown by user code.",
-          "locations": [
+            },
             {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/MenuService.cs",
-                "region": {
-                  "startLine": 30,
-                  "startColumn": 89,
-                  "endLine": 30,
-                  "endColumn": 127
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1172",
-          "level": "warning",
-          "message": "Remove this unused method parameter 'message'.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Menu/MenuItems.razor",
-                "region": {
-                  "startLine": 260,
-                  "startColumn": 33,
-                  "endLine": 260,
-                  "endColumn": 47
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1,
-            "customProperties": {
-              "IsRemovable": "True"
-            }
-          }
-        },
-        {
-          "ruleId": "S3400",
-          "level": "warning",
-          "message": "Remove this method and declare a constant for this value.",
-          "locations": [
-            {
-              "resultFile": {
+              "physicalLocation": {
                 "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
                 "region": {
-                  "startLine": 433,
-                  "startColumn": 25,
-                  "endLine": 433,
-                  "endColumn": 42
+                  "startLine": 474,
+                  "startColumn": 17,
+                  "endLine": 474,
+                  "endColumn": 19
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 488,
+                  "startColumn": 17,
+                  "endLine": 488,
+                  "endColumn": 19
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 496,
+                  "startColumn": 13,
+                  "endLine": 496,
+                  "endColumn": 17
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 502,
+                  "startColumn": 13,
+                  "endLine": 502,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 510,
+                  "startColumn": 52,
+                  "endLine": 510,
+                  "endColumn": 53
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 515,
+                  "startColumn": 17,
+                  "endLine": 515,
+                  "endColumn": 19
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 520,
+                  "startColumn": 17,
+                  "endLine": 520,
+                  "endColumn": 21
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 526,
+                  "startColumn": 13,
+                  "endLine": 526,
+                  "endColumn": 17
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 532,
+                  "startColumn": 52,
+                  "endLine": 532,
+                  "endColumn": 53
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 537,
+                  "startColumn": 17,
+                  "endLine": 537,
+                  "endColumn": 19
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 541,
+                  "startColumn": 17,
+                  "endLine": 541,
+                  "endColumn": 21
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 547,
+                  "startColumn": 9,
+                  "endLine": 547,
+                  "endColumn": 14
                 }
               }
             }
           ],
           "properties": {
-            "warningLevel": 1
+            "warningLevel": 1,
+            "customProperties": {
+              "0": "+1",
+              "1": "+1",
+              "10": "+2 (incl 1 for nesting)",
+              "11": "+1",
+              "12": "+1",
+              "13": "+2 (incl 1 for nesting)",
+              "14": "+2 (incl 1 for nesting)",
+              "15": "+1",
+              "16": "+1",
+              "2": "+1",
+              "3": "+1",
+              "4": "+1",
+              "5": "+2 (incl 1 for nesting)",
+              "6": "+2 (incl 1 for nesting)",
+              "7": "+1",
+              "8": "+1",
+              "9": "+2 (incl 1 for nesting)"
+            }
           }
         },
         {
@@ -416,232 +579,24 @@
           }
         },
         {
-          "ruleId": "S3776",
+          "ruleId": "S2589",
           "level": "warning",
-          "message": "Refactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.",
+          "message": "Change this condition so that it does not always evaluate to 'True'.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Orders/Orders.razor",
                 "region": {
-                  "startLine": 439,
-                  "startColumn": 24,
-                  "endLine": 439,
-                  "endColumn": 38
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
-                "region": {
-                  "startLine": 441,
-                  "startColumn": 9,
-                  "endLine": 441,
-                  "endColumn": 11
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
-                "region": {
-                  "startLine": 441,
-                  "startColumn": 37,
-                  "endLine": 441,
-                  "endColumn": 39
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
-                "region": {
-                  "startLine": 452,
-                  "startColumn": 9,
-                  "endLine": 452,
-                  "endColumn": 11
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
-                "region": {
-                  "startLine": 452,
-                  "startColumn": 42,
-                  "endLine": 452,
-                  "endColumn": 44
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
-                "region": {
-                  "startLine": 467,
-                  "startColumn": 13,
-                  "endLine": 467,
-                  "endColumn": 15
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
-                "region": {
-                  "startLine": 478,
-                  "startColumn": 17,
-                  "endLine": 478,
-                  "endColumn": 19
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
-                "region": {
-                  "startLine": 492,
-                  "startColumn": 17,
-                  "endLine": 492,
-                  "endColumn": 19
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
-                "region": {
-                  "startLine": 500,
-                  "startColumn": 13,
-                  "endLine": 500,
-                  "endColumn": 17
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
-                "region": {
-                  "startLine": 506,
-                  "startColumn": 13,
-                  "endLine": 506,
-                  "endColumn": 15
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
-                "region": {
-                  "startLine": 514,
-                  "startColumn": 52,
-                  "endLine": 514,
-                  "endColumn": 53
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
-                "region": {
-                  "startLine": 519,
-                  "startColumn": 17,
-                  "endLine": 519,
-                  "endColumn": 19
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
-                "region": {
-                  "startLine": 524,
-                  "startColumn": 17,
-                  "endLine": 524,
-                  "endColumn": 21
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
-                "region": {
-                  "startLine": 530,
-                  "startColumn": 13,
-                  "endLine": 530,
-                  "endColumn": 17
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
-                "region": {
-                  "startLine": 536,
-                  "startColumn": 52,
-                  "endLine": 536,
-                  "endColumn": 53
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
-                "region": {
-                  "startLine": 541,
-                  "startColumn": 17,
-                  "endLine": 541,
-                  "endColumn": 19
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
-                "region": {
-                  "startLine": 545,
-                  "startColumn": 17,
-                  "endLine": 545,
-                  "endColumn": 21
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
-                "region": {
-                  "startLine": 551,
-                  "startColumn": 9,
-                  "endLine": 551,
-                  "endColumn": 14
+                  "startLine": 43,
+                  "startColumn": 18,
+                  "endLine": 43,
+                  "endColumn": 41
                 }
               }
             }
           ],
           "properties": {
-            "warningLevel": 1,
-            "customProperties": {
-              "0": "+1",
-              "1": "+1",
-              "10": "+2 (incl 1 for nesting)",
-              "11": "+1",
-              "12": "+1",
-              "13": "+2 (incl 1 for nesting)",
-              "14": "+2 (incl 1 for nesting)",
-              "15": "+1",
-              "16": "+1",
-              "2": "+1",
-              "3": "+1",
-              "4": "+1",
-              "5": "+2 (incl 1 for nesting)",
-              "6": "+2 (incl 1 for nesting)",
-              "7": "+1",
-              "8": "+1",
-              "9": "+2 (incl 1 for nesting)"
-            }
+            "warningLevel": 1
           }
         },
         {
@@ -666,69 +621,6 @@
             "customProperties": {
               "IsRemovable": "True"
             }
-          }
-        },
-        {
-          "ruleId": "S2589",
-          "level": "warning",
-          "message": "Change this condition so that it does not always evaluate to 'True'.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Orders/Orders.razor",
-                "region": {
-                  "startLine": 43,
-                  "startColumn": 18,
-                  "endLine": 43,
-                  "endColumn": 41
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S2325",
-          "level": "warning",
-          "message": "Make 'IsLocalUrl' a static method.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Orders/OrderDetails.razor",
-                "region": {
-                  "startLine": 220,
-                  "startColumn": 18,
-                  "endLine": 220,
-                  "endColumn": 28
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S6610",
-          "level": "warning",
-          "message": "\"StartsWith\" overloads that take a \"char\" should be used",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Orders/OrderDetails.razor",
-                "region": {
-                  "startLine": 224,
-                  "startColumn": 20,
-                  "endLine": 224,
-                  "endColumn": 30
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
           }
         }
       ],
@@ -832,40 +724,6 @@
             ]
           }
         },
-        "S2325": {
-          "id": "S2325",
-          "shortDescription": "Methods and properties that don't access instance data should be static",
-          "fullDescription": "Methods and properties that don’t access instance data should be marked as static for the following reasons:",
-          "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2325",
-          "properties": {
-            "category": "Minor Code Smell",
-            "isEnabledByDefault": true,
-            "tags": [
-              "C#",
-              "MainSourceScope",
-              "TestSourceScope",
-              "SonarWay"
-            ]
-          }
-        },
-        "S2346": {
-          "id": "S2346",
-          "shortDescription": "Flags enumerations zero-value members should be named \"None\"",
-          "fullDescription": "An enumeration can be decorated with the FlagsAttribute to indicate that it can be used as a bit field: a set of flags, that can be independently set and reset.",
-          "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2346",
-          "properties": {
-            "category": "Critical Code Smell",
-            "isEnabledByDefault": true,
-            "tags": [
-              "C#",
-              "MainSourceScope",
-              "TestSourceScope",
-              "SonarWay"
-            ]
-          }
-        },
         "S2589": {
           "id": "S2589",
           "shortDescription": "Boolean expressions should not be gratuitous",
@@ -889,22 +747,6 @@
           "fullDescription": "Classes and records with either private or file access modifiers aren’t visible outside of their assemblies or files, so if they’re not extended inside their scope, they should be made explicitly non-extensible with the addition of the sealed keyword.",
           "defaultLevel": "warning",
           "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-3260",
-          "properties": {
-            "category": "Minor Code Smell",
-            "isEnabledByDefault": true,
-            "tags": [
-              "C#",
-              "MainSourceScope",
-              "SonarWay"
-            ]
-          }
-        },
-        "S3400": {
-          "id": "S3400",
-          "shortDescription": "Methods should not return constants",
-          "fullDescription": "There’s no point in forcing the overhead of a method call for a method that always returns the same constant value. Even worse, the fact that a method call must be made will likely mislead developers who call the method thinking that something more is done. Declare a constant instead.",
-          "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-3400",
           "properties": {
             "category": "Minor Code Smell",
             "isEnabledByDefault": true,
@@ -941,23 +783,6 @@
           "properties": {
             "category": "Critical Code Smell",
             "isEnabledByDefault": false,
-            "tags": [
-              "C#",
-              "MainSourceScope",
-              "TestSourceScope",
-              "SonarWay"
-            ]
-          }
-        },
-        "S6610": {
-          "id": "S6610",
-          "shortDescription": "\"StartsWith\" and \"EndsWith\" overloads that take a \"char\" should be used instead of the ones that take a \"string\"",
-          "fullDescription": "With string.StartsWith(char) and string.EndsWith(char), only the first character of the string is compared to the provided character, whereas the string versions of those methods have to do checks about the current StringComparison and CultureInfo. Thus, the char overloads are significantly faster for default comparison scenarios.",
-          "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-6610",
-          "properties": {
-            "category": "Minor Code Smell",
-            "isEnabledByDefault": true,
             "tags": [
               "C#",
               "MainSourceScope",

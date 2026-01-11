@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Moq;
 
-namespace CampusEats.Test.PaymentTests;
+namespace CampusEats.Test.PaymentTests.IntegrationTests;
 
 public class CreateStripeCheckoutSessionHandlerTests
 {

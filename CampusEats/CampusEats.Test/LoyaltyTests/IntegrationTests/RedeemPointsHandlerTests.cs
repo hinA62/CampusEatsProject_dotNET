@@ -226,5 +226,7 @@ public class RedeemPointsHandlerTests : IDisposable
     {
         _context.Database.EnsureDeleted();
         _context.Dispose();
+        
+        GC.SuppressFinalize(this);
     }
 }

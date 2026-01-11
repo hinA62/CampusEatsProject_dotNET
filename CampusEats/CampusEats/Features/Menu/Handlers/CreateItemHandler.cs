@@ -4,7 +4,7 @@ using CampusEats.Validators.Menu;
 
 namespace CampusEats.Features.Menu.Handlers;
 
-public class CreateItemHandler (CampusEatsContext context, ILogger<CreateItemHandler>? logger)
+public class CreateItemHandler (CampusEatsContext context, ILogger<CreateItemHandler> logger)
 {
     public async Task<IResult> Handle(CreateItemRequest request)
     {

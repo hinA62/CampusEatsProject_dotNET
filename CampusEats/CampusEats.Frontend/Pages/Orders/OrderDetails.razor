@@ -217,11 +217,11 @@
     /// <summary>
     /// Verifică dacă URL-ul este local (relativ) și nu conține caractere periculoase.
     /// </summary>
-    private bool IsLocalUrl(string url)
+    private static bool IsLocalUrl(string url)
     {
         // URL-ul trebuie să înceapă cu / și să nu aibă // (evită //evil.com)
         return !string.IsNullOrEmpty(url) && 
-               url.StartsWith("/") && 
+               url.StartsWith('/') && 
                !url.StartsWith("//") && 
                !url.StartsWith("/\\");
     }

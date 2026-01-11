@@ -1,6 +1,5 @@
-using CampusEats.Features.Payment;
+using System.Text;
 using CampusEats.Features.Payment.Handlers;
-using CampusEats.Features.Payment.Requests;
 using CampusEats.Persistence;
 using FluentAssertions;
 using Microsoft.AspNetCore.Http;
@@ -8,9 +7,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Moq;
 using Stripe;
-using System.Text;
 
-namespace CampusEats.Test.PaymentTests;
+namespace CampusEats.Test.PaymentTests.IntegrationTests;
 
 public class StripeWebhookHandlerTests
 {
@@ -76,7 +74,7 @@ public class StripeWebhookHandlerTests
         result.Should().NotBeNull();
     }
 
-    private HttpRequest CreateMockHttpRequest(string json, string signature)
+    private static HttpRequest CreateMockHttpRequest(string json, string signature)
     {
         var context = new DefaultHttpContext();
         var request = context.Request;
@@ -85,7 +83,7 @@ public class StripeWebhookHandlerTests
         return request;
     }
 
-    private string CreateStripeEventJson(string eventType, object data)
+    private static string CreateStripeEventJson(string eventType, object data)
     {
         return $$"""
         {
@@ -98,7 +96,7 @@ public class StripeWebhookHandlerTests
         """;
     }
 
-    private string GenerateValidSignature(string json)
+    private static string GenerateValidSignature(string json)
     {
         return "t=1234567890,v1=test_signature";
     }

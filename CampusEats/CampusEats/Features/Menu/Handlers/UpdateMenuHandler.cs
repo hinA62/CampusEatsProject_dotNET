@@ -61,16 +61,11 @@ public class UpdateMenuHandler(CampusEatsContext context, ILogger<UpdateMenuHand
 
         if (allAllergens.Count == 0) return currentRestrictions;
 
-        var calculated = DietaryRestrictions.None;
-
-        foreach (var check in RestrictionExclusions)
-        {
-            // Dacă niciunul dintre alergenii interziși nu este prezent, adăugăm restricția
-            if (!allAllergens.Any(allergen => check.Value.Any(forbidden => allergen.Contains(forbidden))))
-            {
-                calculated |= check.Key;
-            }
-        }
+        var calculated = RestrictionExclusions
+            .Where(check => !allAllergens.Any(allergen => 
+                check.Value.Any(allergen.Contains)))
+            .Aggregate(DietaryRestrictions.None, 
+                (current, check) => current | check.Key);
 
         return calculated == DietaryRestrictions.None ? currentRestrictions : calculated;
     }

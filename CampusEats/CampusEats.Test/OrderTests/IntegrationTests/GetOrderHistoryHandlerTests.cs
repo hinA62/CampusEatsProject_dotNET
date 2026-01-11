@@ -130,5 +130,7 @@ public class GetOrderHistoryHandlerTests : IDisposable
     {
         _context.Database.EnsureDeleted();
         _context.Dispose();
+        
+        GC.SuppressFinalize(this);
     }
 }

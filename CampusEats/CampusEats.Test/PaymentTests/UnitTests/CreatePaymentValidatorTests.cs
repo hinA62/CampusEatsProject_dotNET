@@ -2,7 +2,7 @@
 using CampusEats.Features.Payment.Requests;
 using CampusEats.Validators.Payment;
 
-namespace CampusEats.Test.PaymentTests;
+namespace CampusEats.Test.PaymentTests.UnitTests;
 
 public class CreatePaymentValidatorTests
 {

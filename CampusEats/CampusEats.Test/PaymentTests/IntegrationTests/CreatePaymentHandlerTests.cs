@@ -1,13 +1,13 @@
-using CampusEats.Features.Payment;
-using CampusEats.Features.Payment.Requests;
-using CampusEats.Features.Payment.Handlers;
-using CampusEats.Features.Order;
 using CampusEats.Features.Loyalty;
+using CampusEats.Features.Order;
+using CampusEats.Features.Payment;
+using CampusEats.Features.Payment.Handlers;
+using CampusEats.Features.Payment.Requests;
 using CampusEats.Features.User;
 using CampusEats.Persistence;
 using Microsoft.EntityFrameworkCore;
 
-namespace CampusEats.Test.PaymentTests;
+namespace CampusEats.Test.PaymentTests.IntegrationTests;
 
 public class CreatePaymentHandlerTests : IDisposable
 {
@@ -190,5 +190,7 @@ public class CreatePaymentHandlerTests : IDisposable
     {
         _context.Database.EnsureDeleted();
         _context.Dispose();
+        
+        GC.SuppressFinalize(this);
     }
 }

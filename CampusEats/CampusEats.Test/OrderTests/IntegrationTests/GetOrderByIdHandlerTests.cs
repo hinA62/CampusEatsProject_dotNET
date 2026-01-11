@@ -68,5 +68,7 @@ public class GetOrderByIdHandlerTests : IDisposable
     {
         _context.Database.EnsureDeleted();
         _context.Dispose();
+        
+        GC.SuppressFinalize(this);
     }
 }

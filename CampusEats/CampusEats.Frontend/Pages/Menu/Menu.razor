@@ -231,7 +231,7 @@
             list.Add("Fără Lactate");
         if (restrictions.HasFlag(DietaryRestrictions.NoSeafood))
             list.Add("Fără Fructe de Mare");
-        if (restrictions.HasFlag(DietaryRestrictions.FoodAllergyFriendly))
+        if (restrictions.HasFlag(DietaryRestrictions.None))
             list.Add("Fără alergeni suplimentari");
         
         return list.Count == 0 ? ["Poate provoca alergii!"] : list;

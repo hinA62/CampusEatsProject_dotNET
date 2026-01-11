@@ -574,7 +574,125 @@ Validators 
 )G H
 ;H I
 } 
-} ×
+} ­
+‚C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Menu\CreateMenuValidator.cs
+	namespace 	
+
+CampusEats
+ 
+. 
+
+Validators 
+.  
+Menu  $
+;$ %
+public 
+class 
+CreateMenuValidator  
+:! "
+AbstractValidator# 4
+<4 5
+CreateMenuRequest5 F
+>F G
+{ 
+public 
+
+CreateMenuValidator 
+( 
+)  
+{		 
+RuleFor
+
+ 
+(
+
+ 
+x
+
+ 
+=>
+
+ 
+x
+
+ 
+.
+
+ 
+Name
+
+ 
+)
+
+ 
+. 
+NotEmpty 
+( 
+) 
+. 
+WithMessage #
+(# $
+$str$ <
+)< =
+. 
+MaximumLength 
+( 
+$num 
+) 
+. 
+WithMessage *
+(* +
+$str+ S
+)S T
+;T U
+RuleFor 
+( 
+x 
+=> 
+x 
+. 
+Price 
+) 
+. 
+NotNull 
+( 
+) 
+. 
+WithMessage "
+(" #
+$str# 7
+)7 8
+. 
+GreaterThan 
+( 
+$num 
+) 
+. 
+WithMessage '
+(' (
+$str( J
+)J K
+;K L
+RuleFor 
+( 
+x 
+=> 
+x 
+. 
+ItemIds 
+) 
+. 
+NotNull 
+( 
+) 
+. 
+WithMessage "
+(" #
+$str# M
+)M N
+;N O
+} 
+} ×
 ‚C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Menu\CreateItemValidator.cs
 	namespace 	
 
@@ -757,125 +875,7 @@ Validators 
 )G H
 ;H I
 } 
-} ­
-‚C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Menu\CreateMenuValidator.cs
-	namespace 	
-
-CampusEats
- 
-. 
-
-Validators 
-.  
-Menu  $
-;$ %
-public 
-class 
-CreateMenuValidator  
-:! "
-AbstractValidator# 4
-<4 5
-CreateMenuRequest5 F
->F G
-{ 
-public 
-
-CreateMenuValidator 
-( 
-)  
-{		 
-RuleFor
-
- 
-(
-
- 
-x
-
- 
-=>
-
- 
-x
-
- 
-.
-
- 
-Name
-
- 
-)
-
- 
-. 
-NotEmpty 
-( 
-) 
-. 
-WithMessage #
-(# $
-$str$ <
-)< =
-. 
-MaximumLength 
-( 
-$num 
-) 
-. 
-WithMessage *
-(* +
-$str+ S
-)S T
-;T U
-RuleFor 
-( 
-x 
-=> 
-x 
-. 
-Price 
-) 
-. 
-NotNull 
-( 
-) 
-. 
-WithMessage "
-(" #
-$str# 7
-)7 8
-. 
-GreaterThan 
-( 
-$num 
-) 
-. 
-WithMessage '
-(' (
-$str( J
-)J K
-;K L
-RuleFor 
-( 
-x 
-=> 
-x 
-. 
-ItemIds 
-) 
-. 
-NotNull 
-( 
-) 
-. 
-WithMessage "
-(" #
-$str# M
-)M N
-;N O
-} 
-} Ì	
+} Ì	
 ‡C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Loyalty\RedeemPointsValidator.cs
 	namespace 	
 
@@ -6697,7 +6697,56 @@ CampusEats
 Guid' +
 UserId, 2
 )2 3
-;3 4¥
+;3 4Ú
+C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Requests\GetPaymentByIdRequest.cs
+	namespace 	
+
+CampusEats
+ 
+. 
+Features 
+. 
+Payment %
+.% &
+Requests& .
+;. /
+public 
+record !
+GetPaymentByIdRequest #
+(# $
+Guid$ (
+	PaymentId) 2
+)2 3
+;3 4
+›C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Requests\CreateStripeCheckoutSessionRequest.cs
+	namespace 	
+
+CampusEats
+ 
+. 
+Features 
+. 
+Payment %
+.% &
+Requests& .
+;. /
+public 
+record .
+"CreateStripeCheckoutSessionRequest 0
+(0 1
+Guid 
+UserId	 
+, 
+Guid 
+OrderId	 
+, 
+int 
+? 
+PointsToUse	 
+= 
+null 
+) 
+; ¥
 C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Requests\CreatePaymentRequest.cs
 	namespace 	
 
@@ -6758,36 +6807,7 @@ CampusEats
 = 
 null 
 ) 
-;  
-›C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Requests\CreateStripeCheckoutSessionRequest.cs
-	namespace 	
-
-CampusEats
- 
-. 
-Features 
-. 
-Payment %
-.% &
-Requests& .
-;. /
-public 
-record .
-"CreateStripeCheckoutSessionRequest 0
-(0 1
-Guid 
-UserId	 
-, 
-Guid 
-OrderId	 
-, 
-int 
-? 
-PointsToUse	 
-= 
-null 
-) 
-; ¦
+;  ¦
 wC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Payment.cs
 	namespace 	
 
@@ -6904,27 +6924,7 @@ StripeTest 
 set( +
 ;+ ,
 }- .
-} Ú
-C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Requests\GetPaymentByIdRequest.cs
-	namespace 	
-
-CampusEats
- 
-. 
-Features 
-. 
-Payment %
-.% &
-Requests& .
-;. /
-public 
-record !
-GetPaymentByIdRequest #
-(# $
-Guid$ (
-	PaymentId) 2
-)2 3
-;3 4á2
+} á2
 C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Handlers\StripeWebhookHandler.cs
 	namespace 	
 
@@ -8871,7 +8871,39 @@ pointsUsed
  
 }
 –– 
-}—— ×
+}—— •
+ˆC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\Requests\PlaceOrderRequest.cs
+	namespace 	
+
+CampusEats
+ 
+. 
+Features 
+. 
+Order #
+.# $
+Requests$ ,
+;, -
+public 
+record 
+PlaceOrderRequest 
+( 
+Guid 
+ClientId	 
+, 
+List 
+< 	
+Guid	 
+> 
+MenuIDs 
+, 
+List 
+< 	
+Guid	 
+> 
+ItemIDs 
+) 
+; ×
 C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\Requests\GetOrderHistoryRequest.cs
 	namespace 	
 
@@ -8931,7 +8963,43 @@ CampusEats
 Guid! %
 OrderId& -
 )- .
-;. /°
+;. /§
+yC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\OrderStatus.cs
+	namespace 	
+
+CampusEats
+ 
+. 
+Features 
+. 
+Order #
+;# $
+public 
+enum 
+OrderStatus 
+{ 
+Pending 
+= 
+$num 
+, 
+	Confirmed 
+= 
+$num 
+, 
+	Preparing 
+= 
+$num 
+, 
+	Completed 
+= 
+$num 
+, 
+	Cancelled		 
+=		 
+$num		 
+}
+
+ °
 sC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\Order.cs
 	namespace 	
 
@@ -8977,39 +9045,7 @@ CampusEats
 
  
 ) 
-; •
-ˆC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\Requests\PlaceOrderRequest.cs
-	namespace 	
-
-CampusEats
- 
-. 
-Features 
-. 
-Order #
-.# $
-Requests$ ,
-;, -
-public 
-record 
-PlaceOrderRequest 
-( 
-Guid 
-ClientId	 
-, 
-List 
-< 	
-Guid	 
-> 
-MenuIDs 
-, 
-List 
-< 	
-Guid	 
-> 
-ItemIDs 
-) 
-; ¡L
+; ¡L
 ˆC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\Handlers\PlaceOrderHandler.cs
 	namespace
 
@@ -9693,43 +9729,7 @@ CampusEats		
 )  !
 ;! "
 } 
-} §
-yC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\OrderStatus.cs
-	namespace 	
-
-CampusEats
- 
-. 
-Features 
-. 
-Order #
-;# $
-public 
-enum 
-OrderStatus 
-{ 
-Pending 
-= 
-$num 
-, 
-	Confirmed 
-= 
-$num 
-, 
-	Preparing 
-= 
-$num 
-, 
-	Completed 
-= 
-$num 
-, 
-	Cancelled		 
-=		 
-$num		 
-}
-
- ì
+} ì
 ŠC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\Handlers\GetOrderByIdHandler.cs
 	namespace		 	
 
@@ -10476,7 +10476,372 @@ CampusEats
  
 ImageUrl 
 ) 
-; ÆA
+; å
+‡C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\UpdateItemHandler.cs
+	namespace 	
+
+CampusEats
+ 
+. 
+Features 
+. 
+Menu "
+." #
+Handlers# +
+;+ ,
+public 
+class 
+UpdateItemHandler 
+(  
+CampusEatsContext  1
+context2 9
+,9 :
+ILogger; B
+<B C
+UpdateItemHandlerC T
+>T U
+loggerV \
+)\ ]
+{ 
+public		 
+
+async		 
+Task		 
+<		 
+IResult		 
+>		 
+Handle		 %
+(		% &
+UpdateItemRequest		& 7
+request		8 ?
+)		? @
+{
+
+ 
+logger 
+. 
+LogInformation 
+( 
+$str G
+,G H
+requestI P
+.P Q
+IdQ S
+)S T
+;T U
+var 
+	validator 
+= 
+new 
+UpdateItemValidator /
+(/ 0
+)0 1
+;1 2
+var 
+validationResult 
+= 
+await $
+	validator% .
+.. /
+ValidateAsync/ <
+(< =
+request= D
+)D E
+;E F
+if 
+
+( 
+! 
+validationResult 
+. 
+IsValid %
+)% &
+{ 	
+foreach 
+( 
+var 
+error 
+in !
+validationResult" 2
+.2 3
+Errors3 9
+)9 :
+{ 
+logger 
+. 
+LogError 
+(  
+$str  >
+)> ?
+;? @
+} 
+return 
+Results 
+. 
+
+BadRequest %
+(% &
+validationResult& 6
+.6 7
+Errors7 =
+)= >
+;> ?
+} 	
+var 
+menuItem 
+= 
+await 
+context $
+.$ %
+MenuItem% -
+.- .
+	FindAsync. 7
+(7 8
+request8 ?
+.? @
+Id@ B
+)B C
+;C D
+if 
+
+( 
+menuItem 
+== 
+null 
+) 
+{ 	
+logger 
+. 
+
+LogWarning 
+( 
+$str 3
+)3 4
+;4 5
+return 
+Results 
+. 
+NotFound #
+(# $
+$str$ 4
+)4 5
+;5 6
+}   	
+var"" 
+updatedMenuItem"" 
+="" 
+menuItem"" &
+with""' +
+{## 	
+Name$$ 
+=$$ 
+request$$ 
+.$$ 
+Name$$ 
+,$$  
+Price%% 
+=%% 
+request%% 
+.%% 
+Price%% !
+,%%! "
+ImageUrl&& 
+=&& 
+request&& 
+.&& 
+ImageUrl&& '
+,&&' (
+	Allergens'' 
+='' 
+request'' 
+.''  
+	Allergens''  )
+}(( 	
+;((	 
+
+context)) 
+.)) 
+Entry)) 
+()) 
+menuItem)) 
+))) 
+.))  
+CurrentValues))  -
+.))- .
+	SetValues)). 7
+())7 8
+updatedMenuItem))8 G
+)))G H
+;))H I
+await** 
+context** 
+.** 
+SaveChangesAsync** &
+(**& '
+)**' (
+;**( )
+logger++ 
+.++ 
+LogInformation++ 
+(++ 
+$str++ >
+)++> ?
+;++? @
+return-- 
+Results-- 
+.-- 
+Ok-- 
+(-- 
+updatedMenuItem-- )
+)--) *
+;--* +
+}.. 
+}00 ¯
+‡C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\DeleteMenuHandler.cs
+	namespace 	
+
+CampusEats
+ 
+. 
+Features 
+. 
+Menu "
+." #
+Handlers# +
+;+ ,
+public 
+class 
+DeleteMenuHandler 
+(  
+CampusEatsContext  1
+context2 9
+,9 :
+ILogger; B
+<B C
+DeleteMenuHandlerC T
+>T U
+loggerV \
+)\ ]
+{ 
+public 
+
+async 
+Task 
+< 
+IResult 
+> 
+Handle %
+(% &
+DeleteMenuRequest& 7
+request8 ?
+)? @
+{		 
+logger
+
+ 
+.
+
+ 
+LogInformation
+
+ 
+(
+
+ 
+$str
+
+ B
+,
+
+B C
+request
+
+D K
+.
+
+K L
+Id
+
+L N
+)
+
+N O
+;
+
+O P
+var 
+menu 
+= 
+await 
+context  
+.  !
+Menu! %
+.% &
+	FindAsync& /
+(/ 0
+request0 7
+.7 8
+Id8 :
+): ;
+;; <
+if 
+
+( 
+menu 
+== 
+null 
+) 
+{ 	
+logger 
+. 
+
+LogWarning 
+( 
+$str .
+). /
+;/ 0
+return 
+Results 
+. 
+NotFound #
+(# $
+$str$ 4
+)4 5
+;5 6
+} 	
+context 
+. 
+Menu 
+. 
+Remove 
+( 
+menu  
+)  !
+;! "
+await 
+context 
+. 
+SaveChangesAsync &
+(& '
+)' (
+;( )
+logger 
+. 
+LogInformation 
+( 
+$str 9
+)9 :
+;: ;
+return 
+Results 
+. 
+Ok 
+( 
+$str 5
+)5 6
+;6 7
+} 
+} ¡A
 ‡C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\UpdateMenuHandler.cs
 	namespace 	
 
@@ -10893,435 +11258,67 @@ SelectMany99 
 var@@ 
 
 calculated@@ 
-=@@ 
-DietaryRestrictions@@ ,
-.@@, -
-None@@- 1
-;@@1 2
-foreachBB 
-(BB 
-varBB 
-checkBB 
-inBB !
-RestrictionExclusionsBB 3
+=@@ !
+RestrictionExclusions@@ .
+.AA 
+WhereAA 
+(AA 
+checkAA 
+=>AA 
+!AA 
+allAllergensAA )
+.AA) *
+AnyAA* -
+(AA- .
+allergenAA. 6
+=>AA7 9
+checkBB 
+.BB 
+ValueBB 
+.BB 
+AnyBB 
+(BB  
+allergenBB  (
+.BB( )
+ContainsBB) 1
+)BB1 2
+)BB2 3
 )BB3 4
-{CC 	
-ifEE 
-(EE 
-!EE 
-allAllergensEE 
-.EE 
-AnyEE !
-(EE! "
-allergenEE" *
-=>EE+ -
-checkEE. 3
-.EE3 4
-ValueEE4 9
-.EE9 :
-AnyEE: =
-(EE= >
-	forbiddenEE> G
-=>EEH J
-allergenEEK S
-.EES T
-ContainsEET \
-(EE\ ]
-	forbiddenEE] f
-)EEf g
-)EEg h
-)EEh i
-)EEi j
-{FF 
+.CC 
+	AggregateCC 
+(CC 
+DietaryRestrictionsCC *
+.CC* +
+NoneCC+ /
+,CC/ 0
+(DD 
+currentDD 
+,DD 
+checkDD 
+)DD  
+=>DD! #
+currentDD$ +
+|DD, -
+checkDD. 3
+.DD3 4
+KeyDD4 7
+)DD7 8
+;DD8 9
+returnFF 
 
-calculatedGG 
-|=GG 
-checkGG #
-.GG# $
-KeyGG$ '
-;GG' (
-}HH 
-}II 	
-returnKK 
+calculatedFF 
+==FF 
+DietaryRestrictionsFF 0
+.FF0 1
+NoneFF1 5
+?FF6 7
+currentRestrictionsFF8 K
+:FFL M
 
-calculatedKK 
-==KK 
-DietaryRestrictionsKK 0
-.KK0 1
-NoneKK1 5
-?KK6 7
-currentRestrictionsKK8 K
-:KKL M
-
-calculatedKKN X
-;KKX Y
-}LL 
-}MM å
-‡C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\UpdateItemHandler.cs
-	namespace 	
-
-CampusEats
- 
-. 
-Features 
-. 
-Menu "
-." #
-Handlers# +
-;+ ,
-public 
-class 
-UpdateItemHandler 
-(  
-CampusEatsContext  1
-context2 9
-,9 :
-ILogger; B
-<B C
-UpdateItemHandlerC T
->T U
-loggerV \
-)\ ]
-{ 
-public		 
-
-async		 
-Task		 
-<		 
-IResult		 
->		 
-Handle		 %
-(		% &
-UpdateItemRequest		& 7
-request		8 ?
-)		? @
-{
-
- 
-logger 
-. 
-LogInformation 
-( 
-$str G
-,G H
-requestI P
-.P Q
-IdQ S
-)S T
-;T U
-var 
-	validator 
-= 
-new 
-UpdateItemValidator /
-(/ 0
-)0 1
-;1 2
-var 
-validationResult 
-= 
-await $
-	validator% .
-.. /
-ValidateAsync/ <
-(< =
-request= D
-)D E
-;E F
-if 
-
-( 
-! 
-validationResult 
-. 
-IsValid %
-)% &
-{ 	
-foreach 
-( 
-var 
-error 
-in !
-validationResult" 2
-.2 3
-Errors3 9
-)9 :
-{ 
-logger 
-. 
-LogError 
-(  
-$str  >
-)> ?
-;? @
-} 
-return 
-Results 
-. 
-
-BadRequest %
-(% &
-validationResult& 6
-.6 7
-Errors7 =
-)= >
-;> ?
-} 	
-var 
-menuItem 
-= 
-await 
-context $
-.$ %
-MenuItem% -
-.- .
-	FindAsync. 7
-(7 8
-request8 ?
-.? @
-Id@ B
-)B C
-;C D
-if 
-
-( 
-menuItem 
-== 
-null 
-) 
-{ 	
-logger 
-. 
-
-LogWarning 
-( 
-$str 3
-)3 4
-;4 5
-return 
-Results 
-. 
-NotFound #
-(# $
-$str$ 4
-)4 5
-;5 6
-}   	
-var"" 
-updatedMenuItem"" 
-="" 
-menuItem"" &
-with""' +
-{## 	
-Name$$ 
-=$$ 
-request$$ 
-.$$ 
-Name$$ 
-,$$  
-Price%% 
-=%% 
-request%% 
-.%% 
-Price%% !
-,%%! "
-ImageUrl&& 
-=&& 
-request&& 
-.&& 
-ImageUrl&& '
-,&&' (
-	Allergens'' 
-='' 
-request'' 
-.''  
-	Allergens''  )
-}(( 	
-;((	 
-
-context)) 
-.)) 
-Entry)) 
-()) 
-menuItem)) 
-))) 
-.))  
-CurrentValues))  -
-.))- .
-	SetValues)). 7
-())7 8
-updatedMenuItem))8 G
-)))G H
-;))H I
-await** 
-context** 
-.** 
-SaveChangesAsync** &
-(**& '
-)**' (
-;**( )
-logger++ 
-.++ 
-LogInformation++ 
-(++ 
-$str++ >
-)++> ?
-;++? @
-return-- 
-Results-- 
-.-- 
-Ok-- 
-(-- 
-updatedMenuItem-- )
-)--) *
-;--* +
-}.. 
-}00 ¯
-‡C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\DeleteMenuHandler.cs
-	namespace 	
-
-CampusEats
- 
-. 
-Features 
-. 
-Menu "
-." #
-Handlers# +
-;+ ,
-public 
-class 
-DeleteMenuHandler 
-(  
-CampusEatsContext  1
-context2 9
-,9 :
-ILogger; B
-<B C
-DeleteMenuHandlerC T
->T U
-loggerV \
-)\ ]
-{ 
-public 
-
-async 
-Task 
-< 
-IResult 
-> 
-Handle %
-(% &
-DeleteMenuRequest& 7
-request8 ?
-)? @
-{		 
-logger
-
- 
-.
-
- 
-LogInformation
-
- 
-(
-
- 
-$str
-
- B
-,
-
-B C
-request
-
-D K
-.
-
-K L
-Id
-
-L N
-)
-
-N O
-;
-
-O P
-var 
-menu 
-= 
-await 
-context  
-.  !
-Menu! %
-.% &
-	FindAsync& /
-(/ 0
-request0 7
-.7 8
-Id8 :
-): ;
-;; <
-if 
-
-( 
-menu 
-== 
-null 
-) 
-{ 	
-logger 
-. 
-
-LogWarning 
-( 
-$str .
-). /
-;/ 0
-return 
-Results 
-. 
-NotFound #
-(# $
-$str$ 4
-)4 5
-;5 6
-} 	
-context 
-. 
-Menu 
-. 
-Remove 
-( 
-menu  
-)  !
-;! "
-await 
-context 
-. 
-SaveChangesAsync &
-(& '
-)' (
-;( )
-logger 
-. 
-LogInformation 
-( 
-$str 9
-)9 :
-;: ;
-return 
-Results 
-. 
-Ok 
-( 
-$str 5
-)5 6
-;6 7
-} 
-} ç!
+calculatedFFN X
+;FFX Y
+}GG 
+}HH ç!
 ‡C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\DeleteItemHandler.cs
 	namespace 	
 
@@ -11564,7 +11561,7 @@ CampusEats
 )$$! "
 ;$$" #
 }%% 
-}'' ¯F
+}'' £F
 ‡C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\CreateMenuHandler.cs
 	namespace 	
 
@@ -11645,15 +11642,13 @@ CampusEats
 e, -
 =>. 0
 logger1 7
-.7 8
-LogError8 @
-(@ A
-eA B
-.B C
-ErrorMessageC O
-)O P
-)P Q
-;Q R
+.7 8
+LogInformation8 F
+(F G
+$strG e
+)e f
+)f g
+;g h
 return 
 Results 
 . 
@@ -11841,16 +11836,17 @@ Enumerable2 <
 )//9 :
 ;//: ;
 }00 
-private22 
-DietaryRestrictions22 &
-CalculateFinalRestrictions22  :
-(22: ;
-List22; ?
-<22? @
-string22@ F
->22F G
-	allergens22H Q
-)22Q R
+private22 
+static22 
+DietaryRestrictions22 &&
+CalculateFinalRestrictions22' A
+(22A B
+List22B F
+<22F G
+string22G M
+>22M N
+	allergens22O X
+)22X Y
 {33 
 var55 
 
@@ -12072,7 +12068,7 @@ calculatedMM 
 calculatedOO 
 ;OO 
 }PP 
-}QQ Õ
+}QQ Æ
 ‡C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\CreateItemHandler.cs
 	namespace 	
 
@@ -12095,10 +12091,9 @@ CampusEats
 ILogger; B
 <B C
 CreateItemHandlerC T
->T U
-?U V
-loggerW ]
-)] ^
+>T U
+loggerV \
+)\ ]
 { 
 public		 
 
@@ -12348,527 +12343,7 @@ CampusEats
 Guid' +
 UserId, 2
 )2 3
-;3 4¤&
-ŒC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Loyalty\Handlers\RedeemPointsHandler.cs
-	namespace 	
-
-CampusEats
- 
-. 
-Features 
-. 
-Loyalty %
-.% &
-Handlers& .
-;. /
-public 
-class 
-RedeemPointsHandler  
-(  !
-CampusEatsContext! 2
-db3 5
-,5 6
-ILogger7 >
-<> ?
-RedeemPointsHandler? R
->R S
-loggerT Z
-)Z [
-{		 
-public
-
- 
-
-async
-
- 
-Task
-
- 
-<
-
- 
-IResult
-
- 
->
-
- 
-Handle
-
- %
-(
-
-% &
-RedeemPointsRequest
-
-& 9
-request
-
-: A
-,
-
-A B
-CancellationToken
-
-C T
-ct
-
-U W
-)
-
-W X
-{ 
-var 
-	validator 
-= 
-new !
-RedeemPointsValidator 1
-(1 2
-)2 3
-;3 4
-var 
-validationResult 
-= 
-await $
-	validator% .
-.. /
-ValidateAsync/ <
-(< =
-request= D
-,D E
-ctF H
-)H I
-;I J
-if 
-
-( 
-! 
-validationResult 
-. 
-IsValid %
-)% &
-{ 	
-foreach 
-( 
-var 
-error 
-in !
-validationResult" 2
-.2 3
-Errors3 9
-)9 :
-{ 
-logger 
-. 
-LogError 
-(  
-error  %
-.% &
-ErrorMessage& 2
-)2 3
-;3 4
-} 
-return 
-Results 
-. 
-
-BadRequest %
-(% &
-validationResult& 6
-.6 7
-Errors7 =
-)= >
-;> ?
-} 	
-var 
-account 
-= 
-await 
-db 
-. 
-LoyaltyAccounts .
-. 
-FirstOrDefaultAsync  
-(  !
-a! "
-=># %
-a& '
-.' (
-UserId( .
-==/ 1
-request2 9
-.9 :
-UserId: @
-,@ A
-ctB D
-)D E
-;E F
-if 
-
-( 
-account 
-is 
-null 
-) 
-{ 	
-return 
-Results 
-. 
-
-BadRequest %
-(% &
-$str& B
-)B C
-;C D
-} 	
-if!! 
-
-(!! 
-account!! 
-.!! 
-Points!! 
-<!! 
-request!! $
-.!!$ %
-PointsToRedeem!!% 3
-)!!3 4
-{"" 	
-return## 
-Results## 
-.## 
-
-BadRequest## %
-(##% &
-$str##& :
-)##: ;
-;##; <
-}$$ 	
-account&& 
-.&& 
-Points&& 
--=&& 
-request&& !
-.&&! "
-PointsToRedeem&&" 0
-;&&0 1
-account'' 
-.'' 
-UpdatedAtUtc'' 
-='' 
-DateTime'' '
-.''' (
-UtcNow''( .
-;''. /
-var)) 
-tx)) 
-=)) 
-new)) 
-LoyaltyTransaction)) '
-{** 	
-Id++ 
-=++ 
-Guid++ 
-.++ 
-NewGuid++ 
-(++ 
-)++ 
-,++  
-UserId,, 
-=,, 
-request,, 
-.,, 
-UserId,, #
-,,,# $
-Type-- 
-=-- "
-LoyaltyTransactionType-- )
-.--) *
-Redeem--* 0
-,--0 1
-Points.. 
-=.. 
-request.. 
-... 
-PointsToRedeem.. +
-,..+ ,
-Description// 
-=// 
-$str// +
-,//+ ,
-CreatedAtUtc00 
-=00 
-DateTime00 #
-.00# $
-UtcNow00$ *
-}11 	
-;11	 
-
-await33 
-db33 
-.33 
-LoyaltyTransactions33 $
-.33$ %
-AddAsync33% -
-(33- .
-tx33. 0
-,330 1
-ct332 4
-)334 5
-;335 6
-await44 
-db44 
-.44 
-SaveChangesAsync44 !
-(44! "
-ct44" $
-)44$ %
-;44% &
-logger55 
-.55 
-LogInformation55 
-(55 
-$str55 =
-)55= >
-;55> ?
-return77 
-Results77 
-.77 
-Ok77 
-(77 
-new77 
-{77 
-account88 
-.88 
-UserId88 
-,88 
-account99 
-.99 
-Points99 
-}:: 	
-)::	 
-
-;::
- 
-};; 
-}<< æ
-‘C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Loyalty\Handlers\GetLoyaltyBalanceHandler.cs
-	namespace 	
-
-CampusEats
- 
-. 
-Features 
-. 
-Loyalty %
-.% &
-Handlers& .
-;. /
-public 
-class $
-GetLoyaltyBalanceHandler %
-(% &
-CampusEatsContext& 7
-db8 :
-): ;
-{ 
-public		 
-
-async		 
-Task		 
-<		 
-IResult		 
->		 
-Handle		 %
-(		% &$
-GetLoyaltyBalanceRequest		& >
-request		? F
-,		F G
-CancellationToken		H Y
-ct		Z \
-=		] ^
-default		_ f
-)		f g
-{
-
- 
-var 
-account 
-= 
-await 
-db 
-. 
-LoyaltyAccounts .
-.. /
-FirstOrDefaultAsync/ B
-(B C
-aC D
-=>E G
-aH I
-.I J
-UserIdJ P
-==Q S
-requestT [
-.[ \
-UserId\ b
-,b c
-ctd f
-)f g
-;g h
-if 
-
-( 
-account 
-is 
-null 
-) 
-{ 	
-return 
-Results 
-. 
-Ok 
-( 
-new !
-{ 
-userId 
-= 
-request  
-.  !
-UserId! '
-,' (
-points 
-= 
-$num 
-, 
-totalPointsEarned !
-=" #
-$num$ %
-,% &
-currentTier 
-= 
-LoyaltyTier )
-.) *
-Bronze* 0
-,0 1
-cashbackRate 
-= 
-LoyaltyTierHelper 0
-.0 1
-GetCashbackRate1 @
-(@ A
-LoyaltyTierA L
-.L M
-BronzeM S
-)S T
-,T U
-nextTier 
-= 
-LoyaltyTier &
-.& '
-Silver' -
-,- .
-pointsToNextTier  
-=! "
-LoyaltyTierHelper# 4
-.4 5
-GetTierThreshold5 E
-(E F
-LoyaltyTierF Q
-.Q R
-SilverR X
-)X Y
-} 
-) 
-; 
-} 	
-var 
-nextTier 
-= 
-LoyaltyTierHelper (
-.( )
-GetNextTier) 4
-(4 5
-account5 <
-.< =
-CurrentTier= H
-)H I
-;I J
-var 
-pointsToNext 
-= 
-nextTier #
-.# $
-HasValue$ ,
-? 
-LoyaltyTierHelper 
-.  
-GetPointsToNextTier  3
-(3 4
-account4 ;
-.; <
-TotalPointsEarned< M
-,M N
-accountO V
-.V W
-CurrentTierW b
-)b c
-: 
-$num 
-; 
-return   
-Results   
-.   
-Ok   
-(   
-new   
-{!! 	
-userId"" 
-="" 
-request"" 
-."" 
-UserId"" #
-,""# $
-points## 
-=## 
-account## 
-.## 
-Points## #
-,### $
-totalPointsEarned$$ 
-=$$ 
-account$$  '
-.$$' (
-TotalPointsEarned$$( 9
-,$$9 :
-currentTier%% 
-=%% 
-account%% !
-.%%! "
-CurrentTier%%" -
-,%%- .
-cashbackRate&& 
-=&& 
-LoyaltyTierHelper&& ,
-.&&, -
-GetCashbackRate&&- <
-(&&< =
-account&&= D
-.&&D E
-CurrentTier&&E P
-)&&P Q
-,&&Q R
-nextTier'' 
-,'' 
-pointsToNextTier(( 
-=(( 
-pointsToNext(( +
-})) 	
-)))	 
-
-;))
- 
-}** 
-}++ ‹I
+;3 4‹I
 }C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Loyalty\LoyaltyModels.cs
 	namespace 	
 
@@ -13423,7 +12898,527 @@ Dictionary;; &
 totalPointsEarnednn2 C
 ;nnC D
 }oo 
-}pp ›
+}pp ¤&
+ŒC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Loyalty\Handlers\RedeemPointsHandler.cs
+	namespace 	
+
+CampusEats
+ 
+. 
+Features 
+. 
+Loyalty %
+.% &
+Handlers& .
+;. /
+public 
+class 
+RedeemPointsHandler  
+(  !
+CampusEatsContext! 2
+db3 5
+,5 6
+ILogger7 >
+<> ?
+RedeemPointsHandler? R
+>R S
+loggerT Z
+)Z [
+{		 
+public
+
+ 
+
+async
+
+ 
+Task
+
+ 
+<
+
+ 
+IResult
+
+ 
+>
+
+ 
+Handle
+
+ %
+(
+
+% &
+RedeemPointsRequest
+
+& 9
+request
+
+: A
+,
+
+A B
+CancellationToken
+
+C T
+ct
+
+U W
+)
+
+W X
+{ 
+var 
+	validator 
+= 
+new !
+RedeemPointsValidator 1
+(1 2
+)2 3
+;3 4
+var 
+validationResult 
+= 
+await $
+	validator% .
+.. /
+ValidateAsync/ <
+(< =
+request= D
+,D E
+ctF H
+)H I
+;I J
+if 
+
+( 
+! 
+validationResult 
+. 
+IsValid %
+)% &
+{ 	
+foreach 
+( 
+var 
+error 
+in !
+validationResult" 2
+.2 3
+Errors3 9
+)9 :
+{ 
+logger 
+. 
+LogError 
+(  
+error  %
+.% &
+ErrorMessage& 2
+)2 3
+;3 4
+} 
+return 
+Results 
+. 
+
+BadRequest %
+(% &
+validationResult& 6
+.6 7
+Errors7 =
+)= >
+;> ?
+} 	
+var 
+account 
+= 
+await 
+db 
+. 
+LoyaltyAccounts .
+. 
+FirstOrDefaultAsync  
+(  !
+a! "
+=># %
+a& '
+.' (
+UserId( .
+==/ 1
+request2 9
+.9 :
+UserId: @
+,@ A
+ctB D
+)D E
+;E F
+if 
+
+( 
+account 
+is 
+null 
+) 
+{ 	
+return 
+Results 
+. 
+
+BadRequest %
+(% &
+$str& B
+)B C
+;C D
+} 	
+if!! 
+
+(!! 
+account!! 
+.!! 
+Points!! 
+<!! 
+request!! $
+.!!$ %
+PointsToRedeem!!% 3
+)!!3 4
+{"" 	
+return## 
+Results## 
+.## 
+
+BadRequest## %
+(##% &
+$str##& :
+)##: ;
+;##; <
+}$$ 	
+account&& 
+.&& 
+Points&& 
+-=&& 
+request&& !
+.&&! "
+PointsToRedeem&&" 0
+;&&0 1
+account'' 
+.'' 
+UpdatedAtUtc'' 
+='' 
+DateTime'' '
+.''' (
+UtcNow''( .
+;''. /
+var)) 
+tx)) 
+=)) 
+new)) 
+LoyaltyTransaction)) '
+{** 	
+Id++ 
+=++ 
+Guid++ 
+.++ 
+NewGuid++ 
+(++ 
+)++ 
+,++  
+UserId,, 
+=,, 
+request,, 
+.,, 
+UserId,, #
+,,,# $
+Type-- 
+=-- "
+LoyaltyTransactionType-- )
+.--) *
+Redeem--* 0
+,--0 1
+Points.. 
+=.. 
+request.. 
+... 
+PointsToRedeem.. +
+,..+ ,
+Description// 
+=// 
+$str// +
+,//+ ,
+CreatedAtUtc00 
+=00 
+DateTime00 #
+.00# $
+UtcNow00$ *
+}11 	
+;11	 
+
+await33 
+db33 
+.33 
+LoyaltyTransactions33 $
+.33$ %
+AddAsync33% -
+(33- .
+tx33. 0
+,330 1
+ct332 4
+)334 5
+;335 6
+await44 
+db44 
+.44 
+SaveChangesAsync44 !
+(44! "
+ct44" $
+)44$ %
+;44% &
+logger55 
+.55 
+LogInformation55 
+(55 
+$str55 =
+)55= >
+;55> ?
+return77 
+Results77 
+.77 
+Ok77 
+(77 
+new77 
+{77 
+account88 
+.88 
+UserId88 
+,88 
+account99 
+.99 
+Points99 
+}:: 	
+)::	 
+
+;::
+ 
+};; 
+}<< æ
+‘C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Loyalty\Handlers\GetLoyaltyBalanceHandler.cs
+	namespace 	
+
+CampusEats
+ 
+. 
+Features 
+. 
+Loyalty %
+.% &
+Handlers& .
+;. /
+public 
+class $
+GetLoyaltyBalanceHandler %
+(% &
+CampusEatsContext& 7
+db8 :
+): ;
+{ 
+public		 
+
+async		 
+Task		 
+<		 
+IResult		 
+>		 
+Handle		 %
+(		% &$
+GetLoyaltyBalanceRequest		& >
+request		? F
+,		F G
+CancellationToken		H Y
+ct		Z \
+=		] ^
+default		_ f
+)		f g
+{
+
+ 
+var 
+account 
+= 
+await 
+db 
+. 
+LoyaltyAccounts .
+.. /
+FirstOrDefaultAsync/ B
+(B C
+aC D
+=>E G
+aH I
+.I J
+UserIdJ P
+==Q S
+requestT [
+.[ \
+UserId\ b
+,b c
+ctd f
+)f g
+;g h
+if 
+
+( 
+account 
+is 
+null 
+) 
+{ 	
+return 
+Results 
+. 
+Ok 
+( 
+new !
+{ 
+userId 
+= 
+request  
+.  !
+UserId! '
+,' (
+points 
+= 
+$num 
+, 
+totalPointsEarned !
+=" #
+$num$ %
+,% &
+currentTier 
+= 
+LoyaltyTier )
+.) *
+Bronze* 0
+,0 1
+cashbackRate 
+= 
+LoyaltyTierHelper 0
+.0 1
+GetCashbackRate1 @
+(@ A
+LoyaltyTierA L
+.L M
+BronzeM S
+)S T
+,T U
+nextTier 
+= 
+LoyaltyTier &
+.& '
+Silver' -
+,- .
+pointsToNextTier  
+=! "
+LoyaltyTierHelper# 4
+.4 5
+GetTierThreshold5 E
+(E F
+LoyaltyTierF Q
+.Q R
+SilverR X
+)X Y
+} 
+) 
+; 
+} 	
+var 
+nextTier 
+= 
+LoyaltyTierHelper (
+.( )
+GetNextTier) 4
+(4 5
+account5 <
+.< =
+CurrentTier= H
+)H I
+;I J
+var 
+pointsToNext 
+= 
+nextTier #
+.# $
+HasValue$ ,
+? 
+LoyaltyTierHelper 
+.  
+GetPointsToNextTier  3
+(3 4
+account4 ;
+.; <
+TotalPointsEarned< M
+,M N
+accountO V
+.V W
+CurrentTierW b
+)b c
+: 
+$num 
+; 
+return   
+Results   
+.   
+Ok   
+(   
+new   
+{!! 	
+userId"" 
+="" 
+request"" 
+."" 
+UserId"" #
+,""# $
+points## 
+=## 
+account## 
+.## 
+Points## #
+,### $
+totalPointsEarned$$ 
+=$$ 
+account$$  '
+.$$' (
+TotalPointsEarned$$( 9
+,$$9 :
+currentTier%% 
+=%% 
+account%% !
+.%%! "
+CurrentTier%%" -
+,%%- .
+cashbackRate&& 
+=&& 
+LoyaltyTierHelper&& ,
+.&&, -
+GetCashbackRate&&- <
+(&&< =
+account&&= D
+.&&D E
+CurrentTier&&E P
+)&&P Q
+,&&Q R
+nextTier'' 
+,'' 
+pointsToNextTier(( 
+=(( 
+pointsToNext(( +
+})) 	
+)))	 
+
+;))
+ 
+}** 
+}++ ›
 ‘C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Kitchen\Requests\UpdateOrderStatusRequest.cs
 	namespace 	
 
@@ -14902,35 +14897,7 @@ CampusEats
 
 Password 
 ) 
-; Ë
-‹C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Auth\Requests\ChangePasswordRequest.cs
-	namespace 	
-
-CampusEats
- 
-. 
-Features 
-. 
-Auth "
-." #
-Requests# +
-;+ ,
-public 
-record !
-ChangePasswordRequest #
-(# $
-Guid 
-UserId	 
-, 
-string 
-
-CurrentPassword 
-, 
-string 
-
-NewPassword 
-) 
-; ˜"
+; ˜"
 wC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Auth\JwtService.cs
 	namespace 	
 
@@ -15215,7 +15182,35 @@ WriteToken--- 7
 )--= >
 ;--> ?
 }.. 
-}// µ
+}// Ë
+‹C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Auth\Requests\ChangePasswordRequest.cs
+	namespace 	
+
+CampusEats
+ 
+. 
+Features 
+. 
+Auth "
+." #
+Requests# +
+;+ ,
+public 
+record !
+ChangePasswordRequest #
+(# $
+Guid 
+UserId	 
+, 
+string 
+
+CurrentPassword 
+, 
+string 
+
+NewPassword 
+) 
+; µ
 ‹C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Auth\Handlers\ChangePasswordHandler.cs
 	namespace 	
 
@@ -15363,7 +15358,7 @@ BadRequest %
 )K L
 ;L M
 } 
-} ğ™
+} şª
 mC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\EndpointMapper.cs
 	namespace 	
 
@@ -15437,214 +15432,218 @@ CampusEats
 )$$ 
 ;$$  
 }%% 
-private'' 
-static'' 
-void'' 
-MapMenuEndpoints'' (
-(''( )
-WebApplication'') 7
-app''8 ;
-)''; <
-{(( 
-var)) 
-publicGroup)) 
-=)) 
-app)) 
-.)) 
-MapGroup)) &
-())& '
-$str))' 2
-)))2 3
-.))3 4
-WithTags))4 <
-())< =
-$str))= C
-)))C D
-;))D E
-var** 
+private'' 
+const'' 
+string'' 
+	AdminRole'' "
+=''# $
+$str''% ,
+;'', -
+private(( 
+const(( 
+string(( 
 
-adminGroup** 
-=** 
-app** 
-.** 
-MapGroup** %
-(**% &
-$str**& 1
-)**1 2
-.**2 3
-WithTags**3 ;
-(**; <
-$str**< B
-)**B C
-.++  
-RequireAuthorization++ !
-(++! "
-p++" #
-=>++$ &
-p++' (
-.++( )
-RequireRole++) 4
-(++4 5
-$str++5 <
-)++< =
-)++= >
-;++> ?
+ClientRole(( #
+=(($ %
+$str((& .
+;((. /
+private)) 
+const)) 
+string)) 
+KitchenRole)) $
+=))% &
+$str))' 0
+;))0 1
+private++ 
+const++ 
+string++ !
+IdGuidRouteConstraint++ .
+=++/ 0
+$str++1 <
+;++< =
+private-- 
+const-- 
+string-- 
+	ClientTag-- "
+=--# $
+$str--% -
+;--- .
+private.. 
+const.. 
+string.. 
+OrderTag.. !
+=.." #
+$str..$ ,
+;.., -
+private// 
+static// 
+void// 
+MapMenuEndpoints// (
+(//( )
+WebApplication//) 7
+app//8 ;
+)//; <
+{00 
+var11 
+publicGroup11 
+=11 
+app11 
+.11 
+MapGroup11 &
+(11& '
+$str11' 2
+)112 3
+.113 4
+WithTags114 <
+(11< =
+$str11= C
+)11C D
+;11D E
+var22 
 
-adminGroup.. 
-... 
-MapPost.. 
-(.. 
-$str.. 
-,.. 
-async..  %
-(..& '
-CreateMenuRequest..' 8
-request..9 @
-,..@ A
-CreateMenuHandler..B S
-handler..T [
-)..[ \
-=>..] _
-await// 
-handler// 
-.// 
-Handle// $
-(//$ %
-request//% ,
-)//, -
-)//- .
-.00 
-WithName00 
-(00 
-$str00 "
-)00" #
-.11 
-Produces11 
-(11 
-$num11 
-)11 
-.22 
-Produces22 
-(22 
-$num22 
-)22 
-.33 
-Produces33 
-(33 
-$num33 
-)33 
-.44 
-Produces44 
-(44 
-$num44 
-)44 
-;44 
+adminGroup22 
+=22 
+app22 
+.22 
+MapGroup22 %
+(22% &
+$str22& 1
+)221 2
+.222 3
+WithTags223 ;
+(22; <
+$str22< B
+)22B C
+.33  
+RequireAuthorization33 !
+(33! "
+p33" #
+=>33$ &
+p33' (
+.33( )
+RequireRole33) 4
+(334 5
+	AdminRole335 >
+)33> ?
+)33? @
+;33@ A
 
-adminGroup88 
-.88 
-MapPut88 
-(88 
-$str88 &
-,88& '
-async88( -
-(88. /
-Guid88/ 3
-id884 6
-,886 7
-UpdateMenuRequest888 I
-request88J Q
-,88Q R
-UpdateMenuHandler88S d
-handler88e l
-)88l m
-=>88n p
-{99 
-var;; 
-requestWithId;; !
-=;;" #
-request;;$ +
-with;;, 0
-{;;1 2
-Id;;3 5
-=;;6 7
-id;;8 :
-};;; <
-;;;< =
-return<< 
-await<< 
-handler<< $
-.<<$ %
-Handle<<% +
-(<<+ ,
-requestWithId<<, 9
-)<<9 :
-;<<: ;
-}== 
-)== 
-.>> 
-WithName>> 
-(>> 
-$str>> "
-)>>" #
-.?? 
-Produces?? 
-(?? 
-$num?? 
-)?? 
-.@@ 
-Produces@@ 
-(@@ 
-$num@@ 
-)@@ 
-.AA 
-ProducesAA 
-(AA 
-$numAA 
-)AA 
-.BB 
-ProducesBB 
-(BB 
-$numBB 
-)BB 
-.CC 
-ProducesCC 
-(CC 
-$numCC 
-)CC 
-;CC 
+adminGroup66 
+.66 
+MapPost66 
+(66 
+$str66 
+,66 
+async66  %
+(66& '
+CreateMenuRequest66' 8
+request669 @
+,66@ A
+CreateMenuHandler66B S
+handler66T [
+)66[ \
+=>66] _
+await77 
+handler77 
+.77 
+Handle77 $
+(77$ %
+request77% ,
+)77, -
+)77- .
+.88 
+WithName88 
+(88 
+$str88 "
+)88" #
+.99 
+Produces99 
+(99 
+$num99 
+)99 
+.:: 
+Produces:: 
+(:: 
+$num:: 
+):: 
+.;; 
+Produces;; 
+(;; 
+$num;; 
+);; 
+.<< 
+Produces<< 
+(<< 
+$num<< 
+)<< 
+;<< 
 
-adminGroupGG 
-.GG 
-	MapDeleteGG 
-(GG 
-$strGG )
-,GG) *
-asyncGG+ 0
-(GG1 2
-GuidGG2 6
-idGG7 9
-,GG9 :
-DeleteMenuHandlerGG; L
-handlerGGM T
-)GGT U
-=>GGV X
-awaitHH 
-handlerHH 
-.HH 
-HandleHH $
-(HH$ %
-newHH% (
-DeleteMenuRequestHH) :
-(HH: ;
-idHH; =
-)HH= >
-)HH> ?
-)HH? @
+adminGroup@@ 
+.@@ 
+MapPut@@ 
+(@@ 
+$"@@ 
+$str@@ 
+{@@ !
+IdGuidRouteConstraint@@ 3
+}@@3 4
+"@@4 5
+,@@5 6
+async@@7 <
+(@@= >
+Guid@@> B
+id@@C E
+,@@E F
+UpdateMenuRequest@@G X
+request@@Y `
+,@@` a
+UpdateMenuHandler@@b s
+handler@@t {
+)@@{ |
+=>@@} 
+{AA 
+varCC 
+requestWithIdCC !
+=CC" #
+requestCC$ +
+withCC, 0
+{CC1 2
+IdCC3 5
+=CC6 7
+idCC8 :
+}CC; <
+;CC< =
+returnDD 
+awaitDD 
+handlerDD $
+.DD$ %
+HandleDD% +
+(DD+ ,
+requestWithIdDD, 9
+)DD9 :
+;DD: ;
+}EE 
+)EE 
+.FF 
+WithNameFF 
+(FF 
+$strFF "
+)FF" #
+.GG 
+ProducesGG 
+(GG 
+$numGG 
+)GG 
+.HH 
+ProducesHH 
+(HH 
+$numHH 
+)HH 
 .II 
-WithNameII 
+ProducesII 
 (II 
-$strII "
-)II" #
+$numII 
+)II 
 .JJ 
 ProducesJJ 
 (JJ 
@@ -15655,381 +15654,395 @@ adminGroupGG 
 (KK 
 $numKK 
 )KK 
-.LL 
-ProducesLL 
-(LL 
-$numLL 
-)LL 
-.MM 
-ProducesMM 
-(MM 
-$numMM 
-)MM 
-;MM 
-publicGroupQQ 
-.QQ 
-MapGetQQ 
-(QQ 
-$strQQ 
-,QQ 
-asyncQQ  %
-(QQ& '
-CampusEatsContextQQ' 8
-dbQQ9 ;
-)QQ; <
-=>QQ= ?
-{RR 
-varSS 
-menusSS 
-=SS 
-awaitSS !
-dbSS" $
-.SS$ %
-MenuSS% )
-.SS) *
-ToListAsyncSS* 5
-(SS5 6
-)SS6 7
-;SS7 8
-returnTT 
-ResultsTT 
-.TT 
-OkTT !
-(TT! "
-menusTT" '
-)TT' (
-;TT( )
-}UU 
-)UU 
-.VV 
-WithNameVV 
-(VV 
-$strVV #
-)VV# $
-.WW 
-ProducesWW 
-(WW 
-$numWW 
-)WW 
-;WW 
-publicGroup[[ 
-.[[ 
-MapGet[[ 
-([[ 
-$str[[ '
-,[[' (
-async[[) .
-([[/ 0
-Guid[[0 4
-id[[5 7
-,[[7 8
-CampusEatsContext[[9 J
-db[[K M
-)[[M N
-=>[[O Q
-{\\ 
-var]] 
-menu]] 
-=]] 
-await]]  
-db]]! #
-.]]# $
-Menu]]$ (
-.]]( )
-	FindAsync]]) 2
-(]]2 3
-id]]3 5
-)]]5 6
-;]]6 7
-return^^ 
-menu^^ 
-is^^ 
-not^^ "
-null^^# '
-?^^( )
-Results^^* 1
-.^^1 2
-Ok^^2 4
-(^^4 5
-menu^^5 9
-)^^9 :
-:^^; <
-Results^^= D
-.^^D E
-NotFound^^E M
-(^^M N
-)^^N O
-;^^O P
-}__ 
-)__ 
-.`` 
-WithName`` 
-(`` 
-$str`` #
-)``# $
-.aa 
-Producesaa 
-(aa 
-$numaa 
-)aa 
-.bb 
-Producesbb 
-(bb 
-$numbb 
-)bb 
-;bb 
-}cc 
-privateee 
-staticee 
-voidee !
-MapMenuItemsEndpointsee -
-(ee- .
-WebApplicationee. <
-appee= @
-)ee@ A
-{ff 
-vargg 
-publicGroupgg 
-=gg 
-appgg 
-.gg 
-MapGroupgg &
-(gg& '
-$strgg' 8
-)gg8 9
-.gg9 :
-WithTagsgg: B
-(ggB C
-$strggC N
-)ggN O
-;ggO P
-varhh 
+;KK 
 
-adminGrouphh 
-=hh 
-apphh 
-.hh 
-MapGrouphh %
-(hh% &
-$strhh& 7
-)hh7 8
-.hh8 9
-WithTagshh9 A
-(hhA B
-$strhhB M
-)hhM N
-.ii  
-RequireAuthorizationii !
-(ii! "
-pii" #
-=>ii$ &
-pii' (
-.ii( )
-RequireRoleii) 4
-(ii4 5
-$strii5 <
-)ii< =
-)ii= >
-;ii> ?
+adminGroupOO 
+.OO 
+	MapDeleteOO 
+(OO 
+$"OO 
+$strOO  
+{OO  !!
+IdGuidRouteConstraintOO! 6
+}OO6 7
+"OO7 8
+,OO8 9
+asyncOO: ?
+(OO@ A
+GuidOOA E
+idOOF H
+,OOH I
+DeleteMenuHandlerOOJ [
+handlerOO\ c
+)OOc d
+=>OOe g
+awaitPP 
+handlerPP 
+.PP 
+HandlePP $
+(PP$ %
+newPP% (
+DeleteMenuRequestPP) :
+(PP: ;
+idPP; =
+)PP= >
+)PP> ?
+)PP? @
+.QQ 
+WithNameQQ 
+(QQ 
+$strQQ "
+)QQ" #
+.RR 
+ProducesRR 
+(RR 
+$numRR 
+)RR 
+.SS 
+ProducesSS 
+(SS 
+$numSS 
+)SS 
+.TT 
+ProducesTT 
+(TT 
+$numTT 
+)TT 
+.UU 
+ProducesUU 
+(UU 
+$numUU 
+)UU 
+;UU 
+publicGroupYY 
+.YY 
+MapGetYY 
+(YY 
+$strYY 
+,YY 
+asyncYY  %
+(YY& '
+CampusEatsContextYY' 8
+dbYY9 ;
+)YY; <
+=>YY= ?
+{ZZ 
+var[[ 
+menus[[ 
+=[[ 
+await[[ !
+db[[" $
+.[[$ %
+Menu[[% )
+.[[) *
+ToListAsync[[* 5
+([[5 6
+)[[6 7
+;[[7 8
+return\\ 
+Results\\ 
+.\\ 
+Ok\\ !
+(\\! "
+menus\\" '
+)\\' (
+;\\( )
+}]] 
+)]] 
+.^^ 
+WithName^^ 
+(^^ 
+$str^^ #
+)^^# $
+.__ 
+Produces__ 
+(__ 
+$num__ 
+)__ 
+;__ 
+publicGroupcc 
+.cc 
+MapGetcc 
+(cc 
+$"cc 
+$strcc 
+{cc !
+IdGuidRouteConstraintcc 4
+}cc4 5
+"cc5 6
+,cc6 7
+asynccc8 =
+(cc> ?
+Guidcc? C
+idccD F
+,ccF G
+CampusEatsContextccH Y
+dbccZ \
+)cc\ ]
+=>cc^ `
+{dd 
+varee 
+menuee 
+=ee 
+awaitee  
+dbee! #
+.ee# $
+Menuee$ (
+.ee( )
+	FindAsyncee) 2
+(ee2 3
+idee3 5
+)ee5 6
+;ee6 7
+returnff 
+menuff 
+isff 
+notff "
+nullff# '
+?ff( )
+Resultsff* 1
+.ff1 2
+Okff2 4
+(ff4 5
+menuff5 9
+)ff9 :
+:ff; <
+Resultsff= D
+.ffD E
+NotFoundffE M
+(ffM N
+)ffN O
+;ffO P
+}gg 
+)gg 
+.hh 
+WithNamehh 
+(hh 
+$strhh #
+)hh# $
+.ii 
+Producesii 
+(ii 
+$numii 
+)ii 
+.jj 
+Producesjj 
+(jj 
+$numjj 
+)jj 
+;jj 
+}kk 
+privatemm 
+staticmm 
+voidmm !
+MapMenuItemsEndpointsmm -
+(mm- .
+WebApplicationmm. <
+appmm= @
+)mm@ A
+{nn 
+varoo 
+publicGroupoo 
+=oo 
+appoo 
+.oo 
+MapGroupoo &
+(oo& '
+$stroo' 8
+)oo8 9
+.oo9 :
+WithTagsoo: B
+(ooB C
+$strooC N
+)ooN O
+;ooO P
+varpp 
 
-adminGroupll 
-.ll 
-MapPostll 
-(ll 
-$strll 
-,ll 
-asyncll  %
-(ll& '
-CreateItemRequestll' 8
-requestll9 @
-,ll@ A
-CreateItemHandlerllB S
-handlerllT [
-)ll[ \
-=>ll] _
-awaitmm 
-handlermm 
-.mm 
-Handlemm $
-(mm$ %
-requestmm% ,
-)mm, -
-)mm- .
-.nn 
-WithNamenn 
-(nn 
-$strnn &
-)nn& '
-.oo 
-Producesoo 
-(oo 
-$numoo 
-)oo 
-.pp 
-Producespp 
-(pp 
-$numpp 
-)pp 
-.qq 
-Producesqq 
-(qq 
-$numqq 
-)qq 
-.rr 
-Producesrr 
-(rr 
-$numrr 
-)rr 
-;rr 
+adminGrouppp 
+=pp 
+apppp 
+.pp 
+MapGrouppp %
+(pp% &
+$strpp& 7
+)pp7 8
+.pp8 9
+WithTagspp9 A
+(ppA B
+$strppB M
+)ppM N
+.qq  
+RequireAuthorizationqq !
+(qq! "
+pqq" #
+=>qq$ &
+pqq' (
+.qq( )
+RequireRoleqq) 4
+(qq4 5
+	AdminRoleqq5 >
+)qq> ?
+)qq? @
+;qq@ A
 
-adminGroupvv 
-.vv 
-MapPutvv 
-(vv 
-$strvv &
-,vv& '
-asyncvv( -
-(vv. /
-Guidvv/ 3
-idvv4 6
-,vv6 7
-UpdateItemRequestvv8 I
-requestvvJ Q
-,vvQ R
-UpdateItemHandlervvS d
-handlervve l
-)vvl m
-=>vvn p
-{ww 
-varyy 
-requestWithIdyy !
-=yy" #
-requestyy$ +
-withyy, 0
-{yy1 2
-Idyy3 5
-=yy6 7
-idyy8 :
-}yy; <
-;yy< =
-returnzz 
-awaitzz 
-handlerzz $
-.zz$ %
-Handlezz% +
-(zz+ ,
-requestWithIdzz, 9
-)zz9 :
-;zz: ;
-}{{ 
-){{ 
-.|| 
-WithName|| 
-(|| 
-$str|| &
-)||& '
-.}} 
-Produces}} 
-(}} 
-$num}} 
-)}} 
-.~~ 
-Produces~~ 
-(~~ 
-$num~~ 
-)~~ 
-. 
-Produces 
-( 
-$num 
-) 
-.
-€€ 
-Produces
-€€ 
-(
-€€ 
-$num
-€€ 
-)
-€€ 
-.
- 
-Produces
- 
-(
- 
-$num
- 
-)
- 
+adminGrouptt 
+.tt 
+MapPosttt 
+(tt 
+$strtt 
+,tt 
+asynctt  %
+(tt& '
+CreateItemRequesttt' 8
+requesttt9 @
+,tt@ A
+CreateItemHandlerttB S
+handlerttT [
+)tt[ \
+=>tt] _
+awaituu 
+handleruu 
+.uu 
+Handleuu $
+(uu$ %
+requestuu% ,
+)uu, -
+)uu- .
+.vv 
+WithNamevv 
+(vv 
+$strvv &
+)vv& '
+.ww 
+Producesww 
+(ww 
+$numww 
+)ww 
+.xx 
+Producesxx 
+(xx 
+$numxx 
+)xx 
+.yy 
+Producesyy 
+(yy 
+$numyy 
+)yy 
+.zz 
+Produceszz 
+(zz 
+$numzz 
+)zz 
+;zz 
+
+adminGroup~~ 
+.~~ 
+MapPut~~ 
+(~~ 
+$"~~ 
+$str~~ 
+{~~ !
+IdGuidRouteConstraint~~ 3
+}~~3 4
+"~~4 5
+,~~5 6
+async~~7 <
+(~~= >
+Guid~~> B
+id~~C E
+,~~E F
+UpdateItemRequest~~G X
+request~~Y `
+,~~` a
+UpdateItemHandler~~b s
+handler~~t {
+)~~{ |
+=>~~} 
+{ 
+var
+ 
+requestWithId
+ !
+=
+" #
+request
+$ +
+with
+, 0
+{
+1 2
+Id
+3 5
+=
+6 7
+id
+8 :
+}
+; <
 ;
- 
-
-adminGroup
-…… 
-.
-…… 
-	MapDelete
-…… 
-(
-…… 
-$str
-…… )
-,
-……) *
-async
-……+ 0
-(
-……1 2
-Guid
-……2 6
-id
-……7 9
-,
-……9 :
-DeleteItemHandler
-……; L
-handler
-……M T
-)
-……T U
-=>
-……V X
+< =
+return
+‚‚ 
 await
-†† 
+‚‚ 
 handler
-†† 
+‚‚ $
 .
-†† 
+‚‚$ %
 Handle
-†† $
+‚‚% +
 (
-††$ %
-new
-††% (
-DeleteItemRequest
-††) :
+‚‚+ ,
+requestWithId
+‚‚, 9
+)
+‚‚9 :
+;
+‚‚: ;
+}
+ƒƒ 
+)
+ƒƒ 
+.
+„„ 
+WithName
+„„ 
 (
-††: ;
-id
-††; =
+„„ 
+$str
+„„ &
 )
-††= >
+„„& '
+.
+…… 
+Produces
+…… 
+(
+…… 
+$num
+…… 
 )
-††> ?
+…… 
+.
+†† 
+Produces
+†† 
+(
+†† 
+$num
+†† 
 )
-††? @
+†† 
 .
 ‡‡ 
-WithName
+Produces
 ‡‡ 
 (
 ‡‡ 
-$str
-‡‡ &
+$num
+‡‡ 
 )
-‡‡& '
+‡‡ 
 .
 ˆˆ 
 Produces
@@ -16050,699 +16063,711 @@ adminGroup
 ‰‰ 
 )
 ‰‰ 
-.
-ŠŠ 
-Produces
-ŠŠ 
-(
-ŠŠ 
-$num
-ŠŠ 
-)
-ŠŠ 
-.
-‹‹ 
-Produces
-‹‹ 
-(
-‹‹ 
-$num
-‹‹ 
-)
-‹‹ 
 ;
-‹‹ 
-publicGroup
- 
-.
- 
-MapGet
- 
-(
- 
-$str
- 
-,
- 
-async
-  %
-(
-& '
-CampusEatsContext
-' 8
-db
-9 ;
-)
-; <
-=>
-= ?
-{
- 
-var
-‘‘ 
-items
-‘‘ 
-=
-‘‘ 
-await
-‘‘ !
-db
-‘‘" $
-.
-‘‘$ %
-MenuItem
-‘‘% -
-.
-‘‘- .
-ToListAsync
-‘‘. 9
-(
-‘‘9 :
-)
-‘‘: ;
-;
-‘‘; <
-return
-’’ 
-Results
-’’ 
-.
-’’ 
-Ok
-’’ !
-(
-’’! "
-items
-’’" '
-)
-’’' (
-;
-’’( )
-}
-““ 
-)
-““ 
-.
-”” 
-WithName
-”” 
-(
-”” 
-$str
-”” '
-)
-””' (
-.
-•• 
-Produces
-•• 
-(
-•• 
-$num
-•• 
-)
-•• 
-;
-•• 
-publicGroup
-™™ 
-.
-™™ 
-MapGet
-™™ 
-(
-™™ 
-$str
-™™ '
-,
-™™' (
-async
-™™) .
-(
-™™/ 0
-Guid
-™™0 4
-id
-™™5 7
-,
-™™7 8
-CampusEatsContext
-™™9 J
-db
-™™K M
-)
-™™M N
-=>
-™™O Q
-{
-šš 
-var
-›› 
-item
-›› 
-=
-›› 
-await
-››  
-db
-››! #
-.
-››# $
-MenuItem
-››$ ,
-.
-››, -
-	FindAsync
-››- 6
-(
-››6 7
-id
-››7 9
-)
-››9 :
-;
-››: ;
-return
-œœ 
-item
-œœ 
-is
-œœ 
-not
-œœ "
-null
-œœ# '
-?
-œœ( )
-Results
-œœ* 1
-.
-œœ1 2
-Ok
-œœ2 4
-(
-œœ4 5
-item
-œœ5 9
-)
-œœ9 :
-:
-œœ; <
-Results
-œœ= D
-.
-œœD E
-NotFound
-œœE M
-(
-œœM N
-)
-œœN O
-;
-œœO P
-}
- 
-)
- 
-.
- 
-WithName
- 
-(
- 
-$str
- '
-)
-' (
-.
-ŸŸ 
-Produces
-ŸŸ 
-(
-ŸŸ 
-$num
-ŸŸ 
-)
-ŸŸ 
-.
-   
-Produces
-   
-(
-   
-$num
-   
-)
-   
-;
-   
-}
-¡¡ 
-private
-££ 
-static
-££ 
-void
-££ 
-MapOrderEndpoints
-££ )
-(
-££) *
-WebApplication
-££* 8
-app
-££9 <
-)
-££< =
-{
-¤¤ 
-var
-¥¥ 
-publicGroup
-¥¥ 
-=
-¥¥ 
-app
-¥¥ 
-.
-¥¥ 
-MapGroup
-¥¥ &
-(
-¥¥& '
-$str
-¥¥' 4
-)
-¥¥4 5
-.
-¥¥5 6
-WithTags
-¥¥6 >
-(
-¥¥> ?
-$str
-¥¥? G
-)
-¥¥G H
-;
-¥¥H I
-var
-¦¦ 
+‰‰ 
 
 adminGroup
-¦¦ 
-=
-¦¦ 
-app
-¦¦ 
+ 
 .
-¦¦ 
-MapGroup
-¦¦ %
+ 
+	MapDelete
+ 
 (
-¦¦% &
+ 
+$"
+ 
 $str
-¦¦& 3
-)
-¦¦3 4
-.
-¦¦4 5
-WithTags
-¦¦5 =
-(
-¦¦= >
-$str
-¦¦> F
-)
-¦¦F G
-.
-§§ "
-RequireAuthorization
-§§ !
-(
-§§! "
-p
-§§" #
-=>
-§§$ &
-p
-§§' (
-.
-§§( )
-RequireRole
-§§) 4
-(
-§§4 5
-$str
-§§5 <
-)
-§§< =
-)
-§§= >
-;
-§§> ?
-var
-¨¨ 
-clientGroup
-¨¨ 
-=
-¨¨ 
-app
-¨¨ 
-.
-¨¨ 
-MapGroup
-¨¨ &
-(
-¨¨& '
-$str
-¨¨' 4
-)
-¨¨4 5
-.
-¨¨5 6
-WithTags
-¨¨6 >
-(
-¨¨> ?
-$str
-¨¨? G
-)
-¨¨G H
-.
-©© "
-RequireAuthorization
-©© !
-(
-©©! "
-p
-©©" #
-=>
-©©$ &
-p
-©©' (
-.
-©©( )
-RequireRole
-©©) 4
-(
-©©4 5
-$str
-©©5 =
-,
-©©= >
-$str
-©©? F
-)
-©©F G
-)
-©©G H
-;
-©©H I
-clientGroup
-¬¬ 
-.
-¬¬ 
-MapPost
-¬¬ 
-(
-¬¬ 
-$str
-¬¬ 
-,
-¬¬  
-async
-¬¬! &
-(
-¬¬' (
-PlaceOrderRequest
-¬¬( 9
-request
-¬¬: A
-,
-¬¬A B
-PlaceOrderHandler
-¬¬C T
-handler
-¬¬U \
-)
-¬¬\ ]
-=>
-¬¬^ `
-await
-­­ 
-handler
-­­ 
-.
-­­ 
-Handle
-­­ $
-(
-­­$ %
-request
-­­% ,
-)
-­­, -
-)
-­­- .
-.
-®® 
-WithName
-®® 
-(
-®® 
-$str
-®® "
-)
-®®" #
-.
-¯¯ 
-Produces
-¯¯ 
-(
-¯¯ 
-$num
-¯¯ 
-)
-¯¯ 
-.
-°° 
-Produces
-°° 
-(
-°° 
-$num
-°° 
-)
-°° 
-.
-±± 
-Produces
-±± 
-(
-±± 
-$num
-±± 
-)
-±± 
-.
-²² 
-Produces
-²² 
-(
-²² 
-$num
-²² 
-)
-²² 
-;
-²² 
-
-adminGroup
-¶¶ 
-.
-¶¶ 
-MapGet
-¶¶ 
-(
-¶¶ 
-$str
-¶¶ 
-,
-¶¶ 
-async
-¶¶ $
-(
-¶¶% &
-CampusEatsContext
-¶¶& 7
-db
-¶¶8 :
-)
-¶¶: ;
-=>
-¶¶< >
+  
 {
-·· 	
-var
-¸¸ 
-orders
-¸¸ 
-=
-¸¸ 
-await
-¸¸ 
-db
-¸¸ !
-.
-¸¸! "
-Order
-¸¸" '
-.
-¹¹ 
-OrderByDescending
-¹¹ "
-(
-¹¹" #
-o
-¹¹# $
-=>
-¹¹% '
-o
-¹¹( )
-.
-¹¹) *
-	CreatedAt
-¹¹* 3
-)
-¹¹3 4
-.
-ºº 
-ToListAsync
-ºº 
-(
-ºº 
-)
-ºº 
-;
-ºº 
-return
-»» 
-Results
-»» 
-.
-»» 
-Ok
-»» 
-(
-»» 
-orders
-»» $
-)
-»»$ %
-;
-»»% &
+  !#
+IdGuidRouteConstraint
+! 6
 }
-¼¼ 	
-)
-¼¼	 
-
-.
-½½ 
-WithName
-½½ 
-(
-½½ 
-$str
-½½ $
-)
-½½$ %
-.
-¾¾ 
-Produces
-¾¾ 
-(
-¾¾ 
-$num
-¾¾ 
-)
-¾¾ 
-.
-¿¿ 
-Produces
-¿¿ 
-(
-¿¿ 
-$num
-¿¿ 
-)
-¿¿ 
-.
-ÀÀ 
-Produces
-ÀÀ 
-(
-ÀÀ 
-$num
-ÀÀ 
-)
-ÀÀ 
-;
-ÀÀ 
-publicGroup
-ÃÃ 
-.
-ÃÃ 
-MapGet
-ÃÃ 
-(
-ÃÃ 
-$str
-ÃÃ '
+6 7
+"
+7 8
 ,
-ÃÃ' (
+8 9
 async
-ÃÃ) .
+: ?
 (
-ÃÃ/ 0
+@ A
 Guid
-ÃÃ0 4
+A E
 id
-ÃÃ5 7
+F H
 ,
-ÃÃ7 8!
-GetOrderByIdHandler
-ÃÃ9 L
+H I
+DeleteItemHandler
+J [
 handler
-ÃÃM T
+\ c
 )
-ÃÃT U
+c d
 =>
-ÃÃV X
+e g
 await
-ÄÄ 
+ 
 handler
-ÄÄ 
+ 
 .
-ÄÄ 
+ 
 Handle
-ÄÄ $
+ $
 (
-ÄÄ$ %
+$ %
 new
-ÄÄ% (!
-GetOrderByIdRequest
-ÄÄ) <
+% (
+DeleteItemRequest
+) :
 (
-ÄÄ< =
+: ;
 id
-ÄÄ= ?
+; =
 )
-ÄÄ? @
+= >
 )
-ÄÄ@ A
+> ?
 )
-ÄÄA B
+? @
+.
+ 
+WithName
+ 
+(
+ 
+$str
+ &
+)
+& '
+.
+ 
+Produces
+ 
+(
+ 
+$num
+ 
+)
+ 
+.
+‘‘ 
+Produces
+‘‘ 
+(
+‘‘ 
+$num
+‘‘ 
+)
+‘‘ 
+.
+’’ 
+Produces
+’’ 
+(
+’’ 
+$num
+’’ 
+)
+’’ 
+.
+““ 
+Produces
+““ 
+(
+““ 
+$num
+““ 
+)
+““ 
+;
+““ 
+publicGroup
+—— 
+.
+—— 
+MapGet
+—— 
+(
+—— 
+$str
+—— 
+,
+—— 
+async
+——  %
+(
+——& '
+CampusEatsContext
+——' 8
+db
+——9 ;
+)
+——; <
+=>
+——= ?
+{
+˜˜ 
+var
+™™ 
+items
+™™ 
+=
+™™ 
+await
+™™ !
+db
+™™" $
+.
+™™$ %
+MenuItem
+™™% -
+.
+™™- .
+ToListAsync
+™™. 9
+(
+™™9 :
+)
+™™: ;
+;
+™™; <
+return
+šš 
+Results
+šš 
+.
+šš 
+Ok
+šš !
+(
+šš! "
+items
+šš" '
+)
+šš' (
+;
+šš( )
+}
+›› 
+)
+›› 
+.
+œœ 
+WithName
+œœ 
+(
+œœ 
+$str
+œœ '
+)
+œœ' (
+.
+ 
+Produces
+ 
+(
+ 
+$num
+ 
+)
+ 
+;
+ 
+publicGroup
+¡¡ 
+.
+¡¡ 
+MapGet
+¡¡ 
+(
+¡¡ 
+$"
+¡¡ 
+$str
+¡¡ 
+{
+¡¡ #
+IdGuidRouteConstraint
+¡¡ 4
+}
+¡¡4 5
+"
+¡¡5 6
+,
+¡¡6 7
+async
+¡¡8 =
+(
+¡¡> ?
+Guid
+¡¡? C
+id
+¡¡D F
+,
+¡¡F G
+CampusEatsContext
+¡¡H Y
+db
+¡¡Z \
+)
+¡¡\ ]
+=>
+¡¡^ `
+{
+¢¢ 
+var
+££ 
+item
+££ 
+=
+££ 
+await
+££  
+db
+££! #
+.
+££# $
+MenuItem
+££$ ,
+.
+££, -
+	FindAsync
+££- 6
+(
+££6 7
+id
+££7 9
+)
+££9 :
+;
+££: ;
+return
+¤¤ 
+item
+¤¤ 
+is
+¤¤ 
+not
+¤¤ "
+null
+¤¤# '
+?
+¤¤( )
+Results
+¤¤* 1
+.
+¤¤1 2
+Ok
+¤¤2 4
+(
+¤¤4 5
+item
+¤¤5 9
+)
+¤¤9 :
+:
+¤¤; <
+Results
+¤¤= D
+.
+¤¤D E
+NotFound
+¤¤E M
+(
+¤¤M N
+)
+¤¤N O
+;
+¤¤O P
+}
+¥¥ 
+)
+¥¥ 
+.
+¦¦ 
+WithName
+¦¦ 
+(
+¦¦ 
+$str
+¦¦ '
+)
+¦¦' (
+.
+§§ 
+Produces
+§§ 
+(
+§§ 
+$num
+§§ 
+)
+§§ 
+.
+¨¨ 
+Produces
+¨¨ 
+(
+¨¨ 
+$num
+¨¨ 
+)
+¨¨ 
+;
+¨¨ 
+}
+©© 
+private
+«« 
+static
+«« 
+void
+«« 
+MapOrderEndpoints
+«« )
+(
+««) *
+WebApplication
+««* 8
+app
+««9 <
+)
+««< =
+{
+¬¬ 
+var
+­­ 
+publicGroup
+­­ 
+=
+­­ 
+app
+­­ 
+.
+­­ 
+MapGroup
+­­ &
+(
+­­& '
+$str
+­­' 4
+)
+­­4 5
+.
+­­5 6
+WithTags
+­­6 >
+(
+­­> ?
+OrderTag
+­­? G
+)
+­­G H
+;
+­­H I
+var
+®® 
+
+adminGroup
+®® 
+=
+®® 
+app
+®® 
+.
+®® 
+MapGroup
+®® %
+(
+®®% &
+$str
+®®& 3
+)
+®®3 4
+.
+®®4 5
+WithTags
+®®5 =
+(
+®®= >
+OrderTag
+®®> F
+)
+®®F G
+.
+¯¯ "
+RequireAuthorization
+¯¯ !
+(
+¯¯! "
+p
+¯¯" #
+=>
+¯¯$ &
+p
+¯¯' (
+.
+¯¯( )
+RequireRole
+¯¯) 4
+(
+¯¯4 5
+	AdminRole
+¯¯5 >
+)
+¯¯> ?
+)
+¯¯? @
+;
+¯¯@ A
+var
+°° 
+clientGroup
+°° 
+=
+°° 
+app
+°° 
+.
+°° 
+MapGroup
+°° &
+(
+°°& '
+$str
+°°' 4
+)
+°°4 5
+.
+°°5 6
+WithTags
+°°6 >
+(
+°°> ?
+OrderTag
+°°? G
+)
+°°G H
+.
+±± "
+RequireAuthorization
+±± !
+(
+±±! "
+p
+±±" #
+=>
+±±$ &
+p
+±±' (
+.
+±±( )
+RequireRole
+±±) 4
+(
+±±4 5
+
+ClientRole
+±±5 ?
+,
+±±? @
+	AdminRole
+±±A J
+)
+±±J K
+)
+±±K L
+;
+±±L M
+clientGroup
+´´ 
+.
+´´ 
+MapPost
+´´ 
+(
+´´ 
+$str
+´´ 
+,
+´´  
+async
+´´! &
+(
+´´' (
+PlaceOrderRequest
+´´( 9
+request
+´´: A
+,
+´´A B
+PlaceOrderHandler
+´´C T
+handler
+´´U \
+)
+´´\ ]
+=>
+´´^ `
+await
+µµ 
+handler
+µµ 
+.
+µµ 
+Handle
+µµ $
+(
+µµ$ %
+request
+µµ% ,
+)
+µµ, -
+)
+µµ- .
+.
+¶¶ 
+WithName
+¶¶ 
+(
+¶¶ 
+$str
+¶¶ "
+)
+¶¶" #
+.
+·· 
+Produces
+·· 
+(
+·· 
+$num
+·· 
+)
+·· 
+.
+¸¸ 
+Produces
+¸¸ 
+(
+¸¸ 
+$num
+¸¸ 
+)
+¸¸ 
+.
+¹¹ 
+Produces
+¹¹ 
+(
+¹¹ 
+$num
+¹¹ 
+)
+¹¹ 
+.
+ºº 
+Produces
+ºº 
+(
+ºº 
+$num
+ºº 
+)
+ºº 
+;
+ºº 
+
+adminGroup
+¾¾ 
+.
+¾¾ 
+MapGet
+¾¾ 
+(
+¾¾ 
+$str
+¾¾ 
+,
+¾¾ 
+async
+¾¾ $
+(
+¾¾% &
+CampusEatsContext
+¾¾& 7
+db
+¾¾8 :
+)
+¾¾: ;
+=>
+¾¾< >
+{
+¿¿ 	
+var
+ÀÀ 
+orders
+ÀÀ 
+=
+ÀÀ 
+await
+ÀÀ 
+db
+ÀÀ !
+.
+ÀÀ! "
+Order
+ÀÀ" '
+.
+ÁÁ 
+OrderByDescending
+ÁÁ "
+(
+ÁÁ" #
+o
+ÁÁ# $
+=>
+ÁÁ% '
+o
+ÁÁ( )
+.
+ÁÁ) *
+	CreatedAt
+ÁÁ* 3
+)
+ÁÁ3 4
+.
+ÂÂ 
+ToListAsync
+ÂÂ 
+(
+ÂÂ 
+)
+ÂÂ 
+;
+ÂÂ 
+return
+ÃÃ 
+Results
+ÃÃ 
+.
+ÃÃ 
+Ok
+ÃÃ 
+(
+ÃÃ 
+orders
+ÃÃ $
+)
+ÃÃ$ %
+;
+ÃÃ% &
+}
+ÄÄ 	
+)
+ÄÄ	 
+
 .
 ÅÅ 
 WithName
@@ -16783,809 +16808,842 @@ adminGroup
 ÈÈ 
 )
 ÈÈ 
-.
-ÉÉ 
-Produces
-ÉÉ 
-(
-ÉÉ 
-$num
-ÉÉ 
-)
-ÉÉ 
 ;
-ÉÉ 
+ÈÈ 
 publicGroup
-ÌÌ 
+ËË 
 .
-ÌÌ 
+ËË 
 MapGet
-ÌÌ 
+ËË 
 (
-ÌÌ 
+ËË 
+$"
+ËË 
 $str
-ÌÌ /
+ËË 
+{
+ËË #
+IdGuidRouteConstraint
+ËË 4
+}
+ËË4 5
+"
+ËË5 6
 ,
-ÌÌ/ 0
+ËË6 7
 async
-ÌÌ1 6
+ËË8 =
 (
-ÌÌ7 8
+ËË> ?
 Guid
-ÍÍ 
+ËË? C
 id
-ÍÍ 
+ËËD F
 ,
-ÍÍ 
+ËËF G!
+GetOrderByIdHandler
+ËËH [
+handler
+ËË\ c
+)
+ËËc d
+=>
+ËËe g
+await
+ÌÌ 
+handler
+ÌÌ 
+.
+ÌÌ 
+Handle
+ÌÌ $
+(
+ÌÌ$ %
+new
+ÌÌ% (!
+GetOrderByIdRequest
+ÌÌ) <
+(
+ÌÌ< =
+id
+ÌÌ= ?
+)
+ÌÌ? @
+)
+ÌÌ@ A
+)
+ÌÌA B
+.
+ÍÍ 
+WithName
+ÍÍ 
+(
+ÍÍ 
+$str
+ÍÍ $
+)
+ÍÍ$ %
+.
+ÎÎ 
+Produces
+ÎÎ 
+(
+ÎÎ 
+$num
+ÎÎ 
+)
+ÎÎ 
+.
+ÏÏ 
+Produces
+ÏÏ 
+(
+ÏÏ 
+$num
+ÏÏ 
+)
+ÏÏ 
+.
+ĞĞ 
+Produces
+ĞĞ 
+(
+ĞĞ 
+$num
+ĞĞ 
+)
+ĞĞ 
+.
+ÑÑ 
+Produces
+ÑÑ 
+(
+ÑÑ 
+$num
+ÑÑ 
+)
+ÑÑ 
+;
+ÑÑ 
+publicGroup
+ÔÔ 
+.
+ÔÔ 
+MapGet
+ÔÔ 
+(
+ÔÔ 
+$"
+ÔÔ 
+$str
+ÔÔ 
+{
+ÔÔ #
+IdGuidRouteConstraint
+ÔÔ 4
+}
+ÔÔ4 5
+$str
+ÔÔ5 =
+"
+ÔÔ= >
+,
+ÔÔ> ?
+async
+ÔÔ@ E
+(
+ÔÔF G
+Guid
+ÕÕ 
+id
+ÕÕ 
+,
+ÕÕ 
 CampusEatsContext
-ÎÎ 
+ÖÖ 
 db
-ÎÎ  
+ÖÖ  
 ,
-ÎÎ  !
+ÖÖ  !
 CancellationToken
-ÏÏ 
+×× 
 ct
-ÏÏ  
+××  
 )
-ÏÏ  !
+××  !
 =>
-ÏÏ" $
+××" $
 {
-ĞĞ 	
+ØØ 	
 var
-ÑÑ 
+ÙÙ 
 order
-ÑÑ 
+ÙÙ 
 =
-ÑÑ 
+ÙÙ 
 await
-ÑÑ 
+ÙÙ 
 db
-ÑÑ  
+ÙÙ  
 .
-ÑÑ  !
+ÙÙ  !
 Order
-ÑÑ! &
+ÙÙ! &
 .
-ÑÑ& '
+ÙÙ& '
 	FindAsync
-ÑÑ' 0
+ÙÙ' 0
 (
-ÑÑ0 1
+ÙÙ0 1
 new
-ÑÑ1 4
+ÙÙ1 4
 object
-ÑÑ5 ;
+ÙÙ5 ;
 [
-ÑÑ; <
+ÙÙ; <
 ]
-ÑÑ< =
+ÙÙ< =
 {
-ÑÑ> ?
+ÙÙ> ?
 id
-ÑÑ@ B
+ÙÙ@ B
 }
-ÑÑC D
+ÙÙC D
 ,
-ÑÑD E
+ÙÙD E
 ct
-ÑÑF H
-)
-ÑÑH I
-;
-ÑÑI J
-if
-ÓÓ 
-(
-ÓÓ 
-order
-ÓÓ 
-==
-ÓÓ 
-null
-ÓÓ 
-)
-ÓÓ 
-return
-ÔÔ 
-Results
-ÔÔ 
-.
-ÔÔ 
-NotFound
-ÔÔ '
-(
-ÔÔ' (
-$"
-ÔÔ( *
-$str
-ÔÔ* 9
-{
-ÔÔ9 :
-id
-ÔÔ: <
-}
-ÔÔ< =
-$str
-ÔÔ= G
-"
-ÔÔG H
-)
-ÔÔH I
-;
-ÔÔI J
-var
-ÖÖ 
-client
-ÖÖ 
-=
-ÖÖ 
-await
-ÖÖ 
-db
-ÖÖ !
-.
-ÖÖ! "
-Users
-ÖÖ" '
-.
-ÖÖ' (
-	FindAsync
-ÖÖ( 1
-(
-ÖÖ1 2
-new
-ÖÖ2 5
-object
-ÖÖ6 <
-[
-ÖÖ< =
-]
-ÖÖ= >
-{
-ÖÖ? @
-order
-ÖÖA F
-.
-ÖÖF G
-ClientId
-ÖÖG O
-}
-ÖÖP Q
-,
-ÖÖQ R
-ct
-ÖÖS U
-)
-ÖÖU V
-;
-ÖÖV W
-if
-ØØ 
-(
-ØØ 
-client
-ØØ 
-==
-ØØ 
-null
-ØØ 
-)
-ØØ 
-return
-ÙÙ 
-Results
-ÙÙ 
-.
-ÙÙ 
-NotFound
-ÙÙ '
-(
-ÙÙ' (
-$"
-ÙÙ( *
-$str
-ÙÙ* E
-{
-ÙÙE F
-id
 ÙÙF H
-}
+)
 ÙÙH I
-"
-ÙÙI J
-)
-ÙÙJ K
 ;
-ÙÙK L
-var
-ÛÛ 
-menus
-ÛÛ 
-=
-ÛÛ 
-await
-ÛÛ 
-db
-ÛÛ  
-.
-ÛÛ  !
-Menu
-ÛÛ! %
-.
-ÜÜ 
-Where
-ÜÜ 
+ÙÙI J
+if
+ÛÛ 
 (
-ÜÜ 
-m
-ÜÜ 
-=>
-ÜÜ 
+ÛÛ 
 order
-ÜÜ !
-.
-ÜÜ! "
-MenuIDs
-ÜÜ" )
-.
-ÜÜ) *
-Contains
-ÜÜ* 2
-(
-ÜÜ2 3
-m
-ÜÜ3 4
-.
-ÜÜ4 5
-Id
-ÜÜ5 7
+ÛÛ 
+==
+ÛÛ 
+null
+ÛÛ 
 )
-ÜÜ7 8
-)
-ÜÜ8 9
-.
-İİ 
-Select
-İİ 
-(
-İİ 
-m
-İİ 
-=>
-İİ 
-new
-İİ  
-{
-İİ! "
-m
-İİ# $
-.
-İİ$ %
-Id
-İİ% '
-,
-İİ' (
-m
-İİ) *
-.
-İİ* +
-Name
-İİ+ /
-,
-İİ/ 0
-m
-İİ1 2
-.
-İİ2 3
-Price
-İİ3 8
-}
-İİ9 :
-)
-İİ: ;
-.
-ŞŞ 
-ToListAsync
-ŞŞ 
-(
-ŞŞ 
-ct
-ŞŞ 
-)
-ŞŞ  
-;
-ŞŞ  !
-var
-àà 
-items
-àà 
-=
-àà 
-await
-àà 
-db
-àà  
-.
-àà  !
-MenuItem
-àà! )
-.
-áá 
-Where
-áá 
-(
-áá 
-i
-áá 
-=>
-áá 
-order
-áá !
-.
-áá! "
-ItemIDs
-áá" )
-.
-áá) *
-Contains
-áá* 2
-(
-áá2 3
-i
-áá3 4
-.
-áá4 5
-Id
-áá5 7
-)
-áá7 8
-)
-áá8 9
-.
-ââ 
-Select
-ââ 
-(
-ââ 
-i
-ââ 
-=>
-ââ 
-new
-ââ  
-{
-ââ! "
-i
-ââ# $
-.
-ââ$ %
-Id
-ââ% '
-,
-ââ' (
-i
-ââ) *
-.
-ââ* +
-Name
-ââ+ /
-,
-ââ/ 0
-i
-ââ1 2
-.
-ââ2 3
-Price
-ââ3 8
-}
-ââ9 :
-)
-ââ: ;
-.
-ãã 
-ToListAsync
-ãã 
-(
-ãã 
-ct
-ãã 
-)
-ãã  
-;
-ãã  !
-var
-åå 
-result
-åå 
-=
-åå 
-new
-åå 
-{
-ææ 
-order
-çç 
-.
-çç 
-Id
-çç 
-,
-çç 
-order
-èè 
-.
-èè 
-ClientId
-èè 
-,
-èè 
-ClientUsername
-éé 
-=
-éé  
-client
-éé! '
-.
-éé' (
-Username
-éé( 0
-,
-éé0 1
-ClientEmail
-êê 
-=
-êê 
-client
-êê $
-.
-êê$ %
-Email
-êê% *
-,
-êê* +
-order
-ëë 
-.
-ëë 
-Price
-ëë 
-,
-ëë 
-order
-ìì 
-.
-ìì 
-MenuIDs
-ìì 
-,
-ìì 
-order
-íí 
-.
-íí 
-ItemIDs
-íí 
-,
-íí 
-order
-îî 
-.
-îî 
-	CreatedAt
-îî 
-,
-îî  
-Status
-ïï 
-=
-ïï 
-order
-ïï 
-.
-ïï 
-Status
-ïï %
-.
-ïï% &
-ToString
-ïï& .
-(
-ïï. /
-)
-ïï/ 0
-,
-ïï0 1
-Menus
-ğğ 
-=
-ğğ 
-menus
-ğğ 
-,
-ğğ 
-Items
-ññ 
-=
-ññ 
-items
-ññ 
-}
-òò 
-;
-òò 
+ÛÛ 
 return
-ôô 
+ÜÜ 
 Results
-ôô 
+ÜÜ 
 .
-ôô 
-Ok
-ôô 
+ÜÜ 
+NotFound
+ÜÜ '
 (
-ôô 
-result
-ôô $
-)
-ôô$ %
-;
-ôô% &
+ÜÜ' (
+$"
+ÜÜ( *
+$str
+ÜÜ* 9
+{
+ÜÜ9 :
+id
+ÜÜ: <
 }
-õõ 	
+ÜÜ< =
+$str
+ÜÜ= G
+"
+ÜÜG H
 )
-õõ	 
+ÜÜH I
+;
+ÜÜI J
+var
+ŞŞ 
+client
+ŞŞ 
+=
+ŞŞ 
+await
+ŞŞ 
+db
+ŞŞ !
+.
+ŞŞ! "
+Users
+ŞŞ" '
+.
+ŞŞ' (
+	FindAsync
+ŞŞ( 1
+(
+ŞŞ1 2
+new
+ŞŞ2 5
+object
+ŞŞ6 <
+[
+ŞŞ< =
+]
+ŞŞ= >
+{
+ŞŞ? @
+order
+ŞŞA F
+.
+ŞŞF G
+ClientId
+ŞŞG O
+}
+ŞŞP Q
+,
+ŞŞQ R
+ct
+ŞŞS U
+)
+ŞŞU V
+;
+ŞŞV W
+if
+àà 
+(
+àà 
+client
+àà 
+==
+àà 
+null
+àà 
+)
+àà 
+return
+áá 
+Results
+áá 
+.
+áá 
+NotFound
+áá '
+(
+áá' (
+$"
+áá( *
+$str
+áá* E
+{
+ááE F
+id
+ááF H
+}
+ááH I
+"
+ááI J
+)
+ááJ K
+;
+ááK L
+var
+ãã 
+menus
+ãã 
+=
+ãã 
+await
+ãã 
+db
+ãã  
+.
+ãã  !
+Menu
+ãã! %
+.
+ää 
+Where
+ää 
+(
+ää 
+m
+ää 
+=>
+ää 
+order
+ää !
+.
+ää! "
+MenuIDs
+ää" )
+.
+ää) *
+Contains
+ää* 2
+(
+ää2 3
+m
+ää3 4
+.
+ää4 5
+Id
+ää5 7
+)
+ää7 8
+)
+ää8 9
+.
+åå 
+Select
+åå 
+(
+åå 
+m
+åå 
+=>
+åå 
+new
+åå  
+{
+åå! "
+m
+åå# $
+.
+åå$ %
+Id
+åå% '
+,
+åå' (
+m
+åå) *
+.
+åå* +
+Name
+åå+ /
+,
+åå/ 0
+m
+åå1 2
+.
+åå2 3
+Price
+åå3 8
+}
+åå9 :
+)
+åå: ;
+.
+ææ 
+ToListAsync
+ææ 
+(
+ææ 
+ct
+ææ 
+)
+ææ  
+;
+ææ  !
+var
+èè 
+items
+èè 
+=
+èè 
+await
+èè 
+db
+èè  
+.
+èè  !
+MenuItem
+èè! )
+.
+éé 
+Where
+éé 
+(
+éé 
+i
+éé 
+=>
+éé 
+order
+éé !
+.
+éé! "
+ItemIDs
+éé" )
+.
+éé) *
+Contains
+éé* 2
+(
+éé2 3
+i
+éé3 4
+.
+éé4 5
+Id
+éé5 7
+)
+éé7 8
+)
+éé8 9
+.
+êê 
+Select
+êê 
+(
+êê 
+i
+êê 
+=>
+êê 
+new
+êê  
+{
+êê! "
+i
+êê# $
+.
+êê$ %
+Id
+êê% '
+,
+êê' (
+i
+êê) *
+.
+êê* +
+Name
+êê+ /
+,
+êê/ 0
+i
+êê1 2
+.
+êê2 3
+Price
+êê3 8
+}
+êê9 :
+)
+êê: ;
+.
+ëë 
+ToListAsync
+ëë 
+(
+ëë 
+ct
+ëë 
+)
+ëë  
+;
+ëë  !
+var
+íí 
+result
+íí 
+=
+íí 
+new
+íí 
+{
+îî 
+order
+ïï 
+.
+ïï 
+Id
+ïï 
+,
+ïï 
+order
+ğğ 
+.
+ğğ 
+ClientId
+ğğ 
+,
+ğğ 
+ClientUsername
+ññ 
+=
+ññ  
+client
+ññ! '
+.
+ññ' (
+Username
+ññ( 0
+,
+ññ0 1
+ClientEmail
+òò 
+=
+òò 
+client
+òò $
+.
+òò$ %
+Email
+òò% *
+,
+òò* +
+order
+óó 
+.
+óó 
+Price
+óó 
+,
+óó 
+order
+ôô 
+.
+ôô 
+MenuIDs
+ôô 
+,
+ôô 
+order
+õõ 
+.
+õõ 
+ItemIDs
+õõ 
+,
+õõ 
+order
+öö 
+.
+öö 
+	CreatedAt
+öö 
+,
+öö  
+Status
+÷÷ 
+=
+÷÷ 
+order
+÷÷ 
+.
+÷÷ 
+Status
+÷÷ %
+.
+÷÷% &
+ToString
+÷÷& .
+(
+÷÷. /
+)
+÷÷/ 0
+,
+÷÷0 1
+Menus
+øø 
+=
+øø 
+menus
+øø 
+,
+øø 
+Items
+ùù 
+=
+ùù 
+items
+ùù 
+}
+úú 
+;
+úú 
+return
+üü 
+Results
+üü 
+.
+üü 
+Ok
+üü 
+(
+üü 
+result
+üü $
+)
+üü$ %
+;
+üü% &
+}
+ıı 	
+)
+ıı	 
 
 .
-öö 	
+şş 	
 WithName
-öö	 
+şş	 
 (
-öö 
+şş 
 $str
-öö #
+şş #
 )
-öö# $
+şş# $
 .
-÷÷ 	
+ÿÿ 	
 Produces
-÷÷	 
+ÿÿ	 
 (
-÷÷ 
+ÿÿ 
 $num
-÷÷ 
+ÿÿ 
 )
-÷÷ 
-.
-øø 	
-Produces
-øø	 
-(
-øø 
-$num
-øø 
-)
-øø 
-.
-ùù 	
-Produces
-ùù	 
-(
-ùù 
-$num
-ùù 
-)
-ùù 
-.
-úú 	
-Produces
-úú	 
-(
-úú 
-$num
-úú 
-)
-úú 
-;
-úú 
-app
-şş 
-.
-şş 
-MapGet
-şş 
-(
-şş 
-$str
-şş 4
-,
-şş4 5
-async
-şş6 ;
-(
-şş< =
-Guid
-şş= A
-clientId
-şşB J
-,
-şşJ K$
-GetOrderHistoryHandler
-şşL b
-handler
-şşc j
-)
-şşj k
-=>
-şşl n
-await
-ÿÿ 
-handler
-ÿÿ 
-.
-ÿÿ 
-Handle
-ÿÿ  
-(
-ÿÿ  !
-new
-ÿÿ! $$
-GetOrderHistoryRequest
-ÿÿ% ;
-(
-ÿÿ; <
-clientId
-ÿÿ< D
-)
-ÿÿD E
-)
-ÿÿE F
-)
-ÿÿF G
+ÿÿ 
 .
 €€ 	
-WithName
+Produces
 €€	 
 (
 €€ 
-$str
-€€ #
+$num
+€€ 
 )
-€€# $
+€€ 
 .
- 	"
-RequireAuthorization
-	 
+ 	
+Produces
+	 
 (
- 
-p
- 
-=>
-  "
-p
-# $
-.
-$ %
-RequireRole
-% 0
-(
-0 1
-$str
-1 9
-,
-9 :
-$str
-; B
+ 
+$num
+ 
 )
-B C
-)
-C D
+ 
 .
 ‚‚ 	
-WithTags
+Produces
 ‚‚	 
 (
 ‚‚ 
-$str
-‚‚ 
-)
-‚‚ 
-.
-ƒƒ 	
-Produces
-ƒƒ	 
-(
-ƒƒ 
 $num
-ƒƒ 
+‚‚ 
 )
-ƒƒ 
-.
-„„ 	
-Produces
-„„	 
-(
-„„ 
-$num
-„„ 
-)
-„„ 
-.
-…… 	
-Produces
-……	 
-(
-…… 
-$num
-…… 
-)
-…… 
+‚‚ 
 ;
-…… 
-clientGroup
-‰‰ 
+‚‚ 
+app
+†† 
 .
-‰‰ 
-MapPost
-‰‰ 
+†† 
+MapGet
+†† 
 (
-‰‰ 
+†† 
 $str
-‰‰ +
+†† 4
 ,
-‰‰+ ,
+††4 5
 async
-‰‰- 2
+††6 ;
 (
-‰‰3 4
+††< =
 Guid
-‰‰4 8
-id
-‰‰9 ;
+††= A
+clientId
+††B J
 ,
-‰‰; < 
-CancelOrderHandler
-‰‰= O
+††J K$
+GetOrderHistoryHandler
+††L b
 handler
-‰‰P W
+††c j
 )
-‰‰W X
+††j k
 =>
-‰‰Y [
+††l n
 await
-ŠŠ 
+‡‡ 
 handler
-ŠŠ 
+‡‡ 
 .
-ŠŠ 
+‡‡ 
 Handle
-ŠŠ  
+‡‡  
 (
-ŠŠ  !
+‡‡  !
 new
-ŠŠ! $ 
-CancelOrderRequest
-ŠŠ% 7
+‡‡! $$
+GetOrderHistoryRequest
+‡‡% ;
 (
-ŠŠ7 8
-id
-ŠŠ8 :
+‡‡; <
+clientId
+‡‡< D
 )
-ŠŠ: ;
+‡‡D E
 )
-ŠŠ; <
+‡‡E F
 )
-ŠŠ< =
+‡‡F G
+.
+ˆˆ 	
+WithName
+ˆˆ	 
+(
+ˆˆ 
+$str
+ˆˆ #
+)
+ˆˆ# $
+.
+‰‰ 	"
+RequireAuthorization
+‰‰	 
+(
+‰‰ 
+p
+‰‰ 
+=>
+‰‰  "
+p
+‰‰# $
+.
+‰‰$ %
+RequireRole
+‰‰% 0
+(
+‰‰0 1
+
+ClientRole
+‰‰1 ;
+,
+‰‰; <
+	AdminRole
+‰‰= F
+)
+‰‰F G
+)
+‰‰G H
+.
+ŠŠ 	
+WithTags
+ŠŠ	 
+(
+ŠŠ 
+OrderTag
+ŠŠ 
+)
+ŠŠ 
 .
 ‹‹ 	
-WithName
+Produces
 ‹‹	 
 (
 ‹‹ 
-$str
-‹‹ 
+$num
+‹‹ 
 )
-‹‹  
+‹‹ 
 .
 ŒŒ 	
 Produces
@@ -17606,301 +17664,302 @@ adminGroup
  
 )
  
-.
- 	
-Produces
-	 
-(
- 
-$num
- 
-)
- 
-.
- 	
-Produces
-	 
-(
- 
-$num
- 
-)
- 
-.
- 	
-Produces
-	 
-(
- 
-$num
- 
-)
- 
 ;
- 
-}
-‘‘ 
-private
-““ 
-static
-““ 
-void
-““ !
-MapKitchenEndpoints
-““ +
+ 
+clientGroup
+‘‘ 
+.
+‘‘ 
+MapPost
+‘‘ 
 (
-““+ ,
-WebApplication
-““, :
-app
-““; >
-)
-““> ?
+‘‘ 
+$"
+‘‘ 
+$str
+‘‘ 
 {
-”” 
-var
-•• 
-
-staffGroup
-•• 
-=
-•• 
-app
-•• 
-.
-•• 
-MapGroup
-•• %
-(
-••% &
+‘‘ #
+IdGuidRouteConstraint
+‘‘ 1
+}
+‘‘1 2
 $str
-••& ;
-)
-••; <
-.
-••< =
-WithTags
-••= E
-(
-••E F
-$str
-••F O
-)
-••O P
-.
-–– "
-RequireAuthorization
-–– !
-(
-––! "
-p
-––" #
-=>
-––$ &
-p
-––' (
-.
-––( )
-RequireRole
-––) 4
-(
-––4 5
-$str
-––5 >
+‘‘2 9
+"
+‘‘9 :
 ,
-––> ?
-$str
-––@ G
-)
-––G H
-)
-––H I
-;
-––I J
-
-staffGroup
-™™ 
-.
-™™ 
-MapGet
-™™ 
-(
-™™ 
-$str
-™™ 
-,
-™™ 
+‘‘: ;
 async
-™™ $
+‘‘< A
 (
-™™% &
-string
-™™& ,
-?
-™™, -
-status
-™™. 4
-,
-™™4 5%
-GetPendingOrdersHandler
-™™6 M
-handler
-™™N U
-)
-™™U V
-=>
-™™W Y
-await
-šš 
-handler
-šš 
-.
-šš 
-Handle
-šš $
-(
-šš$ %
-new
-šš% (%
-GetPendingOrdersRequest
-šš) @
-(
-šš@ A
-status
-ššA G
-)
-ššG H
-)
-ššH I
-)
-ššI J
-.
-›› 
-WithName
-›› 
-(
-›› 
-$str
-›› (
-)
-››( )
-.
-œœ 
-Produces
-œœ 
-(
-œœ 
-$num
-œœ 
-)
-œœ 
-.
- 
-Produces
- 
-(
- 
-$num
- 
-)
- 
-.
- 
-Produces
- 
-(
- 
-$num
- 
-)
- 
-.
-ŸŸ 
-Produces
-ŸŸ 
-(
-ŸŸ 
-$num
-ŸŸ 
-)
-ŸŸ 
-;
-ŸŸ 
-
-staffGroup
-££ 
-.
-££ 
-MapPatch
-££ 
-(
-££ 
-$str
-££ /
-,
-££/ 0
-async
-££1 6
-(
-££7 8
+‘‘B C
 Guid
-££8 <
+‘‘C G
 id
-££= ?
+‘‘H J
 ,
-££? @
-OrderStatus
-££A L
-	newStatus
-££M V
-,
-££V W&
-UpdateOrderStatusHandler
-££X p
+‘‘J K 
+CancelOrderHandler
+‘‘L ^
 handler
-££q x
+‘‘_ f
 )
-££x y
+‘‘f g
 =>
-££z |
+‘‘h j
 await
-¤¤ 
+’’ 
 handler
-¤¤ 
+’’ 
 .
-¤¤ 
+’’ 
 Handle
-¤¤ $
+’’  
 (
-¤¤$ %
+’’  !
 new
-¤¤% (&
-UpdateOrderStatusRequest
-¤¤) A
+’’! $ 
+CancelOrderRequest
+’’% 7
 (
-¤¤A B
+’’7 8
 id
-¤¤B D
+’’8 :
+)
+’’: ;
+)
+’’; <
+)
+’’< =
+.
+““ 	
+WithName
+““	 
+(
+““ 
+$str
+““ 
+)
+““  
+.
+”” 	
+Produces
+””	 
+(
+”” 
+$num
+”” 
+)
+”” 
+.
+•• 	
+Produces
+••	 
+(
+•• 
+$num
+•• 
+)
+•• 
+.
+–– 	
+Produces
+––	 
+(
+–– 
+$num
+–– 
+)
+–– 
+.
+—— 	
+Produces
+——	 
+(
+—— 
+$num
+—— 
+)
+—— 
+.
+˜˜ 	
+Produces
+˜˜	 
+(
+˜˜ 
+$num
+˜˜ 
+)
+˜˜ 
+;
+˜˜ 
+}
+™™ 
+private
+›› 
+static
+›› 
+void
+›› !
+MapKitchenEndpoints
+›› +
+(
+››+ ,
+WebApplication
+››, :
+app
+››; >
+)
+››> ?
+{
+œœ 
+var
+ 
+
+staffGroup
+ 
+=
+ 
+app
+ 
+.
+ 
+MapGroup
+ %
+(
+% &
+$str
+& ;
+)
+; <
+.
+< =
+WithTags
+= E
+(
+E F
+$str
+F O
+)
+O P
+.
+ "
+RequireAuthorization
+ !
+(
+! "
+p
+" #
+=>
+$ &
+p
+' (
+.
+( )
+RequireRole
+) 4
+(
+4 5
+KitchenRole
+5 @
 ,
-¤¤D E
-	newStatus
-¤¤F O
+@ A
+	AdminRole
+B K
 )
-¤¤O P
+K L
 )
-¤¤P Q
+L M
+;
+M N
+
+staffGroup
+¡¡ 
+.
+¡¡ 
+MapGet
+¡¡ 
+(
+¡¡ 
+$str
+¡¡ 
+,
+¡¡ 
+async
+¡¡ $
+(
+¡¡% &
+string
+¡¡& ,
+?
+¡¡, -
+status
+¡¡. 4
+,
+¡¡4 5%
+GetPendingOrdersHandler
+¡¡6 M
+handler
+¡¡N U
 )
-¤¤Q R
+¡¡U V
+=>
+¡¡W Y
+await
+¢¢ 
+handler
+¢¢ 
+.
+¢¢ 
+Handle
+¢¢ $
+(
+¢¢$ %
+new
+¢¢% (%
+GetPendingOrdersRequest
+¢¢) @
+(
+¢¢@ A
+status
+¢¢A G
+)
+¢¢G H
+)
+¢¢H I
+)
+¢¢I J
+.
+££ 
+WithName
+££ 
+(
+££ 
+$str
+££ (
+)
+££( )
+.
+¤¤ 
+Produces
+¤¤ 
+(
+¤¤ 
+$num
+¤¤ 
+)
+¤¤ 
 .
 ¥¥ 
-WithName
+Produces
 ¥¥ 
 (
 ¥¥ 
-$str
-¥¥ )
+$num
+¥¥ 
 )
-¥¥) *
+¥¥ 
 .
 ¦¦ 
 Produces
@@ -17921,1010 +17980,1021 @@ staffGroup
 §§ 
 )
 §§ 
-.
-¨¨ 
-Produces
-¨¨ 
-(
-¨¨ 
-$num
-¨¨ 
-)
-¨¨ 
-.
-©© 
-Produces
-©© 
-(
-©© 
-$num
-©© 
-)
-©© 
-.
-ªª 
-Produces
-ªª 
-(
-ªª 
-$num
-ªª 
-)
-ªª 
 ;
-ªª 
-}
-«« 
-private
-­­ 
-static
-­­ 
-void
-­­ #
-MapInventoryEndpoints
-­­ -
+§§ 
+
+staffGroup
+«« 
+.
+«« 
+MapPatch
+«« 
 (
-­­- .
-WebApplication
-­­. <
-app
-­­= @
-)
-­­@ A
+«« 
+$"
+«« 
+$str
+«« 
 {
-®® 
-var
-¯¯ 
-group
-¯¯ 
-=
-¯¯ 
-app
-¯¯ 
-.
-¯¯ 
-MapGroup
-¯¯  
-(
-¯¯  !
+««  #
+IdGuidRouteConstraint
+««  5
+}
+««5 6
 $str
-¯¯! 8
-)
-¯¯8 9
-.
-¯¯9 :
-WithTags
-¯¯: B
+««6 =
+"
+««= >
+,
+««> ?
+async
+««@ E
 (
-¯¯B C
-$str
-¯¯C N
-)
-¯¯N O
-;
-¯¯O P
-group
-²² 
+««F G
+Guid
+««G K
+id
+««L N
+,
+««N O
+OrderStatus
+««P [
+	newStatus
+««\ e
+,
+««e f&
+UpdateOrderStatusHandler
+««g 
+handler««€ ‡
+)««‡ ˆ
+=>««‰ ‹
+await
+¬¬ 
+handler
+¬¬ 
 .
-²² 
-MapPost
-²² 
+¬¬ 
+Handle
+¬¬ $
+(
+¬¬$ %
+new
+¬¬% (&
+UpdateOrderStatusRequest
+¬¬) A
+(
+¬¬A B
+id
+¬¬B D
+,
+¬¬D E
+	newStatus
+¬¬F O
+)
+¬¬O P
+)
+¬¬P Q
+)
+¬¬Q R
+.
+­­ 
+WithName
+­­ 
+(
+­­ 
+$str
+­­ )
+)
+­­) *
+.
+®® 
+Produces
+®® 
+(
+®® 
+$num
+®® 
+)
+®® 
+.
+¯¯ 
+Produces
+¯¯ 
+(
+¯¯ 
+$num
+¯¯ 
+)
+¯¯ 
+.
+°° 
+Produces
+°° 
+(
+°° 
+$num
+°° 
+)
+°° 
+.
+±± 
+Produces
+±± 
+(
+±± 
+$num
+±± 
+)
+±± 
+.
+²² 
+Produces
+²² 
 (
 ²² 
-$str
-²²  
-,
-²²  !
-async
-²²" '
-(
-²²( )
-string
-²²) /
-date
-²²0 4
-,
-²²4 5
-InventoryHandler
-²²6 F
-svc
-²²G J
+$num
+²² 
 )
-²²J K
-=>
-²²L N
-{
-³³ 
-if
-´´ 
-(
-´´ 
-!
-´´ 
-DateOnly
-´´ 
-.
-´´ 
-TryParse
-´´ &
-(
-´´& '
-date
-´´' +
-,
-´´+ ,
-out
-´´- 0
-var
-´´1 4
-d
-´´5 6
-)
-´´6 7
-)
-´´7 8
-return
-´´9 ?
-Results
-´´@ G
-.
-´´G H
-
-BadRequest
-´´H R
-(
-´´R S
-$str
-´´S o
-)
-´´o p
+²² 
 ;
-´´p q
+²² 
+}
+³³ 
+private
+µµ 
+static
+µµ 
+void
+µµ #
+MapInventoryEndpoints
+µµ -
+(
+µµ- .
+WebApplication
+µµ. <
+app
+µµ= @
+)
+µµ@ A
+{
+¶¶ 
 var
-µµ 
-day
-µµ 
+·· 
+group
+·· 
 =
-µµ 
-await
-µµ 
-svc
-µµ  #
-.
-µµ# $
-RebuildAsync
-µµ$ 0
-(
-µµ0 1
-d
-µµ1 2
-)
-µµ2 3
-;
-µµ3 4
-return
-¶¶ 
-Results
-¶¶ 
-.
-¶¶ 
-Ok
-¶¶ !
-(
-¶¶! "
-new
-¶¶" %
-{
-¶¶& '
-day
+·· 
+app
 ·· 
 .
-·· 
-Date
-·· 
-,
-·· 
-day
-¸¸ 
-.
-¸¸ 
-GeneratedAtUtc
-¸¸ &
-,
-¸¸& '
-Items
-¹¹ 
-=
-¹¹ 
-day
-¹¹ 
-.
-¹¹  
-Items
-¹¹  %
-.
-¹¹% &
-OrderByDescending
-¹¹& 7
+·· 
+MapGroup
+··  
 (
-¹¹7 8
-i
-¹¹8 9
-=>
-¹¹: <
-i
-¹¹= >
-.
-¹¹> ?
-Count
-¹¹? D
-)
-¹¹D E
-.
-¹¹E F
-ThenBy
-¹¹F L
-(
-¹¹L M
-i
-¹¹M N
-=>
-¹¹O Q
-i
-¹¹R S
-.
-¹¹S T
-Name
-¹¹T X
-)
-¹¹X Y
-}
-ºº 
-)
-ºº 
-;
-ºº 
-}
-»» 
-)
-»» 
-.
-¼¼ "
-RequireAuthorization
-¼¼ !
-(
-¼¼! "
-policy
-¼¼" (
-=>
-¼¼) +
-policy
-¼¼, 2
-.
-¼¼2 3
-RequireRole
-¼¼3 >
-(
-¼¼> ?
+··  !
 $str
-¼¼? F
+··! 8
 )
-¼¼F G
-)
-¼¼G H
+··8 9
 .
-½½ 
-WithName
-½½ 
+··9 :
+WithTags
+··: B
 (
-½½ 
+··B C
 $str
-½½ (
+··C N
 )
-½½( )
-.
-¾¾ 
-Produces
-¾¾ 
-(
-¾¾ 
-$num
-¾¾ 
-)
-¾¾ 
-.
-¿¿ 
-Produces
-¿¿ 
-(
-¿¿ 
-$num
-¿¿ 
-)
-¿¿ 
-.
-ÀÀ 
-Produces
-ÀÀ 
-(
-ÀÀ 
-$num
-ÀÀ 
-)
-ÀÀ 
-.
-ÁÁ 
-Produces
-ÁÁ 
-(
-ÁÁ 
-$num
-ÁÁ 
-)
-ÁÁ 
+··N O
 ;
-ÁÁ 
+··O P
 group
-ÄÄ 
+ºº 
 .
-ÄÄ 
-MapGet
-ÄÄ 
+ºº 
+MapPost
+ºº 
 (
-ÄÄ 
+ºº 
 $str
-ÄÄ 
+ºº  
 ,
-ÄÄ 
+ºº  !
 async
-ÄÄ 
+ºº" '
 (
-ÄÄ  !
+ºº( )
 string
-ÄÄ! '
+ºº) /
 date
-ÄÄ( ,
+ºº0 4
 ,
-ÄÄ, -
+ºº4 5
 InventoryHandler
-ÄÄ. >
+ºº6 F
 svc
-ÄÄ? B
+ººG J
 )
-ÄÄB C
+ººJ K
 =>
-ÄÄD F
+ººL N
 {
-ÅÅ 
+»» 
 if
-ÆÆ 
+¼¼ 
 (
-ÆÆ 
+¼¼ 
 !
-ÆÆ 
+¼¼ 
 DateOnly
-ÆÆ 
+¼¼ 
 .
-ÆÆ 
+¼¼ 
 TryParse
-ÆÆ &
+¼¼ &
 (
-ÆÆ& '
+¼¼& '
 date
-ÆÆ' +
+¼¼' +
 ,
-ÆÆ+ ,
+¼¼+ ,
 out
-ÆÆ- 0
+¼¼- 0
 var
-ÆÆ1 4
+¼¼1 4
 d
-ÆÆ5 6
+¼¼5 6
 )
-ÆÆ6 7
+¼¼6 7
 )
-ÆÆ7 8
+¼¼7 8
 return
-ÆÆ9 ?
+¼¼9 ?
 Results
-ÆÆ@ G
+¼¼@ G
 .
-ÆÆG H
+¼¼G H
 
 BadRequest
-ÆÆH R
+¼¼H R
 (
-ÆÆR S
+¼¼R S
 $str
-ÆÆS o
+¼¼S o
 )
-ÆÆo p
+¼¼o p
 ;
-ÆÆp q
+¼¼p q
 var
-ÇÇ 
+½½ 
 day
-ÇÇ 
+½½ 
 =
-ÇÇ 
+½½ 
 await
-ÇÇ 
+½½ 
 svc
-ÇÇ  #
+½½  #
 .
-ÇÇ# $
-GetAsync
-ÇÇ$ ,
+½½# $
+RebuildAsync
+½½$ 0
 (
-ÇÇ, -
+½½0 1
 d
-ÇÇ- .
+½½1 2
 )
-ÇÇ. /
+½½2 3
 ;
-ÇÇ/ 0
+½½3 4
 return
-ÈÈ 
-day
-ÈÈ 
-is
-ÈÈ 
-null
-ÈÈ "
-?
-ÉÉ 
+¾¾ 
 Results
-ÉÉ 
+¾¾ 
 .
-ÉÉ 
-NotFound
-ÉÉ &
-(
-ÉÉ& '
-)
-ÉÉ' (
-:
-ÊÊ 
-Results
-ÊÊ 
-.
-ÊÊ 
+¾¾ 
 Ok
-ÊÊ  
+¾¾ !
 (
-ÊÊ  !
+¾¾! "
 new
-ÊÊ! $
+¾¾" %
 {
-ÊÊ% &
+¾¾& '
 day
-ËË 
+¿¿ 
 .
-ËË 
+¿¿ 
 Date
-ËË  
+¿¿ 
 ,
-ËË  !
+¿¿ 
 day
-ÌÌ 
+ÀÀ 
 .
-ÌÌ 
+ÀÀ 
 GeneratedAtUtc
-ÌÌ *
+ÀÀ &
 ,
-ÌÌ* +
+ÀÀ& '
 Items
-ÍÍ 
+ÁÁ 
 =
-ÍÍ 
+ÁÁ 
 day
-ÍÍ  #
+ÁÁ 
 .
-ÍÍ# $
+ÁÁ  
 Items
-ÍÍ$ )
+ÁÁ  %
 .
-ÍÍ) *
+ÁÁ% &
 OrderByDescending
-ÍÍ* ;
+ÁÁ& 7
 (
-ÍÍ; <
+ÁÁ7 8
 i
-ÍÍ< =
+ÁÁ8 9
 =>
-ÍÍ> @
+ÁÁ: <
 i
-ÍÍA B
+ÁÁ= >
 .
-ÍÍB C
+ÁÁ> ?
 Count
-ÍÍC H
+ÁÁ? D
 )
-ÍÍH I
+ÁÁD E
 .
-ÍÍI J
+ÁÁE F
 ThenBy
-ÍÍJ P
+ÁÁF L
 (
-ÍÍP Q
+ÁÁL M
 i
-ÍÍQ R
+ÁÁM N
 =>
-ÍÍS U
+ÁÁO Q
 i
-ÍÍV W
+ÁÁR S
 .
-ÍÍW X
+ÁÁS T
 Name
-ÍÍX \
+ÁÁT X
 )
-ÍÍ\ ]
+ÁÁX Y
 }
-ÎÎ 
+ÂÂ 
 )
-ÎÎ 
+ÂÂ 
 ;
-ÎÎ 
+ÂÂ 
 }
-ÏÏ 
+ÃÃ 
 )
-ÏÏ 
+ÃÃ 
 .
-ĞĞ "
+ÄÄ "
 RequireAuthorization
-ĞĞ !
+ÄÄ !
 (
-ĞĞ! "
+ÄÄ! "
 policy
-ĞĞ" (
+ÄÄ" (
 =>
-ĞĞ) +
+ÄÄ) +
 policy
-ĞĞ, 2
+ÄÄ, 2
 .
-ĞĞ2 3
+ÄÄ2 3
 RequireRole
-ĞĞ3 >
+ÄÄ3 >
 (
-ĞĞ> ?
-$str
-ĞĞ? H
-,
-ĞĞH I
-$str
-ĞĞJ Q
+ÄÄ> ?
+	AdminRole
+ÄÄ? H
 )
-ĞĞQ R
+ÄÄH I
 )
-ĞĞR S
+ÄÄI J
 .
-ÑÑ 
+ÅÅ 
 WithName
-ÑÑ 
+ÅÅ 
 (
-ÑÑ 
+ÅÅ 
 $str
-ÑÑ $
+ÅÅ (
 )
-ÑÑ$ %
+ÅÅ( )
 .
-ÒÒ 
+ÆÆ 
 Produces
-ÒÒ 
+ÆÆ 
 (
-ÒÒ 
+ÆÆ 
 $num
-ÒÒ 
+ÆÆ 
 )
-ÒÒ 
+ÆÆ 
 .
-ÓÓ 
+ÇÇ 
 Produces
-ÓÓ 
+ÇÇ 
 (
-ÓÓ 
+ÇÇ 
 $num
-ÓÓ 
+ÇÇ 
 )
-ÓÓ 
+ÇÇ 
 .
-ÔÔ 
+ÈÈ 
 Produces
-ÔÔ 
+ÈÈ 
 (
-ÔÔ 
+ÈÈ 
 $num
-ÔÔ 
+ÈÈ 
 )
-ÔÔ 
+ÈÈ 
+.
+ÉÉ 
+Produces
+ÉÉ 
+(
+ÉÉ 
+$num
+ÉÉ 
+)
+ÉÉ 
 ;
-ÔÔ 
-}
-ÕÕ 
-private
-×× 
-static
-×× 
-void
-×× !
-MapPaymentEndpoints
-×× +
-(
-××+ ,
-WebApplication
-××, :
-app
-××; >
-)
-××> ?
-{
-ØØ 
-var
-ÙÙ 
+ÉÉ 
 group
-ÙÙ 
-=
-ÙÙ 
-app
-ÙÙ 
+ÌÌ 
 .
-ÙÙ 
-MapGroup
-ÙÙ  
+ÌÌ 
+MapGet
+ÌÌ 
 (
-ÙÙ  !
+ÌÌ 
 $str
-ÙÙ! 0
-)
-ÙÙ0 1
-.
-ÙÙ1 2
-WithTags
-ÙÙ2 :
-(
-ÙÙ: ;
-$str
-ÙÙ; E
-)
-ÙÙE F
-;
-ÙÙF G
-var
-ÚÚ 
-clientGroup
-ÚÚ 
-=
-ÚÚ 
-app
-ÚÚ 
-.
-ÚÚ 
-MapGroup
-ÚÚ &
-(
-ÚÚ& '
-$str
-ÚÚ' 6
-)
-ÚÚ6 7
-.
-ÚÚ7 8
-WithTags
-ÚÚ8 @
-(
-ÚÚ@ A
-$str
-ÚÚA K
-)
-ÚÚK L
-.
-ÛÛ "
-RequireAuthorization
-ÛÛ !
-(
-ÛÛ! "
-p
-ÛÛ" #
-=>
-ÛÛ$ &
-p
-ÛÛ' (
-.
-ÛÛ( )
-RequireRole
-ÛÛ) 4
-(
-ÛÛ4 5
-$str
-ÛÛ5 =
+ÌÌ 
 ,
-ÛÛ= >
-$str
-ÛÛ? F
-)
-ÛÛF G
-)
-ÛÛG H
-;
-ÛÛH I
-clientGroup
-ŞŞ 
-.
-ŞŞ 
-MapPost
-ŞŞ 
-(
-ŞŞ 
-$str
-ŞŞ 
-,
-ŞŞ  
+ÌÌ 
 async
-ŞŞ! &
+ÌÌ 
 (
-ŞŞ' ("
+ÌÌ  !
+string
+ÌÌ! '
+date
+ÌÌ( ,
+,
+ÌÌ, -
+InventoryHandler
+ÌÌ. >
+svc
+ÌÌ? B
+)
+ÌÌB C
+=>
+ÌÌD F
+{
+ÍÍ 
+if
+ÎÎ 
+(
+ÎÎ 
+!
+ÎÎ 
+DateOnly
+ÎÎ 
+.
+ÎÎ 
+TryParse
+ÎÎ &
+(
+ÎÎ& '
+date
+ÎÎ' +
+,
+ÎÎ+ ,
+out
+ÎÎ- 0
+var
+ÎÎ1 4
+d
+ÎÎ5 6
+)
+ÎÎ6 7
+)
+ÎÎ7 8
+return
+ÎÎ9 ?
+Results
+ÎÎ@ G
+.
+ÎÎG H
+
+BadRequest
+ÎÎH R
+(
+ÎÎR S
+$str
+ÎÎS o
+)
+ÎÎo p
+;
+ÎÎp q
+var
+ÏÏ 
+day
+ÏÏ 
+=
+ÏÏ 
+await
+ÏÏ 
+svc
+ÏÏ  #
+.
+ÏÏ# $
+GetAsync
+ÏÏ$ ,
+(
+ÏÏ, -
+d
+ÏÏ- .
+)
+ÏÏ. /
+;
+ÏÏ/ 0
+return
+ĞĞ 
+day
+ĞĞ 
+is
+ĞĞ 
+null
+ĞĞ "
+?
+ÑÑ 
+Results
+ÑÑ 
+.
+ÑÑ 
+NotFound
+ÑÑ &
+(
+ÑÑ& '
+)
+ÑÑ' (
+:
+ÒÒ 
+Results
+ÒÒ 
+.
+ÒÒ 
+Ok
+ÒÒ  
+(
+ÒÒ  !
+new
+ÒÒ! $
+{
+ÒÒ% &
+day
+ÓÓ 
+.
+ÓÓ 
+Date
+ÓÓ  
+,
+ÓÓ  !
+day
+ÔÔ 
+.
+ÔÔ 
+GeneratedAtUtc
+ÔÔ *
+,
+ÔÔ* +
+Items
+ÕÕ 
+=
+ÕÕ 
+day
+ÕÕ  #
+.
+ÕÕ# $
+Items
+ÕÕ$ )
+.
+ÕÕ) *
+OrderByDescending
+ÕÕ* ;
+(
+ÕÕ; <
+i
+ÕÕ< =
+=>
+ÕÕ> @
+i
+ÕÕA B
+.
+ÕÕB C
+Count
+ÕÕC H
+)
+ÕÕH I
+.
+ÕÕI J
+ThenBy
+ÕÕJ P
+(
+ÕÕP Q
+i
+ÕÕQ R
+=>
+ÕÕS U
+i
+ÕÕV W
+.
+ÕÕW X
+Name
+ÕÕX \
+)
+ÕÕ\ ]
+}
+ÖÖ 
+)
+ÖÖ 
+;
+ÖÖ 
+}
+×× 
+)
+×× 
+.
+ØØ "
+RequireAuthorization
+ØØ !
+(
+ØØ! "
+policy
+ØØ" (
+=>
+ØØ) +
+policy
+ØØ, 2
+.
+ØØ2 3
+RequireRole
+ØØ3 >
+(
+ØØ> ?
+KitchenRole
+ØØ? J
+,
+ØØJ K
+	AdminRole
+ØØL U
+)
+ØØU V
+)
+ØØV W
+.
+ÙÙ 
+WithName
+ÙÙ 
+(
+ÙÙ 
+$str
+ÙÙ $
+)
+ÙÙ$ %
+.
+ÚÚ 
+Produces
+ÚÚ 
+(
+ÚÚ 
+$num
+ÚÚ 
+)
+ÚÚ 
+.
+ÛÛ 
+Produces
+ÛÛ 
+(
+ÛÛ 
+$num
+ÛÛ 
+)
+ÛÛ 
+.
+ÜÜ 
+Produces
+ÜÜ 
+(
+ÜÜ 
+$num
+ÜÜ 
+)
+ÜÜ 
+;
+ÜÜ 
+}
+İİ 
+private
+ßß 
+static
+ßß 
+void
+ßß !
+MapPaymentEndpoints
+ßß +
+(
+ßß+ ,
+WebApplication
+ßß, :
+app
+ßß; >
+)
+ßß> ?
+{
+àà 
+var
+áá 
+group
+áá 
+=
+áá 
+app
+áá 
+.
+áá 
+MapGroup
+áá  
+(
+áá  !
+$str
+áá! 0
+)
+áá0 1
+.
+áá1 2
+WithTags
+áá2 :
+(
+áá: ;
+$str
+áá; E
+)
+ááE F
+;
+ááF G
+var
+ââ 
+clientGroup
+ââ 
+=
+ââ 
+app
+ââ 
+.
+ââ 
+MapGroup
+ââ &
+(
+ââ& '
+$str
+ââ' 6
+)
+ââ6 7
+.
+ââ7 8
+WithTags
+ââ8 @
+(
+ââ@ A
+$str
+ââA K
+)
+ââK L
+.
+ãã "
+RequireAuthorization
+ãã !
+(
+ãã! "
+p
+ãã" #
+=>
+ãã$ &
+p
+ãã' (
+.
+ãã( )
+RequireRole
+ãã) 4
+(
+ãã4 5
+
+ClientRole
+ãã5 ?
+,
+ãã? @
+	AdminRole
+ããA J
+)
+ããJ K
+)
+ããK L
+;
+ããL M
+clientGroup
+ææ 
+.
+ææ 
+MapPost
+ææ 
+(
+ææ 
+$str
+ææ 
+,
+ææ  
+async
+ææ! &
+(
+ææ' ("
 CreatePaymentRequest
-ßß $
+çç $
 request
-ßß% ,
+çç% ,
 ,
-ßß, -"
+çç, -"
 CreatePaymentHandler
-àà $
+èè $
 handler
-àà% ,
+èè% ,
 ,
-àà, -
+èè, -
 
 IValidator
-áá 
+éé 
 <
-áá "
+éé "
 CreatePaymentRequest
-áá /
+éé /
 >
-áá/ 0
+éé/ 0
 	validator
-áá1 :
+éé1 :
 ,
-áá: ;
+éé: ;
 CancellationToken
-ââ !
+êê !
 ct
-ââ" $
+êê" $
 )
-ââ$ %
+êê$ %
 =>
-ââ& (
+êê& (
 {
-ãã 
+ëë 
 var
-ää 
+ìì 
 
 validation
-ää 
+ìì 
 =
-ää  
+ìì  
 await
-ää! &
+ìì! &
 	validator
-ää' 0
+ìì' 0
 .
-ää0 1
+ìì0 1
 ValidateAsync
-ää1 >
+ìì1 >
 (
-ää> ?
+ìì> ?
 request
-ää? F
+ìì? F
 ,
-ääF G
+ììF G
 ct
-ääH J
+ììH J
 )
-ääJ K
+ììJ K
 ;
-ääK L
+ììK L
 if
-åå 
+íí 
 (
-åå 
+íí 
 !
-åå 
+íí 
 
 validation
-åå 
+íí 
 .
-åå  
+íí  
 IsValid
-åå  '
+íí  '
 )
-åå' (
+íí' (
 return
-ææ 
+îî 
 Results
-ææ "
+îî "
 .
-ææ" #
+îî" #
 ValidationProblem
-ææ# 4
+îî# 4
 (
-ææ4 5
+îî4 5
 
 validation
-ææ5 ?
+îî5 ?
 .
-ææ? @
+îî? @
 ToDictionary
-ææ@ L
+îî@ L
 (
-ææL M
+îîL M
 )
-ææM N
+îîM N
 )
-ææN O
+îîN O
 ;
-ææO P
+îîO P
 return
-èè 
+ğğ 
 await
-èè 
+ğğ 
 handler
-èè $
+ğğ $
 .
-èè$ %
+ğğ$ %
 Handle
-èè% +
+ğğ% +
 (
-èè+ ,
+ğğ+ ,
 request
-èè, 3
+ğğ, 3
 ,
-èè3 4
+ğğ3 4
 ct
-èè5 7
+ğğ5 7
 )
-èè7 8
+ğğ7 8
 ;
-èè8 9
+ğğ8 9
 }
-éé 
+ññ 
 )
-éé 
+ññ 
 .
-êê 
+òò 
 WithName
-êê 
+òò 
 (
-êê 
+òò 
 $str
-êê %
+òò %
 )
-êê% &
+òò% &
 .
-ëë 
+óó 
 Produces
-ëë 
+óó 
 (
-ëë 
+óó 
 $num
-ëë 
+óó 
 )
-ëë 
-.
-ìì 
-Produces
-ìì 
-(
-ìì 
-$num
-ìì 
-)
-ìì 
-.
-íí '
-ProducesValidationProblem
-íí &
-(
-íí& '
-)
-íí' (
-.
-îî 
-Produces
-îî 
-(
-îî 
-$num
-îî 
-)
-îî 
-.
-ïï 
-Produces
-ïï 
-(
-ïï 
-$num
-ïï 
-)
-ïï 
-;
-ïï 
-clientGroup
-òò 
-.
-òò 
-MapGet
-òò 
-(
-òò 
-$str
-òò '
-,
-òò' (
-async
-òò) .
-(
-òò/ 0
-Guid
-òò0 4
-id
-òò5 7
-,
-òò7 8#
-GetPaymentByIdHandler
-òò9 N
-handler
-òòO V
-)
-òòV W
-=>
-òòX Z
-await
-óó 
-handler
-óó 
-.
-óó 
-Handle
-óó $
-(
-óó$ %
-new
-óó% (#
-GetPaymentByIdRequest
-óó) >
-(
-óó> ?
-id
-óó? A
-)
-óóA B
-)
-óóB C
-)
-óóC D
+óó 
 .
 ôô 
-WithName
+Produces
 ôô 
 (
 ôô 
-$str
-ôô &
-)
-ôô& '
-.
-õõ 
-Produces
-õõ 
-(
-õõ 
 $num
-õõ 
+ôô 
 )
-õõ 
+ôô 
+.
+õõ '
+ProducesValidationProblem
+õõ &
+(
+õõ& '
+)
+õõ' (
 .
 öö 
 Produces
@@ -18945,82 +19015,92 @@ validation
 ÷÷ 
 )
 ÷÷ 
-.
-øø 
-Produces
-øø 
-(
-øø 
-$num
-øø 
-)
-øø 
 ;
-øø 
+÷÷ 
 clientGroup
-ûû 
+úú 
 .
-ûû 
+úú 
 MapGet
-ûû 
+úú 
 (
-ûû 
+úú 
+$"
+úú 
 $str
-ûû 4
+úú 
+{
+úú #
+IdGuidRouteConstraint
+úú 4
+}
+úú4 5
+"
+úú5 6
 ,
-ûû4 5
+úú6 7
 async
-ûû6 ;
+úú8 =
 (
-ûû< =
+úú> ?
 Guid
-ûû= A
-userId
-ûûB H
+úú? C
+id
+úúD F
 ,
-ûûH I&
-GetPaymentHistoryHandler
-ûûJ b
+úúF G#
+GetPaymentByIdHandler
+úúH ]
 handler
-ûûc j
+úú^ e
 )
-ûûj k
+úúe f
 =>
-ûûl n
+úúg i
 await
-üü 
+ûû 
 handler
-üü 
+ûû 
 .
-üü 
+ûû 
 Handle
-üü $
+ûû $
 (
-üü$ %
+ûû$ %
 new
-üü% (&
-GetPaymentHistoryRequest
-üü) A
+ûû% (#
+GetPaymentByIdRequest
+ûû) >
 (
-üüA B
-userId
-üüB H
+ûû> ?
+id
+ûû? A
 )
-üüH I
+ûûA B
 )
-üüI J
+ûûB C
 )
-üüJ K
+ûûC D
+.
+üü 
+WithName
+üü 
+(
+üü 
+$str
+üü &
+)
+üü& '
 .
 ıı 
-WithName
+Produces
 ıı 
 (
 ıı 
-$str
-ıı '
+$num
+ıı 
 )
-ıı' (
+ıı 
 .
 şş 
 Produces
@@ -19056,2929 +19136,3026 @@ validation
 clientGroup
 ƒƒ 
 .
-ƒƒ 
-MapPost
-ƒƒ 
+ƒƒ 
+MapGet
+ƒƒ 
 (
-ƒƒ 
+ƒƒ 
 $str
-ƒƒ 6
+ƒƒ 4
 ,
-ƒƒ6 7
+ƒƒ4 5
 async
-ƒƒ8 =
+ƒƒ6 ;
 (
-ƒƒ> ?0
-"CreateStripeCheckoutSessionRequest
-„„ 2
-request
-„„3 :
+ƒƒ< =
+Guid
+ƒƒ= A
+userId
+ƒƒB H
 ,
-„„: ;0
-"CreateStripeCheckoutSessionHandler
-…… 2
+ƒƒH I&
+GetPaymentHistoryHandler
+ƒƒJ b
 handler
-……3 :
-,
-……: ;
-CancellationToken
-†† !
-ct
-††" $
+ƒƒc j
 )
-††$ %
+ƒƒj k
 =>
-††& (
-{
-‡‡ 
-return
-ˆˆ 
+ƒƒl n
 await
-ˆˆ 
+„„ 
 handler
-ˆˆ $
+„„ 
 .
-ˆˆ$ %
+„„ 
 Handle
-ˆˆ% +
+„„ $
 (
-ˆˆ+ ,
-request
-ˆˆ, 3
-,
-ˆˆ3 4
-ct
-ˆˆ5 7
+„„$ %
+new
+„„% (&
+GetPaymentHistoryRequest
+„„) A
+(
+„„A B
+userId
+„„B H
 )
-ˆˆ7 8
-;
-ˆˆ8 9
-}
-‰‰ 
+„„H I
 )
-‰‰ 
+„„I J
+)
+„„J K
 .
-ŠŠ 
+…… 
 WithName
-ŠŠ 
+…… 
 (
-ŠŠ 
+…… 
 $str
-ŠŠ 3
+…… '
 )
-ŠŠ3 4
+……' (
 .
-‹‹ 
+†† 
 Produces
-‹‹ 
+†† 
 (
-‹‹ 
+†† 
 $num
-‹‹ 
+†† 
 )
-‹‹ 
+†† 
 .
-ŒŒ 
+‡‡ 
 Produces
-ŒŒ 
+‡‡ 
 (
-ŒŒ 
+‡‡ 
 $num
-ŒŒ 
+‡‡ 
 )
-ŒŒ 
+‡‡ 
 .
- 
+ˆˆ 
 Produces
- 
+ˆˆ 
 (
- 
+ˆˆ 
 $num
- 
+ˆˆ 
 )
- 
-.
- 
-Produces
- 
-(
- 
-$num
- 
-)
- 
-.
- 
-Produces
- 
-(
- 
-$num
- 
-)
- 
+ˆˆ 
 ;
- 
-group
-’’ 
+ˆˆ 
+clientGroup
+‹‹ 
 .
-’’ 
+‹‹ 
 MapPost
-’’ 
+‹‹ 
+(
+‹‹ 
+$str
+‹‹ 6
+,
+‹‹6 7
+async
+‹‹8 =
+(
+‹‹> ?0
+"CreateStripeCheckoutSessionRequest
+ŒŒ 2
+request
+ŒŒ3 :
+,
+ŒŒ: ;0
+"CreateStripeCheckoutSessionHandler
+ 2
+handler
+3 :
+,
+: ;
+CancellationToken
+ !
+ct
+" $
+)
+$ %
+=>
+& (
+{
+ 
+return
+ 
+await
+ 
+handler
+ $
+.
+$ %
+Handle
+% +
+(
++ ,
+request
+, 3
+,
+3 4
+ct
+5 7
+)
+7 8
+;
+8 9
+}
+‘‘ 
+)
+‘‘ 
+.
+’’ 
+WithName
+’’ 
 (
 ’’ 
 $str
-’’ '
-,
-’’' (
+’’ 3
+)
+’’3 4
+.
+““ 
+Produces
+““ 
 (
-’’) *
+““ 
+$num
+““ 
+)
+““ 
+.
+”” 
+Produces
+”” 
+(
+”” 
+$num
+”” 
+)
+”” 
+.
+•• 
+Produces
+•• 
+(
+•• 
+$num
+•• 
+)
+•• 
+.
+–– 
+Produces
+–– 
+(
+–– 
+$num
+–– 
+)
+–– 
+.
+—— 
+Produces
+—— 
+(
+—— 
+$num
+—— 
+)
+—— 
+;
+—— 
+group
+šš 
+.
+šš 
+MapPost
+šš 
+(
+šš 
+$str
+šš '
+,
+šš' (
+(
+šš) *
 HttpRequest
-““ 
+›› 
 request
-““  '
+››  '
 ,
-““' ("
+››' ("
 StripeWebhookHandler
-”” (
+œœ (
 handler
-””) 0
+œœ) 0
 ,
-””0 1
+œœ0 1
 CancellationToken
-•• %
+ %
 ct
-••& (
+& (
 )
-••( )
+( )
 =>
-••* ,
+* ,
 handler
-–– 
+ 
 .
-–– 
+ 
 Handle
-–– 
+ 
 (
-–– 
+ 
 request
-–– &
+ &
 ,
-––& '
+& '
 ct
-––( *
+( *
 )
-––* +
+* +
 )
-––+ ,
++ ,
 .
-—— 
+ŸŸ 
 AllowAnonymous
-—— 
+ŸŸ 
 (
-—— 
+ŸŸ 
 )
-—— 
+ŸŸ 
 .
-˜˜ 
+   
 WithName
-˜˜ 
+   
 (
-˜˜ 
+   
 $str
-˜˜ %
+   %
 )
-˜˜% &
+  % &
 ;
-˜˜& '
+  & '
 }
-™™ 
+¡¡ 
 private
-›› 
+££ 
 static
-›› 
+££ 
 void
-›› !
+££ !
 MapLoyaltyEndpoints
-›› +
+££ +
 (
-››+ ,
+££+ ,
 WebApplication
-››, :
+££, :
 app
-››; >
+££; >
 )
-››> ?
+££> ?
 {
-œœ 
+¤¤ 
 var
- 
+¥¥ 
 clientGroup
- 
+¥¥ 
 =
- 
+¥¥ 
 app
- 
+¥¥ 
 .
- 
+¥¥ 
 MapGroup
- &
+¥¥ &
 (
-& '
+¥¥& '
 $str
-' 5
+¥¥' 5
 )
-5 6
+¥¥5 6
 .
-6 7
+¥¥6 7
 WithTags
-7 ?
+¥¥7 ?
 (
-? @
+¥¥? @
 $str
-@ I
+¥¥@ I
 )
-I J
+¥¥I J
 .
- "
+¦¦ "
 RequireAuthorization
- !
+¦¦ !
 (
-! "
+¦¦! "
 p
-" #
+¦¦" #
 =>
-$ &
+¦¦$ &
 p
-' (
+¦¦' (
 .
-( )
+¦¦( )
 RequireRole
-) 4
+¦¦) 4
 (
-4 5
-$str
-5 =
+¦¦4 5
+
+ClientRole
+¦¦5 ?
 ,
-= >
-$str
-? F
+¦¦? @
+	AdminRole
+¦¦A J
 )
-F G
+¦¦J K
 )
-G H
+¦¦K L
 ;
-H I
-clientGroup
-¡¡ 
-.
-¡¡ 
-MapGet
-¡¡ 
-(
-¡¡ 
-$str
-¡¡ 3
-,
-¡¡3 4
-async
-¡¡5 :
-(
-¡¡; <
-Guid
-¡¡< @
-userId
-¡¡A G
-,
-¡¡G H&
-GetLoyaltyBalanceHandler
-¡¡I a
-handler
-¡¡b i
-)
-¡¡i j
-=>
-¡¡k m
-await
-¢¢ 
-handler
-¢¢ 
-.
-¢¢ 
-Handle
-¢¢ $
-(
-¢¢$ %
-new
-¢¢% (&
-GetLoyaltyBalanceRequest
-¢¢) A
-(
-¢¢A B
-userId
-¢¢B H
-)
-¢¢H I
-)
-¢¢I J
-)
-¢¢J K
-.
-££ 
-WithName
-££ 
-(
-££ 
-$str
-££ )
-)
-££) *
-.
-¤¤ 
-Produces
-¤¤ 
-(
-¤¤ 
-$num
-¤¤ 
-)
-¤¤ 
-.
-¥¥ 
-Produces
-¥¥ 
-(
-¥¥ 
-$num
-¥¥ 
-)
-¥¥ 
-.
-¦¦ 
-Produces
-¦¦ 
-(
-¦¦ 
-$num
-¦¦ 
-)
-¦¦ 
-;
-¦¦ 
+¦¦L M
 clientGroup
 ©© 
 .
-©© 
-MapPost
-©© 
+©© 
+MapGet
+©© 
 (
-©© 
+©© 
 $str
-©© %
+©© 3
 ,
-©©% &
+©©3 4
 async
-©©' ,
+©©5 :
 (
-©©- .!
-RedeemPointsRequest
-ªª #
-request
-ªª$ +
+©©; <
+Guid
+©©< @
+userId
+©©A G
 ,
-ªª+ ,!
-RedeemPointsHandler
-«« #
+©©G H&
+GetLoyaltyBalanceHandler
+©©I a
 handler
-««$ +
+©©b i
+)
+©©i j
+=>
+©©k m
+await
+ªª 
+handler
+ªª 
+.
+ªª 
+Handle
+ªª $
+(
+ªª$ %
+new
+ªª% (&
+GetLoyaltyBalanceRequest
+ªª) A
+(
+ªªA B
+userId
+ªªB H
+)
+ªªH I
+)
+ªªI J
+)
+ªªJ K
+.
+«« 
+WithName
+«« 
+(
+«« 
+$str
+«« )
+)
+««) *
+.
+¬¬ 
+Produces
+¬¬ 
+(
+¬¬ 
+$num
+¬¬ 
+)
+¬¬ 
+.
+­­ 
+Produces
+­­ 
+(
+­­ 
+$num
+­­ 
+)
+­­ 
+.
+®® 
+Produces
+®® 
+(
+®® 
+$num
+®® 
+)
+®® 
+;
+®® 
+clientGroup
+±± 
+.
+±± 
+MapPost
+±± 
+(
+±± 
+$str
+±± %
 ,
-««+ ,
+±±% &
+async
+±±' ,
+(
+±±- .!
+RedeemPointsRequest
+²² #
+request
+²²$ +
+,
+²²+ ,!
+RedeemPointsHandler
+³³ #
+handler
+³³$ +
+,
+³³+ ,
 
 IValidator
-¬¬ 
+´´ 
 <
-¬¬ !
+´´ !
 RedeemPointsRequest
-¬¬ .
+´´ .
 >
-¬¬. /
+´´. /
 	validator
-¬¬0 9
+´´0 9
 ,
-¬¬9 :
+´´9 :
 CancellationToken
-­­ !
+µµ !
 ct
-­­" $
+µµ" $
 )
-­­$ %
+µµ$ %
 =>
-­­& (
+µµ& (
 {
-®® 
+¶¶ 
 var
-¯¯ 
+·· 
 
 validation
-¯¯ 
+·· 
 =
-¯¯  
+··  
 await
-¯¯! &
+··! &
 	validator
-¯¯' 0
+··' 0
 .
-¯¯0 1
+··0 1
 ValidateAsync
-¯¯1 >
+··1 >
 (
-¯¯> ?
+··> ?
 request
-¯¯? F
+··? F
 ,
-¯¯F G
+··F G
 ct
-¯¯H J
+··H J
 )
-¯¯J K
+··J K
 ;
-¯¯K L
+··K L
 if
-°° 
+¸¸ 
 (
-°° 
+¸¸ 
 !
-°° 
+¸¸ 
 
 validation
-°° 
+¸¸ 
 .
-°°  
+¸¸  
 IsValid
-°°  '
+¸¸  '
 )
-°°' (
+¸¸' (
 return
-±± 
+¹¹ 
 Results
-±± "
+¹¹ "
 .
-±±" #
+¹¹" #
 ValidationProblem
-±±# 4
+¹¹# 4
 (
-±±4 5
+¹¹4 5
 
 validation
-±±5 ?
+¹¹5 ?
 .
-±±? @
+¹¹? @
 ToDictionary
-±±@ L
+¹¹@ L
 (
-±±L M
+¹¹L M
 )
-±±M N
+¹¹M N
 )
-±±N O
+¹¹N O
 ;
-±±O P
+¹¹O P
 return
-³³ 
+»» 
 await
-³³ 
+»» 
 handler
-³³ $
+»» $
 .
-³³$ %
+»»$ %
 Handle
-³³% +
+»»% +
 (
-³³+ ,
+»»+ ,
 request
-³³, 3
+»», 3
 ,
-³³3 4
+»»3 4
 ct
-³³5 7
+»»5 7
 )
-³³7 8
+»»7 8
 ;
-³³8 9
+»»8 9
 }
-´´ 
+¼¼ 
 )
-´´ 
+¼¼ 
 .
-µµ 
+½½ 
 WithName
-µµ 
+½½ 
 (
-µµ 
+½½ 
 $str
-µµ $
+½½ $
 )
-µµ$ %
+½½$ %
 .
-¶¶ 
+¾¾ 
 Produces
-¶¶ 
+¾¾ 
 (
-¶¶ 
+¾¾ 
 $num
-¶¶ 
+¾¾ 
 )
-¶¶ 
+¾¾ 
 .
-·· 
+¿¿ 
 Produces
-·· 
+¿¿ 
 (
-·· 
+¿¿ 
 $num
-·· 
+¿¿ 
 )
-·· 
+¿¿ 
 .
-¸¸ '
+ÀÀ '
 ProducesValidationProblem
-¸¸ &
+ÀÀ &
 (
-¸¸& '
+ÀÀ& '
 )
-¸¸' (
+ÀÀ' (
 .
-¹¹ 
+ÁÁ 
 Produces
-¹¹ 
+ÁÁ 
 (
-¹¹ 
+ÁÁ 
 $num
-¹¹ 
+ÁÁ 
 )
-¹¹ 
+ÁÁ 
 .
-ºº 
+ÂÂ 
 Produces
-ºº 
+ÂÂ 
 (
-ºº 
+ÂÂ 
 $num
-ºº 
+ÂÂ 
 )
-ºº 
+ÂÂ 
 ;
-ºº 
+ÂÂ 
 clientGroup
-½½ 
+ÅÅ 
 .
-½½ 
+ÅÅ 
 MapGet
-½½ 
+ÅÅ 
 (
-½½ 
+ÅÅ 
 $str
-½½ 8
+ÅÅ 8
 ,
-½½8 9
+ÅÅ8 9
 async
-½½: ?
+ÅÅ: ?
 (
-½½@ A
+ÅÅ@ A
 Guid
-½½A E
+ÅÅA E
 userId
-½½F L
+ÅÅF L
 ,
-½½L M
+ÅÅL M
 CampusEatsContext
-½½N _
+ÅÅN _
 db
-½½` b
+ÅÅ` b
 ,
-½½b c
+ÅÅb c
 CancellationToken
-½½d u
+ÅÅd u
 ct
-½½v x
+ÅÅv x
 )
-½½x y
+ÅÅx y
 =>
-½½z |
+ÅÅz |
 {
-¾¾ 
+ÆÆ 
 var
-¿¿ 
+ÇÇ 
 txs
-¿¿ 
+ÇÇ 
 =
-¿¿ 
+ÇÇ 
 await
-¿¿ 
+ÇÇ 
 db
-¿¿  "
+ÇÇ  "
 .
-¿¿" #!
+ÇÇ" #!
 LoyaltyTransactions
-¿¿# 6
+ÇÇ# 6
 .
-ÀÀ 
+ÈÈ 
 Where
-ÀÀ 
+ÈÈ 
 (
-ÀÀ 
+ÈÈ 
 t
-ÀÀ 
+ÈÈ 
 =>
-ÀÀ 
+ÈÈ 
 t
-ÀÀ  !
+ÈÈ  !
 .
-ÀÀ! "
+ÈÈ! "
 UserId
-ÀÀ" (
+ÈÈ" (
 ==
-ÀÀ) +
+ÈÈ) +
 userId
-ÀÀ, 2
+ÈÈ, 2
 )
-ÀÀ2 3
+ÈÈ2 3
 .
-ÁÁ 
+ÉÉ 
 OrderByDescending
-ÁÁ &
+ÉÉ &
 (
-ÁÁ& '
+ÉÉ& '
 t
-ÁÁ' (
+ÉÉ' (
 =>
-ÁÁ) +
+ÉÉ) +
 t
-ÁÁ, -
+ÉÉ, -
 .
-ÁÁ- .
+ÉÉ- .
 CreatedAtUtc
-ÁÁ. :
+ÉÉ. :
 )
-ÁÁ: ;
+ÉÉ: ;
 .
-ÂÂ 
+ÊÊ 
 ToListAsync
-ÂÂ  
+ÊÊ  
 (
-ÂÂ  !
+ÊÊ  !
 ct
-ÂÂ! #
+ÊÊ! #
 )
-ÂÂ# $
+ÊÊ# $
 ;
-ÂÂ$ %
+ÊÊ$ %
 return
-ÄÄ 
+ÌÌ 
 Results
-ÄÄ 
+ÌÌ 
 .
-ÄÄ 
+ÌÌ 
 Ok
-ÄÄ !
+ÌÌ !
 (
-ÄÄ! "
+ÌÌ! "
 txs
-ÄÄ" %
+ÌÌ" %
 )
-ÄÄ% &
+ÌÌ% &
 ;
-ÄÄ& '
+ÌÌ& '
 }
-ÅÅ 
+ÍÍ 
 )
-ÅÅ 
+ÍÍ 
 .
-ÆÆ 
+ÎÎ 
 WithName
-ÆÆ 
+ÎÎ 
 (
-ÆÆ 
+ÎÎ 
 $str
-ÆÆ .
+ÎÎ .
 )
-ÆÆ. /
+ÎÎ. /
 .
-ÇÇ 
+ÏÏ 
 Produces
-ÇÇ 
+ÏÏ 
 (
-ÇÇ 
+ÏÏ 
 $num
-ÇÇ 
+ÏÏ 
 )
-ÇÇ 
+ÏÏ 
 .
-ÈÈ 
+ĞĞ 
 Produces
-ÈÈ 
+ĞĞ 
 (
-ÈÈ 
+ĞĞ 
 $num
-ÈÈ 
+ĞĞ 
 )
-ÈÈ 
+ĞĞ 
 .
-ÉÉ 
+ÑÑ 
 Produces
-ÉÉ 
+ÑÑ 
 (
-ÉÉ 
+ÑÑ 
 $num
-ÉÉ 
+ÑÑ 
 )
-ÉÉ 
+ÑÑ 
 ;
-ÉÉ 
+ÑÑ 
 }
-ÊÊ 
+ÒÒ 
 private
-ÌÌ 
+ÔÔ 
 static
-ÌÌ 
+ÔÔ 
 void
-ÌÌ 
+ÔÔ 
 MapUserEndpoints
-ÌÌ (
+ÔÔ (
 (
-ÌÌ( )
+ÔÔ( )
 WebApplication
-ÌÌ) 7
+ÔÔ) 7
 app
-ÌÌ8 ;
+ÔÔ8 ;
 )
-ÌÌ; <
+ÔÔ; <
 {
-ÍÍ 
+ÕÕ 
 var
-ÎÎ 
+ÖÖ 
 
 adminGroup
-ÎÎ 
+ÖÖ 
 =
-ÎÎ 
+ÖÖ 
 app
-ÎÎ 
+ÖÖ 
 .
-ÎÎ 
+ÖÖ 
 MapGroup
-ÎÎ %
+ÖÖ %
 (
-ÎÎ% &
+ÖÖ% &
 $str
-ÎÎ& 2
+ÖÖ& 2
 )
-ÎÎ2 3
+ÖÖ2 3
 .
-ÎÎ3 4
+ÖÖ3 4
 WithTags
-ÎÎ4 <
+ÖÖ4 <
 (
-ÎÎ< =
+ÖÖ< =
 $str
-ÎÎ= D
+ÖÖ= D
 )
-ÎÎD E
+ÖÖD E
 .
-ÏÏ "
+×× "
 RequireAuthorization
-ÏÏ %
+×× %
 (
-ÏÏ% &
+××% &
 p
-ÏÏ& '
+××& '
 =>
-ÏÏ( *
+××( *
 p
-ÏÏ+ ,
+××+ ,
 .
-ÏÏ, -
+××, -
 RequireRole
-ÏÏ- 8
+××- 8
 (
-ÏÏ8 9
-$str
-ÏÏ9 @
+××8 9
+	AdminRole
+××9 B
 )
-ÏÏ@ A
+××B C
 )
-ÏÏA B
+××C D
 ;
-ÏÏB C
+××D E
 
 adminGroup
-ÒÒ 
+ÚÚ 
 .
-ÒÒ 
+ÚÚ 
 MapGet
-ÒÒ 
+ÚÚ 
 (
-ÒÒ 
+ÚÚ 
 $str
-ÒÒ 
+ÚÚ 
 ,
-ÒÒ 
+ÚÚ 
 async
-ÒÒ $
+ÚÚ $
 (
-ÒÒ% &
+ÚÚ% &
 CampusEatsContext
-ÓÓ !
+ÛÛ !
 db
-ÓÓ" $
+ÛÛ" $
 ,
-ÓÓ$ %
+ÛÛ$ %
 CancellationToken
-ÔÔ !
+ÜÜ !
 ct
-ÔÔ" $
+ÜÜ" $
 )
-ÔÔ$ %
+ÜÜ$ %
 =>
-ÔÔ& (
+ÜÜ& (
 {
-ÕÕ 
+İİ 
 var
-ÖÖ 
+ŞŞ 
 users
-ÖÖ 
+ŞŞ 
 =
-ÖÖ 
+ŞŞ 
 await
-ÖÖ !
+ŞŞ !
 db
-ÖÖ" $
+ŞŞ" $
 .
-ÖÖ$ %
+ŞŞ$ %
 Users
-ÖÖ% *
+ŞŞ% *
 .
-×× 
+ßß 
 Select
-×× 
+ßß 
 (
-×× 
+ßß 
 u
-×× 
+ßß 
 =>
-××  
+ßß  
 new
-××! $
+ßß! $
 {
-ØØ 
+àà 
 u
-ÙÙ 
+áá 
 .
-ÙÙ 
+áá 
 Id
-ÙÙ 
+áá 
 ,
-ÙÙ 
+áá 
 u
-ÚÚ 
+ââ 
 .
-ÚÚ 
+ââ 
 Username
-ÚÚ "
+ââ "
 ,
-ÚÚ" #
+ââ" #
 u
-ÛÛ 
+ãã 
 .
-ÛÛ 
+ãã 
 Email
-ÛÛ 
+ãã 
 ,
-ÛÛ  
+ãã  
 Role
-ÜÜ 
+ää 
 =
-ÜÜ 
+ää 
 u
-ÜÜ  
+ää  
 .
-ÜÜ  !
+ää  !
 Role
-ÜÜ! %
+ää! %
 .
-ÜÜ% &
+ää% &
 ToString
-ÜÜ& .
+ää& .
 (
-ÜÜ. /
+ää. /
 )
-ÜÜ/ 0
+ää/ 0
 ,
-ÜÜ0 1
+ää0 1
 u
-İİ 
+åå 
 .
-İİ 
+åå 
 	CreatedAt
-İİ #
+åå #
 }
-ŞŞ 
+ææ 
 )
-ŞŞ 
+ææ 
 .
-ßß 
+çç 
 ToListAsync
-ßß  
+çç  
 (
-ßß  !
+çç  !
 ct
-ßß! #
+çç! #
 )
-ßß# $
+çç# $
 ;
-ßß$ %
+çç$ %
 return
-áá 
+éé 
 Results
-áá 
+éé 
 .
-áá 
+éé 
 Ok
-áá !
+éé !
 (
-áá! "
+éé! "
 users
-áá" '
+éé" '
 )
-áá' (
+éé' (
 ;
-áá( )
+éé( )
 }
-ââ 
+êê 
 )
-ââ 
+êê 
 .
-ãã 
+ëë 
 WithName
-ãã 
+ëë 
 (
-ãã 
+ëë 
 $str
-ãã #
+ëë #
 )
-ãã# $
+ëë# $
 .
-ää 
+ìì 
 Produces
-ää 
+ìì 
 (
-ää 
+ìì 
 $num
-ää 
+ìì 
 )
-ää 
+ìì 
 .
-åå 
+íí 
 Produces
-åå 
+íí 
 (
-åå 
+íí 
 $num
-åå 
+íí 
 )
-åå 
+íí 
 .
-ææ 
+îî 
 Produces
-ææ 
+îî 
 (
-ææ 
+îî 
 $num
-ææ 
+îî 
 )
-ææ 
+îî 
 ;
-ææ 
+îî 
 
 adminGroup
-éé 
+ññ 
 .
-éé 
+ññ 
 MapGet
-éé 
+ññ 
 (
-éé 
+ññ 
 $str
-éé *
+ññ *
 ,
-éé* +
+ññ* +
 async
-éé, 1
+ññ, 1
 (
-éé2 3
+ññ2 3
 Guid
-êê 
+òò 
 userId
-êê 
+òò 
 ,
-êê 
+òò 
 CampusEatsContext
-ëë !
+óó !
 db
-ëë" $
+óó" $
 ,
-ëë$ %
+óó$ %
 CancellationToken
-ìì !
+ôô !
 ct
-ìì" $
+ôô" $
 )
-ìì$ %
+ôô$ %
 =>
-ìì& (
+ôô& (
 {
-íí 
+õõ 
 var
-îî 
+öö 
 user
-îî 
+öö 
 =
-îî 
+öö 
 await
-îî  
+öö  
 db
-îî! #
+öö! #
 .
-îî# $
+öö# $
 Users
-îî$ )
+öö$ )
 .
-ïï 
+÷÷ 
 Where
-ïï 
+÷÷ 
 (
-ïï 
+÷÷ 
 u
-ïï 
+÷÷ 
 =>
-ïï 
+÷÷ 
 u
-ïï  !
+÷÷  !
 .
-ïï! "
+÷÷! "
 Id
-ïï" $
+÷÷" $
 ==
-ïï% '
+÷÷% '
 userId
-ïï( .
+÷÷( .
 )
-ïï. /
+÷÷. /
 .
-ğğ 
+øø 
 Select
-ğğ 
+øø 
 (
-ğğ 
+øø 
 u
-ğğ 
+øø 
 =>
-ğğ  
+øø  
 new
-ğğ! $
+øø! $
 {
-ññ 
+ùù 
 u
-òò 
+úú 
 .
-òò 
+úú 
 Id
-òò 
+úú 
 ,
-òò 
+úú 
 u
-óó 
+ûû 
 .
-óó 
+ûû 
 Username
-óó "
+ûû "
 ,
-óó" #
+ûû" #
 u
-ôô 
+üü 
 .
-ôô 
+üü 
 Email
-ôô 
+üü 
 ,
-ôô  
+üü  
 Role
-õõ 
+ıı 
 =
-õõ 
+ıı 
 u
-õõ  
+ıı  
 .
-õõ  !
+ıı  !
 Role
-õõ! %
+ıı! %
 .
-õõ% &
+ıı% &
 ToString
-õõ& .
+ıı& .
 (
-õõ. /
+ıı. /
 )
-õõ/ 0
+ıı/ 0
 ,
-õõ0 1
+ıı0 1
 u
-öö 
+şş 
 .
-öö 
+şş 
 	CreatedAt
-öö #
+şş #
 }
-÷÷ 
+ÿÿ 
 )
-÷÷ 
+ÿÿ 
 .
-øø !
+€€ !
 FirstOrDefaultAsync
-øø (
+€€ (
 (
-øø( )
+€€( )
 ct
-øø) +
+€€) +
 )
-øø+ ,
+€€+ ,
 ;
-øø, -
+€€, -
 if
-úú 
+‚‚ 
 (
-úú 
+‚‚ 
 user
-úú 
+‚‚ 
 ==
-úú 
+‚‚ 
 null
-úú  
+‚‚  
 )
-úú  !
+‚‚  !
 return
-ûû 
+ƒƒ 
 Results
-ûû "
+ƒƒ "
 .
-ûû" #
+ƒƒ" #
 NotFound
-ûû# +
+ƒƒ# +
 (
-ûû+ ,
+ƒƒ+ ,
 $str
-ûû, <
+ƒƒ, <
 )
-ûû< =
+ƒƒ< =
 ;
-ûû= >
+ƒƒ= >
 return
-ıı 
+…… 
 Results
-ıı 
+…… 
 .
-ıı 
+…… 
 Ok
-ıı !
+…… !
 (
-ıı! "
+……! "
 user
-ıı" &
+……" &
 )
-ıı& '
+……& '
 ;
-ıı' (
+……' (
 }
-şş 
+†† 
 )
-şş 
+†† 
 .
-ÿÿ 
+‡‡ 
 WithName
-ÿÿ 
+‡‡ 
 (
-ÿÿ 
+‡‡ 
 $str
-ÿÿ #
+‡‡ #
 )
-ÿÿ# $
+‡‡# $
 .
-€€ 
+ˆˆ 
 Produces
-€€ 
+ˆˆ 
 (
-€€ 
+ˆˆ 
 $num
-€€ 
+ˆˆ 
 )
-€€ 
+ˆˆ 
 .
- 
+‰‰ 
 Produces
- 
+‰‰ 
 (
- 
+‰‰ 
 $num
- 
+‰‰ 
 )
- 
+‰‰ 
 .
-‚‚ 
+ŠŠ 
 Produces
-‚‚ 
+ŠŠ 
 (
-‚‚ 
+ŠŠ 
 $num
-‚‚ 
+ŠŠ 
 )
-‚‚ 
+ŠŠ 
 .
-ƒƒ 
+‹‹ 
 Produces
-ƒƒ 
-(
-ƒƒ 
-$num
-ƒƒ 
-)
-ƒƒ 
-;
-ƒƒ 
-}
-„„ 
-private
-†† 
-static
-†† 
-void
-†† 
-MapAuthEndpoints
-†† (
-(
-††( )
-WebApplication
-††) 7
-app
-††8 ;
-)
-††; <
-{
-‡‡ 
-var
-ˆˆ 
-group
-ˆˆ 
-=
-ˆˆ 
-app
-ˆˆ 
-.
-ˆˆ 
-MapGroup
-ˆˆ  
-(
-ˆˆ  !
-$str
-ˆˆ! ,
-)
-ˆˆ, -
-.
-ˆˆ- .
-WithTags
-ˆˆ. 6
-(
-ˆˆ6 7
-$str
-ˆˆ7 G
-)
-ˆˆG H
-;
-ˆˆH I
-group
-‹‹ 
-.
-‹‹ 
-MapPost
-‹‹ 
+‹‹ 
 (
 ‹‹ 
-$str
-‹‹ !
-,
-‹‹! "
-async
-‹‹# (
+$num
+‹‹ 
+)
+‹‹ 
+;
+‹‹ 
+}
+ŒŒ 
+private
+ 
+static
+ 
+void
+ 
+MapAuthEndpoints
+ (
 (
-‹‹) *!
+( )
+WebApplication
+) 7
+app
+8 ;
+)
+; <
+{
+ 
+var
+ 
+group
+ 
+=
+ 
+app
+ 
+.
+ 
+MapGroup
+  
+(
+  !
+$str
+! ,
+)
+, -
+.
+- .
+WithTags
+. 6
+(
+6 7
+$str
+7 G
+)
+G H
+;
+H I
+group
+““ 
+.
+““ 
+MapPost
+““ 
+(
+““ 
+$str
+““ !
+,
+““! "
+async
+““# (
+(
+““) *!
 RegisterUserRequest
-ŒŒ 
+”” 
 request
-ŒŒ  '
+””  '
 ,
-ŒŒ' (
+””' (
 CampusEatsContext
- 
+•• 
 db
-  
+••  
 ,
-  !
+••  !
 
 IValidator
- 
+–– 
 <
- !
+–– !
 RegisterUserRequest
- *
+–– *
 >
-* +
+––* +
 	validator
-, 5
+––, 5
 ,
-5 6
+––5 6
 CancellationToken
- 
+—— 
 ct
-  
+——  
 )
-  !
+——  !
 =>
-" $
+——" $
 {
- 	
+˜˜ 	
 var
-’’ 
+šš 
 validationResult
-’’  
+šš  
 =
-’’! "
+šš! "
 await
-’’# (
+šš# (
 	validator
-’’) 2
+šš) 2
 .
-’’2 3
+šš2 3
 ValidateAsync
-’’3 @
+šš3 @
 (
-’’@ A
+šš@ A
 request
-’’A H
+ššA H
 ,
-’’H I
+ššH I
 ct
-’’J L
+ššJ L
 )
-’’L M
+ššL M
 ;
-’’M N
+ššM N
 if
-““ 
+›› 
 (
-““ 
+›› 
 !
-““ 
+›› 
 validationResult
-““ !
+›› !
 .
-““! "
+››! "
 IsValid
-““" )
+››" )
 )
-““) *
+››) *
 return
-”” 
+œœ 
 Results
-”” 
+œœ 
 .
-”” 
+œœ 
 ValidationProblem
-”” 0
+œœ 0
 (
-””0 1
+œœ0 1
 validationResult
-””1 A
+œœ1 A
 .
-””A B
+œœA B
 ToDictionary
-””B N
+œœB N
 (
-””N O
+œœN O
 )
-””O P
+œœO P
 )
-””P Q
+œœP Q
 ;
-””Q R
+œœQ R
 if
-—— 
+ŸŸ 
 (
-—— 
+ŸŸ 
 await
-—— 
+ŸŸ 
 db
-—— 
+ŸŸ 
 .
-—— 
+ŸŸ 
 Users
-—— 
+ŸŸ 
 .
-—— 
+ŸŸ 
 AnyAsync
-—— '
+ŸŸ '
 (
-——' (
+ŸŸ' (
 u
-——( )
+ŸŸ( )
 =>
-——* ,
+ŸŸ* ,
 u
-——- .
+ŸŸ- .
 .
-——. /
+ŸŸ. /
 Email
-——/ 4
+ŸŸ/ 4
 ==
-——5 7
+ŸŸ5 7
 request
-——8 ?
+ŸŸ8 ?
 .
-——? @
+ŸŸ? @
 Email
-——@ E
+ŸŸ@ E
 ,
-——E F
+ŸŸE F
 ct
-——G I
+ŸŸG I
 )
-——I J
+ŸŸI J
 )
-——J K
+ŸŸJ K
 return
-˜˜ 
+   
 Results
-˜˜ 
+   
 .
-˜˜ 
+   
 
 BadRequest
-˜˜ )
+   )
 (
-˜˜) *
+  ) *
 $str
-˜˜* @
+  * @
 )
-˜˜@ A
+  @ A
 ;
-˜˜A B
+  A B
 var
-šš 
+¢¢ 
 user
-šš 
+¢¢ 
 =
-šš 
+¢¢ 
 new
-šš 
+¢¢ 
 User
-šš 
+¢¢ 
 {
-›› 
+££ 
 Id
-œœ 
+¤¤ 
 =
-œœ 
+¤¤ 
 Guid
-œœ 
+¤¤ 
 .
-œœ 
+¤¤ 
 NewGuid
-œœ !
+¤¤ !
 (
-œœ! "
+¤¤! "
 )
-œœ" #
+¤¤" #
 ,
-œœ# $
+¤¤# $
 Username
- 
+¥¥ 
 =
- 
+¥¥ 
 request
- "
+¥¥ "
 .
-" #
+¥¥" #
 Username
-# +
+¥¥# +
 ,
-+ ,
+¥¥+ ,
 Email
- 
+¦¦ 
 =
- 
+¦¦ 
 request
- 
+¦¦ 
 .
-  
+¦¦  
 Email
-  %
+¦¦  %
 ,
-% &
+¦¦% &
 PasswordHash
-ŸŸ 
+§§ 
 =
-ŸŸ 
+§§ 
 BCrypt
-ŸŸ %
+§§ %
 .
-ŸŸ% &
+§§% &
 Net
-ŸŸ& )
+§§& )
 .
-ŸŸ) *
+§§) *
 BCrypt
-ŸŸ* 0
+§§* 0
 .
-ŸŸ0 1
+§§0 1
 HashPassword
-ŸŸ1 =
+§§1 =
 (
-ŸŸ= >
+§§= >
 request
-ŸŸ> E
+§§> E
 .
-ŸŸE F
+§§E F
 Password
-ŸŸF N
+§§F N
 )
-ŸŸN O
+§§N O
 ,
-ŸŸO P
+§§O P
 Role
-   
+¨¨ 
 =
-   
+¨¨ 
 UserRole
-   
+¨¨ 
 .
-    
+¨¨  
 Client
-    &
+¨¨  &
 ,
-  & '
+¨¨& '
 	CreatedAt
-¡¡ 
+©© 
 =
-¡¡ 
+©© 
 DateTime
-¡¡ $
+©© $
 .
-¡¡$ %
+©©$ %
 UtcNow
-¡¡% +
+©©% +
 }
-¢¢ 
-;
-¢¢ 
-db
-¤¤ 
-.
-¤¤ 
-Users
-¤¤ 
-.
-¤¤ 
-Add
-¤¤ 
-(
-¤¤ 
-user
-¤¤ 
-)
-¤¤ 
-;
-¤¤ 
-await
-¥¥ 
-db
-¥¥ 
-.
-¥¥ 
-SaveChangesAsync
-¥¥ %
-(
-¥¥% &
-ct
-¥¥& (
-)
-¥¥( )
-;
-¥¥) *
-return
-§§ 
-Results
-§§ 
-.
-§§ 
-Created
-§§ "
-(
-§§" #
-$"
-¨¨ 
-$str
-¨¨ 
-{
-¨¨ 
-user
-¨¨ "
-.
-¨¨" #
-Id
-¨¨# %
-}
-¨¨% &
-"
-¨¨& '
-,
-¨¨' (
-new
-©© 
-{
-©© 
-user
-©© 
-.
-©© 
-Id
-©© 
-,
-©© 
-user
-©© #
-.
-©©# $
-Username
-©©$ ,
-,
-©©, -
-user
-©©. 2
-.
-©©2 3
-Email
-©©3 8
-,
-©©8 9
-Role
-©©: >
-=
-©©? @
-user
-©©A E
-.
-©©E F
-Role
-©©F J
-.
-©©J K
-ToString
-©©K S
-(
-©©S T
-)
-©©T U
-}
-©©V W
-)
 ªª 
 ;
-ªª 
-}
-«« 	
+ªª 
+db
+¬¬ 
+.
+¬¬ 
+Users
+¬¬ 
+.
+¬¬ 
+Add
+¬¬ 
+(
+¬¬ 
+user
+¬¬ 
 )
-««	 
+¬¬ 
+;
+¬¬ 
+await
+­­ 
+db
+­­ 
+.
+­­ 
+SaveChangesAsync
+­­ %
+(
+­­% &
+ct
+­­& (
+)
+­­( )
+;
+­­) *
+return
+¯¯ 
+Results
+¯¯ 
+.
+¯¯ 
+Created
+¯¯ "
+(
+¯¯" #
+$"
+°° 
+$str
+°° 
+{
+°° 
+user
+°° "
+.
+°°" #
+Id
+°°# %
+}
+°°% &
+"
+°°& '
+,
+°°' (
+new
+±± 
+{
+±± 
+user
+±± 
+.
+±± 
+Id
+±± 
+,
+±± 
+user
+±± #
+.
+±±# $
+Username
+±±$ ,
+,
+±±, -
+user
+±±. 2
+.
+±±2 3
+Email
+±±3 8
+,
+±±8 9
+Role
+±±: >
+=
+±±? @
+user
+±±A E
+.
+±±E F
+Role
+±±F J
+.
+±±J K
+ToString
+±±K S
+(
+±±S T
+)
+±±T U
+}
+±±V W
+)
+²² 
+;
+²² 
+}
+³³ 	
+)
+³³	 
 
 .
-¬¬ 	
+´´ 	
 WithName
-¬¬	 
+´´	 
 (
-¬¬ 
+´´ 
 $str
-¬¬  
+´´  
 )
-¬¬  !
+´´  !
 .
-­­ 	
+µµ 	
 Produces
-­­	 
+µµ	 
 (
-­­ 
+µµ 
 $num
-­­ 
+µµ 
 )
-­­ 
+µµ 
 .
-®® 	
+¶¶ 	
 Produces
-®®	 
+¶¶	 
 (
-®® 
+¶¶ 
 $num
-®® 
+¶¶ 
 )
-®® 
+¶¶ 
 .
-¯¯ 	'
+·· 	'
 ProducesValidationProblem
-¯¯	 "
+··	 "
 (
-¯¯" #
+··" #
 )
-¯¯# $
+··# $
 ;
-¯¯$ %
+··$ %
 group
-²² 
+ºº 
 .
-²² 
+ºº 
 MapPost
-²² 
+ºº 
 (
-²² 
+ºº 
 $str
-²² 
+ºº 
 ,
-²² 
+ºº 
 async
-²²  %
+ºº  %
 (
-²²& '
+ºº& '
 LoginUserRequest
-³³ 
+»» 
 request
-³³ $
+»» $
 ,
-³³$ %
+»»$ %
 CampusEatsContext
-´´ 
+¼¼ 
 db
-´´  
+¼¼  
 ,
-´´  !
+¼¼  !
 
 JwtService
-µµ 
+½½ 
 
 jwtService
-µµ !
+½½ !
 ,
-µµ! "
+½½! "
 CancellationToken
-¶¶ 
+¾¾ 
 ct
-¶¶  
+¾¾  
 )
-¶¶  !
+¾¾  !
 =>
-¶¶" $
+¾¾" $
 {
-·· 	
+¿¿ 	
 var
-¸¸ 
+ÀÀ 
 user
-¸¸ 
+ÀÀ 
 =
-¸¸ 
+ÀÀ 
 await
-¸¸ 
+ÀÀ 
 db
-¸¸ 
+ÀÀ 
 .
-¸¸  
+ÀÀ  
 Users
-¸¸  %
+ÀÀ  %
 .
-¹¹ !
+ÁÁ !
 FirstOrDefaultAsync
-¹¹ $
+ÁÁ $
 (
-¹¹$ %
+ÁÁ$ %
 u
-¹¹% &
+ÁÁ% &
 =>
-¹¹' )
+ÁÁ' )
 u
-¹¹* +
+ÁÁ* +
 .
-¹¹+ ,
+ÁÁ+ ,
 Email
-¹¹, 1
+ÁÁ, 1
 ==
-¹¹2 4
+ÁÁ2 4
 request
-¹¹5 <
+ÁÁ5 <
 .
-¹¹< =
+ÁÁ< =
 Email
-¹¹= B
+ÁÁ= B
 ,
-¹¹B C
+ÁÁB C
 ct
-¹¹D F
+ÁÁD F
 )
-¹¹F G
+ÁÁF G
 ;
-¹¹G H
+ÁÁG H
 if
-»» 
+ÃÃ 
 (
-»» 
+ÃÃ 
 user
-»» 
+ÃÃ 
 is
-»» 
+ÃÃ 
 null
-»» 
+ÃÃ 
 ||
-»» 
+ÃÃ 
 !
-»»  !
+ÃÃ  !
 BCrypt
-»»! '
+ÃÃ! '
 .
-»»' (
+ÃÃ' (
 Net
-»»( +
+ÃÃ( +
 .
-»»+ ,
+ÃÃ+ ,
 BCrypt
-»», 2
+ÃÃ, 2
 .
-»»2 3
+ÃÃ2 3
 Verify
-»»3 9
+ÃÃ3 9
 (
-»»9 :
+ÃÃ9 :
 request
-»»: A
+ÃÃ: A
 .
-»»A B
+ÃÃA B
 Password
-»»B J
+ÃÃB J
 ,
-»»J K
+ÃÃJ K
 user
-»»L P
+ÃÃL P
 .
-»»P Q
+ÃÃP Q
 PasswordHash
-»»Q ]
+ÃÃQ ]
 )
-»»] ^
+ÃÃ] ^
 )
-»»^ _
+ÃÃ^ _
 return
-¼¼ 
+ÄÄ 
 Results
-¼¼ 
+ÄÄ 
 .
-¼¼ 
+ÄÄ 
 Unauthorized
-¼¼ +
+ÄÄ +
 (
-¼¼+ ,
+ÄÄ+ ,
 )
-¼¼, -
+ÄÄ, -
 ;
-¼¼- .
+ÄÄ- .
 var
-¾¾ 
+ÆÆ 
 token
-¾¾ 
+ÆÆ 
 =
-¾¾ 
+ÆÆ 
 
 jwtService
-¾¾ "
+ÆÆ "
 .
-¾¾" #
+ÆÆ" #
 GenerateToken
-¾¾# 0
+ÆÆ# 0
 (
-¾¾0 1
+ÆÆ0 1
 user
-¾¾1 5
+ÆÆ1 5
 )
-¾¾5 6
+ÆÆ5 6
 ;
-¾¾6 7
+ÆÆ6 7
 return
-ÀÀ 
+ÈÈ 
 Results
-ÀÀ 
+ÈÈ 
 .
-ÀÀ 
+ÈÈ 
 Ok
-ÀÀ 
+ÈÈ 
 (
-ÀÀ 
+ÈÈ 
 new
-ÀÀ !
+ÈÈ !
 {
-ÁÁ 
+ÉÉ 
 token
-ÂÂ 
+ÊÊ 
 ,
-ÂÂ 
+ÊÊ 
 userId
-ÃÃ 
+ËË 
 =
-ÃÃ 
+ËË 
 user
-ÃÃ 
+ËË 
 .
-ÃÃ 
+ËË 
 Id
-ÃÃ  
+ËË  
 ,
-ÃÃ  !
+ËË  !
 username
-ÄÄ 
+ÌÌ 
 =
-ÄÄ 
+ÌÌ 
 user
-ÄÄ 
+ÌÌ 
 .
-ÄÄ  
+ÌÌ  
 Username
-ÄÄ  (
+ÌÌ  (
 ,
-ÄÄ( )
+ÌÌ( )
 role
-ÅÅ 
+ÍÍ 
 =
-ÅÅ 
-user
-ÅÅ 
-.
-ÅÅ 
-Role
-ÅÅ  
-.
-ÅÅ  !
-ToString
-ÅÅ! )
-(
-ÅÅ) *
-)
-ÅÅ* +
-}
-ÆÆ 
-)
-ÆÆ 
-;
-ÆÆ 
-}
-ÇÇ 	
-)
-ÇÇ	 
-
-.
-ÈÈ 	
-WithName
-ÈÈ	 
-(
-ÈÈ 
-$str
-ÈÈ 
-)
-ÈÈ 
-.
-ÉÉ 	
-Produces
-ÉÉ	 
-(
-ÉÉ 
-$num
-ÉÉ 
-)
-ÉÉ 
-.
-ÊÊ 	
-Produces
-ÊÊ	 
-(
-ÊÊ 
-$num
-ÊÊ 
-)
-ÊÊ 
-;
-ÊÊ 
-group
-ÍÍ 
-.
-ÍÍ 
-MapPost
-ÍÍ 
-(
 ÍÍ 
-$str
-ÍÍ 
-,
-ÍÍ  
-(
-ÍÍ! "
-)
-ÍÍ" #
-=>
-ÍÍ$ &
-{
-ÎÎ 	
-return
-ÑÑ 
-Results
-ÑÑ 
-.
-ÑÑ 
-Ok
-ÑÑ 
-(
-ÑÑ 
-new
-ÑÑ !
-{
-ÒÒ 
-message
-ÓÓ 
-=
-ÓÓ 
-$str
-ÓÓ `
-}
-ÔÔ 
-)
-ÔÔ 
-;
-ÔÔ 
-}
-ÕÕ 	
-)
-ÕÕ	 
-
-.
-ÖÖ 	"
-RequireAuthorization
-ÖÖ	 
-(
-ÖÖ 
-)
-ÖÖ 
-.
-×× 	
-WithName
-××	 
-(
-×× 
-$str
-×× 
-)
-×× 
-.
-ØØ 	
-Produces
-ØØ	 
-(
-ØØ 
-$num
-ØØ 
-)
-ØØ 
-.
-ÙÙ 	
-Produces
-ÙÙ	 
-(
-ÙÙ 
-$num
-ÙÙ 
-)
-ÙÙ 
-;
-ÙÙ 
-group
-İİ 
-.
-İİ 
-MapPost
-İİ 
-(
-İİ 
-$str
-İİ (
-,
-İİ( )
-async
-İİ* /
-(
-İİ0 1#
-ChangePasswordRequest
-ŞŞ !
-request
-ŞŞ" )
-,
-ŞŞ) *#
-ChangePasswordHandler
-ßß !
-handler
-ßß" )
-,
-ßß) *
-
-IValidator
-àà 
-<
-àà #
-ChangePasswordRequest
-àà ,
->
-àà, -
-	validator
-àà. 7
-,
-àà7 8
-CancellationToken
-áá 
-ct
-áá  
-)
-áá  !
-=>
-áá" $
-{
-ââ 	
-var
-ää 
-validationResult
-ää  
-=
-ää! "
-await
-ää# (
-	validator
-ää) 2
-.
-ää2 3
-ValidateAsync
-ää3 @
-(
-ää@ A
-request
-ääA H
-,
-ääH I
-ct
-ääJ L
-)
-ääL M
-;
-ääM N
-if
-åå 
-(
-åå 
-!
-åå 
-validationResult
-åå !
-.
-åå! "
-IsValid
-åå" )
-)
-åå) *
-return
-ææ 
-Results
-ææ 
-.
-ææ 
-ValidationProblem
-ææ 0
-(
-ææ0 1
-validationResult
-ææ1 A
-.
-ææA B
-ToDictionary
-ææB N
-(
-ææN O
-)
-ææO P
-)
-ææP Q
-;
-ææQ R
-return
-èè 
-await
-èè 
-handler
-èè  
-.
-èè  !
-Handle
-èè! '
-(
-èè' (
-request
-èè( /
-,
-èè/ 0
-ct
-èè1 3
-)
-èè3 4
-;
-èè4 5
-}
-éé 	
-)
-éé	 
-
-.
-êê 	"
-RequireAuthorization
-êê	 
-(
-êê 
-)
-êê 
-.
-ëë 	
-WithName
-ëë	 
-(
-ëë 
-$str
-ëë "
-)
-ëë" #
-.
-ìì 	
-Produces
-ìì	 
-(
-ìì 
-$num
-ìì 
-)
-ìì 
-.
-íí 	
-Produces
-íí	 
-(
-íí 
-$num
-íí 
-)
-íí 
-.
-îî 	
-Produces
-îî	 
-(
-îî 
-$num
-îî 
-)
-îî 
-.
-ïï 	'
-ProducesValidationProblem
-ïï	 "
-(
-ïï" #
-)
-ïï# $
-.
-ğğ 	
-Produces
-ğğ	 
-(
-ğğ 
-$num
-ğğ 
-)
-ğğ 
-;
-ğğ 
-app
-ôô 
-.
-ôô 
-MapPatch
-ôô 
-(
-ôô 
-$str
-ôô 4
-,
-ôô4 5
-async
-ôô6 ;
-(
-ôô< =
-Guid
-õõ 
-userId
-õõ 
-,
-õõ #
-UpdateUserRoleRequest
-öö !
-request
-öö" )
-,
-öö) *
-CampusEatsContext
-÷÷ 
-db
-÷÷  
-,
-÷÷  !
-
-IValidator
-øø 
-<
-øø #
-UpdateUserRoleRequest
-øø ,
->
-øø, -
-	validator
-øø. 7
-,
-øø7 8
-CancellationToken
-ùù 
-ct
-ùù  
-)
-ùù  !
-=>
-ùù" $
-{
-úú 	
-var
-ûû 
-requestWithId
-ûû 
-=
-ûû 
-request
-ûû  '
-with
-ûû( ,
-{
-ûû- .
-UserId
-ûû/ 5
-=
-ûû6 7
-userId
-ûû8 >
-}
-ûû? @
-;
-ûû@ A
-var
-şş 
-validationResult
-şş  
-=
-şş! "
-await
-şş# (
-	validator
-şş) 2
-.
-şş2 3
-ValidateAsync
-şş3 @
-(
-şş@ A
-requestWithId
-şşA N
-,
-şşN O
-ct
-şşP R
-)
-şşR S
-;
-şşS T
-if
-ÿÿ 
-(
-ÿÿ 
-!
-ÿÿ 
-validationResult
-ÿÿ !
-.
-ÿÿ! "
-IsValid
-ÿÿ" )
-)
-ÿÿ) *
-return
-€€ 
-Results
-€€ 
-.
-€€ 
-ValidationProblem
-€€ 0
-(
-€€0 1
-validationResult
-€€1 A
-.
-€€A B
-ToDictionary
-€€B N
-(
-€€N O
-)
-€€O P
-)
-€€P Q
-;
-€€Q R
-var
-ƒƒ 
 user
-ƒƒ 
-=
-ƒƒ 
-await
-ƒƒ 
-db
-ƒƒ 
+ÍÍ 
 .
-ƒƒ  
-Users
-ƒƒ  %
-.
-ƒƒ% &
-	FindAsync
-ƒƒ& /
-(
-ƒƒ/ 0
-new
-ƒƒ0 3
-object
-ƒƒ4 :
-[
-ƒƒ: ;
-]
-ƒƒ; <
-{
-ƒƒ= >
-userId
-ƒƒ? E
-}
-ƒƒF G
-,
-ƒƒG H
-ct
-ƒƒI K
-)
-ƒƒK L
-;
-ƒƒL M
-if
-„„ 
-(
-„„ 
-user
-„„ 
-is
-„„ 
-null
-„„ 
-)
-„„ 
-return
-…… 
-Results
-…… 
-.
-…… 
-NotFound
-…… '
-(
-……' (
-$str
-……( 8
-)
-……8 9
-;
-……9 :
-var
-ˆˆ 
-newRole
-ˆˆ 
-=
-ˆˆ 
-Enum
-ˆˆ 
-.
-ˆˆ 
-Parse
-ˆˆ $
-<
-ˆˆ$ %
-UserRole
-ˆˆ% -
->
-ˆˆ- .
-(
-ˆˆ. /
-requestWithId
-ˆˆ/ <
-.
-ˆˆ< =
-NewRole
-ˆˆ= D
-,
-ˆˆD E
-true
-ˆˆF J
-)
-ˆˆJ K
-;
-ˆˆK L
-user
-ŠŠ 
-.
-ŠŠ 
+ÍÍ 
 Role
-ŠŠ 
-=
-ŠŠ 
-newRole
-ŠŠ 
-;
-ŠŠ  
-await
-‹‹ 
-db
-‹‹ 
+ÍÍ  
 .
-‹‹ 
-SaveChangesAsync
-‹‹ %
-(
-‹‹% &
-ct
-‹‹& (
-)
-‹‹( )
-;
-‹‹) *
-return
- 
-Results
- 
-.
- 
-Ok
- 
-(
- 
-new
- !
-{
- 
-user
- 
-.
- 
-Id
- 
-,
- 
-user
- 
-.
- 
-Username
- 
-,
- 
-user
-‘‘ 
-.
-‘‘ 
-Email
-‘‘ 
-,
-‘‘ 
-Role
-’’ 
-=
-’’ 
-user
-’’ 
-.
-’’ 
-Role
-’’  
-.
-’’  !
+ÍÍ  !
 ToString
-’’! )
+ÍÍ! )
 (
-’’) *
+ÍÍ) *
 )
-’’* +
-,
-’’+ ,
-Message
-““ 
-=
-““ 
-$"
-““ 
-$str
-““ >
-{
-““> ?
-newRole
-““? F
+ÍÍ* +
 }
-““F G
-"
-““G H
-}
-”” 
+ÎÎ 
 )
-”” 
+ÎÎ 
 ;
-”” 
+ÎÎ 
 }
-•• 	
+ÏÏ 	
 )
-••	 
+ÏÏ	 
 
 .
-–– 	"
-RequireAuthorization
-––	 
-(
-–– 
-policy
-–– $
-=>
-––% '
-policy
-––( .
-.
-––. /
-RequireRole
-––/ :
-(
-––: ;
-$str
-––; B
-)
-––B C
-)
-––C D
-.
-—— 	
+ĞĞ 	
 WithName
-——	 
+ĞĞ	 
 (
-—— 
+ĞĞ 
 $str
-—— "
+ĞĞ 
 )
-——" #
+ĞĞ 
 .
-˜˜ 	
-WithTags
-˜˜	 
-(
-˜˜ 
-$str
-˜˜ "
-)
-˜˜" #
-.
-™™ 	
+ÑÑ 	
 Produces
-™™	 
+ÑÑ	 
 (
-™™ 
+ÑÑ 
 $num
-™™ 
+ÑÑ 
 )
-™™ 
+ÑÑ 
 .
-šš 	
+ÒÒ 	
 Produces
-šš	 
+ÒÒ	 
 (
-šš 
+ÒÒ 
 $num
-šš 
+ÒÒ 
 )
-šš 
-.
-›› 	
-Produces
-››	 
-(
-›› 
-$num
-›› 
-)
-›› 
-.
-œœ 	'
-ProducesValidationProblem
-œœ	 "
-(
-œœ" #
-)
-œœ# $
-.
- 	
-Produces
-	 
-(
- 
-$num
- 
-)
- 
-.
- 	
-Produces
-	 
-(
- 
-$num
- 
-)
- 
+ÒÒ 
 ;
- 
-}
-ŸŸ 
-private
-¡¡ 
-static
-¡¡ 
-void
-¡¡  
-MapHealthEndpoints
-¡¡ *
-(
-¡¡* +
-WebApplication
-¡¡+ 9
-app
-¡¡: =
-)
-¡¡= >
-{
-¢¢ 
-var
-££ 
+ÒÒ 
 group
-££ 
-=
-££ 
-app
-££ 
+ÕÕ 
 .
-££ 
-MapGroup
-££  
+ÕÕ 
+MapPost
+ÕÕ 
 (
-££  !
+ÕÕ 
 $str
-££! *
-)
-££* +
-.
-££+ ,
-WithTags
-££, 4
-(
-££4 5
-$str
-££5 =
-)
-££= >
-;
-££> ?
-group
-¥¥ 
-.
-¥¥ 
-MapGet
-¥¥ 
-(
-¥¥ 
-$str
-¥¥ 
+ÕÕ 
 ,
-¥¥ 
+ÕÕ  
 (
-¥¥ 
+ÕÕ! "
 )
-¥¥ 
+ÕÕ" #
 =>
-¥¥ 
+ÕÕ$ &
+{
+ÖÖ 	
+return
+ÙÙ 
 Results
-¥¥  '
+ÙÙ 
 .
-¥¥' (
+ÙÙ 
 Ok
-¥¥( *
+ÙÙ 
 (
-¥¥* +
+ÙÙ 
 new
-¥¥+ .
+ÙÙ !
 {
-¥¥/ 0
-Status
-¥¥1 7
+ÚÚ 
+message
+ÛÛ 
 =
-¥¥8 9
+ÛÛ 
 $str
-¥¥: C
-,
-¥¥C D
-	Timestamp
-¥¥E N
-=
-¥¥O P
-DateTime
-¥¥Q Y
-.
-¥¥Y Z
-UtcNow
-¥¥Z `
+ÛÛ `
 }
-¥¥a b
+ÜÜ 
 )
-¥¥b c
-)
-¥¥c d
-.
-¦¦ 
-WithName
-¦¦ 
-(
-¦¦ 
-$str
-¦¦ #
-)
-¦¦# $
-.
-§§ 
-Produces
-§§ 
-(
-§§ 
-$num
-§§ 
-)
-§§ 
+ÜÜ 
 ;
-§§ 
+ÜÜ 
 }
-¨¨ 
-}©© Í!
+İİ 	
+)
+İİ	 
+
+.
+ŞŞ 	"
+RequireAuthorization
+ŞŞ	 
+(
+ŞŞ 
+)
+ŞŞ 
+.
+ßß 	
+WithName
+ßß	 
+(
+ßß 
+$str
+ßß 
+)
+ßß 
+.
+àà 	
+Produces
+àà	 
+(
+àà 
+$num
+àà 
+)
+àà 
+.
+áá 	
+Produces
+áá	 
+(
+áá 
+$num
+áá 
+)
+áá 
+;
+áá 
+group
+åå 
+.
+åå 
+MapPost
+åå 
+(
+åå 
+$str
+åå (
+,
+åå( )
+async
+åå* /
+(
+åå0 1#
+ChangePasswordRequest
+ææ !
+request
+ææ" )
+,
+ææ) *#
+ChangePasswordHandler
+çç !
+handler
+çç" )
+,
+çç) *
+
+IValidator
+èè 
+<
+èè #
+ChangePasswordRequest
+èè ,
+>
+èè, -
+	validator
+èè. 7
+,
+èè7 8
+CancellationToken
+éé 
+ct
+éé  
+)
+éé  !
+=>
+éé" $
+{
+êê 	
+var
+ìì 
+validationResult
+ìì  
+=
+ìì! "
+await
+ìì# (
+	validator
+ìì) 2
+.
+ìì2 3
+ValidateAsync
+ìì3 @
+(
+ìì@ A
+request
+ììA H
+,
+ììH I
+ct
+ììJ L
+)
+ììL M
+;
+ììM N
+if
+íí 
+(
+íí 
+!
+íí 
+validationResult
+íí !
+.
+íí! "
+IsValid
+íí" )
+)
+íí) *
+return
+îî 
+Results
+îî 
+.
+îî 
+ValidationProblem
+îî 0
+(
+îî0 1
+validationResult
+îî1 A
+.
+îîA B
+ToDictionary
+îîB N
+(
+îîN O
+)
+îîO P
+)
+îîP Q
+;
+îîQ R
+return
+ğğ 
+await
+ğğ 
+handler
+ğğ  
+.
+ğğ  !
+Handle
+ğğ! '
+(
+ğğ' (
+request
+ğğ( /
+,
+ğğ/ 0
+ct
+ğğ1 3
+)
+ğğ3 4
+;
+ğğ4 5
+}
+ññ 	
+)
+ññ	 
+
+.
+òò 	"
+RequireAuthorization
+òò	 
+(
+òò 
+)
+òò 
+.
+óó 	
+WithName
+óó	 
+(
+óó 
+$str
+óó "
+)
+óó" #
+.
+ôô 	
+Produces
+ôô	 
+(
+ôô 
+$num
+ôô 
+)
+ôô 
+.
+õõ 	
+Produces
+õõ	 
+(
+õõ 
+$num
+õõ 
+)
+õõ 
+.
+öö 	
+Produces
+öö	 
+(
+öö 
+$num
+öö 
+)
+öö 
+.
+÷÷ 	'
+ProducesValidationProblem
+÷÷	 "
+(
+÷÷" #
+)
+÷÷# $
+.
+øø 	
+Produces
+øø	 
+(
+øø 
+$num
+øø 
+)
+øø 
+;
+øø 
+app
+üü 
+.
+üü 
+MapPatch
+üü 
+(
+üü 
+$str
+üü 4
+,
+üü4 5
+async
+üü6 ;
+(
+üü< =
+Guid
+ıı 
+userId
+ıı 
+,
+ıı #
+UpdateUserRoleRequest
+şş !
+request
+şş" )
+,
+şş) *
+CampusEatsContext
+ÿÿ 
+db
+ÿÿ  
+,
+ÿÿ  !
+
+IValidator
+€€ 
+<
+€€ #
+UpdateUserRoleRequest
+€€ ,
+>
+€€, -
+	validator
+€€. 7
+,
+€€7 8
+CancellationToken
+ 
+ct
+  
+)
+  !
+=>
+" $
+{
+‚‚ 	
+var
+ƒƒ 
+requestWithId
+ƒƒ 
+=
+ƒƒ 
+request
+ƒƒ  '
+with
+ƒƒ( ,
+{
+ƒƒ- .
+UserId
+ƒƒ/ 5
+=
+ƒƒ6 7
+userId
+ƒƒ8 >
+}
+ƒƒ? @
+;
+ƒƒ@ A
+var
+†† 
+validationResult
+††  
+=
+††! "
+await
+††# (
+	validator
+††) 2
+.
+††2 3
+ValidateAsync
+††3 @
+(
+††@ A
+requestWithId
+††A N
+,
+††N O
+ct
+††P R
+)
+††R S
+;
+††S T
+if
+‡‡ 
+(
+‡‡ 
+!
+‡‡ 
+validationResult
+‡‡ !
+.
+‡‡! "
+IsValid
+‡‡" )
+)
+‡‡) *
+return
+ˆˆ 
+Results
+ˆˆ 
+.
+ˆˆ 
+ValidationProblem
+ˆˆ 0
+(
+ˆˆ0 1
+validationResult
+ˆˆ1 A
+.
+ˆˆA B
+ToDictionary
+ˆˆB N
+(
+ˆˆN O
+)
+ˆˆO P
+)
+ˆˆP Q
+;
+ˆˆQ R
+var
+‹‹ 
+user
+‹‹ 
+=
+‹‹ 
+await
+‹‹ 
+db
+‹‹ 
+.
+‹‹  
+Users
+‹‹  %
+.
+‹‹% &
+	FindAsync
+‹‹& /
+(
+‹‹/ 0
+new
+‹‹0 3
+object
+‹‹4 :
+[
+‹‹: ;
+]
+‹‹; <
+{
+‹‹= >
+userId
+‹‹? E
+}
+‹‹F G
+,
+‹‹G H
+ct
+‹‹I K
+)
+‹‹K L
+;
+‹‹L M
+if
+ŒŒ 
+(
+ŒŒ 
+user
+ŒŒ 
+is
+ŒŒ 
+null
+ŒŒ 
+)
+ŒŒ 
+return
+ 
+Results
+ 
+.
+ 
+NotFound
+ '
+(
+' (
+$str
+( 8
+)
+8 9
+;
+9 :
+var
+ 
+newRole
+ 
+=
+ 
+Enum
+ 
+.
+ 
+Parse
+ $
+<
+$ %
+UserRole
+% -
+>
+- .
+(
+. /
+requestWithId
+/ <
+.
+< =
+NewRole
+= D
+,
+D E
+true
+F J
+)
+J K
+;
+K L
+user
+’’ 
+.
+’’ 
+Role
+’’ 
+=
+’’ 
+newRole
+’’ 
+;
+’’  
+await
+““ 
+db
+““ 
+.
+““ 
+SaveChangesAsync
+““ %
+(
+““% &
+ct
+““& (
+)
+““( )
+;
+““) *
+return
+•• 
+Results
+•• 
+.
+•• 
+Ok
+•• 
+(
+•• 
+new
+•• !
+{
+–– 
+user
+—— 
+.
+—— 
+Id
+—— 
+,
+—— 
+user
+˜˜ 
+.
+˜˜ 
+Username
+˜˜ 
+,
+˜˜ 
+user
+™™ 
+.
+™™ 
+Email
+™™ 
+,
+™™ 
+Role
+šš 
+=
+šš 
+user
+šš 
+.
+šš 
+Role
+šš  
+.
+šš  !
+ToString
+šš! )
+(
+šš) *
+)
+šš* +
+,
+šš+ ,
+Message
+›› 
+=
+›› 
+$"
+›› 
+$str
+›› >
+{
+››> ?
+newRole
+››? F
+}
+››F G
+"
+››G H
+}
+œœ 
+)
+œœ 
+;
+œœ 
+}
+ 	
+)
+	 
+
+.
+ 	"
+RequireAuthorization
+	 
+(
+ 
+policy
+ $
+=>
+% '
+policy
+( .
+.
+. /
+RequireRole
+/ :
+(
+: ;
+	AdminRole
+; D
+)
+D E
+)
+E F
+.
+ŸŸ 	
+WithName
+ŸŸ	 
+(
+ŸŸ 
+$str
+ŸŸ "
+)
+ŸŸ" #
+.
+   	
+WithTags
+  	 
+(
+   
+$str
+   "
+)
+  " #
+.
+¡¡ 	
+Produces
+¡¡	 
+(
+¡¡ 
+$num
+¡¡ 
+)
+¡¡ 
+.
+¢¢ 	
+Produces
+¢¢	 
+(
+¢¢ 
+$num
+¢¢ 
+)
+¢¢ 
+.
+££ 	
+Produces
+££	 
+(
+££ 
+$num
+££ 
+)
+££ 
+.
+¤¤ 	'
+ProducesValidationProblem
+¤¤	 "
+(
+¤¤" #
+)
+¤¤# $
+.
+¥¥ 	
+Produces
+¥¥	 
+(
+¥¥ 
+$num
+¥¥ 
+)
+¥¥ 
+.
+¦¦ 	
+Produces
+¦¦	 
+(
+¦¦ 
+$num
+¦¦ 
+)
+¦¦ 
+;
+¦¦ 
+}
+§§ 
+private
+©© 
+static
+©© 
+void
+©©  
+MapHealthEndpoints
+©© *
+(
+©©* +
+WebApplication
+©©+ 9
+app
+©©: =
+)
+©©= >
+{
+ªª 
+var
+«« 
+group
+«« 
+=
+«« 
+app
+«« 
+.
+«« 
+MapGroup
+««  
+(
+««  !
+$str
+««! *
+)
+««* +
+.
+««+ ,
+WithTags
+««, 4
+(
+««4 5
+$str
+««5 =
+)
+««= >
+;
+««> ?
+group
+­­ 
+.
+­­ 
+MapGet
+­­ 
+(
+­­ 
+$str
+­­ 
+,
+­­ 
+(
+­­ 
+)
+­­ 
+=>
+­­ 
+Results
+­­  '
+.
+­­' (
+Ok
+­­( *
+(
+­­* +
+new
+­­+ .
+{
+­­/ 0
+Status
+­­1 7
+=
+­­8 9
+$str
+­­: C
+,
+­­C D
+	Timestamp
+­­E N
+=
+­­O P
+DateTime
+­­Q Y
+.
+­­Y Z
+UtcNow
+­­Z `
+}
+­­a b
+)
+­­b c
+)
+­­c d
+.
+®® 
+WithName
+®® 
+(
+®® 
+$str
+®® #
+)
+®®# $
+.
+¯¯ 
+Produces
+¯¯ 
+(
+¯¯ 
+$num
+¯¯ 
+)
+¯¯ 
+;
+¯¯ 
+}
+°° 
+}±± Í!
 rC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\DependencyInjection.cs
 	namespace
 

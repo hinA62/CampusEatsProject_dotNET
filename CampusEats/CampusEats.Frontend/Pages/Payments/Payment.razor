@@ -190,7 +190,7 @@
                                 <button type="button"
                                         class="btn btn-primary btn-lg"
                                         @onclick="ProcessPayment"
-                                        disabled="@(!CanProcessPayment() || _isProcessing)">
+                                        disabled="@(!CanProcessPayment || _isProcessing)">
                                     @if (_isProcessing)
                                     {
                                         <span class="spinner-border spinner-border-sm me-2"></span>
@@ -430,11 +430,7 @@
         }
     }
 
-    private static bool CanProcessPayment()
-    {
-        // Both payment methods don't require local card fields (Stripe handles it, MockCard is COD)
-        return true;
-    }
+    private const bool CanProcessPayment = true; //stripe payment always available
 
     private async Task ProcessPayment()
     {

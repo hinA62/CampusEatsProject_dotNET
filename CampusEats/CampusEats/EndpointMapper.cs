@@ -36,11 +36,19 @@ public static class EndpointMapper
         MapHealthEndpoints(app);
     }
 
+    private const string AdminRole = "Admin";
+    private const string ClientRole = "Client";
+    private const string KitchenRole = "Kitchen";
+    
+    private const string IdGuidRouteConstraint = "{id:guid}";
+    
+    private const string ClientTag = "Client";
+    private const string OrderTag = "Orders";
     private static void MapMenuEndpoints(WebApplication app)
     {
         var publicGroup = app.MapGroup("/api/menu").WithTags("Menu");
         var adminGroup = app.MapGroup("/api/menu").WithTags("Menu")
-            .RequireAuthorization(p => p.RequireRole("Admin"));
+            .RequireAuthorization(p => p.RequireRole(AdminRole));
         
         // Create Menu (Admin only)
         adminGroup.MapPost("/", async (CreateMenuRequest request, CreateMenuHandler handler) => 
@@ -53,7 +61,7 @@ public static class EndpointMapper
 
 
         // Update Menu (Admin only)
-        adminGroup.MapPut("/{id:guid}", async (Guid id, UpdateMenuRequest request, UpdateMenuHandler handler) =>
+        adminGroup.MapPut($"/{IdGuidRouteConstraint}", async (Guid id, UpdateMenuRequest request, UpdateMenuHandler handler) =>
             {
                 // Ensure ID from route matches request
                 var requestWithId = request with { Id = id };
@@ -68,7 +76,7 @@ public static class EndpointMapper
 
 
         // Delete Menu (Admin only)
-        adminGroup.MapDelete("/{id:guid}", async (Guid id, DeleteMenuHandler handler) => 
+        adminGroup.MapDelete($"/{IdGuidRouteConstraint}", async (Guid id, DeleteMenuHandler handler) => 
                 await handler.Handle(new DeleteMenuRequest(id)))
             .WithName("DeleteMenu")
             .Produces(200)
@@ -88,7 +96,7 @@ public static class EndpointMapper
 
 
         // Get Menu by ID (Public - no auth required)
-        publicGroup.MapGet("/{id:guid}", async (Guid id, CampusEatsContext db) =>
+        publicGroup.MapGet($"/{IdGuidRouteConstraint}", async (Guid id, CampusEatsContext db) =>
             {
                 var menu = await db.Menu.FindAsync(id);
                 return menu is not null ? Results.Ok(menu) : Results.NotFound();
@@ -102,7 +110,7 @@ public static class EndpointMapper
     {
         var publicGroup = app.MapGroup("/api/menu-items").WithTags("MenuItems");
         var adminGroup = app.MapGroup("/api/menu-items").WithTags("MenuItems")
-            .RequireAuthorization(p => p.RequireRole("Admin"));
+            .RequireAuthorization(p => p.RequireRole(AdminRole));
         
         // Create Menu Item (Admin only)
         adminGroup.MapPost("/", async (CreateItemRequest request, CreateItemHandler handler) =>
@@ -115,7 +123,7 @@ public static class EndpointMapper
 
 
         // Update Menu Item (Admin only)
-        adminGroup.MapPut("/{id:guid}", async (Guid id, UpdateItemRequest request, UpdateItemHandler handler) =>
+        adminGroup.MapPut($"/{IdGuidRouteConstraint}", async (Guid id, UpdateItemRequest request, UpdateItemHandler handler) =>
             {
                 // Ensure ID from route matches request
                 var requestWithId = request with { Id = id };
@@ -130,7 +138,7 @@ public static class EndpointMapper
 
 
         // Delete Menu Item (Admin only)
-        adminGroup.MapDelete("/{id:guid}", async (Guid id, DeleteItemHandler handler) =>
+        adminGroup.MapDelete($"/{IdGuidRouteConstraint}", async (Guid id, DeleteItemHandler handler) =>
                 await handler.Handle(new DeleteItemRequest(id)))
             .WithName("DeleteMenuItem")
             .Produces(204)
@@ -150,7 +158,7 @@ public static class EndpointMapper
 
 
         // Get Menu Item by ID (Public - no auth required)
-        publicGroup.MapGet("/{id:guid}", async (Guid id, CampusEatsContext db) =>
+        publicGroup.MapGet($"/{IdGuidRouteConstraint}", async (Guid id, CampusEatsContext db) =>
             {
                 var item = await db.MenuItem.FindAsync(id);
                 return item is not null ? Results.Ok(item) : Results.NotFound();
@@ -162,11 +170,11 @@ public static class EndpointMapper
 
     private static void MapOrderEndpoints(WebApplication app)
     {
-        var publicGroup = app.MapGroup("/api/orders").WithTags("Orders");
-        var adminGroup = app.MapGroup("/api/orders").WithTags("Orders")
-            .RequireAuthorization(p => p.RequireRole("Admin"));
-        var clientGroup = app.MapGroup("/api/orders").WithTags("Orders")
-            .RequireAuthorization(p => p.RequireRole("Client", "Admin"));
+        var publicGroup = app.MapGroup("/api/orders").WithTags(OrderTag);
+        var adminGroup = app.MapGroup("/api/orders").WithTags(OrderTag)
+            .RequireAuthorization(p => p.RequireRole(AdminRole));
+        var clientGroup = app.MapGroup("/api/orders").WithTags(OrderTag)
+            .RequireAuthorization(p => p.RequireRole(ClientRole, AdminRole));
         
         // Place order (Client only - authenticated users)
         clientGroup.MapPost("/", async (PlaceOrderRequest request, PlaceOrderHandler handler) => 
@@ -192,7 +200,7 @@ public static class EndpointMapper
             .Produces(403);
 
         // Get order by id (Client can see their own orders, Admin can see all)
-        publicGroup.MapGet("/{id:guid}", async (Guid id, GetOrderByIdHandler handler) =>
+        publicGroup.MapGet($"/{IdGuidRouteConstraint}", async (Guid id, GetOrderByIdHandler handler) =>
                 await handler.Handle(new GetOrderByIdRequest(id)))
             .WithName("GetOrderById")
             .Produces(200)
@@ -201,7 +209,7 @@ public static class EndpointMapper
             .Produces(404);
 
         // Get order details with client info and items
-        publicGroup.MapGet("/{id:guid}/details", async (
+        publicGroup.MapGet($"/{IdGuidRouteConstraint}/details", async (
             Guid id,
             CampusEatsContext db,
             CancellationToken ct) =>
@@ -254,15 +262,15 @@ public static class EndpointMapper
     app.MapGet("/api/clients/{clientId:guid}/orders", async (Guid clientId, GetOrderHistoryHandler handler) => 
             await handler.Handle(new GetOrderHistoryRequest(clientId)))
         .WithName("GetOrderHistory")
-        .RequireAuthorization(p => p.RequireRole("Client", "Admin"))
-        .WithTags("Orders")
+        .RequireAuthorization(p => p.RequireRole(ClientRole, AdminRole))
+        .WithTags(OrderTag)
         .Produces(200)
         .Produces(401)
         .Produces(403);
 
 
     // Cancel pending order (Client can cancel their own orders, Admin can cancel any)
-    clientGroup.MapPost("/{id:guid}/cancel", async (Guid id, CancelOrderHandler handler) =>
+    clientGroup.MapPost($"/{IdGuidRouteConstraint}/cancel", async (Guid id, CancelOrderHandler handler) =>
             await handler.Handle(new CancelOrderRequest(id)))
         .WithName("CancelOrder")
         .Produces(200)
@@ -275,7 +283,7 @@ public static class EndpointMapper
     private static void MapKitchenEndpoints(WebApplication app)
     {
         var staffGroup = app.MapGroup("/api/kitchen/orders").WithTags("Kitchen")
-            .RequireAuthorization(p => p.RequireRole("Kitchen", "Admin"));
+            .RequireAuthorization(p => p.RequireRole(KitchenRole, AdminRole));
         
         // Get pending/active orders for kitchen view (Kitchen staff only)
         staffGroup.MapGet("/", async (string? status, GetPendingOrdersHandler handler) => 
@@ -288,7 +296,7 @@ public static class EndpointMapper
 
 
         // Update order status (Kitchen staff only)
-        staffGroup.MapPatch("/{id:guid}/status", async (Guid id, OrderStatus newStatus, UpdateOrderStatusHandler handler) =>
+        staffGroup.MapPatch($"/{IdGuidRouteConstraint}/status", async (Guid id, OrderStatus newStatus, UpdateOrderStatusHandler handler) =>
                 await handler.Handle(new UpdateOrderStatusRequest(id, newStatus)))
             .WithName("UpdateOrderStatus")
             .Produces(200)
@@ -313,7 +321,7 @@ public static class EndpointMapper
                     Items = day.Items.OrderByDescending(i => i.Count).ThenBy(i => i.Name)
                 });
             })
-            .RequireAuthorization(policy => policy.RequireRole("Admin"))
+            .RequireAuthorization(policy => policy.RequireRole(AdminRole))
             .WithName("RebuildInventory")
             .Produces(200)
             .Produces(400)
@@ -333,7 +341,7 @@ public static class EndpointMapper
                         Items = day.Items.OrderByDescending(i => i.Count).ThenBy(i => i.Name)
                     });
             })
-            .RequireAuthorization(policy => policy.RequireRole("Kitchen", "Admin"))
+            .RequireAuthorization(policy => policy.RequireRole(KitchenRole, AdminRole))
             .WithName("GetInventory")
             .Produces(200)
             .Produces(404)
@@ -344,7 +352,7 @@ public static class EndpointMapper
     {
         var group = app.MapGroup("/api/payments").WithTags("Payments");
         var clientGroup = app.MapGroup("/api/payments").WithTags("Payments")
-            .RequireAuthorization(p => p.RequireRole("Client", "Admin"));
+            .RequireAuthorization(p => p.RequireRole(ClientRole, AdminRole));
         
         // Create payment (Client/Admin)
         clientGroup.MapPost("/", async (
@@ -367,7 +375,7 @@ public static class EndpointMapper
             .Produces(403);
 
         // Get payment by id
-        clientGroup.MapGet("/{id:guid}", async (Guid id, GetPaymentByIdHandler handler) =>
+        clientGroup.MapGet($"/{IdGuidRouteConstraint}", async (Guid id, GetPaymentByIdHandler handler) =>
                 await handler.Handle(new GetPaymentByIdRequest(id)))
             .WithName("GetPaymentById")
             .Produces(200)
@@ -411,7 +419,7 @@ public static class EndpointMapper
     private static void MapLoyaltyEndpoints(WebApplication app)
     {
         var clientGroup = app.MapGroup("/api/loyalty").WithTags("Loyalty")
-            .RequireAuthorization(p => p.RequireRole("Client", "Admin"));
+            .RequireAuthorization(p => p.RequireRole(ClientRole, AdminRole));
         
         // Get loyalty balance
         clientGroup.MapGet("/{userId:guid}/balance", async (Guid userId, GetLoyaltyBalanceHandler handler) =>
@@ -460,7 +468,7 @@ public static class EndpointMapper
     private static void MapUserEndpoints(WebApplication app)
     {
         var adminGroup = app.MapGroup("/api/users").WithTags("Users")
-                .RequireAuthorization(p => p.RequireRole("Admin"));
+                .RequireAuthorization(p => p.RequireRole(AdminRole));
             
         // Get All Users (Admin only)
         adminGroup.MapGet("/", async (
@@ -659,7 +667,7 @@ public static class EndpointMapper
                 Message = $"User role successfully updated to {newRole}"
             });
         })
-        .RequireAuthorization(policy => policy.RequireRole("Admin"))
+        .RequireAuthorization(policy => policy.RequireRole(AdminRole))
         .WithName("UpdateUserRole")
         .WithTags("Authentication")
         .Produces(200)

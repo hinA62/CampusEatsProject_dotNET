@@ -5,7 +5,7 @@ using CampusEats.Persistence;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
 
-namespace CampusEats.Test.PaymentTests;
+namespace CampusEats.Test.PaymentTests.IntegrationTests;
 
 public class GetPaymentHistoryHandlerTests
 {
