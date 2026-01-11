@@ -1,7 +1,7 @@
 organization=hina62
 projectKey=hinA62_CampusEatsProject_dotNET
 serverUrl=https://sonarcloud.io
-serverVersion=8.0.0.78018
+serverVersion=8.0.0.78371
 dashboardUrl=https://sonarcloud.io/dashboard?id=hinA62_CampusEatsProject_dotNET
-ceTaskId=AZtw2WzfKakh6emPbTO7
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZtw2WzfKakh6emPbTO7
+ceTaskId=AZutQICzQmvqtOoJPDLq
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZutQICzQmvqtOoJPDLq

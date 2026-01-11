@@ -12,18 +12,18 @@
       },
       "results": [
         {
-          "ruleId": "CS8625",
-          "level": "warning",
-          "message": "Cannot convert null literal to non-nullable reference type.",
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'CreateMockHttpRequest' does not access instance data and can be marked as static",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/MenuTests/UnitTests/CreateMenuValidatorTests.cs",
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/PaymentTests/StripeWebhookHandlerTests.cs",
                 "region": {
-                  "startLine": 127,
-                  "startColumn": 35,
-                  "endLine": 127,
-                  "endColumn": 39
+                  "startLine": 79,
+                  "startColumn": 25,
+                  "endLine": 79,
+                  "endColumn": 46
                 }
               }
             }
@@ -33,18 +33,18 @@
           }
         },
         {
-          "ruleId": "CA1816",
+          "ruleId": "CA1822",
           "level": "note",
-          "message": "Change DeleteMenuHandlerTests.Dispose() to call GC.SuppressFinalize(object). This will prevent derived types that introduce a finalizer from needing to re-implement 'IDisposable' to call it.",
+          "message": "Member 'GenerateValidSignature' does not access instance data and can be marked as static",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/MenuTests/IntegrationTests/DeleteMenuHandlerTests.cs",
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/PaymentTests/StripeWebhookHandlerTests.cs",
                 "region": {
-                  "startLine": 52,
-                  "startColumn": 17,
-                  "endLine": 52,
-                  "endColumn": 24
+                  "startLine": 101,
+                  "startColumn": 20,
+                  "endLine": 101,
+                  "endColumn": 42
                 }
               }
             }
@@ -54,144 +54,18 @@
           }
         },
         {
-          "ruleId": "CA1816",
+          "ruleId": "CA1822",
           "level": "note",
-          "message": "Change CreateItemHandlerTests.Dispose() to call GC.SuppressFinalize(object). This will prevent derived types that introduce a finalizer from needing to re-implement 'IDisposable' to call it.",
+          "message": "Member 'CreateStripeEventJson' does not access instance data and can be marked as static",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/MenuTests/IntegrationTests/CreateItemHandlerTests.cs",
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/PaymentTests/StripeWebhookHandlerTests.cs",
                 "region": {
-                  "startLine": 66,
-                  "startColumn": 17,
-                  "endLine": 66,
-                  "endColumn": 24
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CA1816",
-          "level": "note",
-          "message": "Change GetOrderByIdHandlerTests.Dispose() to call GC.SuppressFinalize(object). This will prevent derived types that introduce a finalizer from needing to re-implement 'IDisposable' to call it.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/OrderTests/IntegrationTests/GetOrderByIdHandlerTests.cs",
-                "region": {
-                  "startLine": 67,
-                  "startColumn": 17,
-                  "endLine": 67,
-                  "endColumn": 24
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CA1816",
-          "level": "note",
-          "message": "Change DeleteItemHandlerTests.Dispose() to call GC.SuppressFinalize(object). This will prevent derived types that introduce a finalizer from needing to re-implement 'IDisposable' to call it.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/MenuTests/IntegrationTests/DeleteItemHandlerTests.cs",
-                "region": {
-                  "startLine": 72,
-                  "startColumn": 17,
-                  "endLine": 72,
-                  "endColumn": 24
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CA1816",
-          "level": "note",
-          "message": "Change RedeemPointsHandlerTests.Dispose() to call GC.SuppressFinalize(object). This will prevent derived types that introduce a finalizer from needing to re-implement 'IDisposable' to call it.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/LoyaltyTests/IntegrationTests/RedeemPointsHandlerTests.cs",
-                "region": {
-                  "startLine": 108,
-                  "startColumn": 17,
-                  "endLine": 108,
-                  "endColumn": 24
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CA1816",
-          "level": "note",
-          "message": "Change UpdateItemHandlerTests.Dispose() to call GC.SuppressFinalize(object). This will prevent derived types that introduce a finalizer from needing to re-implement 'IDisposable' to call it.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/MenuTests/IntegrationTests/UpdateItemHandlerTests.cs",
-                "region": {
-                  "startLine": 77,
-                  "startColumn": 17,
-                  "endLine": 77,
-                  "endColumn": 24
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CA1816",
-          "level": "note",
-          "message": "Change UpdateMenuHandlerTests.Dispose() to call GC.SuppressFinalize(object). This will prevent derived types that introduce a finalizer from needing to re-implement 'IDisposable' to call it.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/MenuTests/IntegrationTests/UpdateMenuHandlerTests.cs",
-                "region": {
-                  "startLine": 102,
-                  "startColumn": 17,
-                  "endLine": 102,
-                  "endColumn": 24
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CA1816",
-          "level": "note",
-          "message": "Change GetOrderHistoryHandlerTests.Dispose() to call GC.SuppressFinalize(object). This will prevent derived types that introduce a finalizer from needing to re-implement 'IDisposable' to call it.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/OrderTests/IntegrationTests/GetOrderHistoryHandlerTests.cs",
-                "region": {
-                  "startLine": 129,
-                  "startColumn": 17,
-                  "endLine": 129,
-                  "endColumn": 24
+                  "startLine": 88,
+                  "startColumn": 20,
+                  "endLine": 88,
+                  "endColumn": 41
                 }
               }
             }
@@ -212,48 +86,6 @@
                   "startLine": 141,
                   "startColumn": 17,
                   "endLine": 141,
-                  "endColumn": 24
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CA1816",
-          "level": "note",
-          "message": "Change CreateMenuHandlerTests.Dispose() to call GC.SuppressFinalize(object). This will prevent derived types that introduce a finalizer from needing to re-implement 'IDisposable' to call it.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/MenuTests/IntegrationTests/CreateMenuHandlerTests.cs",
-                "region": {
-                  "startLine": 115,
-                  "startColumn": 17,
-                  "endLine": 115,
-                  "endColumn": 24
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CA1816",
-          "level": "note",
-          "message": "Change CancelOrderHandlerTests.Dispose() to call GC.SuppressFinalize(object). This will prevent derived types that introduce a finalizer from needing to re-implement 'IDisposable' to call it.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/OrderTests/IntegrationTests/CancelOrderHandlerTests.cs",
-                "region": {
-                  "startLine": 183,
-                  "startColumn": 17,
-                  "endLine": 183,
                   "endColumn": 24
                 }
               }
@@ -287,6 +119,195 @@
         {
           "ruleId": "CA1816",
           "level": "note",
+          "message": "Change CancelOrderHandlerTests.Dispose() to call GC.SuppressFinalize(object). This will prevent derived types that introduce a finalizer from needing to re-implement 'IDisposable' to call it.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/OrderTests/IntegrationTests/CancelOrderHandlerTests.cs",
+                "region": {
+                  "startLine": 183,
+                  "startColumn": 17,
+                  "endLine": 183,
+                  "endColumn": 24
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1816",
+          "level": "note",
+          "message": "Change RedeemPointsHandlerTests.Dispose() to call GC.SuppressFinalize(object). This will prevent derived types that introduce a finalizer from needing to re-implement 'IDisposable' to call it.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/LoyaltyTests/IntegrationTests/RedeemPointsHandlerTests.cs",
+                "region": {
+                  "startLine": 225,
+                  "startColumn": 17,
+                  "endLine": 225,
+                  "endColumn": 24
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1816",
+          "level": "note",
+          "message": "Change GetOrderByIdHandlerTests.Dispose() to call GC.SuppressFinalize(object). This will prevent derived types that introduce a finalizer from needing to re-implement 'IDisposable' to call it.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/OrderTests/IntegrationTests/GetOrderByIdHandlerTests.cs",
+                "region": {
+                  "startLine": 67,
+                  "startColumn": 17,
+                  "endLine": 67,
+                  "endColumn": 24
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1816",
+          "level": "note",
+          "message": "Change CreateItemHandlerTests.Dispose() to call GC.SuppressFinalize(object). This will prevent derived types that introduce a finalizer from needing to re-implement 'IDisposable' to call it.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/MenuTests/IntegrationTests/CreateItemHandlerTests.cs",
+                "region": {
+                  "startLine": 66,
+                  "startColumn": 17,
+                  "endLine": 66,
+                  "endColumn": 24
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1816",
+          "level": "note",
+          "message": "Change DeleteMenuHandlerTests.Dispose() to call GC.SuppressFinalize(object). This will prevent derived types that introduce a finalizer from needing to re-implement 'IDisposable' to call it.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/MenuTests/IntegrationTests/DeleteMenuHandlerTests.cs",
+                "region": {
+                  "startLine": 52,
+                  "startColumn": 17,
+                  "endLine": 52,
+                  "endColumn": 24
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1816",
+          "level": "note",
+          "message": "Change DeleteItemHandlerTests.Dispose() to call GC.SuppressFinalize(object). This will prevent derived types that introduce a finalizer from needing to re-implement 'IDisposable' to call it.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/MenuTests/IntegrationTests/DeleteItemHandlerTests.cs",
+                "region": {
+                  "startLine": 72,
+                  "startColumn": 17,
+                  "endLine": 72,
+                  "endColumn": 24
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1816",
+          "level": "note",
+          "message": "Change GetOrderHistoryHandlerTests.Dispose() to call GC.SuppressFinalize(object). This will prevent derived types that introduce a finalizer from needing to re-implement 'IDisposable' to call it.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/OrderTests/IntegrationTests/GetOrderHistoryHandlerTests.cs",
+                "region": {
+                  "startLine": 129,
+                  "startColumn": 17,
+                  "endLine": 129,
+                  "endColumn": 24
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1816",
+          "level": "note",
+          "message": "Change CreateMenuHandlerTests.Dispose() to call GC.SuppressFinalize(object). This will prevent derived types that introduce a finalizer from needing to re-implement 'IDisposable' to call it.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/MenuTests/IntegrationTests/CreateMenuHandlerTests.cs",
+                "region": {
+                  "startLine": 115,
+                  "startColumn": 17,
+                  "endLine": 115,
+                  "endColumn": 24
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1816",
+          "level": "note",
+          "message": "Change UpdateItemHandlerTests.Dispose() to call GC.SuppressFinalize(object). This will prevent derived types that introduce a finalizer from needing to re-implement 'IDisposable' to call it.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/MenuTests/IntegrationTests/UpdateItemHandlerTests.cs",
+                "region": {
+                  "startLine": 77,
+                  "startColumn": 17,
+                  "endLine": 77,
+                  "endColumn": 24
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1816",
+          "level": "note",
           "message": "Change PlaceOrderHandlerTests.Dispose() to call GC.SuppressFinalize(object). This will prevent derived types that introduce a finalizer from needing to re-implement 'IDisposable' to call it.",
           "locations": [
             {
@@ -296,6 +317,27 @@
                   "startLine": 195,
                   "startColumn": 17,
                   "endLine": 195,
+                  "endColumn": 24
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1816",
+          "level": "note",
+          "message": "Change UpdateMenuHandlerTests.Dispose() to call GC.SuppressFinalize(object). This will prevent derived types that introduce a finalizer from needing to re-implement 'IDisposable' to call it.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/MenuTests/IntegrationTests/UpdateMenuHandlerTests.cs",
+                "region": {
+                  "startLine": 208,
+                  "startColumn": 17,
+                  "endLine": 208,
                   "endColumn": 24
                 }
               }
@@ -323,17 +365,19 @@
             ]
           }
         },
-        "CS8625": {
-          "id": "CS8625",
-          "shortDescription": "Cannot convert null literal to non-nullable reference type.",
-          "defaultLevel": "warning",
-          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS8625)",
+        "CA1822": {
+          "id": "CA1822",
+          "shortDescription": "Mark members as static",
+          "fullDescription": "Members that do not access instance data or call instance methods can be marked as static. After you mark the methods as static, the compiler will emit nonvirtual call sites to these members. This can give you a measurable performance gain for performance-sensitive code.",
+          "defaultLevel": "note",
+          "helpUri": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1822",
           "properties": {
-            "category": "Compiler",
+            "category": "Performance",
             "isEnabledByDefault": true,
             "tags": [
-              "Compiler",
-              "Telemetry"
+              "PortedFromFxCop",
+              "Telemetry",
+              "EnabledRuleInAggressiveMode"
             ]
           }
         }

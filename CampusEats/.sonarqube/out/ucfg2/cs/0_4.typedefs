@@ -1,26 +1,12 @@
-π
-4CampusEatsFrontend.Models.Auth.ChangePasswordRequestobjectg
-ChangePasswordRequest()LCampusEatsFrontend.Models.Auth.ChangePasswordRequest.ChangePasswordRequest()M
-
-UserId.get?CampusEatsFrontend.Models.Auth.ChangePasswordRequest.UserId.getM
-
-UserId.set?CampusEatsFrontend.Models.Auth.ChangePasswordRequest.UserId.set_
-CurrentPassword.getHCampusEatsFrontend.Models.Auth.ChangePasswordRequest.CurrentPassword.get_
-CurrentPassword.setHCampusEatsFrontend.Models.Auth.ChangePasswordRequest.CurrentPassword.setW
-NewPassword.getDCampusEatsFrontend.Models.Auth.ChangePasswordRequest.NewPassword.getW
-NewPassword.setDCampusEatsFrontend.Models.Auth.ChangePasswordRequest.NewPassword.setü
+1
+Programobject
+	Program()Program.Program()ü
 +CampusEatsFrontend.Models.Auth.LoginRequestobjectL
 LoginRequest():CampusEatsFrontend.Models.Auth.LoginRequest.LoginRequest()B
 	Email.get5CampusEatsFrontend.Models.Auth.LoginRequest.Email.getB
 	Email.set5CampusEatsFrontend.Models.Auth.LoginRequest.Email.setH
 Password.get8CampusEatsFrontend.Models.Auth.LoginRequest.Password.getH
-Password.set8CampusEatsFrontend.Models.Auth.LoginRequest.Password.set«
--CampusEatsFrontend.Models.Auth.RegisterResultobjectR
-RegisterResult()>CampusEatsFrontend.Models.Auth.RegisterResult.RegisterResult()H
-Success.get9CampusEatsFrontend.Models.Auth.RegisterResult.Success.getH
-Success.set9CampusEatsFrontend.Models.Auth.RegisterResult.Success.setR
-ErrorMessage.get>CampusEatsFrontend.Models.Auth.RegisterResult.ErrorMessage.getR
-ErrorMessage.set>CampusEatsFrontend.Models.Auth.RegisterResult.ErrorMessage.setá
+Password.set8CampusEatsFrontend.Models.Auth.LoginRequest.Password.setá
 .CampusEatsFrontend.Models.Auth.RegisterRequestobjectU
 RegisterRequest()@CampusEatsFrontend.Models.Auth.RegisterRequest.RegisterRequest()K
 Username.get;CampusEatsFrontend.Models.Auth.RegisterRequest.Username.getK
@@ -30,7 +16,27 @@ UserId.set?CampusEatsFrontend.Models.Auth.ChangePasswordRequest.UserId.set_
 Password.get;CampusEatsFrontend.Models.Auth.RegisterRequest.Password.getK
 Password.set;CampusEatsFrontend.Models.Auth.RegisterRequest.Password.setY
 ConfirmPassword.getBCampusEatsFrontend.Models.Auth.RegisterRequest.ConfirmPassword.getY
-ConfirmPassword.setBCampusEatsFrontend.Models.Auth.RegisterRequest.ConfirmPassword.setÛ
+ConfirmPassword.setBCampusEatsFrontend.Models.Auth.RegisterRequest.ConfirmPassword.setπ
+4CampusEatsFrontend.Models.Auth.ChangePasswordRequestobjectg
+ChangePasswordRequest()LCampusEatsFrontend.Models.Auth.ChangePasswordRequest.ChangePasswordRequest()M
+
+UserId.get?CampusEatsFrontend.Models.Auth.ChangePasswordRequest.UserId.getM
+
+UserId.set?CampusEatsFrontend.Models.Auth.ChangePasswordRequest.UserId.set_
+CurrentPassword.getHCampusEatsFrontend.Models.Auth.ChangePasswordRequest.CurrentPassword.get_
+CurrentPassword.setHCampusEatsFrontend.Models.Auth.ChangePasswordRequest.CurrentPassword.setW
+NewPassword.getDCampusEatsFrontend.Models.Auth.ChangePasswordRequest.NewPassword.getW
+NewPassword.setDCampusEatsFrontend.Models.Auth.ChangePasswordRequest.NewPassword.set«
+-CampusEatsFrontend.Models.Auth.RegisterResultobjectR
+RegisterResult()>CampusEatsFrontend.Models.Auth.RegisterResult.RegisterResult()H
+Success.get9CampusEatsFrontend.Models.Auth.RegisterResult.Success.getH
+Success.set9CampusEatsFrontend.Models.Auth.RegisterResult.Success.setR
+ErrorMessage.get>CampusEatsFrontend.Models.Auth.RegisterResult.ErrorMessage.getR
+ErrorMessage.set>CampusEatsFrontend.Models.Auth.RegisterResult.ErrorMessage.set–
+8CampusEatsFrontend.Models.Loyalty.LoyaltyTransactionTypeSystem.EnumSystem.ValueTypeobjectm
+LoyaltyTransactionType()QCampusEatsFrontend.Models.Loyalty.LoyaltyTransactionType.LoyaltyTransactionType()§
+-CampusEatsFrontend.Models.Loyalty.LoyaltyTierSystem.EnumSystem.ValueTypeobjectL
+LoyaltyTier();CampusEatsFrontend.Models.Loyalty.LoyaltyTier.LoyaltyTier()Û
 &CampusEatsFrontend.Models.Auth.UserDtoobject=
 	UserDto()0CampusEatsFrontend.Models.Auth.UserDto.UserDto()?
 
@@ -42,13 +48,53 @@ UserId.set1CampusEatsFrontend.Models.Auth.UserDto.UserId.setC
 Role.get/CampusEatsFrontend.Models.Auth.UserDto.Role.get;
 Role.set/CampusEatsFrontend.Models.Auth.UserDto.Role.set=
 	Token.get0CampusEatsFrontend.Models.Auth.UserDto.Token.get=
-	Token.set0CampusEatsFrontend.Models.Auth.UserDto.Token.set§
--CampusEatsFrontend.Models.Loyalty.LoyaltyTierSystem.EnumSystem.ValueTypeobjectL
-LoyaltyTier();CampusEatsFrontend.Models.Loyalty.LoyaltyTier.LoyaltyTier()1
-Programobject
-	Program()Program.Program()–
-8CampusEatsFrontend.Models.Loyalty.LoyaltyTransactionTypeSystem.EnumSystem.ValueTypeobjectm
-LoyaltyTransactionType()QCampusEatsFrontend.Models.Loyalty.LoyaltyTransactionType.LoyaltyTransactionType()ü
+	Token.set0CampusEatsFrontend.Models.Auth.UserDto.Token.setÈ
+
+3CampusEatsFrontend.Models.Loyalty.LoyaltyBalanceDtoobject^
+LoyaltyBalanceDto()GCampusEatsFrontend.Models.Loyalty.LoyaltyBalanceDto.LoyaltyBalanceDto()L
+
+UserId.get>CampusEatsFrontend.Models.Loyalty.LoyaltyBalanceDto.UserId.getL
+
+UserId.set>CampusEatsFrontend.Models.Loyalty.LoyaltyBalanceDto.UserId.setL
+
+Points.get>CampusEatsFrontend.Models.Loyalty.LoyaltyBalanceDto.Points.getL
+
+Points.set>CampusEatsFrontend.Models.Loyalty.LoyaltyBalanceDto.Points.setb
+TotalPointsEarned.getICampusEatsFrontend.Models.Loyalty.LoyaltyBalanceDto.TotalPointsEarned.getb
+TotalPointsEarned.setICampusEatsFrontend.Models.Loyalty.LoyaltyBalanceDto.TotalPointsEarned.setV
+CurrentTier.getCCampusEatsFrontend.Models.Loyalty.LoyaltyBalanceDto.CurrentTier.getV
+CurrentTier.setCCampusEatsFrontend.Models.Loyalty.LoyaltyBalanceDto.CurrentTier.setX
+CashbackRate.getDCampusEatsFrontend.Models.Loyalty.LoyaltyBalanceDto.CashbackRate.getX
+CashbackRate.setDCampusEatsFrontend.Models.Loyalty.LoyaltyBalanceDto.CashbackRate.setP
+NextTier.get@CampusEatsFrontend.Models.Loyalty.LoyaltyBalanceDto.NextTier.getP
+NextTier.set@CampusEatsFrontend.Models.Loyalty.LoyaltyBalanceDto.NextTier.set`
+PointsToNextTier.getHCampusEatsFrontend.Models.Loyalty.LoyaltyBalanceDto.PointsToNextTier.get`
+PointsToNextTier.setHCampusEatsFrontend.Models.Loyalty.LoyaltyBalanceDto.PointsToNextTier.set¨
+CampusEatsFrontend.App-Microsoft.AspNetCore.Components.ComponentBaseobject≥
+LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)cCampusEatsFrontend.App.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)%
+App()CampusEatsFrontend.App.App()œ
+8CampusEatsFrontend.Models.MenuItem.CreateMenuItemRequestobjectk
+CreateMenuItemRequest()PCampusEatsFrontend.Models.MenuItem.CreateMenuItemRequest.CreateMenuItemRequest()M
+Name.getACampusEatsFrontend.Models.MenuItem.CreateMenuItemRequest.Name.getM
+Name.setACampusEatsFrontend.Models.MenuItem.CreateMenuItemRequest.Name.setO
+	Price.getBCampusEatsFrontend.Models.MenuItem.CreateMenuItemRequest.Price.getO
+	Price.setBCampusEatsFrontend.Models.MenuItem.CreateMenuItemRequest.Price.setU
+ImageUrl.getECampusEatsFrontend.Models.MenuItem.CreateMenuItemRequest.ImageUrl.getU
+ImageUrl.setECampusEatsFrontend.Models.MenuItem.CreateMenuItemRequest.ImageUrl.setW
+Allergens.getFCampusEatsFrontend.Models.MenuItem.CreateMenuItemRequest.Allergens.getW
+Allergens.setFCampusEatsFrontend.Models.MenuItem.CreateMenuItemRequest.Allergens.setç
+0CampusEatsFrontend.Models.Menu.CreateMenuRequestobject[
+CreateMenuRequest()DCampusEatsFrontend.Models.Menu.CreateMenuRequest.CreateMenuRequest()E
+Name.get9CampusEatsFrontend.Models.Menu.CreateMenuRequest.Name.getE
+Name.set9CampusEatsFrontend.Models.Menu.CreateMenuRequest.Name.setG
+	Price.get:CampusEatsFrontend.Models.Menu.CreateMenuRequest.Price.getG
+	Price.set:CampusEatsFrontend.Models.Menu.CreateMenuRequest.Price.setK
+ItemIds.get<CampusEatsFrontend.Models.Menu.CreateMenuRequest.ItemIds.getK
+ItemIds.set<CampusEatsFrontend.Models.Menu.CreateMenuRequest.ItemIds.setM
+Category.get=CampusEatsFrontend.Models.Menu.CreateMenuRequest.Category.getM
+Category.set=CampusEatsFrontend.Models.Menu.CreateMenuRequest.Category.setM
+ImageUrl.get=CampusEatsFrontend.Models.Menu.CreateMenuRequest.ImageUrl.getM
+ImageUrl.set=CampusEatsFrontend.Models.Menu.CreateMenuRequest.ImageUrl.setü
 7CampusEatsFrontend.Services.AuthorizationMessageHandler!System.Net.Http.DelegatingHandler"System.Net.Http.HttpMessageHandlerobject≤
 ;AuthorizationMessageHandler(Microsoft.JSInterop.IJSRuntime)sCampusEatsFrontend.Services.AuthorizationMessageHandler.AuthorizationMessageHandler(Microsoft.JSInterop.IJSRuntime)ﬂ
 QSendAsync(System.Net.Http.HttpRequestMessage, System.Threading.CancellationToken)âCampusEatsFrontend.Services.AuthorizationMessageHandler.SendAsync(System.Net.Http.HttpRequestMessage, System.Threading.CancellationToken)ø	
@@ -72,36 +118,9 @@ MenuId.set2CampusEatsFrontend.Models.Cart.CartItem.MenuId.setH
 Subtotal.get4CampusEatsFrontend.Models.Cart.CartItem.Subtotal.getD
 Subtotal.set4CampusEatsFrontend.Models.Cart.CartItem.Subtotal.setH
 IsMenuItem.get6CampusEatsFrontend.Models.Cart.CartItem.IsMenuItem.getH
-IsMenuItem.set6CampusEatsFrontend.Models.Cart.CartItem.IsMenuItem.setÖ
-5CampusEatsFrontend.Models.Loyalty.RedeemPointsRequestobjectd
-RedeemPointsRequest()KCampusEatsFrontend.Models.Loyalty.RedeemPointsRequest.RedeemPointsRequest()N
-
-UserId.get@CampusEatsFrontend.Models.Loyalty.RedeemPointsRequest.UserId.getN
-
-UserId.set@CampusEatsFrontend.Models.Loyalty.RedeemPointsRequest.UserId.set^
-PointsToRedeem.getHCampusEatsFrontend.Models.Loyalty.RedeemPointsRequest.PointsToRedeem.get^
-PointsToRedeem.setHCampusEatsFrontend.Models.Loyalty.RedeemPointsRequest.PointsToRedeem.setÈ
-
-3CampusEatsFrontend.Models.Loyalty.LoyaltyBalanceDtoobject^
-LoyaltyBalanceDto()GCampusEatsFrontend.Models.Loyalty.LoyaltyBalanceDto.LoyaltyBalanceDto()L
-
-UserId.get>CampusEatsFrontend.Models.Loyalty.LoyaltyBalanceDto.UserId.getL
-
-UserId.set>CampusEatsFrontend.Models.Loyalty.LoyaltyBalanceDto.UserId.setL
-
-Points.get>CampusEatsFrontend.Models.Loyalty.LoyaltyBalanceDto.Points.getL
-
-Points.set>CampusEatsFrontend.Models.Loyalty.LoyaltyBalanceDto.Points.setb
-TotalPointsEarned.getICampusEatsFrontend.Models.Loyalty.LoyaltyBalanceDto.TotalPointsEarned.getb
-TotalPointsEarned.setICampusEatsFrontend.Models.Loyalty.LoyaltyBalanceDto.TotalPointsEarned.setV
-CurrentTier.getCCampusEatsFrontend.Models.Loyalty.LoyaltyBalanceDto.CurrentTier.getV
-CurrentTier.setCCampusEatsFrontend.Models.Loyalty.LoyaltyBalanceDto.CurrentTier.setX
-CashbackRate.getDCampusEatsFrontend.Models.Loyalty.LoyaltyBalanceDto.CashbackRate.getX
-CashbackRate.setDCampusEatsFrontend.Models.Loyalty.LoyaltyBalanceDto.CashbackRate.setP
-NextTier.get@CampusEatsFrontend.Models.Loyalty.LoyaltyBalanceDto.NextTier.getP
-NextTier.set@CampusEatsFrontend.Models.Loyalty.LoyaltyBalanceDto.NextTier.set`
-PointsToNextTier.getHCampusEatsFrontend.Models.Loyalty.LoyaltyBalanceDto.PointsToNextTier.get`
-PointsToNextTier.setHCampusEatsFrontend.Models.Loyalty.LoyaltyBalanceDto.PointsToNextTier.setô	
+IsMenuItem.set6CampusEatsFrontend.Models.Cart.CartItem.IsMenuItem.set¢
++CampusEatsFrontend.Models.Menu.MenuCategorySystem.EnumSystem.ValueTypeobjectL
+MenuCategory():CampusEatsFrontend.Models.Menu.MenuCategory.MenuCategory()ô	
 7CampusEatsFrontend.Models.Loyalty.LoyaltyTransactionDtoobjectj
 LoyaltyTransactionDto()OCampusEatsFrontend.Models.Loyalty.LoyaltyTransactionDto.LoyaltyTransactionDto()H
 Id.get>CampusEatsFrontend.Models.Loyalty.LoyaltyTransactionDto.Id.getH
@@ -119,36 +138,7 @@ Points.setBCampusEatsFrontend.Models.Loyalty.LoyaltyTransactionDto.Points.setZ
 Description.getGCampusEatsFrontend.Models.Loyalty.LoyaltyTransactionDto.Description.getZ
 Description.setGCampusEatsFrontend.Models.Loyalty.LoyaltyTransactionDto.Description.set\
 CreatedAtUtc.getHCampusEatsFrontend.Models.Loyalty.LoyaltyTransactionDto.CreatedAtUtc.get\
-CreatedAtUtc.setHCampusEatsFrontend.Models.Loyalty.LoyaltyTransactionDto.CreatedAtUtc.set¨
-CampusEatsFrontend.App-Microsoft.AspNetCore.Components.ComponentBaseobject≥
-LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)cCampusEatsFrontend.App.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)%
-App()CampusEatsFrontend.App.App()œ
-8CampusEatsFrontend.Models.MenuItem.CreateMenuItemRequestobjectk
-CreateMenuItemRequest()PCampusEatsFrontend.Models.MenuItem.CreateMenuItemRequest.CreateMenuItemRequest()M
-Name.getACampusEatsFrontend.Models.MenuItem.CreateMenuItemRequest.Name.getM
-Name.setACampusEatsFrontend.Models.MenuItem.CreateMenuItemRequest.Name.setO
-	Price.getBCampusEatsFrontend.Models.MenuItem.CreateMenuItemRequest.Price.getO
-	Price.setBCampusEatsFrontend.Models.MenuItem.CreateMenuItemRequest.Price.setU
-ImageUrl.getECampusEatsFrontend.Models.MenuItem.CreateMenuItemRequest.ImageUrl.getU
-ImageUrl.setECampusEatsFrontend.Models.MenuItem.CreateMenuItemRequest.ImageUrl.setW
-Allergens.getFCampusEatsFrontend.Models.MenuItem.CreateMenuItemRequest.Allergens.getW
-Allergens.setFCampusEatsFrontend.Models.MenuItem.CreateMenuItemRequest.Allergens.setæ
-2CampusEatsFrontend.Models.Menu.DietaryRestrictionsSystem.EnumSystem.ValueTypeobjecta
-DietaryRestrictions()HCampusEatsFrontend.Models.Menu.DietaryRestrictions.DietaryRestrictions()ç
-0CampusEatsFrontend.Models.Menu.CreateMenuRequestobject[
-CreateMenuRequest()DCampusEatsFrontend.Models.Menu.CreateMenuRequest.CreateMenuRequest()E
-Name.get9CampusEatsFrontend.Models.Menu.CreateMenuRequest.Name.getE
-Name.set9CampusEatsFrontend.Models.Menu.CreateMenuRequest.Name.setG
-	Price.get:CampusEatsFrontend.Models.Menu.CreateMenuRequest.Price.getG
-	Price.set:CampusEatsFrontend.Models.Menu.CreateMenuRequest.Price.setK
-ItemIds.get<CampusEatsFrontend.Models.Menu.CreateMenuRequest.ItemIds.getK
-ItemIds.set<CampusEatsFrontend.Models.Menu.CreateMenuRequest.ItemIds.setM
-Category.get=CampusEatsFrontend.Models.Menu.CreateMenuRequest.Category.getM
-Category.set=CampusEatsFrontend.Models.Menu.CreateMenuRequest.Category.setM
-ImageUrl.get=CampusEatsFrontend.Models.Menu.CreateMenuRequest.ImageUrl.getM
-ImageUrl.set=CampusEatsFrontend.Models.Menu.CreateMenuRequest.ImageUrl.set¢
-+CampusEatsFrontend.Models.Menu.MenuCategorySystem.EnumSystem.ValueTypeobjectL
-MenuCategory():CampusEatsFrontend.Models.Menu.MenuCategory.MenuCategory()Ÿ
+CreatedAtUtc.setHCampusEatsFrontend.Models.Loyalty.LoyaltyTransactionDto.CreatedAtUtc.setŸ
 .CampusEatsFrontend.Models.MenuItem.MenuItemDtoobjectM
 MenuItemDto()<CampusEatsFrontend.Models.MenuItem.MenuItemDto.MenuItemDto()?
 Id.get5CampusEatsFrontend.Models.MenuItem.MenuItemDto.Id.get?
@@ -160,48 +150,21 @@ LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)cC
 ImageUrl.get;CampusEatsFrontend.Models.MenuItem.MenuItemDto.ImageUrl.getK
 ImageUrl.set;CampusEatsFrontend.Models.MenuItem.MenuItemDto.ImageUrl.setM
 Allergens.get<CampusEatsFrontend.Models.MenuItem.MenuItemDto.Allergens.getM
-Allergens.set<CampusEatsFrontend.Models.MenuItem.MenuItemDto.Allergens.set˘
-*CampusEatsFrontend.Services.KitchenServiceobjectÉ
-*KitchenService(System.Net.Http.HttpClient)UCampusEatsFrontend.Services.KitchenService.KitchenService(System.Net.Http.HttpClient)k
-GetKitchenOrdersAsync(string?)ICampusEatsFrontend.Services.KitchenService.GetKitchenOrdersAsync(string?)œ
-PUpdateOrderStatusAsync(System.Guid, CampusEatsFrontend.Models.Order.OrderStatus){CampusEatsFrontend.Services.KitchenService.UpdateOrderStatusAsync(System.Guid, CampusEatsFrontend.Models.Order.OrderStatus)Õ	
-'CampusEatsFrontend.Services.AuthServiceobject∫
-GAuthService(System.Net.Http.HttpClient, Microsoft.JSInterop.IJSRuntime)oCampusEatsFrontend.Services.AuthService.AuthService(System.Net.Http.HttpClient, Microsoft.JSInterop.IJSRuntime)ö
-7LoginAsync(CampusEatsFrontend.Models.Auth.LoginRequest)_CampusEatsFrontend.Services.AuthService.LoginAsync(CampusEatsFrontend.Models.Auth.LoginRequest)¶
-=RegisterAsync(CampusEatsFrontend.Models.Auth.RegisterRequest)eCampusEatsFrontend.Services.AuthService.RegisterAsync(CampusEatsFrontend.Models.Auth.RegisterRequest)F
-LogoutAsync()5CampusEatsFrontend.Services.AuthService.LogoutAsync()æ
-IChangePasswordAsync(CampusEatsFrontend.Models.Auth.ChangePasswordRequest)qCampusEatsFrontend.Services.AuthService.ChangePasswordAsync(CampusEatsFrontend.Models.Auth.ChangePasswordRequest)N
-InitializeAsync()9CampusEatsFrontend.Services.AuthService.InitializeAsync()J
-CurrentUser.get7CampusEatsFrontend.Services.AuthService.CurrentUser.getJ
-CurrentUser.set7CampusEatsFrontend.Services.AuthService.CurrentUser.setR
-IsAuthenticated.get;CampusEatsFrontend.Services.AuthService.IsAuthenticated.getR
-IsAuthenticated.set;CampusEatsFrontend.Services.AuthService.IsAuthenticated.setì
-0CampusEatsFrontend.Models.Menu.UpdateMenuRequestobject[
-UpdateMenuRequest()DCampusEatsFrontend.Models.Menu.UpdateMenuRequest.UpdateMenuRequest()A
-Id.get7CampusEatsFrontend.Models.Menu.UpdateMenuRequest.Id.getA
-Id.set7CampusEatsFrontend.Models.Menu.UpdateMenuRequest.Id.setE
-Name.get9CampusEatsFrontend.Models.Menu.UpdateMenuRequest.Name.getE
-Name.set9CampusEatsFrontend.Models.Menu.UpdateMenuRequest.Name.setG
-	Price.get:CampusEatsFrontend.Models.Menu.UpdateMenuRequest.Price.getG
-	Price.set:CampusEatsFrontend.Models.Menu.UpdateMenuRequest.Price.setK
-ItemIds.get<CampusEatsFrontend.Models.Menu.UpdateMenuRequest.ItemIds.getK
-ItemIds.set<CampusEatsFrontend.Models.Menu.UpdateMenuRequest.ItemIds.setM
-Category.get=CampusEatsFrontend.Models.Menu.UpdateMenuRequest.Category.getM
-Category.set=CampusEatsFrontend.Models.Menu.UpdateMenuRequest.Category.setM
-ImageUrl.get=CampusEatsFrontend.Models.Menu.UpdateMenuRequest.ImageUrl.getM
-ImageUrl.set=CampusEatsFrontend.Models.Menu.UpdateMenuRequest.ImageUrl.setï
-5CampusEatsFrontend.Services.AuthService.LoginResponseobjectX
-LoginResponse()ECampusEatsFrontend.Services.AuthService.LoginResponse.LoginResponse()L
-	Token.get?CampusEatsFrontend.Services.AuthService.LoginResponse.Token.getL
-	Token.set?CampusEatsFrontend.Services.AuthService.LoginResponse.Token.setN
+Allergens.set<CampusEatsFrontend.Models.MenuItem.MenuItemDto.Allergens.setè
+CampusEatsFrontend._Importsobject2
+	Execute()%CampusEatsFrontend._Imports.Execute()4
 
-UserId.get@CampusEatsFrontend.Services.AuthService.LoginResponse.UserId.getN
+_Imports()&CampusEatsFrontend._Imports._Imports()æ
+2CampusEatsFrontend.Models.Menu.DietaryRestrictionsSystem.EnumSystem.ValueTypeobjecta
+DietaryRestrictions()HCampusEatsFrontend.Models.Menu.DietaryRestrictions.DietaryRestrictions()Ö
+5CampusEatsFrontend.Models.Loyalty.RedeemPointsRequestobjectd
+RedeemPointsRequest()KCampusEatsFrontend.Models.Loyalty.RedeemPointsRequest.RedeemPointsRequest()N
 
-UserId.set@CampusEatsFrontend.Services.AuthService.LoginResponse.UserId.setR
-Username.getBCampusEatsFrontend.Services.AuthService.LoginResponse.Username.getR
-Username.setBCampusEatsFrontend.Services.AuthService.LoginResponse.Username.setJ
-Role.get>CampusEatsFrontend.Services.AuthService.LoginResponse.Role.getJ
-Role.set>CampusEatsFrontend.Services.AuthService.LoginResponse.Role.setç
+UserId.get@CampusEatsFrontend.Models.Loyalty.RedeemPointsRequest.UserId.getN
+
+UserId.set@CampusEatsFrontend.Models.Loyalty.RedeemPointsRequest.UserId.set^
+PointsToRedeem.getHCampusEatsFrontend.Models.Loyalty.RedeemPointsRequest.PointsToRedeem.get^
+PointsToRedeem.setHCampusEatsFrontend.Models.Loyalty.RedeemPointsRequest.PointsToRedeem.setç
 &CampusEatsFrontend.Models.Menu.MenuDtoobject=
 	MenuDto()0CampusEatsFrontend.Models.Menu.MenuDto.MenuDto()7
 Id.get-CampusEatsFrontend.Models.Menu.MenuDto.Id.get7
@@ -229,11 +192,21 @@ UserId.set@CampusEatsFrontend.Services.AuthService.LoginResponse.UserId.setR
 ImageUrl.getECampusEatsFrontend.Models.MenuItem.UpdateMenuItemRequest.ImageUrl.getU
 ImageUrl.setECampusEatsFrontend.Models.MenuItem.UpdateMenuItemRequest.ImageUrl.setW
 Allergens.getFCampusEatsFrontend.Models.MenuItem.UpdateMenuItemRequest.Allergens.getW
-Allergens.setFCampusEatsFrontend.Models.MenuItem.UpdateMenuItemRequest.Allergens.setè
-CampusEatsFrontend._Importsobject2
-	Execute()%CampusEatsFrontend._Imports.Execute()4
-
-_Imports()&CampusEatsFrontend._Imports._Imports()¥
+Allergens.setFCampusEatsFrontend.Models.MenuItem.UpdateMenuItemRequest.Allergens.setì
+0CampusEatsFrontend.Models.Menu.UpdateMenuRequestobject[
+UpdateMenuRequest()DCampusEatsFrontend.Models.Menu.UpdateMenuRequest.UpdateMenuRequest()A
+Id.get7CampusEatsFrontend.Models.Menu.UpdateMenuRequest.Id.getA
+Id.set7CampusEatsFrontend.Models.Menu.UpdateMenuRequest.Id.setE
+Name.get9CampusEatsFrontend.Models.Menu.UpdateMenuRequest.Name.getE
+Name.set9CampusEatsFrontend.Models.Menu.UpdateMenuRequest.Name.setG
+	Price.get:CampusEatsFrontend.Models.Menu.UpdateMenuRequest.Price.getG
+	Price.set:CampusEatsFrontend.Models.Menu.UpdateMenuRequest.Price.setK
+ItemIds.get<CampusEatsFrontend.Models.Menu.UpdateMenuRequest.ItemIds.getK
+ItemIds.set<CampusEatsFrontend.Models.Menu.UpdateMenuRequest.ItemIds.setM
+Category.get=CampusEatsFrontend.Models.Menu.UpdateMenuRequest.Category.getM
+Category.set=CampusEatsFrontend.Models.Menu.UpdateMenuRequest.Category.setM
+ImageUrl.get=CampusEatsFrontend.Models.Menu.UpdateMenuRequest.ImageUrl.getM
+ImageUrl.set=CampusEatsFrontend.Models.Menu.UpdateMenuRequest.ImageUrl.set¥
 DCampusEatsFrontend.Models.Payment.CreateStripeCheckoutSessionRequestobjectë
 $CreateStripeCheckoutSessionRequest()iCampusEatsFrontend.Models.Payment.CreateStripeCheckoutSessionRequest.CreateStripeCheckoutSessionRequest()]
 
@@ -269,7 +242,15 @@ Status.set:CampusEatsFrontend.Models.Order.OrderDetailsDto.Status.setF
 	Menus.get9CampusEatsFrontend.Models.Order.OrderDetailsDto.Menus.getF
 	Menus.set9CampusEatsFrontend.Models.Order.OrderDetailsDto.Menus.setF
 	Items.get9CampusEatsFrontend.Models.Order.OrderDetailsDto.Items.getF
-	Items.set9CampusEatsFrontend.Models.Order.OrderDetailsDto.Items.setÔ
+	Items.set9CampusEatsFrontend.Models.Order.OrderDetailsDto.Items.setñ
+?CampusEatsFrontend.Models.Payment.StripeCheckoutSessionResponseobjectÇ
+StripeCheckoutSessionResponse()_CampusEatsFrontend.Models.Payment.StripeCheckoutSessionResponse.StripeCheckoutSessionResponse()b
+CheckoutUrl.getOCampusEatsFrontend.Models.Payment.StripeCheckoutSessionResponse.CheckoutUrl.getb
+CheckoutUrl.setOCampusEatsFrontend.Models.Payment.StripeCheckoutSessionResponse.CheckoutUrl.set¨
+/CampusEatsFrontend.Models.Payment.PaymentStatusSystem.EnumSystem.ValueTypeobjectR
+PaymentStatus()?CampusEatsFrontend.Models.Payment.PaymentStatus.PaymentStatus()¨
+/CampusEatsFrontend.Models.Payment.PaymentMethodSystem.EnumSystem.ValueTypeobjectR
+PaymentMethod()?CampusEatsFrontend.Models.Payment.PaymentMethod.PaymentMethod()Ô
 /CampusEatsFrontend.Models.User.ClientProfileDtoobjectX
 ClientProfileDto()BCampusEatsFrontend.Models.User.ClientProfileDto.ClientProfileDto()@
 Id.get6CampusEatsFrontend.Models.User.ClientProfileDto.Id.get@
@@ -281,55 +262,28 @@ Status.set:CampusEatsFrontend.Models.Order.OrderDetailsDto.Status.setF
 Role.get8CampusEatsFrontend.Models.User.ClientProfileDto.Role.getD
 Role.set8CampusEatsFrontend.Models.User.ClientProfileDto.Role.setN
 CreatedAt.get=CampusEatsFrontend.Models.User.ClientProfileDto.CreatedAt.getN
-CreatedAt.set=CampusEatsFrontend.Models.User.ClientProfileDto.CreatedAt.setñ
-?CampusEatsFrontend.Models.Payment.StripeCheckoutSessionResponseobjectÇ
-StripeCheckoutSessionResponse()_CampusEatsFrontend.Models.Payment.StripeCheckoutSessionResponse.StripeCheckoutSessionResponse()b
-CheckoutUrl.getOCampusEatsFrontend.Models.Payment.StripeCheckoutSessionResponse.CheckoutUrl.getb
-CheckoutUrl.setOCampusEatsFrontend.Models.Payment.StripeCheckoutSessionResponse.CheckoutUrl.set¨
-/CampusEatsFrontend.Models.Payment.PaymentMethodSystem.EnumSystem.ValueTypeobjectR
-PaymentMethod()?CampusEatsFrontend.Models.Payment.PaymentMethod.PaymentMethod()ª
-0CampusEatsFrontend.Models.Order.OrderMenuItemDtoobjectY
-OrderMenuItemDto()CCampusEatsFrontend.Models.Order.OrderMenuItemDto.OrderMenuItemDto()A
-Id.get7CampusEatsFrontend.Models.Order.OrderMenuItemDto.Id.getA
-Id.set7CampusEatsFrontend.Models.Order.OrderMenuItemDto.Id.setE
-Name.get9CampusEatsFrontend.Models.Order.OrderMenuItemDto.Name.getE
-Name.set9CampusEatsFrontend.Models.Order.OrderMenuItemDto.Name.setG
-	Price.get:CampusEatsFrontend.Models.Order.OrderMenuItemDto.Price.getG
-	Price.set:CampusEatsFrontend.Models.Order.OrderMenuItemDto.Price.set¨
-/CampusEatsFrontend.Models.Payment.PaymentStatusSystem.EnumSystem.ValueTypeobjectR
-PaymentStatus()?CampusEatsFrontend.Models.Payment.PaymentStatus.PaymentStatus()Ù
-*CampusEatsFrontend.Services.LoyaltyServiceobjectÉ
-*LoyaltyService(System.Net.Http.HttpClient)UCampusEatsFrontend.Services.LoyaltyService.LoyaltyService(System.Net.Http.HttpClient)u
-#GetLoyaltyBalanceAsync(System.Guid)NCampusEatsFrontend.Services.LoyaltyService.GetLoyaltyBalanceAsync(System.Guid)
-(GetLoyaltyTransactionsAsync(System.Guid)SCampusEatsFrontend.Services.LoyaltyService.GetLoyaltyTransactionsAsync(System.Guid)ø
-HRedeemPointsAsync(CampusEatsFrontend.Models.Loyalty.RedeemPointsRequest)sCampusEatsFrontend.Services.LoyaltyService.RedeemPointsAsync(CampusEatsFrontend.Models.Loyalty.RedeemPointsRequest)›
-$CampusEatsFrontend.Layout.MainLayout3Microsoft.AspNetCore.Components.LayoutComponentBase-Microsoft.AspNetCore.Components.ComponentBaseobject¡
-LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)qCampusEatsFrontend.Layout.MainLayout.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)Q
-OnInitializedAsync()9CampusEatsFrontend.Layout.MainLayout.OnInitializedAsync()K
-OpenCartSidebar()6CampusEatsFrontend.Layout.MainLayout.OpenCartSidebar()A
-MainLayout()1CampusEatsFrontend.Layout.MainLayout.MainLayout()G
-CartService.get4CampusEatsFrontend.Layout.MainLayout.CartService.getG
-CartService.set4CampusEatsFrontend.Layout.MainLayout.CartService.setG
-AuthService.get4CampusEatsFrontend.Layout.MainLayout.AuthService.getG
-AuthService.set4CampusEatsFrontend.Layout.MainLayout.AuthService.setÎ
-6CampusEatsFrontend.Models.Payment.CreatePaymentRequestobjectg
-CreatePaymentRequest()MCampusEatsFrontend.Models.Payment.CreatePaymentRequest.CreatePaymentRequest()O
+CreatedAt.set=CampusEatsFrontend.Models.User.ClientProfileDto.CreatedAt.setß
+(CampusEatsFrontend.Models.Order.OrderDtoobjectA
 
-UserId.getACampusEatsFrontend.Models.Payment.CreatePaymentRequest.UserId.getO
+OrderDto()3CampusEatsFrontend.Models.Order.OrderDto.OrderDto()9
+Id.get/CampusEatsFrontend.Models.Order.OrderDto.Id.get9
+Id.set/CampusEatsFrontend.Models.Order.OrderDto.Id.setE
+ClientId.get5CampusEatsFrontend.Models.Order.OrderDto.ClientId.getE
+ClientId.set5CampusEatsFrontend.Models.Order.OrderDto.ClientId.set?
+	Price.get2CampusEatsFrontend.Models.Order.OrderDto.Price.get?
+	Price.set2CampusEatsFrontend.Models.Order.OrderDto.Price.setC
+MenuIDs.get4CampusEatsFrontend.Models.Order.OrderDto.MenuIDs.getC
+MenuIDs.set4CampusEatsFrontend.Models.Order.OrderDto.MenuIDs.setC
+ItemIDs.get4CampusEatsFrontend.Models.Order.OrderDto.ItemIDs.getC
+ItemIDs.set4CampusEatsFrontend.Models.Order.OrderDto.ItemIDs.setG
+CreatedAt.get6CampusEatsFrontend.Models.Order.OrderDto.CreatedAt.getG
+CreatedAt.set6CampusEatsFrontend.Models.Order.OrderDto.CreatedAt.setA
 
-UserId.setACampusEatsFrontend.Models.Payment.CreatePaymentRequest.UserId.setQ
-OrderId.getBCampusEatsFrontend.Models.Payment.CreatePaymentRequest.OrderId.getQ
-OrderId.setBCampusEatsFrontend.Models.Payment.CreatePaymentRequest.OrderId.setO
+Status.get3CampusEatsFrontend.Models.Order.OrderDto.Status.getA
 
-Amount.getACampusEatsFrontend.Models.Payment.CreatePaymentRequest.Amount.getO
-
-Amount.setACampusEatsFrontend.Models.Payment.CreatePaymentRequest.Amount.setO
-
-Method.getACampusEatsFrontend.Models.Payment.CreatePaymentRequest.Method.getO
-
-Method.setACampusEatsFrontend.Models.Payment.CreatePaymentRequest.Method.setY
-PointsToUse.getFCampusEatsFrontend.Models.Payment.CreatePaymentRequest.PointsToUse.getY
-PointsToUse.setFCampusEatsFrontend.Models.Payment.CreatePaymentRequest.PointsToUse.set©
+Status.set3CampusEatsFrontend.Models.Order.OrderDto.Status.set†
++CampusEatsFrontend.Models.Order.OrderStatusSystem.EnumSystem.ValueTypeobjectJ
+OrderStatus()9CampusEatsFrontend.Models.Order.OrderStatus.OrderStatus()©
 
 ,CampusEatsFrontend.Models.Payment.PaymentDtoobjectI
 PaymentDto()9CampusEatsFrontend.Models.Payment.PaymentDto.PaymentDto()=
@@ -356,40 +310,25 @@ Method.set7CampusEatsFrontend.Models.Payment.PaymentDto.Method.set[
 ExternalReference.getBCampusEatsFrontend.Models.Payment.PaymentDto.ExternalReference.get[
 ExternalReference.setBCampusEatsFrontend.Models.Payment.PaymentDto.ExternalReference.setQ
 CreatedAtUtc.get=CampusEatsFrontend.Models.Payment.PaymentDto.CreatedAtUtc.getQ
-CreatedAtUtc.set=CampusEatsFrontend.Models.Payment.PaymentDto.CreatedAtUtc.setß
-(CampusEatsFrontend.Models.Order.OrderDtoobjectA
+CreatedAtUtc.set=CampusEatsFrontend.Models.Payment.PaymentDto.CreatedAtUtc.setÎ
+6CampusEatsFrontend.Models.Payment.CreatePaymentRequestobjectg
+CreatePaymentRequest()MCampusEatsFrontend.Models.Payment.CreatePaymentRequest.CreatePaymentRequest()O
 
-OrderDto()3CampusEatsFrontend.Models.Order.OrderDto.OrderDto()9
-Id.get/CampusEatsFrontend.Models.Order.OrderDto.Id.get9
-Id.set/CampusEatsFrontend.Models.Order.OrderDto.Id.setE
-ClientId.get5CampusEatsFrontend.Models.Order.OrderDto.ClientId.getE
-ClientId.set5CampusEatsFrontend.Models.Order.OrderDto.ClientId.set?
-	Price.get2CampusEatsFrontend.Models.Order.OrderDto.Price.get?
-	Price.set2CampusEatsFrontend.Models.Order.OrderDto.Price.setC
-MenuIDs.get4CampusEatsFrontend.Models.Order.OrderDto.MenuIDs.getC
-MenuIDs.set4CampusEatsFrontend.Models.Order.OrderDto.MenuIDs.setC
-ItemIDs.get4CampusEatsFrontend.Models.Order.OrderDto.ItemIDs.getC
-ItemIDs.set4CampusEatsFrontend.Models.Order.OrderDto.ItemIDs.setG
-CreatedAt.get6CampusEatsFrontend.Models.Order.OrderDto.CreatedAt.getG
-CreatedAt.set6CampusEatsFrontend.Models.Order.OrderDto.CreatedAt.setA
+UserId.getACampusEatsFrontend.Models.Payment.CreatePaymentRequest.UserId.getO
 
-Status.get3CampusEatsFrontend.Models.Order.OrderDto.Status.getA
+UserId.setACampusEatsFrontend.Models.Payment.CreatePaymentRequest.UserId.setQ
+OrderId.getBCampusEatsFrontend.Models.Payment.CreatePaymentRequest.OrderId.getQ
+OrderId.setBCampusEatsFrontend.Models.Payment.CreatePaymentRequest.OrderId.setO
 
-Status.set3CampusEatsFrontend.Models.Order.OrderDto.Status.setØ
-'CampusEatsFrontend.Services.MenuServiceobjectz
-'MenuService(System.Net.Http.HttpClient)OCampusEatsFrontend.Services.MenuService.MenuService(System.Net.Http.HttpClient)P
-GetAllMenusAsync():CampusEatsFrontend.Services.MenuService.GetAllMenusAsync()f
-GetMenuByIdAsync(System.Guid)ECampusEatsFrontend.Services.MenuService.GetMenuByIdAsync(System.Guid)Æ
-ACreateMenuAsync(CampusEatsFrontend.Models.Menu.CreateMenuRequest)iCampusEatsFrontend.Services.MenuService.CreateMenuAsync(CampusEatsFrontend.Models.Menu.CreateMenuRequest)Æ
-AUpdateMenuAsync(CampusEatsFrontend.Models.Menu.UpdateMenuRequest)iCampusEatsFrontend.Services.MenuService.UpdateMenuAsync(CampusEatsFrontend.Models.Menu.UpdateMenuRequest)d
-DeleteMenuAsync(System.Guid)DCampusEatsFrontend.Services.MenuService.DeleteMenuAsync(System.Guid)ú
-+CampusEatsFrontend.Services.MenuItemServiceobjectÜ
-+MenuItemService(System.Net.Http.HttpClient)WCampusEatsFrontend.Services.MenuItemService.MenuItemService(System.Net.Http.HttpClient)\
-GetAllMenuItemsAsync()BCampusEatsFrontend.Services.MenuItemService.GetAllMenuItemsAsync()r
-!GetMenuItemByIdAsync(System.Guid)MCampusEatsFrontend.Services.MenuItemService.GetMenuItemByIdAsync(System.Guid) 
-MCreateMenuItemAsync(CampusEatsFrontend.Models.MenuItem.CreateMenuItemRequest)yCampusEatsFrontend.Services.MenuItemService.CreateMenuItemAsync(CampusEatsFrontend.Models.MenuItem.CreateMenuItemRequest) 
-MUpdateMenuItemAsync(CampusEatsFrontend.Models.MenuItem.UpdateMenuItemRequest)yCampusEatsFrontend.Services.MenuItemService.UpdateMenuItemAsync(CampusEatsFrontend.Models.MenuItem.UpdateMenuItemRequest)p
- DeleteMenuItemAsync(System.Guid)LCampusEatsFrontend.Services.MenuItemService.DeleteMenuItemAsync(System.Guid)Ò
+Amount.getACampusEatsFrontend.Models.Payment.CreatePaymentRequest.Amount.getO
+
+Amount.setACampusEatsFrontend.Models.Payment.CreatePaymentRequest.Amount.setO
+
+Method.getACampusEatsFrontend.Models.Payment.CreatePaymentRequest.Method.getO
+
+Method.setACampusEatsFrontend.Models.Payment.CreatePaymentRequest.Method.setY
+PointsToUse.getFCampusEatsFrontend.Models.Payment.CreatePaymentRequest.PointsToUse.getY
+PointsToUse.setFCampusEatsFrontend.Models.Payment.CreatePaymentRequest.PointsToUse.setÒ
 1CampusEatsFrontend.Models.Order.PlaceOrderRequestobject\
 PlaceOrderRequest()ECampusEatsFrontend.Models.Order.PlaceOrderRequest.PlaceOrderRequest()N
 ClientId.get>CampusEatsFrontend.Models.Order.PlaceOrderRequest.ClientId.getN
@@ -397,7 +336,43 @@ MUpdateMenuItemAsync(CampusEatsFrontend.Models.MenuItem.UpdateMenuItemRequest)y
 MenuIDs.get=CampusEatsFrontend.Models.Order.PlaceOrderRequest.MenuIDs.getL
 MenuIDs.set=CampusEatsFrontend.Models.Order.PlaceOrderRequest.MenuIDs.setL
 ItemIDs.get=CampusEatsFrontend.Models.Order.PlaceOrderRequest.ItemIDs.getL
-ItemIDs.set=CampusEatsFrontend.Models.Order.PlaceOrderRequest.ItemIDs.set
+ItemIDs.set=CampusEatsFrontend.Models.Order.PlaceOrderRequest.ItemIDs.set˘
+*CampusEatsFrontend.Services.KitchenServiceobjectÉ
+*KitchenService(System.Net.Http.HttpClient)UCampusEatsFrontend.Services.KitchenService.KitchenService(System.Net.Http.HttpClient)k
+GetKitchenOrdersAsync(string?)ICampusEatsFrontend.Services.KitchenService.GetKitchenOrdersAsync(string?)œ
+PUpdateOrderStatusAsync(System.Guid, CampusEatsFrontend.Models.Order.OrderStatus){CampusEatsFrontend.Services.KitchenService.UpdateOrderStatusAsync(System.Guid, CampusEatsFrontend.Models.Order.OrderStatus)Ù
+*CampusEatsFrontend.Services.LoyaltyServiceobjectÉ
+*LoyaltyService(System.Net.Http.HttpClient)UCampusEatsFrontend.Services.LoyaltyService.LoyaltyService(System.Net.Http.HttpClient)u
+#GetLoyaltyBalanceAsync(System.Guid)NCampusEatsFrontend.Services.LoyaltyService.GetLoyaltyBalanceAsync(System.Guid)
+(GetLoyaltyTransactionsAsync(System.Guid)SCampusEatsFrontend.Services.LoyaltyService.GetLoyaltyTransactionsAsync(System.Guid)ø
+HRedeemPointsAsync(CampusEatsFrontend.Models.Loyalty.RedeemPointsRequest)sCampusEatsFrontend.Services.LoyaltyService.RedeemPointsAsync(CampusEatsFrontend.Models.Loyalty.RedeemPointsRequest)ú
++CampusEatsFrontend.Services.MenuItemServiceobjectÜ
++MenuItemService(System.Net.Http.HttpClient)WCampusEatsFrontend.Services.MenuItemService.MenuItemService(System.Net.Http.HttpClient)\
+GetAllMenuItemsAsync()BCampusEatsFrontend.Services.MenuItemService.GetAllMenuItemsAsync()r
+!GetMenuItemByIdAsync(System.Guid)MCampusEatsFrontend.Services.MenuItemService.GetMenuItemByIdAsync(System.Guid) 
+MCreateMenuItemAsync(CampusEatsFrontend.Models.MenuItem.CreateMenuItemRequest)yCampusEatsFrontend.Services.MenuItemService.CreateMenuItemAsync(CampusEatsFrontend.Models.MenuItem.CreateMenuItemRequest) 
+MUpdateMenuItemAsync(CampusEatsFrontend.Models.MenuItem.UpdateMenuItemRequest)yCampusEatsFrontend.Services.MenuItemService.UpdateMenuItemAsync(CampusEatsFrontend.Models.MenuItem.UpdateMenuItemRequest)p
+ DeleteMenuItemAsync(System.Guid)LCampusEatsFrontend.Services.MenuItemService.DeleteMenuItemAsync(System.Guid)›
+$CampusEatsFrontend.Layout.MainLayout3Microsoft.AspNetCore.Components.LayoutComponentBase-Microsoft.AspNetCore.Components.ComponentBaseobject¡
+LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)qCampusEatsFrontend.Layout.MainLayout.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)Q
+OnInitializedAsync()9CampusEatsFrontend.Layout.MainLayout.OnInitializedAsync()K
+OpenCartSidebar()6CampusEatsFrontend.Layout.MainLayout.OpenCartSidebar()A
+MainLayout()1CampusEatsFrontend.Layout.MainLayout.MainLayout()G
+CartService.get4CampusEatsFrontend.Layout.MainLayout.CartService.getG
+CartService.set4CampusEatsFrontend.Layout.MainLayout.CartService.setG
+AuthService.get4CampusEatsFrontend.Layout.MainLayout.AuthService.getG
+AuthService.set4CampusEatsFrontend.Layout.MainLayout.AuthService.setØ
+'CampusEatsFrontend.Services.MenuServiceobjectz
+'MenuService(System.Net.Http.HttpClient)OCampusEatsFrontend.Services.MenuService.MenuService(System.Net.Http.HttpClient)P
+GetAllMenusAsync():CampusEatsFrontend.Services.MenuService.GetAllMenusAsync()f
+GetMenuByIdAsync(System.Guid)ECampusEatsFrontend.Services.MenuService.GetMenuByIdAsync(System.Guid)Æ
+ACreateMenuAsync(CampusEatsFrontend.Models.Menu.CreateMenuRequest)iCampusEatsFrontend.Services.MenuService.CreateMenuAsync(CampusEatsFrontend.Models.Menu.CreateMenuRequest)Æ
+AUpdateMenuAsync(CampusEatsFrontend.Models.Menu.UpdateMenuRequest)iCampusEatsFrontend.Services.MenuService.UpdateMenuAsync(CampusEatsFrontend.Models.Menu.UpdateMenuRequest)d
+DeleteMenuAsync(System.Guid)DCampusEatsFrontend.Services.MenuService.DeleteMenuAsync(System.Guid)Á
+'CampusEatsFrontend.Services.UserServiceobjectz
+'UserService(System.Net.Http.HttpClient)OCampusEatsFrontend.Services.UserService.UserService(System.Net.Http.HttpClient)P
+GetAllUsersAsync():CampusEatsFrontend.Services.UserService.GetAllUsersAsync()f
+GetUserByIdAsync(System.Guid)ECampusEatsFrontend.Services.UserService.GetUserByIdAsync(System.Guid)
 (CampusEatsFrontend.Services.OrderServiceobject}
 (OrderService(System.Net.Http.HttpClient)QCampusEatsFrontend.Services.OrderService.OrderService(System.Net.Http.HttpClient)i
 GetOrderByIdAsync(System.Guid)GCampusEatsFrontend.Services.OrderService.GetOrderByIdAsync(System.Guid)o
@@ -411,86 +386,7 @@ BPlaceOrderAsync(CampusEatsFrontend.Models.Order.PlaceOrderRequest)kCampusEatsF
 JCreatePaymentAsync(CampusEatsFrontend.Models.Payment.CreatePaymentRequest)uCampusEatsFrontend.Services.PaymentService.CreatePaymentAsync(CampusEatsFrontend.Models.Payment.CreatePaymentRequest)o
  GetPaymentByIdAsync(System.Guid)KCampusEatsFrontend.Services.PaymentService.GetPaymentByIdAsync(System.Guid)u
 #GetPaymentHistoryAsync(System.Guid)NCampusEatsFrontend.Services.PaymentService.GetPaymentHistoryAsync(System.Guid)¸
-fCreateStripeCheckoutSessionAsync(CampusEatsFrontend.Models.Payment.CreateStripeCheckoutSessionRequest)ëCampusEatsFrontend.Services.PaymentService.CreateStripeCheckoutSessionAsync(CampusEatsFrontend.Models.Payment.CreateStripeCheckoutSessionRequest)Á
-'CampusEatsFrontend.Services.UserServiceobjectz
-'UserService(System.Net.Http.HttpClient)OCampusEatsFrontend.Services.UserService.UserService(System.Net.Http.HttpClient)P
-GetAllUsersAsync():CampusEatsFrontend.Services.UserService.GetAllUsersAsync()f
-GetUserByIdAsync(System.Guid)ECampusEatsFrontend.Services.UserService.GetUserByIdAsync(System.Guid)†
-+CampusEatsFrontend.Models.Order.OrderStatusSystem.EnumSystem.ValueTypeobjectJ
-OrderStatus()9CampusEatsFrontend.Models.Order.OrderStatus.OrderStatus()ì
-CampusEatsFrontend.Pages.Home-Microsoft.AspNetCore.Components.ComponentBaseobject∫
-LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)jCampusEatsFrontend.Pages.Home.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)J
-OnInitializedAsync()2CampusEatsFrontend.Pages.Home.OnInitializedAsync().
-Home()$CampusEatsFrontend.Pages.Home.Home()>
-Navigation.get,CampusEatsFrontend.Pages.Home.Navigation.get>
-Navigation.set,CampusEatsFrontend.Pages.Home.Navigation.set@
-AuthService.get-CampusEatsFrontend.Pages.Home.AuthService.get@
-AuthService.set-CampusEatsFrontend.Pages.Home.AuthService.set©
-)CampusEatsFrontend.Pages.Cart.CartSidebar-Microsoft.AspNetCore.Components.ComponentBaseobjectSystem.IDisposable∆
-LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)vCampusEatsFrontend.Pages.Cart.CartSidebar.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)L
-OnInitialized()9CampusEatsFrontend.Pages.Cart.CartSidebar.OnInitialized():
-Open()0CampusEatsFrontend.Pages.Cart.CartSidebar.Open()<
-Close()1CampusEatsFrontend.Pages.Cart.CartSidebar.Close()î
-3RemoveItem(CampusEatsFrontend.Models.Cart.CartItem)]CampusEatsFrontend.Pages.Cart.CartSidebar.RemoveItem(CampusEatsFrontend.Models.Cart.CartItem)Æ
-@UpdateItemQuantity(CampusEatsFrontend.Models.Cart.CartItem, int)jCampusEatsFrontend.Pages.Cart.CartSidebar.UpdateItemQuantity(CampusEatsFrontend.Models.Cart.CartItem, int)\
-PlaceOrderAndCheckout()ACampusEatsFrontend.Pages.Cart.CartSidebar.PlaceOrderAndCheckout()@
-	Dispose()3CampusEatsFrontend.Pages.Cart.CartSidebar.Dispose()H
-CartSidebar()7CampusEatsFrontend.Pages.Cart.CartSidebar.CartSidebar()J
-Navigation.get8CampusEatsFrontend.Pages.Cart.CartSidebar.Navigation.getJ
-Navigation.set8CampusEatsFrontend.Pages.Cart.CartSidebar.Navigation.setL
-AuthService.get9CampusEatsFrontend.Pages.Cart.CartSidebar.AuthService.getL
-AuthService.set9CampusEatsFrontend.Pages.Cart.CartSidebar.AuthService.setN
-OrderService.get:CampusEatsFrontend.Pages.Cart.CartSidebar.OrderService.getN
-OrderService.set:CampusEatsFrontend.Pages.Cart.CartSidebar.OrderService.setL
-CartService.get9CampusEatsFrontend.Pages.Cart.CartSidebar.CartService.getL
-CartService.set9CampusEatsFrontend.Pages.Cart.CartSidebar.CartService.set„
-
-!CampusEatsFrontend.Layout.NavMenu-Microsoft.AspNetCore.Components.ComponentBaseobjectSystem.IDisposableæ
-LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)nCampusEatsFrontend.Layout.NavMenu.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)D
-ToggleNavMenu()1CampusEatsFrontend.Layout.NavMenu.ToggleNavMenu()N
-OnInitializedAsync()6CampusEatsFrontend.Layout.NavMenu.OnInitializedAsync()H
-OpenCartSidebar()3CampusEatsFrontend.Layout.NavMenu.OpenCartSidebar()8
-	Dispose()+CampusEatsFrontend.Layout.NavMenu.Dispose()8
-	NavMenu()+CampusEatsFrontend.Layout.NavMenu.NavMenu()P
-OnCartButtonClick.get7CampusEatsFrontend.Layout.NavMenu.OnCartButtonClick.getP
-OnCartButtonClick.set7CampusEatsFrontend.Layout.NavMenu.OnCartButtonClick.setL
-NavMenuCssClass.get5CampusEatsFrontend.Layout.NavMenu.NavMenuCssClass.getL
-NavMenuCssClass.set5CampusEatsFrontend.Layout.NavMenu.NavMenuCssClass.setB
-Navigation.get0CampusEatsFrontend.Layout.NavMenu.Navigation.getB
-Navigation.set0CampusEatsFrontend.Layout.NavMenu.Navigation.setD
-CartService.get1CampusEatsFrontend.Layout.NavMenu.CartService.getD
-CartService.set1CampusEatsFrontend.Layout.NavMenu.CartService.setD
-AuthService.get1CampusEatsFrontend.Layout.NavMenu.AuthService.getD
-AuthService.set1CampusEatsFrontend.Layout.NavMenu.AuthService.set˛
-,CampusEatsFrontend.Pages.Auth.ChangePassword-Microsoft.AspNetCore.Components.ComponentBaseobject…
-LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)yCampusEatsFrontend.Pages.Auth.ChangePassword.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)Y
-OnInitializedAsync()ACampusEatsFrontend.Pages.Auth.ChangePassword.OnInitializedAsync()]
-HandleChangePassword()CCampusEatsFrontend.Pages.Auth.ChangePassword.HandleChangePassword()Q
-ChangePassword()=CampusEatsFrontend.Pages.Auth.ChangePassword.ChangePassword()M
-Navigation.get;CampusEatsFrontend.Pages.Auth.ChangePassword.Navigation.getM
-Navigation.set;CampusEatsFrontend.Pages.Auth.ChangePassword.Navigation.setO
-AuthService.get<CampusEatsFrontend.Pages.Auth.ChangePassword.AuthService.getO
-AuthService.set<CampusEatsFrontend.Pages.Auth.ChangePassword.AuthService.set©
-
- CampusEatsFrontend.Pages.Kitchen-Microsoft.AspNetCore.Components.ComponentBaseobjectΩ
-LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)mCampusEatsFrontend.Pages.Kitchen.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)M
-OnInitializedAsync()5CampusEatsFrontend.Pages.Kitchen.OnInitializedAsync()=
-LoadOrders()-CampusEatsFrontend.Pages.Kitchen.LoadOrders()_
-LoadOrderDetails(System.Guid)>CampusEatsFrontend.Pages.Kitchen.LoadOrderDetails(System.Guid)±
-FUpdateStatus(System.Guid, CampusEatsFrontend.Models.Order.OrderStatus)gCampusEatsFrontend.Pages.Kitchen.UpdateStatus(System.Guid, CampusEatsFrontend.Models.Order.OrderStatus)7
-	Kitchen()*CampusEatsFrontend.Pages.Kitchen.Kitchen()A
-Navigation.get/CampusEatsFrontend.Pages.Kitchen.Navigation.getA
-Navigation.set/CampusEatsFrontend.Pages.Kitchen.Navigation.setC
-AuthService.get0CampusEatsFrontend.Pages.Kitchen.AuthService.getC
-AuthService.set0CampusEatsFrontend.Pages.Kitchen.AuthService.setE
-OrderService.get1CampusEatsFrontend.Pages.Kitchen.OrderService.getE
-OrderService.set1CampusEatsFrontend.Pages.Kitchen.OrderService.setI
-KitchenService.get3CampusEatsFrontend.Pages.Kitchen.KitchenService.getI
-KitchenService.set3CampusEatsFrontend.Pages.Kitchen.KitchenService.set◊
-!CampusEatsFrontend.Pages.NotFound-Microsoft.AspNetCore.Components.ComponentBaseobjectæ
-LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)nCampusEatsFrontend.Pages.NotFound.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder):
-
-NotFound(),CampusEatsFrontend.Pages.NotFound.NotFound()ê
+fCreateStripeCheckoutSessionAsync(CampusEatsFrontend.Models.Payment.CreateStripeCheckoutSessionRequest)ëCampusEatsFrontend.Services.PaymentService.CreateStripeCheckoutSessionAsync(CampusEatsFrontend.Models.Payment.CreateStripeCheckoutSessionRequest)ê
 'CampusEatsFrontend.Services.CartServiceobjectD
 OnChange.add4CampusEatsFrontend.Services.CartService.OnChange.addJ
 OnChange.remove7CampusEatsFrontend.Services.CartService.OnChange.removeÇ
@@ -510,24 +406,50 @@ EAddMenuItemAsync(CampusEatsFrontend.Models.MenuItem.MenuItemDto, int)mCampusEa
 TotalItems.get6CampusEatsFrontend.Services.CartService.TotalItems.getH
 TotalItems.set6CampusEatsFrontend.Services.CartService.TotalItems.setH
 TotalPrice.get6CampusEatsFrontend.Services.CartService.TotalPrice.getH
-TotalPrice.set6CampusEatsFrontend.Services.CartService.TotalPrice.set∑
-#CampusEatsFrontend.Pages.Auth.Login-Microsoft.AspNetCore.Components.ComponentBaseobject¿
-LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)pCampusEatsFrontend.Pages.Auth.Login.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)B
-HandleLogin()1CampusEatsFrontend.Pages.Auth.Login.HandleLogin()6
-Login()+CampusEatsFrontend.Pages.Auth.Login.Login()D
-Navigation.get2CampusEatsFrontend.Pages.Auth.Login.Navigation.getD
-Navigation.set2CampusEatsFrontend.Pages.Auth.Login.Navigation.setF
-AuthService.get3CampusEatsFrontend.Pages.Auth.Login.AuthService.getF
-AuthService.set3CampusEatsFrontend.Pages.Auth.Login.AuthService.set€
-&CampusEatsFrontend.Pages.Auth.Register-Microsoft.AspNetCore.Components.ComponentBaseobject√
-LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)sCampusEatsFrontend.Pages.Auth.Register.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)K
-HandleRegister()7CampusEatsFrontend.Pages.Auth.Register.HandleRegister()?
+TotalPrice.set6CampusEatsFrontend.Services.CartService.TotalPrice.setì
+CampusEatsFrontend.Pages.Home-Microsoft.AspNetCore.Components.ComponentBaseobject∫
+LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)jCampusEatsFrontend.Pages.Home.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)J
+OnInitializedAsync()2CampusEatsFrontend.Pages.Home.OnInitializedAsync().
+Home()$CampusEatsFrontend.Pages.Home.Home()>
+Navigation.get,CampusEatsFrontend.Pages.Home.Navigation.get>
+Navigation.set,CampusEatsFrontend.Pages.Home.Navigation.set@
+AuthService.get-CampusEatsFrontend.Pages.Home.AuthService.get@
+AuthService.set-CampusEatsFrontend.Pages.Home.AuthService.setÆ	
+ CampusEatsFrontend.Pages.Clients-Microsoft.AspNetCore.Components.ComponentBaseobjectΩ
+LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)mCampusEatsFrontend.Pages.Clients.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)M
+OnInitializedAsync()5CampusEatsFrontend.Pages.Clients.OnInitializedAsync()?
+LoadClients().CampusEatsFrontend.Pages.Clients.LoadClients()?
+ApplySearch().CampusEatsFrontend.Pages.Clients.ApplySearch()a
+NavigateToProfile(System.Guid)?CampusEatsFrontend.Pages.Clients.NavigateToProfile(System.Guid)7
+	Clients()*CampusEatsFrontend.Pages.Clients.Clients()A
+Navigation.get/CampusEatsFrontend.Pages.Clients.Navigation.getA
+Navigation.set/CampusEatsFrontend.Pages.Clients.Navigation.setC
+AuthService.get0CampusEatsFrontend.Pages.Clients.AuthService.getC
+AuthService.set0CampusEatsFrontend.Pages.Clients.AuthService.setE
+OrderService.get1CampusEatsFrontend.Pages.Clients.OrderService.getE
+OrderService.set1CampusEatsFrontend.Pages.Clients.OrderService.setC
+UserService.get0CampusEatsFrontend.Pages.Clients.UserService.getC
+UserService.set0CampusEatsFrontend.Pages.Clients.UserService.set©
 
-Register()1CampusEatsFrontend.Pages.Auth.Register.Register()G
-Navigation.get5CampusEatsFrontend.Pages.Auth.Register.Navigation.getG
-Navigation.set5CampusEatsFrontend.Pages.Auth.Register.Navigation.setI
-AuthService.get6CampusEatsFrontend.Pages.Auth.Register.AuthService.getI
-AuthService.set6CampusEatsFrontend.Pages.Auth.Register.AuthService.setﬂ
+ CampusEatsFrontend.Pages.Kitchen-Microsoft.AspNetCore.Components.ComponentBaseobjectΩ
+LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)mCampusEatsFrontend.Pages.Kitchen.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)M
+OnInitializedAsync()5CampusEatsFrontend.Pages.Kitchen.OnInitializedAsync()=
+LoadOrders()-CampusEatsFrontend.Pages.Kitchen.LoadOrders()_
+LoadOrderDetails(System.Guid)>CampusEatsFrontend.Pages.Kitchen.LoadOrderDetails(System.Guid)±
+FUpdateStatus(System.Guid, CampusEatsFrontend.Models.Order.OrderStatus)gCampusEatsFrontend.Pages.Kitchen.UpdateStatus(System.Guid, CampusEatsFrontend.Models.Order.OrderStatus)7
+	Kitchen()*CampusEatsFrontend.Pages.Kitchen.Kitchen()A
+Navigation.get/CampusEatsFrontend.Pages.Kitchen.Navigation.getA
+Navigation.set/CampusEatsFrontend.Pages.Kitchen.Navigation.setC
+AuthService.get0CampusEatsFrontend.Pages.Kitchen.AuthService.getC
+AuthService.set0CampusEatsFrontend.Pages.Kitchen.AuthService.setE
+OrderService.get1CampusEatsFrontend.Pages.Kitchen.OrderService.getE
+OrderService.set1CampusEatsFrontend.Pages.Kitchen.OrderService.setI
+KitchenService.get3CampusEatsFrontend.Pages.Kitchen.KitchenService.getI
+KitchenService.set3CampusEatsFrontend.Pages.Kitchen.KitchenService.set◊
+!CampusEatsFrontend.Pages.NotFound-Microsoft.AspNetCore.Components.ComponentBaseobjectæ
+LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)nCampusEatsFrontend.Pages.NotFound.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder):
+
+NotFound(),CampusEatsFrontend.Pages.NotFound.NotFound()ﬂ
  CampusEatsFrontend.Pages.Loyalty-Microsoft.AspNetCore.Components.ComponentBaseobjectΩ
 LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)mCampusEatsFrontend.Pages.Loyalty.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)M
 OnInitializedAsync()5CampusEatsFrontend.Pages.Loyalty.OnInitializedAsync()G
@@ -548,28 +470,24 @@ LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)mC
 Navigation.get/CampusEatsFrontend.Pages.Profile.Navigation.getA
 Navigation.set/CampusEatsFrontend.Pages.Profile.Navigation.setC
 AuthService.get0CampusEatsFrontend.Pages.Profile.AuthService.getC
-AuthService.set0CampusEatsFrontend.Pages.Profile.AuthService.setÆ	
- CampusEatsFrontend.Pages.Clients-Microsoft.AspNetCore.Components.ComponentBaseobjectΩ
-LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)mCampusEatsFrontend.Pages.Clients.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)M
-OnInitializedAsync()5CampusEatsFrontend.Pages.Clients.OnInitializedAsync()?
-LoadClients().CampusEatsFrontend.Pages.Clients.LoadClients()?
-ApplySearch().CampusEatsFrontend.Pages.Clients.ApplySearch()a
-NavigateToProfile(System.Guid)?CampusEatsFrontend.Pages.Clients.NavigateToProfile(System.Guid)7
-	Clients()*CampusEatsFrontend.Pages.Clients.Clients()A
-Navigation.get/CampusEatsFrontend.Pages.Clients.Navigation.getA
-Navigation.set/CampusEatsFrontend.Pages.Clients.Navigation.setC
-AuthService.get0CampusEatsFrontend.Pages.Clients.AuthService.getC
-AuthService.set0CampusEatsFrontend.Pages.Clients.AuthService.setE
-OrderService.get1CampusEatsFrontend.Pages.Clients.OrderService.getE
-OrderService.set1CampusEatsFrontend.Pages.Clients.OrderService.setC
-UserService.get0CampusEatsFrontend.Pages.Clients.UserService.getC
-UserService.set0CampusEatsFrontend.Pages.Clients.UserService.setÖ
-0CampusEatsFrontend.Pages.Payments.PaymentSuccess-Microsoft.AspNetCore.Components.ComponentBaseobjectÕ
-LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)}CampusEatsFrontend.Pages.Payments.PaymentSuccess.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)M
-GoToOrders()=CampusEatsFrontend.Pages.Payments.PaymentSuccess.GoToOrders()U
-PaymentSuccess()ACampusEatsFrontend.Pages.Payments.PaymentSuccess.PaymentSuccess()Q
-Navigation.get?CampusEatsFrontend.Pages.Payments.PaymentSuccess.Navigation.getQ
-Navigation.set?CampusEatsFrontend.Pages.Payments.PaymentSuccess.Navigation.set≠
+AuthService.set0CampusEatsFrontend.Pages.Profile.AuthService.set˛
+,CampusEatsFrontend.Pages.Auth.ChangePassword-Microsoft.AspNetCore.Components.ComponentBaseobject…
+LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)yCampusEatsFrontend.Pages.Auth.ChangePassword.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)Y
+OnInitializedAsync()ACampusEatsFrontend.Pages.Auth.ChangePassword.OnInitializedAsync()]
+HandleChangePassword()CCampusEatsFrontend.Pages.Auth.ChangePassword.HandleChangePassword()Q
+ChangePassword()=CampusEatsFrontend.Pages.Auth.ChangePassword.ChangePassword()M
+Navigation.get;CampusEatsFrontend.Pages.Auth.ChangePassword.Navigation.getM
+Navigation.set;CampusEatsFrontend.Pages.Auth.ChangePassword.Navigation.setO
+AuthService.get<CampusEatsFrontend.Pages.Auth.ChangePassword.AuthService.getO
+AuthService.set<CampusEatsFrontend.Pages.Auth.ChangePassword.AuthService.set∑
+#CampusEatsFrontend.Pages.Auth.Login-Microsoft.AspNetCore.Components.ComponentBaseobject¿
+LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)pCampusEatsFrontend.Pages.Auth.Login.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)B
+HandleLogin()1CampusEatsFrontend.Pages.Auth.Login.HandleLogin()6
+Login()+CampusEatsFrontend.Pages.Auth.Login.Login()D
+Navigation.get2CampusEatsFrontend.Pages.Auth.Login.Navigation.getD
+Navigation.set2CampusEatsFrontend.Pages.Auth.Login.Navigation.setF
+AuthService.get3CampusEatsFrontend.Pages.Auth.Login.AuthService.getF
+AuthService.set3CampusEatsFrontend.Pages.Auth.Login.AuthService.set≠
 $CampusEatsFrontend.Pages.UserProfile-Microsoft.AspNetCore.Components.ComponentBaseobject¡
 LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)qCampusEatsFrontend.Pages.UserProfile.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)Q
 OnInitializedAsync()9CampusEatsFrontend.Pages.UserProfile.OnInitializedAsync()K
@@ -589,69 +507,61 @@ UserId.set/CampusEatsFrontend.Pages.UserProfile.UserId.setE
 OrderService.get5CampusEatsFrontend.Pages.UserProfile.OrderService.getI
 OrderService.set5CampusEatsFrontend.Pages.UserProfile.OrderService.setG
 UserService.get4CampusEatsFrontend.Pages.UserProfile.UserService.getG
-UserService.set4CampusEatsFrontend.Pages.UserProfile.UserService.set∆
-,CampusEatsFrontend.Pages.Orders.OrderDetails-Microsoft.AspNetCore.Components.ComponentBaseobject…
-LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)yCampusEatsFrontend.Pages.Orders.OrderDetails.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)Y
-OnInitializedAsync()ACampusEatsFrontend.Pages.Orders.OrderDetails.OnInitializedAsync()U
-LoadOrderDetails()?CampusEatsFrontend.Pages.Orders.OrderDetails.LoadOrderDetails()K
-CancelOrder():CampusEatsFrontend.Pages.Orders.OrderDetails.CancelOrder()A
-GoBack()5CampusEatsFrontend.Pages.Orders.OrderDetails.GoBack()M
-OrderDetails();CampusEatsFrontend.Pages.Orders.OrderDetails.OrderDetails()G
-OrderId.get8CampusEatsFrontend.Pages.Orders.OrderDetails.OrderId.getG
-OrderId.set8CampusEatsFrontend.Pages.Orders.OrderDetails.OrderId.setK
-ReturnUrl.get:CampusEatsFrontend.Pages.Orders.OrderDetails.ReturnUrl.getK
-ReturnUrl.set:CampusEatsFrontend.Pages.Orders.OrderDetails.ReturnUrl.setU
-DisplayOrderId.get?CampusEatsFrontend.Pages.Orders.OrderDetails.DisplayOrderId.getU
-DisplayOrderId.set?CampusEatsFrontend.Pages.Orders.OrderDetails.DisplayOrderId.setS
-DisplayStatus.get>CampusEatsFrontend.Pages.Orders.OrderDetails.DisplayStatus.getS
-DisplayStatus.set>CampusEatsFrontend.Pages.Orders.OrderDetails.DisplayStatus.set]
-DisplayStatusColor.getCCampusEatsFrontend.Pages.Orders.OrderDetails.DisplayStatusColor.get]
-DisplayStatusColor.setCCampusEatsFrontend.Pages.Orders.OrderDetails.DisplayStatusColor.setQ
-DisplayPrice.get=CampusEatsFrontend.Pages.Orders.OrderDetails.DisplayPrice.getQ
-DisplayPrice.set=CampusEatsFrontend.Pages.Orders.OrderDetails.DisplayPrice.setY
-DisplayCreatedAt.getACampusEatsFrontend.Pages.Orders.OrderDetails.DisplayCreatedAt.getY
-DisplayCreatedAt.setACampusEatsFrontend.Pages.Orders.OrderDetails.DisplayCreatedAt.setM
-Navigation.get;CampusEatsFrontend.Pages.Orders.OrderDetails.Navigation.getM
-Navigation.set;CampusEatsFrontend.Pages.Orders.OrderDetails.Navigation.setO
-AuthService.get<CampusEatsFrontend.Pages.Orders.OrderDetails.AuthService.getO
-AuthService.set<CampusEatsFrontend.Pages.Orders.OrderDetails.AuthService.setQ
-OrderService.get=CampusEatsFrontend.Pages.Orders.OrderDetails.OrderService.getQ
-OrderService.set=CampusEatsFrontend.Pages.Orders.OrderDetails.OrderService.set¬	
-,CampusEatsFrontend.Pages.Menu.CreateMenuItem-Microsoft.AspNetCore.Components.ComponentBaseobject…
-LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)yCampusEatsFrontend.Pages.Menu.CreateMenuItem.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)Y
-OnInitializedAsync()ACampusEatsFrontend.Pages.Menu.CreateMenuItem.OnInitializedAsync()]
-ToggleAllergen(string)CCampusEatsFrontend.Pages.Menu.CreateMenuItem.ToggleAllergen(string)M
-HandleCreate();CampusEatsFrontend.Pages.Menu.CreateMenuItem.HandleCreate()A
-Cancel()5CampusEatsFrontend.Pages.Menu.CreateMenuItem.Cancel()Q
-CreateMenuItem()=CampusEatsFrontend.Pages.Menu.CreateMenuItem.CreateMenuItem()O
-AuthService.get<CampusEatsFrontend.Pages.Menu.CreateMenuItem.AuthService.getO
-AuthService.set<CampusEatsFrontend.Pages.Menu.CreateMenuItem.AuthService.setM
-Navigation.get;CampusEatsFrontend.Pages.Menu.CreateMenuItem.Navigation.getM
-Navigation.set;CampusEatsFrontend.Pages.Menu.CreateMenuItem.Navigation.setW
-MenuItemService.get@CampusEatsFrontend.Pages.Menu.CreateMenuItem.MenuItemService.getW
-MenuItemService.set@CampusEatsFrontend.Pages.Menu.CreateMenuItem.MenuItemService.setº
-*CampusEatsFrontend.Pages.Orders.PlaceOrder-Microsoft.AspNetCore.Components.ComponentBaseobject«
-LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)wCampusEatsFrontend.Pages.Orders.PlaceOrder.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)W
-OnInitializedAsync()?CampusEatsFrontend.Pages.Orders.PlaceOrder.OnInitializedAsync()C
+UserService.set4CampusEatsFrontend.Pages.UserProfile.UserService.set€
+&CampusEatsFrontend.Pages.Auth.Register-Microsoft.AspNetCore.Components.ComponentBaseobject√
+LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)sCampusEatsFrontend.Pages.Auth.Register.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)K
+HandleRegister()7CampusEatsFrontend.Pages.Auth.Register.HandleRegister()?
 
-LoadData()5CampusEatsFrontend.Pages.Orders.PlaceOrder.LoadData()i
-ToggleMenu(System.Guid, bool)HCampusEatsFrontend.Pages.Orders.PlaceOrder.ToggleMenu(System.Guid, bool)i
-ToggleItem(System.Guid, bool)HCampusEatsFrontend.Pages.Orders.PlaceOrder.ToggleItem(System.Guid, bool)O
-CalculateTotal();CampusEatsFrontend.Pages.Orders.PlaceOrder.CalculateTotal()M
-CanPlaceOrder():CampusEatsFrontend.Pages.Orders.PlaceOrder.CanPlaceOrder()I
-SubmitOrder()8CampusEatsFrontend.Pages.Orders.PlaceOrder.SubmitOrder()?
-Cancel()3CampusEatsFrontend.Pages.Orders.PlaceOrder.Cancel()G
-PlaceOrder()7CampusEatsFrontend.Pages.Orders.PlaceOrder.PlaceOrder()K
-Navigation.get9CampusEatsFrontend.Pages.Orders.PlaceOrder.Navigation.getK
-Navigation.set9CampusEatsFrontend.Pages.Orders.PlaceOrder.Navigation.setM
-AuthService.get:CampusEatsFrontend.Pages.Orders.PlaceOrder.AuthService.getM
-AuthService.set:CampusEatsFrontend.Pages.Orders.PlaceOrder.AuthService.setO
-OrderService.get;CampusEatsFrontend.Pages.Orders.PlaceOrder.OrderService.getO
-OrderService.set;CampusEatsFrontend.Pages.Orders.PlaceOrder.OrderService.setU
-MenuItemService.get>CampusEatsFrontend.Pages.Orders.PlaceOrder.MenuItemService.getU
-MenuItemService.set>CampusEatsFrontend.Pages.Orders.PlaceOrder.MenuItemService.setM
-MenuService.get:CampusEatsFrontend.Pages.Orders.PlaceOrder.MenuService.getM
-MenuService.set:CampusEatsFrontend.Pages.Orders.PlaceOrder.MenuService.setÑ
+Register()1CampusEatsFrontend.Pages.Auth.Register.Register()G
+Navigation.get5CampusEatsFrontend.Pages.Auth.Register.Navigation.getG
+Navigation.set5CampusEatsFrontend.Pages.Auth.Register.Navigation.setI
+AuthService.get6CampusEatsFrontend.Pages.Auth.Register.AuthService.getI
+AuthService.set6CampusEatsFrontend.Pages.Auth.Register.AuthService.setÕ	
+'CampusEatsFrontend.Services.AuthServiceobject∫
+GAuthService(System.Net.Http.HttpClient, Microsoft.JSInterop.IJSRuntime)oCampusEatsFrontend.Services.AuthService.AuthService(System.Net.Http.HttpClient, Microsoft.JSInterop.IJSRuntime)ö
+7LoginAsync(CampusEatsFrontend.Models.Auth.LoginRequest)_CampusEatsFrontend.Services.AuthService.LoginAsync(CampusEatsFrontend.Models.Auth.LoginRequest)¶
+=RegisterAsync(CampusEatsFrontend.Models.Auth.RegisterRequest)eCampusEatsFrontend.Services.AuthService.RegisterAsync(CampusEatsFrontend.Models.Auth.RegisterRequest)F
+LogoutAsync()5CampusEatsFrontend.Services.AuthService.LogoutAsync()æ
+IChangePasswordAsync(CampusEatsFrontend.Models.Auth.ChangePasswordRequest)qCampusEatsFrontend.Services.AuthService.ChangePasswordAsync(CampusEatsFrontend.Models.Auth.ChangePasswordRequest)N
+InitializeAsync()9CampusEatsFrontend.Services.AuthService.InitializeAsync()J
+CurrentUser.get7CampusEatsFrontend.Services.AuthService.CurrentUser.getJ
+CurrentUser.set7CampusEatsFrontend.Services.AuthService.CurrentUser.setR
+IsAuthenticated.get;CampusEatsFrontend.Services.AuthService.IsAuthenticated.getR
+IsAuthenticated.set;CampusEatsFrontend.Services.AuthService.IsAuthenticated.setï
+5CampusEatsFrontend.Services.AuthService.LoginResponseobjectX
+LoginResponse()ECampusEatsFrontend.Services.AuthService.LoginResponse.LoginResponse()L
+	Token.get?CampusEatsFrontend.Services.AuthService.LoginResponse.Token.getL
+	Token.set?CampusEatsFrontend.Services.AuthService.LoginResponse.Token.setN
+
+UserId.get@CampusEatsFrontend.Services.AuthService.LoginResponse.UserId.getN
+
+UserId.set@CampusEatsFrontend.Services.AuthService.LoginResponse.UserId.setR
+Username.getBCampusEatsFrontend.Services.AuthService.LoginResponse.Username.getR
+Username.setBCampusEatsFrontend.Services.AuthService.LoginResponse.Username.setJ
+Role.get>CampusEatsFrontend.Services.AuthService.LoginResponse.Role.getJ
+Role.set>CampusEatsFrontend.Services.AuthService.LoginResponse.Role.setÖ
+0CampusEatsFrontend.Pages.Payments.PaymentSuccess-Microsoft.AspNetCore.Components.ComponentBaseobjectÕ
+LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)}CampusEatsFrontend.Pages.Payments.PaymentSuccess.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)M
+GoToOrders()=CampusEatsFrontend.Pages.Payments.PaymentSuccess.GoToOrders()U
+PaymentSuccess()ACampusEatsFrontend.Pages.Payments.PaymentSuccess.PaymentSuccess()Q
+Navigation.get?CampusEatsFrontend.Pages.Payments.PaymentSuccess.Navigation.getQ
+Navigation.set?CampusEatsFrontend.Pages.Payments.PaymentSuccess.Navigation.setö
+
+(CampusEatsFrontend.Pages.Menu.CreateMenu-Microsoft.AspNetCore.Components.ComponentBaseobject≈
+LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)uCampusEatsFrontend.Pages.Menu.CreateMenu.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)U
+OnInitializedAsync()=CampusEatsFrontend.Pages.Menu.CreateMenu.OnInitializedAsync()c
+ToggleMenuItem(System.Guid)DCampusEatsFrontend.Pages.Menu.CreateMenu.ToggleMenuItem(System.Guid)9
+Save()/CampusEatsFrontend.Pages.Menu.CreateMenu.Save()=
+Cancel()1CampusEatsFrontend.Pages.Menu.CreateMenu.Cancel()E
+CreateMenu()5CampusEatsFrontend.Pages.Menu.CreateMenu.CreateMenu()K
+AuthService.get8CampusEatsFrontend.Pages.Menu.CreateMenu.AuthService.getK
+AuthService.set8CampusEatsFrontend.Pages.Menu.CreateMenu.AuthService.setS
+MenuItemService.get<CampusEatsFrontend.Pages.Menu.CreateMenu.MenuItemService.getS
+MenuItemService.set<CampusEatsFrontend.Pages.Menu.CreateMenu.MenuItemService.setK
+MenuService.get8CampusEatsFrontend.Pages.Menu.CreateMenu.MenuService.getK
+MenuService.set8CampusEatsFrontend.Pages.Menu.CreateMenu.MenuService.setI
+Navigation.get7CampusEatsFrontend.Pages.Menu.CreateMenu.Navigation.getI
+Navigation.set7CampusEatsFrontend.Pages.Menu.CreateMenu.Navigation.setÑ
 )CampusEatsFrontend.Pages.Payments.Payment-Microsoft.AspNetCore.Components.ComponentBaseobject∆
 LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)vCampusEatsFrontend.Pages.Payments.Payment.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)V
 OnInitializedAsync()>CampusEatsFrontend.Pages.Payments.Payment.OnInitializedAsync()x
@@ -683,38 +593,7 @@ LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)vC
 OrderService.get:CampusEatsFrontend.Pages.Payments.Payment.OrderService.getN
 OrderService.set:CampusEatsFrontend.Pages.Payments.Payment.OrderService.setR
 PaymentService.get<CampusEatsFrontend.Pages.Payments.Payment.PaymentService.getR
-PaymentService.set<CampusEatsFrontend.Pages.Payments.Payment.PaymentService.set¿
-
-&CampusEatsFrontend.Pages.Orders.Orders-Microsoft.AspNetCore.Components.ComponentBaseobject√
-LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)sCampusEatsFrontend.Pages.Orders.Orders.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)S
-OnInitializedAsync();CampusEatsFrontend.Pages.Orders.Orders.OnInitializedAsync()C
-LoadOrders()3CampusEatsFrontend.Pages.Orders.Orders.LoadOrders()E
-ApplyFilter()4CampusEatsFrontend.Pages.Orders.Orders.ApplyFilter()c
-NavigateToOrder(System.Guid)CCampusEatsFrontend.Pages.Orders.Orders.NavigateToOrder(System.Guid)”
-TCancelOrderFromList(Microsoft.AspNetCore.Components.Web.MouseEventArgs, System.Guid){CampusEatsFrontend.Pages.Orders.Orders.CancelOrderFromList(Microsoft.AspNetCore.Components.Web.MouseEventArgs, System.Guid);
-Orders()/CampusEatsFrontend.Pages.Orders.Orders.Orders()G
-Navigation.get5CampusEatsFrontend.Pages.Orders.Orders.Navigation.getG
-Navigation.set5CampusEatsFrontend.Pages.Orders.Orders.Navigation.setI
-AuthService.get6CampusEatsFrontend.Pages.Orders.Orders.AuthService.getI
-AuthService.set6CampusEatsFrontend.Pages.Orders.Orders.AuthService.setK
-OrderService.get7CampusEatsFrontend.Pages.Orders.Orders.OrderService.getK
-OrderService.set7CampusEatsFrontend.Pages.Orders.Orders.OrderService.setö
-
-(CampusEatsFrontend.Pages.Menu.CreateMenu-Microsoft.AspNetCore.Components.ComponentBaseobject≈
-LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)uCampusEatsFrontend.Pages.Menu.CreateMenu.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)U
-OnInitializedAsync()=CampusEatsFrontend.Pages.Menu.CreateMenu.OnInitializedAsync()c
-ToggleMenuItem(System.Guid)DCampusEatsFrontend.Pages.Menu.CreateMenu.ToggleMenuItem(System.Guid)9
-Save()/CampusEatsFrontend.Pages.Menu.CreateMenu.Save()=
-Cancel()1CampusEatsFrontend.Pages.Menu.CreateMenu.Cancel()E
-CreateMenu()5CampusEatsFrontend.Pages.Menu.CreateMenu.CreateMenu()K
-AuthService.get8CampusEatsFrontend.Pages.Menu.CreateMenu.AuthService.getK
-AuthService.set8CampusEatsFrontend.Pages.Menu.CreateMenu.AuthService.setS
-MenuItemService.get<CampusEatsFrontend.Pages.Menu.CreateMenu.MenuItemService.getS
-MenuItemService.set<CampusEatsFrontend.Pages.Menu.CreateMenu.MenuItemService.setK
-MenuService.get8CampusEatsFrontend.Pages.Menu.CreateMenu.MenuService.getK
-MenuService.set8CampusEatsFrontend.Pages.Menu.CreateMenu.MenuService.setI
-Navigation.get7CampusEatsFrontend.Pages.Menu.CreateMenu.Navigation.getI
-Navigation.set7CampusEatsFrontend.Pages.Menu.CreateMenu.Navigation.setÎ
+PaymentService.set<CampusEatsFrontend.Pages.Payments.Payment.PaymentService.setÎ
 
 *CampusEatsFrontend.Pages.Menu.EditMenuItem-Microsoft.AspNetCore.Components.ComponentBaseobject«
 LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)wCampusEatsFrontend.Pages.Menu.EditMenuItem.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)W
@@ -751,7 +630,56 @@ EditMenu()1CampusEatsFrontend.Pages.Menu.EditMenu.EditMenu()7
 MenuService.get6CampusEatsFrontend.Pages.Menu.EditMenu.MenuService.getI
 MenuService.set6CampusEatsFrontend.Pages.Menu.EditMenu.MenuService.setG
 Navigation.get5CampusEatsFrontend.Pages.Menu.EditMenu.Navigation.getG
-Navigation.set5CampusEatsFrontend.Pages.Menu.EditMenu.Navigation.set‹
+Navigation.set5CampusEatsFrontend.Pages.Menu.EditMenu.Navigation.set¬	
+,CampusEatsFrontend.Pages.Menu.CreateMenuItem-Microsoft.AspNetCore.Components.ComponentBaseobject…
+LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)yCampusEatsFrontend.Pages.Menu.CreateMenuItem.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)Y
+OnInitializedAsync()ACampusEatsFrontend.Pages.Menu.CreateMenuItem.OnInitializedAsync()]
+ToggleAllergen(string)CCampusEatsFrontend.Pages.Menu.CreateMenuItem.ToggleAllergen(string)M
+HandleCreate();CampusEatsFrontend.Pages.Menu.CreateMenuItem.HandleCreate()A
+Cancel()5CampusEatsFrontend.Pages.Menu.CreateMenuItem.Cancel()Q
+CreateMenuItem()=CampusEatsFrontend.Pages.Menu.CreateMenuItem.CreateMenuItem()O
+AuthService.get<CampusEatsFrontend.Pages.Menu.CreateMenuItem.AuthService.getO
+AuthService.set<CampusEatsFrontend.Pages.Menu.CreateMenuItem.AuthService.setM
+Navigation.get;CampusEatsFrontend.Pages.Menu.CreateMenuItem.Navigation.getM
+Navigation.set;CampusEatsFrontend.Pages.Menu.CreateMenuItem.Navigation.setW
+MenuItemService.get@CampusEatsFrontend.Pages.Menu.CreateMenuItem.MenuItemService.getW
+MenuItemService.set@CampusEatsFrontend.Pages.Menu.CreateMenuItem.MenuItemService.set„
+
+!CampusEatsFrontend.Layout.NavMenu-Microsoft.AspNetCore.Components.ComponentBaseobjectSystem.IDisposableæ
+LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)nCampusEatsFrontend.Layout.NavMenu.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)D
+ToggleNavMenu()1CampusEatsFrontend.Layout.NavMenu.ToggleNavMenu()N
+OnInitializedAsync()6CampusEatsFrontend.Layout.NavMenu.OnInitializedAsync()H
+OpenCartSidebar()3CampusEatsFrontend.Layout.NavMenu.OpenCartSidebar()8
+	Dispose()+CampusEatsFrontend.Layout.NavMenu.Dispose()8
+	NavMenu()+CampusEatsFrontend.Layout.NavMenu.NavMenu()P
+OnCartButtonClick.get7CampusEatsFrontend.Layout.NavMenu.OnCartButtonClick.getP
+OnCartButtonClick.set7CampusEatsFrontend.Layout.NavMenu.OnCartButtonClick.setL
+NavMenuCssClass.get5CampusEatsFrontend.Layout.NavMenu.NavMenuCssClass.getL
+NavMenuCssClass.set5CampusEatsFrontend.Layout.NavMenu.NavMenuCssClass.setB
+Navigation.get0CampusEatsFrontend.Layout.NavMenu.Navigation.getB
+Navigation.set0CampusEatsFrontend.Layout.NavMenu.Navigation.setD
+CartService.get1CampusEatsFrontend.Layout.NavMenu.CartService.getD
+CartService.set1CampusEatsFrontend.Layout.NavMenu.CartService.setD
+AuthService.get1CampusEatsFrontend.Layout.NavMenu.AuthService.getD
+AuthService.set1CampusEatsFrontend.Layout.NavMenu.AuthService.set©
+)CampusEatsFrontend.Pages.Cart.CartSidebar-Microsoft.AspNetCore.Components.ComponentBaseobjectSystem.IDisposable∆
+LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)vCampusEatsFrontend.Pages.Cart.CartSidebar.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)L
+OnInitialized()9CampusEatsFrontend.Pages.Cart.CartSidebar.OnInitialized():
+Open()0CampusEatsFrontend.Pages.Cart.CartSidebar.Open()<
+Close()1CampusEatsFrontend.Pages.Cart.CartSidebar.Close()î
+3RemoveItem(CampusEatsFrontend.Models.Cart.CartItem)]CampusEatsFrontend.Pages.Cart.CartSidebar.RemoveItem(CampusEatsFrontend.Models.Cart.CartItem)Æ
+@UpdateItemQuantity(CampusEatsFrontend.Models.Cart.CartItem, int)jCampusEatsFrontend.Pages.Cart.CartSidebar.UpdateItemQuantity(CampusEatsFrontend.Models.Cart.CartItem, int)\
+PlaceOrderAndCheckout()ACampusEatsFrontend.Pages.Cart.CartSidebar.PlaceOrderAndCheckout()@
+	Dispose()3CampusEatsFrontend.Pages.Cart.CartSidebar.Dispose()H
+CartSidebar()7CampusEatsFrontend.Pages.Cart.CartSidebar.CartSidebar()J
+Navigation.get8CampusEatsFrontend.Pages.Cart.CartSidebar.Navigation.getJ
+Navigation.set8CampusEatsFrontend.Pages.Cart.CartSidebar.Navigation.setL
+AuthService.get9CampusEatsFrontend.Pages.Cart.CartSidebar.AuthService.getL
+AuthService.set9CampusEatsFrontend.Pages.Cart.CartSidebar.AuthService.setN
+OrderService.get:CampusEatsFrontend.Pages.Cart.CartSidebar.OrderService.getN
+OrderService.set:CampusEatsFrontend.Pages.Cart.CartSidebar.OrderService.setL
+CartService.get9CampusEatsFrontend.Pages.Cart.CartSidebar.CartService.getL
+CartService.set9CampusEatsFrontend.Pages.Cart.CartSidebar.CartService.set‹
 'CampusEatsFrontend.Pages.Menu.MenuItems-Microsoft.AspNetCore.Components.ComponentBaseobjectƒ
 LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)tCampusEatsFrontend.Pages.Menu.MenuItems.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)T
 OnInitializedAsync()<CampusEatsFrontend.Pages.Menu.MenuItems.OnInitializedAsync()B
@@ -790,4 +718,77 @@ LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)oC
 MenuItemService.get6CampusEatsFrontend.Pages.Menu.Menu.MenuItemService.getM
 MenuItemService.set6CampusEatsFrontend.Pages.Menu.Menu.MenuItemService.setE
 MenuService.get2CampusEatsFrontend.Pages.Menu.Menu.MenuService.getE
-MenuService.set2CampusEatsFrontend.Pages.Menu.Menu.MenuService.set
+MenuService.set2CampusEatsFrontend.Pages.Menu.Menu.MenuService.setº
+*CampusEatsFrontend.Pages.Orders.PlaceOrder-Microsoft.AspNetCore.Components.ComponentBaseobject«
+LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)wCampusEatsFrontend.Pages.Orders.PlaceOrder.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)W
+OnInitializedAsync()?CampusEatsFrontend.Pages.Orders.PlaceOrder.OnInitializedAsync()C
+
+LoadData()5CampusEatsFrontend.Pages.Orders.PlaceOrder.LoadData()i
+ToggleMenu(System.Guid, bool)HCampusEatsFrontend.Pages.Orders.PlaceOrder.ToggleMenu(System.Guid, bool)i
+ToggleItem(System.Guid, bool)HCampusEatsFrontend.Pages.Orders.PlaceOrder.ToggleItem(System.Guid, bool)O
+CalculateTotal();CampusEatsFrontend.Pages.Orders.PlaceOrder.CalculateTotal()M
+CanPlaceOrder():CampusEatsFrontend.Pages.Orders.PlaceOrder.CanPlaceOrder()I
+SubmitOrder()8CampusEatsFrontend.Pages.Orders.PlaceOrder.SubmitOrder()?
+Cancel()3CampusEatsFrontend.Pages.Orders.PlaceOrder.Cancel()G
+PlaceOrder()7CampusEatsFrontend.Pages.Orders.PlaceOrder.PlaceOrder()K
+Navigation.get9CampusEatsFrontend.Pages.Orders.PlaceOrder.Navigation.getK
+Navigation.set9CampusEatsFrontend.Pages.Orders.PlaceOrder.Navigation.setM
+AuthService.get:CampusEatsFrontend.Pages.Orders.PlaceOrder.AuthService.getM
+AuthService.set:CampusEatsFrontend.Pages.Orders.PlaceOrder.AuthService.setO
+OrderService.get;CampusEatsFrontend.Pages.Orders.PlaceOrder.OrderService.getO
+OrderService.set;CampusEatsFrontend.Pages.Orders.PlaceOrder.OrderService.setU
+MenuItemService.get>CampusEatsFrontend.Pages.Orders.PlaceOrder.MenuItemService.getU
+MenuItemService.set>CampusEatsFrontend.Pages.Orders.PlaceOrder.MenuItemService.setM
+MenuService.get:CampusEatsFrontend.Pages.Orders.PlaceOrder.MenuService.getM
+MenuService.set:CampusEatsFrontend.Pages.Orders.PlaceOrder.MenuService.set¿
+
+&CampusEatsFrontend.Pages.Orders.Orders-Microsoft.AspNetCore.Components.ComponentBaseobject√
+LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)sCampusEatsFrontend.Pages.Orders.Orders.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)S
+OnInitializedAsync();CampusEatsFrontend.Pages.Orders.Orders.OnInitializedAsync()C
+LoadOrders()3CampusEatsFrontend.Pages.Orders.Orders.LoadOrders()E
+ApplyFilter()4CampusEatsFrontend.Pages.Orders.Orders.ApplyFilter()c
+NavigateToOrder(System.Guid)CCampusEatsFrontend.Pages.Orders.Orders.NavigateToOrder(System.Guid)”
+TCancelOrderFromList(Microsoft.AspNetCore.Components.Web.MouseEventArgs, System.Guid){CampusEatsFrontend.Pages.Orders.Orders.CancelOrderFromList(Microsoft.AspNetCore.Components.Web.MouseEventArgs, System.Guid);
+Orders()/CampusEatsFrontend.Pages.Orders.Orders.Orders()G
+Navigation.get5CampusEatsFrontend.Pages.Orders.Orders.Navigation.getG
+Navigation.set5CampusEatsFrontend.Pages.Orders.Orders.Navigation.setI
+AuthService.get6CampusEatsFrontend.Pages.Orders.Orders.AuthService.getI
+AuthService.set6CampusEatsFrontend.Pages.Orders.Orders.AuthService.setK
+OrderService.get7CampusEatsFrontend.Pages.Orders.Orders.OrderService.getK
+OrderService.set7CampusEatsFrontend.Pages.Orders.Orders.OrderService.setù
+,CampusEatsFrontend.Pages.Orders.OrderDetails-Microsoft.AspNetCore.Components.ComponentBaseobject…
+LBuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)yCampusEatsFrontend.Pages.Orders.OrderDetails.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)Y
+OnInitializedAsync()ACampusEatsFrontend.Pages.Orders.OrderDetails.OnInitializedAsync()U
+LoadOrderDetails()?CampusEatsFrontend.Pages.Orders.OrderDetails.LoadOrderDetails()K
+CancelOrder():CampusEatsFrontend.Pages.Orders.OrderDetails.CancelOrder()A
+GoBack()5CampusEatsFrontend.Pages.Orders.OrderDetails.GoBack()U
+IsLocalUrl(string)?CampusEatsFrontend.Pages.Orders.OrderDetails.IsLocalUrl(string)M
+OrderDetails();CampusEatsFrontend.Pages.Orders.OrderDetails.OrderDetails()G
+OrderId.get8CampusEatsFrontend.Pages.Orders.OrderDetails.OrderId.getG
+OrderId.set8CampusEatsFrontend.Pages.Orders.OrderDetails.OrderId.setK
+ReturnUrl.get:CampusEatsFrontend.Pages.Orders.OrderDetails.ReturnUrl.getK
+ReturnUrl.set:CampusEatsFrontend.Pages.Orders.OrderDetails.ReturnUrl.setU
+DisplayOrderId.get?CampusEatsFrontend.Pages.Orders.OrderDetails.DisplayOrderId.getU
+DisplayOrderId.set?CampusEatsFrontend.Pages.Orders.OrderDetails.DisplayOrderId.setS
+DisplayStatus.get>CampusEatsFrontend.Pages.Orders.OrderDetails.DisplayStatus.getS
+DisplayStatus.set>CampusEatsFrontend.Pages.Orders.OrderDetails.DisplayStatus.set]
+DisplayStatusColor.getCCampusEatsFrontend.Pages.Orders.OrderDetails.DisplayStatusColor.get]
+DisplayStatusColor.setCCampusEatsFrontend.Pages.Orders.OrderDetails.DisplayStatusColor.setQ
+DisplayPrice.get=CampusEatsFrontend.Pages.Orders.OrderDetails.DisplayPrice.getQ
+DisplayPrice.set=CampusEatsFrontend.Pages.Orders.OrderDetails.DisplayPrice.setY
+DisplayCreatedAt.getACampusEatsFrontend.Pages.Orders.OrderDetails.DisplayCreatedAt.getY
+DisplayCreatedAt.setACampusEatsFrontend.Pages.Orders.OrderDetails.DisplayCreatedAt.setM
+Navigation.get;CampusEatsFrontend.Pages.Orders.OrderDetails.Navigation.getM
+Navigation.set;CampusEatsFrontend.Pages.Orders.OrderDetails.Navigation.setO
+AuthService.get<CampusEatsFrontend.Pages.Orders.OrderDetails.AuthService.getO
+AuthService.set<CampusEatsFrontend.Pages.Orders.OrderDetails.AuthService.setQ
+OrderService.get=CampusEatsFrontend.Pages.Orders.OrderDetails.OrderService.getQ
+OrderService.set=CampusEatsFrontend.Pages.Orders.OrderDetails.OrderService.setª
+0CampusEatsFrontend.Models.Order.OrderMenuItemDtoobjectY
+OrderMenuItemDto()CCampusEatsFrontend.Models.Order.OrderMenuItemDto.OrderMenuItemDto()A
+Id.get7CampusEatsFrontend.Models.Order.OrderMenuItemDto.Id.getA
+Id.set7CampusEatsFrontend.Models.Order.OrderMenuItemDto.Id.setE
+Name.get9CampusEatsFrontend.Models.Order.OrderMenuItemDto.Name.getE
+Name.set9CampusEatsFrontend.Models.Order.OrderMenuItemDto.Name.setG
+	Price.get:CampusEatsFrontend.Models.Order.OrderMenuItemDto.Price.getG
+	Price.set:CampusEatsFrontend.Models.Order.OrderMenuItemDto.Price.set

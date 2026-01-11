@@ -1327,280 +1327,7 @@ Converters 
 )##V W
 ;##W X
 }$$ 
-}%% ¯"
-oC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Frontend\Program.cs
-var 
-builder 
-= "
-WebAssemblyHostBuilder $
-.$ %
-CreateDefault% 2
-(2 3
-args3 7
-)7 8
-;8 9
-builder		 
-.		 
-RootComponents		 
-.		 
-Add		 
-<		 
-App		 
->		 
-(		  
-$str		  &
-)		& '
-;		' (
-builder
-
- 
-.
-
- 
-RootComponents
-
- 
-.
-
- 
-Add
-
- 
-<
-
- 
-
-HeadOutlet
-
- %
->
-
-% &
-(
-
-& '
-$str
-
-' 4
-)
-
-4 5
-;
-
-5 6
-builder 
-. 
-Services 
-. 
-	AddScoped 
-< '
-AuthorizationMessageHandler 6
->6 7
-(7 8
-)8 9
-;9 :
-builder 
-. 
-Services 
-. 
-	AddScoped 
-( 
-sp 
-=>  
-{ 
-var 
-authHandler 
-= 
-sp 
-. 
-GetRequiredService +
-<+ ,'
-AuthorizationMessageHandler, G
->G H
-(H I
-)I J
-;J K
-authHandler 
-. 
-InnerHandler 
-= 
-new "
-HttpClientHandler# 4
-(4 5
-)5 6
-;6 7
-var 
-
-httpClient 
-= 
-new 
-
-HttpClient #
-(# $
-authHandler$ /
-)/ 0
-{ 
-BaseAddress 
-= 
-new 
-Uri 
-( 
-$str 6
-)6 7
-} 
-; 
-return 
-
-
-httpClient 
-; 
-} 
-) 
-; 
-builder 
-. 
-Services 
-. 
-	Configure 
-< !
-JsonSerializerOptions 0
->0 1
-(1 2
-options2 9
-=>: <
-{ 
-options 
-. '
-PropertyNameCaseInsensitive '
-=( )
-true* .
-;. /
-options   
-.   
-
-Converters   
-.   
-Add   
-(   
-new   #
-JsonStringEnumConverter   6
-(  6 7
-)  7 8
-)  8 9
-;  9 :
-}!! 
-)!! 
-;!! 
-builder## 
-.## 
-Services## 
-.## 
-	AddScoped## 
-<## 
-MenuService## &
->##& '
-(##' (
-)##( )
-;##) *
-builder$$ 
-.$$ 
-Services$$ 
-.$$ 
-	AddScoped$$ 
-<$$ 
-MenuItemService$$ *
->$$* +
-($$+ ,
-)$$, -
-;$$- .
-builder%% 
-.%% 
-Services%% 
-.%% 
-	AddScoped%% 
-<%% 
-OrderService%% '
->%%' (
-(%%( )
-)%%) *
-;%%* +
-builder&& 
-.&& 
-Services&& 
-.&& 
-	AddScoped&& 
-<&& 
-KitchenService&& )
->&&) *
-(&&* +
-)&&+ ,
-;&&, -
-builder'' 
-.'' 
-Services'' 
-.'' 
-	AddScoped'' 
-<'' 
-AuthService'' &
->''& '
-(''' (
-)''( )
-;'') *
-builder(( 
-.(( 
-Services(( 
-.(( 
-	AddScoped(( 
-<(( 
-LoyaltyService(( )
->(() *
-(((* +
-)((+ ,
-;((, -
-builder)) 
-.)) 
-Services)) 
-.)) 
-	AddScoped)) 
-<)) 
-PaymentService)) )
->))) *
-())* +
-)))+ ,
-;)), -
-builder** 
-.** 
-Services** 
-.** 
-	AddScoped** 
-<** 
-UserService** &
->**& '
-(**' (
-)**( )
-;**) *
-builder++ 
-.++ 
-Services++ 
-.++ 
-	AddScoped++ 
-<++ 
-CartService++ &
->++& '
-(++' (
-)++( )
-;++) *
-await-- 
-builder-- 
-.-- 
-Build-- 
-(-- 
-)-- 
-.-- 
-RunAsync-- 
-(-- 
-)--  
-;--  !µ
+}%% µ
 C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Frontend\Services\KitchenService.cs
 	namespace 	
 CampusEatsFrontend
@@ -1767,135 +1494,7 @@ Converters 
 ;
 ""Ä Å
 }## 
-}$$ †
-åC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Frontend\Services\AuthorizationMessageHandler.cs
-	namespace 	
-CampusEatsFrontend
- 
-. 
-Services %
-;% &
-public 
-class '
-AuthorizationMessageHandler (
-:) *
-DelegatingHandler+ <
-{ 
-private 
-readonly 
-
-IJSRuntime 
-
-_jsRuntime  *
-;* +
-public
-
- 
-'
-AuthorizationMessageHandler
-
- &
-(
-
-& '
-
-IJSRuntime
-
-' 1
-	jsRuntime
-
-2 ;
-)
-
-; <
-{ 
-
-_jsRuntime 
-= 
-	jsRuntime 
-; 
-} 
-	protected 
-override 
-async 
-Task !
-<! "
-HttpResponseMessage" 5
->5 6
-	SendAsync7 @
-(@ A
-HttpRequestMessageA S
-requestT [
-,[ \
-CancellationToken] n
-cancellationToken	o Ä
-)
-Ä Å
-{ 
-try 
-{ 	
-var 
-token 
-= 
-await 
-
-_jsRuntime (
-.( )
-InvokeAsync) 4
-<4 5
-string5 ;
->; <
-(< =
-$str= S
-,S T
-$strU `
-,` a
-cancellationTokenb s
-)s t
-;t u
-if 
-( 
-! 
-string 
-. 
-IsNullOrEmpty %
-(% &
-token& +
-)+ ,
-), -
-{ 
-request 
-. 
-Headers 
-.  
-Authorization  -
-=. /
-new0 3%
-AuthenticationHeaderValue4 M
-(M N
-$strN V
-,V W
-tokenX ]
-)] ^
-;^ _
-} 
-} 	
-catch 
-{ 	
-} 	
-return   
-await   
-base   
-.   
-	SendAsync   #
-(  # $
-request  $ +
-,  + ,
-cancellationToken  - >
-)  > ?
-;  ? @
-}!! 
-}"" ñb
+}$$ ñb
 |C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Frontend\Services\CartService.cs
 	namespace 	
 CampusEatsFrontend
@@ -3877,7 +3476,135 @@ StatusCodeUU3 =
 ¥¥7 8
 }
 µµ 
-}∂∂ Ë
+}∂∂ †
+åC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Frontend\Services\AuthorizationMessageHandler.cs
+	namespace 	
+CampusEatsFrontend
+ 
+. 
+Services %
+;% &
+public 
+class '
+AuthorizationMessageHandler (
+:) *
+DelegatingHandler+ <
+{ 
+private 
+readonly 
+
+IJSRuntime 
+
+_jsRuntime  *
+;* +
+public
+
+ 
+'
+AuthorizationMessageHandler
+
+ &
+(
+
+& '
+
+IJSRuntime
+
+' 1
+	jsRuntime
+
+2 ;
+)
+
+; <
+{ 
+
+_jsRuntime 
+= 
+	jsRuntime 
+; 
+} 
+	protected 
+override 
+async 
+Task !
+<! "
+HttpResponseMessage" 5
+>5 6
+	SendAsync7 @
+(@ A
+HttpRequestMessageA S
+requestT [
+,[ \
+CancellationToken] n
+cancellationToken	o Ä
+)
+Ä Å
+{ 
+try 
+{ 	
+var 
+token 
+= 
+await 
+
+_jsRuntime (
+.( )
+InvokeAsync) 4
+<4 5
+string5 ;
+>; <
+(< =
+$str= S
+,S T
+$strU `
+,` a
+cancellationTokenb s
+)s t
+;t u
+if 
+( 
+! 
+string 
+. 
+IsNullOrEmpty %
+(% &
+token& +
+)+ ,
+), -
+{ 
+request 
+. 
+Headers 
+.  
+Authorization  -
+=. /
+new0 3%
+AuthenticationHeaderValue4 M
+(M N
+$strN V
+,V W
+tokenX ]
+)] ^
+;^ _
+} 
+} 	
+catch 
+{ 	
+} 	
+return   
+await   
+base   
+.   
+	SendAsync   #
+(  # $
+request  $ +
+,  + ,
+cancellationToken  - >
+)  > ?
+;  ? @
+}!! 
+}"" Ë
 
 ÑC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Frontend\Models\User\ClientProfileDto.cs
 	namespace 	
@@ -3959,7 +3686,280 @@ StatusCodeUU3 =
 }		* +
 }
 
- ß
+ ¯"
+oC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Frontend\Program.cs
+var 
+builder 
+= "
+WebAssemblyHostBuilder $
+.$ %
+CreateDefault% 2
+(2 3
+args3 7
+)7 8
+;8 9
+builder		 
+.		 
+RootComponents		 
+.		 
+Add		 
+<		 
+App		 
+>		 
+(		  
+$str		  &
+)		& '
+;		' (
+builder
+
+ 
+.
+
+ 
+RootComponents
+
+ 
+.
+
+ 
+Add
+
+ 
+<
+
+ 
+
+HeadOutlet
+
+ %
+>
+
+% &
+(
+
+& '
+$str
+
+' 4
+)
+
+4 5
+;
+
+5 6
+builder 
+. 
+Services 
+. 
+	AddScoped 
+< '
+AuthorizationMessageHandler 6
+>6 7
+(7 8
+)8 9
+;9 :
+builder 
+. 
+Services 
+. 
+	AddScoped 
+( 
+sp 
+=>  
+{ 
+var 
+authHandler 
+= 
+sp 
+. 
+GetRequiredService +
+<+ ,'
+AuthorizationMessageHandler, G
+>G H
+(H I
+)I J
+;J K
+authHandler 
+. 
+InnerHandler 
+= 
+new "
+HttpClientHandler# 4
+(4 5
+)5 6
+;6 7
+var 
+
+httpClient 
+= 
+new 
+
+HttpClient #
+(# $
+authHandler$ /
+)/ 0
+{ 
+BaseAddress 
+= 
+new 
+Uri 
+( 
+$str 6
+)6 7
+} 
+; 
+return 
+
+
+httpClient 
+; 
+} 
+) 
+; 
+builder 
+. 
+Services 
+. 
+	Configure 
+< !
+JsonSerializerOptions 0
+>0 1
+(1 2
+options2 9
+=>: <
+{ 
+options 
+. '
+PropertyNameCaseInsensitive '
+=( )
+true* .
+;. /
+options   
+.   
+
+Converters   
+.   
+Add   
+(   
+new   #
+JsonStringEnumConverter   6
+(  6 7
+)  7 8
+)  8 9
+;  9 :
+}!! 
+)!! 
+;!! 
+builder## 
+.## 
+Services## 
+.## 
+	AddScoped## 
+<## 
+MenuService## &
+>##& '
+(##' (
+)##( )
+;##) *
+builder$$ 
+.$$ 
+Services$$ 
+.$$ 
+	AddScoped$$ 
+<$$ 
+MenuItemService$$ *
+>$$* +
+($$+ ,
+)$$, -
+;$$- .
+builder%% 
+.%% 
+Services%% 
+.%% 
+	AddScoped%% 
+<%% 
+OrderService%% '
+>%%' (
+(%%( )
+)%%) *
+;%%* +
+builder&& 
+.&& 
+Services&& 
+.&& 
+	AddScoped&& 
+<&& 
+KitchenService&& )
+>&&) *
+(&&* +
+)&&+ ,
+;&&, -
+builder'' 
+.'' 
+Services'' 
+.'' 
+	AddScoped'' 
+<'' 
+AuthService'' &
+>''& '
+(''' (
+)''( )
+;'') *
+builder(( 
+.(( 
+Services(( 
+.(( 
+	AddScoped(( 
+<(( 
+LoyaltyService(( )
+>(() *
+(((* +
+)((+ ,
+;((, -
+builder)) 
+.)) 
+Services)) 
+.)) 
+	AddScoped)) 
+<)) 
+PaymentService)) )
+>))) *
+())* +
+)))+ ,
+;)), -
+builder** 
+.** 
+Services** 
+.** 
+	AddScoped** 
+<** 
+UserService** &
+>**& '
+(**' (
+)**( )
+;**) *
+builder++ 
+.++ 
+Services++ 
+.++ 
+	AddScoped++ 
+<++ 
+CartService++ &
+>++& '
+(++' (
+)++( )
+;++) *
+await-- 
+builder-- 
+.-- 
+Build-- 
+(-- 
+)-- 
+.-- 
+RunAsync-- 
+(-- 
+)--  
+;--  !ß
 ÑC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Frontend\Models\Payment\PaymentModels.cs
 	namespace 	
 CampusEatsFrontend
