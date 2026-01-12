@@ -126,9 +126,6 @@
     [Parameter]
     public Guid OrderId { get; set; }
 
-    [SupplyParameterFromQuery(Name = "returnUrl")]
-    public string? ReturnUrl { get; set; }
-
     private OrderDetailsDto? _orderDetails;
     private OrderDto? _basicOrder;
     private bool _isLoading = true;
@@ -204,26 +201,9 @@
 
     private void GoBack()
     {
-        if (!string.IsNullOrEmpty(ReturnUrl) && IsLocalUrl(ReturnUrl))
-        {
-            Navigation.NavigateTo(ReturnUrl);
-        }
-        else
-        {
-            Navigation.NavigateTo(AuthService.CurrentUser?.Role == "Admin" ? "/orders" : "/");
-        }
-    }
-
-    /// <summary>
-    /// Verifică dacă URL-ul este local (relativ) și nu conține caractere periculoase.
-    /// </summary>
-    private static bool IsLocalUrl(string url)
-    {
-        // URL-ul trebuie să înceapă cu / și să nu aibă // (evită //evil.com)
-        return !string.IsNullOrEmpty(url) && 
-               url.StartsWith('/') && 
-               !url.StartsWith("//") && 
-               !url.StartsWith("/\\");
+        // Safe navigation: only use hardcoded paths based on user role
+        // Never use user-controlled input for navigation to prevent open redirect vulnerabilities
+        Navigation.NavigateTo(AuthService.CurrentUser?.Role == "Admin" ? "/orders" : "/");
     }
 
     private static string GetStatusColor(OrderStatus status) => status switch
