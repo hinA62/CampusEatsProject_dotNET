@@ -1,0 +1,25 @@
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Host=localhost;Database=CampusEatsDB;Username=postgres;Password=postgres"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning",
+      "Microsoft.EntityFrameworkCore.Database.Command": "Information"
+    }
+  },
+  "Jwt": {
+    "Key": "YOUR_DEV_KEY_HERE_AT_LEAST_32_CHARACTERS_1234567890123456789012345678901234567890",
+    "Issuer": "CampusEats",
+    "Audience": "CampusEatsClients",
+    "ExpiryMinutes": 60
+  },
+  "Stripe": {
+    "SecretKey": "sk_test_YOUR_STRIPE_SECRET_KEY",
+    "PublishableKey": "pk_test_YOUR_STRIPE_PUBLISHABLE_KEY",
+    "WebhookSecret": "whsec_YOUR_WEBHOOK_SECRET",
+    "ClientBaseUrl": "http://localhost:5007"
+  }
+}
+
