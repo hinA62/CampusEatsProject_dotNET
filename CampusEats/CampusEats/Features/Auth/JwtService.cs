@@ -11,15 +11,29 @@ public class JwtService(IConfiguration config, ILogger<JwtService> logger)
 {
     public string GenerateToken(User.User user)
     {
-        // Validare: verifică că cheia JWT este configurată
-        var jwtKey = config["Jwt:Key"];
+
+        var jwtKey = Environment.GetEnvironmentVariable("JWT_KEY") ?? config["Jwt:Key"];
+        
         if (string.IsNullOrEmpty(jwtKey))
         {
-            throw new InvalidOperationException("JWT Key is not configured! Please set Jwt:Key in appsettings or as environment variable.");
+            throw new InvalidOperationException(
+                "JWT Key is not configured! " +
+                "Set JWT_KEY environment variable or Jwt:Key in appsettings.");
+        }
+
+        // Validare lungime minimă pentru securitate
+        if (jwtKey.Length < 32)
+        {
+            throw new InvalidOperationException(
+                "JWT Key must be at least 32 characters long for security.");
         }
 
         // Log pentru debugging (fără a expune cheia)
-        var keySource = jwtKey.Contains("DEV_ONLY") ? "appsettings.Development.json" : "Environment Variable or Production Config";
+        var keySource = Environment.GetEnvironmentVariable("JWT_KEY") != null 
+            ? "Environment Variable (JWT_KEY) ✓ Production-ready" 
+            : jwtKey.Contains("DEV_ONLY") 
+                ? "appsettings.Development.json ⚠ Development only" 
+                : "Configuration file";
         logger.LogInformation("JWT Key loaded from: {KeySource}", keySource);
 
         var claims = new[]
@@ -30,7 +44,11 @@ public class JwtService(IConfiguration config, ILogger<JwtService> logger)
             new Claim(ClaimTypes.Role, user.Role.ToString())
         };
 
+        // SonarQube suppression: jwtKey provine din Environment Variable (producție)
+        // sau appsettings.Development.json (development only, exclus din Git prin .gitignore)
+#pragma warning disable S6418 // Hard-coded secrets
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));
+#pragma warning restore S6418
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
         var expiry = DateTime.UtcNow.AddMinutes(int.Parse(config["Jwt:ExpiryMinutes"]!));
 

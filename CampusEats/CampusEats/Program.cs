@@ -1,6 +1,11 @@
 using CampusEats;
 using Microsoft.EntityFrameworkCore;
 using Stripe;
+using DotNetEnv;
+
+// Load environment variables from .env file (development)
+// Production uses actual environment variables
+Env.Load();
 
 var builder = WebApplication.CreateBuilder(args);
 
