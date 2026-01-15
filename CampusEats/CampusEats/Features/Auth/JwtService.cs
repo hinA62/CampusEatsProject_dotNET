@@ -47,7 +47,7 @@ public class JwtService(IConfiguration config, ILogger<JwtService> logger)
         // SonarQube suppression: jwtKey provine din Environment Variable (producție)
         // sau appsettings.Development.json (development only, exclus din Git prin .gitignore)
 #pragma warning disable S6418 // Hard-coded secrets
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey)); // NOSONAR
 #pragma warning restore S6418
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
         var expiry = DateTime.UtcNow.AddMinutes(int.Parse(config["Jwt:ExpiryMinutes"]!));
