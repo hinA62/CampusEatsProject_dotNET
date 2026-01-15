@@ -156,12 +156,9 @@
         {
             _orderDetails = await OrderService.GetOrderDetailsAsync(OrderId);
             
-            if (_orderDetails != null && AuthService.CurrentUser?.Role == "Client")
+            if (_orderDetails != null && AuthService.CurrentUser?.Role == "Client" && _orderDetails.ClientId != AuthService.CurrentUser.UserId)
             {
-                if (_orderDetails.ClientId != AuthService.CurrentUser.UserId)
-                {
-                    _orderDetails = null;
-                }
+                _orderDetails = null;
             }
         }
         catch
@@ -177,12 +174,9 @@
         if (_orderDetails == null)
         {
             var order = await OrderService.GetOrderByIdAsync(OrderId);
-            if (order != null)
+            if (order != null && (AuthService.CurrentUser?.Role == "Admin" || order.ClientId == AuthService.CurrentUser?.UserId))
             {
-                if (AuthService.CurrentUser?.Role == "Admin" || order.ClientId == AuthService.CurrentUser?.UserId)
-                {
-                    _basicOrder = order;
-                }
+                _basicOrder = order;
             }
         }
     }
