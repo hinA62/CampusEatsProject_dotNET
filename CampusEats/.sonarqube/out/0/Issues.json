@@ -33,85 +33,6 @@
           }
         },
         {
-          "ruleId": "S1075",
-          "level": "warning",
-          "message": "Refactor your code not to use hardcoded absolute paths or URIs.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Program.cs",
-                "region": {
-                  "startLine": 15,
-                  "startColumn": 57,
-                  "endLine": 15,
-                  "endColumn": 81
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1066",
-          "level": "warning",
-          "message": "Merge this if statement with the enclosing one.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/UserProfile.razor",
-                "region": {
-                  "startLine": 154,
-                  "startColumn": 17,
-                  "endLine": 154,
-                  "endColumn": 19
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/UserProfile.razor",
-                "region": {
-                  "startLine": 152,
-                  "startColumn": 13,
-                  "endLine": 152,
-                  "endColumn": 15
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1,
-            "customProperties": {
-              "0": "Merge this if statement with its nested one."
-            }
-          }
-        },
-        {
-          "ruleId": "S112",
-          "level": "warning",
-          "message": "'System.Exception' should not be thrown by user code.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/MenuService.cs",
-                "region": {
-                  "startLine": 30,
-                  "startColumn": 89,
-                  "endLine": 30,
-                  "endColumn": 127
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
           "ruleId": "S3459",
           "level": "warning",
           "message": "Remove unassigned auto-property 'UserId', or set its value.",
@@ -273,6 +194,85 @@
               "1": null,
               "2": null
             }
+          }
+        },
+        {
+          "ruleId": "S1075",
+          "level": "warning",
+          "message": "Refactor your code not to use hardcoded absolute paths or URIs.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Program.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 57,
+                  "endLine": 15,
+                  "endColumn": 81
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1066",
+          "level": "warning",
+          "message": "Merge this if statement with the enclosing one.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/UserProfile.razor",
+                "region": {
+                  "startLine": 154,
+                  "startColumn": 17,
+                  "endLine": 154,
+                  "endColumn": 19
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/UserProfile.razor",
+                "region": {
+                  "startLine": 152,
+                  "startColumn": 13,
+                  "endLine": 152,
+                  "endColumn": 15
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": "Merge this if statement with its nested one."
+            }
+          }
+        },
+        {
+          "ruleId": "S112",
+          "level": "warning",
+          "message": "'System.Exception' should not be thrown by user code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/MenuService.cs",
+                "region": {
+                  "startLine": 30,
+                  "startColumn": 89,
+                  "endLine": 30,
+                  "endColumn": 127
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
           }
         },
         {
@@ -505,6 +505,30 @@
           }
         },
         {
+          "ruleId": "S1172",
+          "level": "warning",
+          "message": "Remove this unused method parameter 'e'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Orders/Orders.razor",
+                "region": {
+                  "startLine": 120,
+                  "startColumn": 44,
+                  "endLine": 120,
+                  "endColumn": 60
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "IsRemovable": "True"
+            }
+          }
+        },
+        {
           "ruleId": "S1066",
           "level": "warning",
           "message": "Merge this if statement with the enclosing one.",
@@ -513,9 +537,9 @@
               "resultFile": {
                 "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Orders/OrderDetails.razor",
                 "region": {
-                  "startLine": 164,
+                  "startLine": 161,
                   "startColumn": 17,
-                  "endLine": 164,
+                  "endLine": 161,
                   "endColumn": 19
                 }
               }
@@ -526,9 +550,9 @@
               "physicalLocation": {
                 "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Orders/OrderDetails.razor",
                 "region": {
-                  "startLine": 162,
+                  "startLine": 159,
                   "startColumn": 13,
-                  "endLine": 162,
+                  "endLine": 159,
                   "endColumn": 15
                 }
               }
@@ -550,9 +574,9 @@
               "resultFile": {
                 "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Orders/OrderDetails.razor",
                 "region": {
-                  "startLine": 185,
+                  "startLine": 182,
                   "startColumn": 17,
-                  "endLine": 185,
+                  "endLine": 182,
                   "endColumn": 19
                 }
               }
@@ -563,9 +587,9 @@
               "physicalLocation": {
                 "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Orders/OrderDetails.razor",
                 "region": {
-                  "startLine": 183,
+                  "startLine": 180,
                   "startColumn": 13,
-                  "endLine": 183,
+                  "endLine": 180,
                   "endColumn": 15
                 }
               }
@@ -597,30 +621,6 @@
           ],
           "properties": {
             "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1172",
-          "level": "warning",
-          "message": "Remove this unused method parameter 'e'.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Orders/Orders.razor",
-                "region": {
-                  "startLine": 120,
-                  "startColumn": 44,
-                  "endLine": 120,
-                  "endColumn": 60
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1,
-            "customProperties": {
-              "IsRemovable": "True"
-            }
           }
         }
       ],

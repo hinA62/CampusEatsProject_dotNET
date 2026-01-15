@@ -1,19 +1,18 @@
 ß
 àC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Payment\CreatePaymentValidator.cs 8r	
 Ç
-ß
-ÇC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Menu\UpdateMenuValidator.cs 8r	
-Ç
-ü
-ÑC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Order\CancelOrderValidator.cs 8r
-	
-Ç™
+™
 ÉC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Order\PlaceOrderValidator.cs 8r	
 Ç
-™
-ÇC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Menu\UpdateItemValidator.cs 8r	
-Ç
-¶
+ü
+ÑC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Order\CancelOrderValidator.cs 8r
+	
+Çß
+ÇC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Menu\UpdateMenuValidator.cs 8r	
+Ç
+Ø
+ÜC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Auth\UpdateUserRoleValidator.cs 8r	
+xÇ¶
 ÇC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Menu\CreateMenuValidator.cs 8r	
 Ç
 ™
@@ -24,21 +23,24 @@
 Ç
 ≥
 åC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Kitchen\UpdateOrderStatusValidator.cs 8r	
-ÇØ
-ÜC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Auth\UpdateUserRoleValidator.cs 8r	
-xÇ∏
+Ç™
+ÇC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Menu\UpdateItemValidator.cs 8r	
+Ç
+∏
 ÑC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Auth\RegisterUserValidator.cs 8r	
  !"#Ç!µ
 ÜC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Auth\ChangePasswordValidator.cs 8r	
 xÇ
 ⁄
-pC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\ServiceExtensions.cs 8jr=	!"$%'()*+,-./012345679:;<=>?@ABCDEFGHÇ!"$)*+0136;<=?@CDü
-fC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Program.cs8j r	!#xÇ	!#Û
-|C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Persistence\CampusEatsContext.csD 8j0xó≤∂…rÙ	 !"$%&()*,-.12346789;<=?@ACDFGHIJKLNOQRSUVWYZ[]^_abcdefghijklmnopqrstuvz{|}ÄÅÉÑÖáàäãçéèëíìïòôöõùûü°¢£•¶ß©™´≠Æ∞±≥¥µ∂∏πªºΩø¿¡¬ƒ≈∆« ÀÃÕœ–—”‘÷◊Ÿ⁄€›ﬁﬂ‡Çf $(,1689;?CFIKLNQUY]aeghilnopqrstuz|}Éáäçëòöõù°•©≠∞≥µ∂∏ªø¬ƒ ÃÕœ”÷Ÿ›Œ
-ôC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Migrations\20251218045055_RemoveRestrictionsFromCreateMenu.cs 8jr	
- !"#$%Çæ
+pC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\ServiceExtensions.cs 8jr=	!"$%'()*+,-./012345679:;<=>?@ABCDEFGHÇ!"$)*+0136;<=?@CD§
+fC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Program.cs8j%r
+!"#&(xÇ
+!"#&(Û
+|C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Persistence\CampusEatsContext.csD 8j0xó≤∂…rÙ	 !"$%&()*,-.12346789;<=?@ACDFGHIJKLNOQRSUVWYZ[]^_abcdefghijklmnopqrstuvz{|}ÄÅÉÑÖáàäãçéèëíìïòôöõùûü°¢£•¶ß©™´≠Æ∞±≥¥µ∂∏πªºΩø¿¡¬ƒ≈∆« ÀÃÕœ–—”‘÷◊Ÿ⁄€›ﬁﬂ‡Çf $(,1689;?CFIKLNQUY]aeghilnopqrstuz|}Éáäçëòöõù°•©≠∞≥µ∂∏ªø¬ƒ ÃÕœ”÷Ÿ›æ
 äC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Migrations\20251212015140_AddImageUrlToMenu.cs 8j
-r	 !"#$Ç´
+r	 !"#$ÇŒ
+ôC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Migrations\20251218045055_RemoveRestrictionsFromCreateMenu.cs 8jr	
+ !"#$%Ç´
 éC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Migrations\20251207011437_FixLoyaltyPointsLogic.cs 8j
 r	≥
 ñC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Migrations\20251207010312_UpdateLoyaltyPointsConversion.cs 8j
@@ -70,14 +72,14 @@ qC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 	
 Çö
 ëC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Requests\GetPaymentHistoryRequest.csró
-éC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Requests\GetPaymentByIdRequest.csr§
+éC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Requests\GetPaymentByIdRequest.csr®
+õC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Requests\CreateStripeCheckoutSessionRequest.csr§
 çC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Requests\CreatePaymentRequest.csjr
 	
 ò
 wC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Payment.cs 8r	˘
 çC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Handlers\StripeWebhookHandler.cs 8j'Jr?
- !"#%&'(*+,.012345689:;<=>@BCDEFGHKLMxÇ"%'*+,.012359:=@FK®
-õC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Requests\CreateStripeCheckoutSessionRequest.csr∫
+ !"#%&'(*+,.012345689:;<=>@BCDEFGHKLMxÇ"%'*+,.012359:=@FK∫
 ëC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Handlers\GetPaymentHistoryHandler.cs 8r	Ç¥
 éC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Handlers\GetPaymentByIdHandler.cs 8r	xÇï
 õC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Handlers\CreateStripeCheckoutSessionHandler.cs 8	rK	
@@ -95,30 +97,30 @@ sC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 ê
 àC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\Handlers\PlaceOrderHandler.cs  8	j 7:AOPrH
 !"$%&'()*+-./0123458;<=>?BCDEFGHIKLMNOPQRSUVXYZ[x	Ç%!"$%&()*-./123;=>BDEGLMQRUVXY∂
-çC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\Handlers\GetOrderHistoryHandler.cs 8r	Ç∞
-äC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\Handlers\GetOrderByIdHandler.cs 8r	xÇ“
-âC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\Handlers\CancelOrderHandler.cs 8r&	 !"#%&')*+,xÇ!"%&')*ò
+çC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\Handlers\GetOrderHistoryHandler.cs 8r	Çò
 áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Requests\UpdateMenuRequest.csr
 	
-ñ
-áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Requests\UpdateItemRequest.csr	ë
-áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Requests\DeleteMenuRequest.csrê
+“
+âC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\Handlers\CancelOrderHandler.cs 8r&	 !"#%&')*+,xÇ!"%&')*ë
+áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Requests\DeleteMenuRequest.csr∞
+äC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\Handlers\GetOrderByIdHandler.cs 8r	xÇñ
+áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Requests\UpdateItemRequest.csr	ê
 áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Requests\DeleteItemRequest.csró
 áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Requests\CreateMenuRequest.csr		
 ñ
 áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Requests\CreateItemRequest.csr	É
-uC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\MenuItem.csr	É
+uC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\MenuItem.csr	ë
+yC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\MenuCategory.csr	
+É
 qC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Menu.csr	
-’
+Ù
+áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\UpdateMenuHandler.cs 8	jr9	
+ "#$%&'()*,-/02345689:;<>@ABCDFGHxÇ $%'),-/4589:>@ABCDF’
 áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\UpdateItemHandler.cs 8jr&	
  "#$%&'()*+-.0xÇ$%&')*+-∂
 áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\DeleteMenuHandler.cs	 8r	
 xÇ	
-ë
-yC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\MenuCategory.csr	
-Ù
-áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\UpdateMenuHandler.cs 8	jr9	
- "#$%&'()*,-/02345689:;<>@ABCDFGHxÇ $%'),-/4589:>@ABCDF 
+ 
 áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\DeleteItemHandler.cs 8jr	
  !"$%'xÇ !"$Å
 áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\CreateMenuHandler.cs 8j"'4;r:	
@@ -151,10 +153,10 @@ r
  #$'()*./013489:=?BCDEIJNOPó
 ãC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Auth\Requests\UpdateUserRoleRequest.csró
 âC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Auth\Requests\RegisterUserRequest.csrí
-ÜC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Auth\Requests\LoginUserRequest.csrø
-wC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Auth\JwtService.cs 8jr&
-!"#%&'()*+-./xÇ!"#-ò
-ãC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Auth\Requests\ChangePasswordRequest.csrº
+ÜC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Auth\Requests\LoginUserRequest.csrò
+ãC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Auth\Requests\ChangePasswordRequest.csr–
+wC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Auth\JwtService.cs 8j/0r1
+ !"#$%'()*+,-245789:;<=?@AxÇ "%()*+,245?º
 ãC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Auth\Handlers\ChangePasswordHandler.cs 8jr	
 xÇÕ
 mC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\EndpointMapper.cså 8jR5?BNXbs}Äåñ†≥Ω ”Öê†™πÀÂ˘Çäô®∞ƒŸíôû®π‘◊‰Î˚ÖäèrÔ	

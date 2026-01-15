@@ -148,7 +148,7 @@
         }
     }
 
-    void Save()
+    private async Task Save() 
     {
         _isSaving = true;
         _errorMessage = string.Empty;
@@ -162,8 +162,16 @@
                 return;
             }
 
+            if (!_selectedItemIds.Any())
+            {
+                _errorMessage = "Selectați cel puțin un fel de mâncare.";
+                _isSaving = false;
+                return;
+            }
+
             _newMenu.ItemIds = _selectedItemIds.ToList();
 
+            await MenuService.CreateMenuAsync(_newMenu);
             Navigation.NavigateTo("/menus");
         }
         catch (Exception ex)

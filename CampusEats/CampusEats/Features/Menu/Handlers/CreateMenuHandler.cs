@@ -44,7 +44,7 @@ public class CreateMenuHandler(CampusEatsContext context, ILogger<CreateMenuHand
         context.Menu.Add(menu);
         await context.SaveChangesAsync();
 
-        return Results.Created($"/menu/{menu.Name}", menu);
+        return Results.Created($"/api/menu/{menu.Id}", menu);
     }
 
     private static DietaryRestrictions CalculateFinalRestrictions(List<string> allergens)
