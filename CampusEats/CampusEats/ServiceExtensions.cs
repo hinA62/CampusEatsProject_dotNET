@@ -30,8 +30,15 @@ public static class ServiceExtensions
         builder.AddJwtAuthentication();
         builder.AddSwaggerConfig();
         
+        // CORS: Restrict to specific origins in production
+        var allowedOrigins = builder.Configuration.GetSection("AllowedOrigins").Get<string[]>() 
+            ?? new[] { "http://localhost:5007", "https://localhost:5007" };
+        
         builder.Services.AddCors(options => options.AddPolicy("AllowAll", 
-            p => p.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
+            p => p.WithOrigins(allowedOrigins)
+                  .AllowAnyMethod()
+                  .AllowAnyHeader()
+                  .AllowCredentials()));
             
         builder.Services.AddValidatorsFromAssemblyContaining<Program>();
     }
