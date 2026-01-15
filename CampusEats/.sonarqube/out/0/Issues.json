@@ -503,125 +503,6 @@
               "9": "+2 (incl 1 for nesting)"
             }
           }
-        },
-        {
-          "ruleId": "S1172",
-          "level": "warning",
-          "message": "Remove this unused method parameter 'e'.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Orders/Orders.razor",
-                "region": {
-                  "startLine": 120,
-                  "startColumn": 44,
-                  "endLine": 120,
-                  "endColumn": 60
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1,
-            "customProperties": {
-              "IsRemovable": "True"
-            }
-          }
-        },
-        {
-          "ruleId": "S1066",
-          "level": "warning",
-          "message": "Merge this if statement with the enclosing one.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Orders/OrderDetails.razor",
-                "region": {
-                  "startLine": 161,
-                  "startColumn": 17,
-                  "endLine": 161,
-                  "endColumn": 19
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Orders/OrderDetails.razor",
-                "region": {
-                  "startLine": 159,
-                  "startColumn": 13,
-                  "endLine": 159,
-                  "endColumn": 15
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1,
-            "customProperties": {
-              "0": "Merge this if statement with its nested one."
-            }
-          }
-        },
-        {
-          "ruleId": "S1066",
-          "level": "warning",
-          "message": "Merge this if statement with the enclosing one.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Orders/OrderDetails.razor",
-                "region": {
-                  "startLine": 182,
-                  "startColumn": 17,
-                  "endLine": 182,
-                  "endColumn": 19
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Orders/OrderDetails.razor",
-                "region": {
-                  "startLine": 180,
-                  "startColumn": 13,
-                  "endLine": 180,
-                  "endColumn": 15
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1,
-            "customProperties": {
-              "0": "Merge this if statement with its nested one."
-            }
-          }
-        },
-        {
-          "ruleId": "S2589",
-          "level": "warning",
-          "message": "Change this condition so that it does not always evaluate to 'True'.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Orders/Orders.razor",
-                "region": {
-                  "startLine": 43,
-                  "startColumn": 18,
-                  "endLine": 43,
-                  "endColumn": 41
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
         }
       ],
       "rules": {
@@ -691,23 +572,6 @@
             ]
           }
         },
-        "S1172": {
-          "id": "S1172",
-          "shortDescription": "Unused method parameters should be removed",
-          "fullDescription": "A typical code smell known as unused function parameters refers to parameters declared in a function but not used anywhere within the function’s body. While this might seem harmless at first glance, it can lead to confusion and potential errors in your code. Disregarding the values passed to such parameters, the function’s behavior will be the same, but the programmer’s intention won’t be clearly expressed anymore. Therefore, removing function parameters that are not being utilized is considered best practice.",
-          "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1172",
-          "properties": {
-            "category": "Major Code Smell",
-            "isEnabledByDefault": true,
-            "tags": [
-              "C#",
-              "MainSourceScope",
-              "TestSourceScope",
-              "SonarWay"
-            ]
-          }
-        },
         "S1192": {
           "id": "S1192",
           "shortDescription": "String literals should not be duplicated",
@@ -720,23 +584,6 @@
             "tags": [
               "C#",
               "MainSourceScope",
-              "SonarWay"
-            ]
-          }
-        },
-        "S2589": {
-          "id": "S2589",
-          "shortDescription": "Boolean expressions should not be gratuitous",
-          "fullDescription": "Gratuitous boolean expressions are conditions that do not change the evaluation of a program. This issue can indicate logical errors and affect the correctness of an application, as well as its maintainability.",
-          "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2589",
-          "properties": {
-            "category": "Major Code Smell",
-            "isEnabledByDefault": true,
-            "tags": [
-              "C#",
-              "MainSourceScope",
-              "TestSourceScope",
               "SonarWay"
             ]
           }

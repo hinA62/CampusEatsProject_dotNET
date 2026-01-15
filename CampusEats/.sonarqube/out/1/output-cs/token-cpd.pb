@@ -6725,6 +6725,26 @@ CampusEats
 Guid' +
 UserId, 2
 )2 3
+;3 4Ú
+ŽC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Requests\GetPaymentByIdRequest.cs
+	namespace 	
+
+CampusEats
+ 
+. 
+Features 
+. 
+Payment %
+.% &
+Requests& .
+;. /
+public 
+record !
+GetPaymentByIdRequest #
+(# $
+Guid$ (
+	PaymentId) 2
+)2 3
 ;3 4
 ›C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Requests\CreateStripeCheckoutSessionRequest.cs
 	namespace 	
@@ -7402,27 +7422,7 @@ CampusEats
 )" #
 ;# $
 } 
-} Ú
-ŽC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Requests\GetPaymentByIdRequest.cs
-	namespace 	
-
-CampusEats
- 
-. 
-Features 
-. 
-Payment %
-.% &
-Requests& .
-;. /
-public 
-record !
-GetPaymentByIdRequest #
-(# $
-Guid$ (
-	PaymentId) 2
-)2 3
-;3 4‡
+} ‡
 ŽC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Handlers\GetPaymentByIdHandler.cs
 	namespace 	
 
@@ -9027,101 +9027,7 @@ CampusEats
 $num		 
 }
 
- ü
-C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\Handlers\GetOrderHistoryHandler.cs
-	namespace		 	
-
-CampusEats		
- 
-.		 
-Features		 
-.		 
-Order		 #
-.		# $
-Handlers		$ ,
-;		, -
-public 
-class "
-GetOrderHistoryHandler #
-(# $
-CampusEatsContext$ 5
-context6 =
-,= >
-ILogger? F
-<F G"
-GetOrderHistoryHandlerG ]
->] ^
-logger_ e
-)e f
-{ 
-public 
-
-async 
-Task 
-< 
-IResult 
-> 
-Handle %
-(% &"
-GetOrderHistoryRequest& <
-request= D
-)D E
-{ 
-logger 
-. 
-LogInformation 
-( 
-$str L
-,L M
-requestN U
-.U V
-ClientIdV ^
-)^ _
-;_ `
-var 
-orders 
-= 
-await 
-context "
-." #
-Order# (
-. 
-Where 
-( 
-o 
-=> 
-o 
-. 
-ClientId "
-==# %
-request& -
-.- .
-ClientId. 6
-)6 7
-. 
-OrderByDescending 
-( 
-o  
-=>! #
-o$ %
-.% &
-	CreatedAt& /
-)/ 0
-. 
-ToListAsync 
-( 
-) 
-; 
-return 
-Results 
-. 
-Ok 
-( 
-orders  
-)  !
-;! "
-} 
-} °
+ °
 sC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\Order.cs
 	namespace 	
 
@@ -9757,7 +9663,195 @@ BadRequest33 %
 )YY; <
 ;YY< =
 }ZZ 
-}[[ Þ$
+}[[ ü
+C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\Handlers\GetOrderHistoryHandler.cs
+	namespace		 	
+
+CampusEats		
+ 
+.		 
+Features		 
+.		 
+Order		 #
+.		# $
+Handlers		$ ,
+;		, -
+public 
+class "
+GetOrderHistoryHandler #
+(# $
+CampusEatsContext$ 5
+context6 =
+,= >
+ILogger? F
+<F G"
+GetOrderHistoryHandlerG ]
+>] ^
+logger_ e
+)e f
+{ 
+public 
+
+async 
+Task 
+< 
+IResult 
+> 
+Handle %
+(% &"
+GetOrderHistoryRequest& <
+request= D
+)D E
+{ 
+logger 
+. 
+LogInformation 
+( 
+$str L
+,L M
+requestN U
+.U V
+ClientIdV ^
+)^ _
+;_ `
+var 
+orders 
+= 
+await 
+context "
+." #
+Order# (
+. 
+Where 
+( 
+o 
+=> 
+o 
+. 
+ClientId "
+==# %
+request& -
+.- .
+ClientId. 6
+)6 7
+. 
+OrderByDescending 
+( 
+o  
+=>! #
+o$ %
+.% &
+	CreatedAt& /
+)/ 0
+. 
+ToListAsync 
+( 
+) 
+; 
+return 
+Results 
+. 
+Ok 
+( 
+orders  
+)  !
+;! "
+} 
+} ì
+ŠC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\Handlers\GetOrderByIdHandler.cs
+	namespace		 	
+
+CampusEats		
+ 
+.		 
+Features		 
+.		 
+Order		 #
+.		# $
+Handlers		$ ,
+;		, -
+public 
+class 
+GetOrderByIdHandler  
+(  !
+CampusEatsContext! 2
+context3 :
+,: ;
+ILogger< C
+<C D
+GetOrderByIdHandlerD W
+>W X
+loggerY _
+)_ `
+{ 
+public 
+
+async 
+Task 
+< 
+IResult 
+> 
+Handle %
+(% &
+GetOrderByIdRequest& 9
+request: A
+)A B
+{ 
+logger 
+. 
+LogInformation 
+( 
+$str 3
+,3 4
+request5 <
+.< =
+OrderId= D
+)D E
+;E F
+var 
+order 
+= 
+await 
+context !
+.! "
+Order" '
+.' (
+	FindAsync( 1
+(1 2
+request2 9
+.9 :
+OrderId: A
+)A B
+;B C
+return 
+order 
+is 
+null 
+? 
+Results &
+.& '
+NotFound' /
+(/ 0
+$"0 2
+$str2 A
+{A B
+requestB I
+.I J
+OrderIdJ Q
+}Q R
+$strR \
+"\ ]
+)] ^
+:_ `
+Resultsa h
+.h i
+Oki k
+(k l
+orderl q
+)q r
+;r s
+} 
+} Þ$
 ‰C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\Handlers\CancelOrderHandler.cs
 	namespace		 	
 
@@ -10028,101 +10122,7 @@ LogWarning!! 
 )**! "
 ;**" #
 }++ 
-},, ì
-ŠC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\Handlers\GetOrderByIdHandler.cs
-	namespace		 	
-
-CampusEats		
- 
-.		 
-Features		 
-.		 
-Order		 #
-.		# $
-Handlers		$ ,
-;		, -
-public 
-class 
-GetOrderByIdHandler  
-(  !
-CampusEatsContext! 2
-context3 :
-,: ;
-ILogger< C
-<C D
-GetOrderByIdHandlerD W
->W X
-loggerY _
-)_ `
-{ 
-public 
-
-async 
-Task 
-< 
-IResult 
-> 
-Handle %
-(% &
-GetOrderByIdRequest& 9
-request: A
-)A B
-{ 
-logger 
-. 
-LogInformation 
-( 
-$str 3
-,3 4
-request5 <
-.< =
-OrderId= D
-)D E
-;E F
-var 
-order 
-= 
-await 
-context !
-.! "
-Order" '
-.' (
-	FindAsync( 1
-(1 2
-request2 9
-.9 :
-OrderId: A
-)A B
-;B C
-return 
-order 
-is 
-null 
-? 
-Results &
-.& '
-NotFound' /
-(/ 0
-$"0 2
-$str2 A
-{A B
-requestB I
-.I J
-OrderIdJ Q
-}Q R
-$strR \
-"\ ]
-)] ^
-:_ `
-Resultsa h
-.h i
-Oki k
-(k l
-orderl q
-)q r
-;r s
-} 
-} æ
+},, æ
 ‡C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Requests\UpdateMenuRequest.cs
 	namespace 	
 
@@ -10504,7 +10504,227 @@ CampusEats
  
 ImageUrl 
 ) 
-; ¡A
+; å
+‡C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\UpdateItemHandler.cs
+	namespace 	
+
+CampusEats
+ 
+. 
+Features 
+. 
+Menu "
+." #
+Handlers# +
+;+ ,
+public 
+class 
+UpdateItemHandler 
+(  
+CampusEatsContext  1
+context2 9
+,9 :
+ILogger; B
+<B C
+UpdateItemHandlerC T
+>T U
+loggerV \
+)\ ]
+{ 
+public		 
+
+async		 
+Task		 
+<		 
+IResult		 
+>		 
+Handle		 %
+(		% &
+UpdateItemRequest		& 7
+request		8 ?
+)		? @
+{
+
+ 
+logger 
+. 
+LogInformation 
+( 
+$str G
+,G H
+requestI P
+.P Q
+IdQ S
+)S T
+;T U
+var 
+	validator 
+= 
+new 
+UpdateItemValidator /
+(/ 0
+)0 1
+;1 2
+var 
+validationResult 
+= 
+await $
+	validator% .
+.. /
+ValidateAsync/ <
+(< =
+request= D
+)D E
+;E F
+if 
+
+( 
+! 
+validationResult 
+. 
+IsValid %
+)% &
+{ 	
+foreach 
+( 
+var 
+error 
+in !
+validationResult" 2
+.2 3
+Errors3 9
+)9 :
+{ 
+logger 
+. 
+LogError 
+(  
+$str  >
+)> ?
+;? @
+} 
+return 
+Results 
+. 
+
+BadRequest %
+(% &
+validationResult& 6
+.6 7
+Errors7 =
+)= >
+;> ?
+} 	
+var 
+menuItem 
+= 
+await 
+context $
+.$ %
+MenuItem% -
+.- .
+	FindAsync. 7
+(7 8
+request8 ?
+.? @
+Id@ B
+)B C
+;C D
+if 
+
+( 
+menuItem 
+== 
+null 
+) 
+{ 	
+logger 
+. 
+
+LogWarning 
+( 
+$str 3
+)3 4
+;4 5
+return 
+Results 
+. 
+NotFound #
+(# $
+$str$ 4
+)4 5
+;5 6
+}   	
+var"" 
+updatedMenuItem"" 
+="" 
+menuItem"" &
+with""' +
+{## 	
+Name$$ 
+=$$ 
+request$$ 
+.$$ 
+Name$$ 
+,$$  
+Price%% 
+=%% 
+request%% 
+.%% 
+Price%% !
+,%%! "
+ImageUrl&& 
+=&& 
+request&& 
+.&& 
+ImageUrl&& '
+,&&' (
+	Allergens'' 
+='' 
+request'' 
+.''  
+	Allergens''  )
+}(( 	
+;((	 
+
+context)) 
+.)) 
+Entry)) 
+()) 
+menuItem)) 
+))) 
+.))  
+CurrentValues))  -
+.))- .
+	SetValues)). 7
+())7 8
+updatedMenuItem))8 G
+)))G H
+;))H I
+await** 
+context** 
+.** 
+SaveChangesAsync** &
+(**& '
+)**' (
+;**( )
+logger++ 
+.++ 
+LogInformation++ 
+(++ 
+$str++ >
+)++> ?
+;++? @
+return-- 
+Results-- 
+.-- 
+Ok-- 
+(-- 
+updatedMenuItem-- )
+)--) *
+;--* +
+}.. 
+}00 ¡A
 ‡C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\UpdateMenuHandler.cs
 	namespace 	
 
@@ -10981,227 +11201,7 @@ calculatedFF 
 calculatedFFN X
 ;FFX Y
 }GG 
-}HH å
-‡C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\UpdateItemHandler.cs
-	namespace 	
-
-CampusEats
- 
-. 
-Features 
-. 
-Menu "
-." #
-Handlers# +
-;+ ,
-public 
-class 
-UpdateItemHandler 
-(  
-CampusEatsContext  1
-context2 9
-,9 :
-ILogger; B
-<B C
-UpdateItemHandlerC T
->T U
-loggerV \
-)\ ]
-{ 
-public		 
-
-async		 
-Task		 
-<		 
-IResult		 
->		 
-Handle		 %
-(		% &
-UpdateItemRequest		& 7
-request		8 ?
-)		? @
-{
-
- 
-logger 
-. 
-LogInformation 
-( 
-$str G
-,G H
-requestI P
-.P Q
-IdQ S
-)S T
-;T U
-var 
-	validator 
-= 
-new 
-UpdateItemValidator /
-(/ 0
-)0 1
-;1 2
-var 
-validationResult 
-= 
-await $
-	validator% .
-.. /
-ValidateAsync/ <
-(< =
-request= D
-)D E
-;E F
-if 
-
-( 
-! 
-validationResult 
-. 
-IsValid %
-)% &
-{ 	
-foreach 
-( 
-var 
-error 
-in !
-validationResult" 2
-.2 3
-Errors3 9
-)9 :
-{ 
-logger 
-. 
-LogError 
-(  
-$str  >
-)> ?
-;? @
-} 
-return 
-Results 
-. 
-
-BadRequest %
-(% &
-validationResult& 6
-.6 7
-Errors7 =
-)= >
-;> ?
-} 	
-var 
-menuItem 
-= 
-await 
-context $
-.$ %
-MenuItem% -
-.- .
-	FindAsync. 7
-(7 8
-request8 ?
-.? @
-Id@ B
-)B C
-;C D
-if 
-
-( 
-menuItem 
-== 
-null 
-) 
-{ 	
-logger 
-. 
-
-LogWarning 
-( 
-$str 3
-)3 4
-;4 5
-return 
-Results 
-. 
-NotFound #
-(# $
-$str$ 4
-)4 5
-;5 6
-}   	
-var"" 
-updatedMenuItem"" 
-="" 
-menuItem"" &
-with""' +
-{## 	
-Name$$ 
-=$$ 
-request$$ 
-.$$ 
-Name$$ 
-,$$  
-Price%% 
-=%% 
-request%% 
-.%% 
-Price%% !
-,%%! "
-ImageUrl&& 
-=&& 
-request&& 
-.&& 
-ImageUrl&& '
-,&&' (
-	Allergens'' 
-='' 
-request'' 
-.''  
-	Allergens''  )
-}(( 	
-;((	 
-
-context)) 
-.)) 
-Entry)) 
-()) 
-menuItem)) 
-))) 
-.))  
-CurrentValues))  -
-.))- .
-	SetValues)). 7
-())7 8
-updatedMenuItem))8 G
-)))G H
-;))H I
-await** 
-context** 
-.** 
-SaveChangesAsync** &
-(**& '
-)**' (
-;**( )
-logger++ 
-.++ 
-LogInformation++ 
-(++ 
-$str++ >
-)++> ?
-;++? @
-return-- 
-Results-- 
-.-- 
-Ok-- 
-(-- 
-updatedMenuItem-- )
-)--) *
-;--* +
-}.. 
-}00 ¯
+}HH ¯
 ‡C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\DeleteMenuHandler.cs
 	namespace 	
 
@@ -11589,7 +11589,7 @@ CampusEats
 )$$! "
 ;$$" #
 }%% 
-}'' £F
+}'' ¡F
 ‡C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\CreateMenuHandler.cs
 	namespace 	
 
@@ -11852,17 +11852,17 @@ Enumerable2 <
 Created// 
 (// 
 $"// !
-$str//! '
-{//' (
-menu//( ,
-.//, -
-Name//- 1
-}//1 2
-"//2 3
-,//3 4
-menu//5 9
-)//9 :
-;//: ;
+$str//! +
+{//+ ,
+menu//, 0
+.//0 1
+Id//1 3
+}//3 4
+"//4 5
+,//5 6
+menu//7 ;
+)//; <
+;//< =
 }00 
 private22 
 static22 

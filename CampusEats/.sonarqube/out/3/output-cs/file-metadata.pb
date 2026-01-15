@@ -71,10 +71,10 @@ sC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 çC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\Handlers\GetOrderHistoryHandler.csutf-8î
 äC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\Handlers\GetOrderByIdHandler.csutf-8ì
 âC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\Handlers\CancelOrderHandler.csutf-8ë
-áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Requests\DeleteMenuRequest.csutf-8ë
 áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Requests\UpdateMenuRequest.csutf-8ë
 áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Requests\UpdateItemRequest.csutf-8ë
 áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Requests\DeleteItemRequest.csutf-8ë
+áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Requests\DeleteMenuRequest.csutf-8ë
 áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Requests\CreateMenuRequest.csutf-8ë
 áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Requests\CreateItemRequest.csutf-8~
 uC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\MenuItem.csutf-8Ç
@@ -83,8 +83,8 @@ qC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\UpdateMenuHandler.csutf-8ë
 áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\UpdateItemHandler.csutf-8ë
 áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\DeleteMenuHandler.csutf-8ë
-áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\DeleteItemHandler.csutf-8ë
 áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\CreateMenuHandler.csutf-8ë
+áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\DeleteItemHandler.csutf-8ë
 áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\CreateItemHandler.csutf-8ä
 ÄC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\DietaryRestrictions.csutf-8ñ
 åC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Loyalty\Requests\RedeemPointsRequest.csutf-8õ
@@ -94,9 +94,9 @@ qC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 ëC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Loyalty\Handlers\GetLoyaltyBalanceHandler.csutf-8õ
 ëC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Kitchen\Requests\UpdateOrderStatusRequest.csutf-8ö
 êC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Kitchen\Requests\GetPendingOrdersRequest.csutf-8õ
-ëC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Kitchen\Handlers\UpdateOrderStatusHandler.csutf-8ö
-êC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Kitchen\Handlers\GetPendingOrdersHandler.csutf-8å
-ÇC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Inventory\InventoryDayItem.csutf-8á
+ëC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Kitchen\Handlers\UpdateOrderStatusHandler.csutf-8å
+ÇC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Inventory\InventoryDayItem.csutf-8ö
+êC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Kitchen\Handlers\GetPendingOrdersHandler.csutf-8á
 ~C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Inventory\InventoryDay.csutf-8ï
 ãC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Inventory\Handlers\InventoryHandler.csutf-8ï
 ãC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Auth\Requests\UpdateUserRoleRequest.csutf-8ì

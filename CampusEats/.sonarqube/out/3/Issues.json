@@ -551,16 +551,16 @@
         {
           "ruleId": "S1192",
           "level": "warning",
-          "message": "Define a constant instead of using this literal 'LoyaltyAccounts' 4 times.",
+          "message": "Define a constant instead of using this literal 'numeric(18,2)' 4 times.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251207005139_AddLoyaltyTierSystem.cs",
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251121130418_AddUserTable.cs",
                 "region": {
-                  "startLine": 15,
-                  "startColumn": 24,
-                  "endLine": 15,
-                  "endColumn": 41
+                  "startLine": 17,
+                  "startColumn": 23,
+                  "endLine": 17,
+                  "endColumn": 38
                 }
               }
             }
@@ -568,33 +568,33 @@
           "relatedLocations": [
             {
               "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251207005139_AddLoyaltyTierSystem.cs",
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251121130418_AddUserTable.cs",
                 "region": {
-                  "startLine": 22,
-                  "startColumn": 24,
-                  "endLine": 22,
+                  "startLine": 20,
+                  "startColumn": 26,
+                  "endLine": 20,
                   "endColumn": 41
                 }
               }
             },
             {
               "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251207005139_AddLoyaltyTierSystem.cs",
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251121130418_AddUserTable.cs",
                 "region": {
-                  "startLine": 33,
-                  "startColumn": 24,
-                  "endLine": 33,
-                  "endColumn": 41
+                  "startLine": 54,
+                  "startColumn": 23,
+                  "endLine": 54,
+                  "endColumn": 38
                 }
               }
             },
             {
               "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251207005139_AddLoyaltyTierSystem.cs",
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251121130418_AddUserTable.cs",
                 "region": {
-                  "startLine": 37,
-                  "startColumn": 24,
-                  "endLine": 37,
+                  "startLine": 58,
+                  "startColumn": 26,
+                  "endLine": 58,
                   "endColumn": 41
                 }
               }
@@ -673,16 +673,16 @@
         {
           "ruleId": "S1192",
           "level": "warning",
-          "message": "Define a constant instead of using this literal 'numeric(18,2)' 4 times.",
+          "message": "Define a constant instead of using this literal 'LoyaltyAccounts' 4 times.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251121130418_AddUserTable.cs",
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251207005139_AddLoyaltyTierSystem.cs",
                 "region": {
-                  "startLine": 17,
-                  "startColumn": 23,
-                  "endLine": 17,
-                  "endColumn": 38
+                  "startLine": 15,
+                  "startColumn": 24,
+                  "endLine": 15,
+                  "endColumn": 41
                 }
               }
             }
@@ -690,33 +690,33 @@
           "relatedLocations": [
             {
               "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251121130418_AddUserTable.cs",
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251207005139_AddLoyaltyTierSystem.cs",
                 "region": {
-                  "startLine": 20,
-                  "startColumn": 26,
-                  "endLine": 20,
+                  "startLine": 22,
+                  "startColumn": 24,
+                  "endLine": 22,
                   "endColumn": 41
                 }
               }
             },
             {
               "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251121130418_AddUserTable.cs",
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251207005139_AddLoyaltyTierSystem.cs",
                 "region": {
-                  "startLine": 54,
-                  "startColumn": 23,
-                  "endLine": 54,
-                  "endColumn": 38
+                  "startLine": 33,
+                  "startColumn": 24,
+                  "endLine": 33,
+                  "endColumn": 41
                 }
               }
             },
             {
               "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251121130418_AddUserTable.cs",
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251207005139_AddLoyaltyTierSystem.cs",
                 "region": {
-                  "startLine": 58,
-                  "startColumn": 26,
-                  "endLine": 58,
+                  "startLine": 37,
+                  "startColumn": 24,
+                  "endLine": 37,
                   "endColumn": 41
                 }
               }
@@ -729,27 +729,6 @@
               "1": null,
               "2": null
             }
-          }
-        },
-        {
-          "ruleId": "S1144",
-          "level": "warning",
-          "message": "Remove the unused private field 'ClientTag'.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/EndpointMapper.cs",
-                "region": {
-                  "startLine": 45,
-                  "startColumn": 5,
-                  "endLine": 45,
-                  "endColumn": 47
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
           }
         },
         {
@@ -1045,6 +1024,27 @@
           }
         },
         {
+          "ruleId": "S1144",
+          "level": "warning",
+          "message": "Remove the unused private field 'ClientTag'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/EndpointMapper.cs",
+                "region": {
+                  "startLine": 45,
+                  "startColumn": 5,
+                  "endLine": 45,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
           "ruleId": "CA1825",
           "level": "note",
           "message": "Avoid unnecessary zero-length array allocations.  Use Array.Empty<int>() instead.",
@@ -1087,18 +1087,18 @@
           }
         },
         {
-          "ruleId": "S5122",
-          "level": "warning",
-          "message": "Make sure this permissive CORS policy is safe here.",
+          "ruleId": "CA1825",
+          "level": "note",
+          "message": "Avoid unnecessary zero-length array allocations.  Use Array.Empty<int>() instead.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/ServiceExtensions.cs",
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251031013710_MakeImageUrlAndAllergensNullable.cs",
                 "region": {
-                  "startLine": 34,
-                  "startColumn": 18,
-                  "endLine": 34,
-                  "endColumn": 36
+                  "startLine": 26,
+                  "startColumn": 31,
+                  "endLine": 26,
+                  "endColumn": 41
                 }
               }
             }
@@ -1129,45 +1129,29 @@
           }
         },
         {
-          "ruleId": "CA1825",
+          "ruleId": "CA2016",
           "level": "note",
-          "message": "Avoid unnecessary zero-length array allocations.  Use Array.Empty<int>() instead.",
+          "message": "Forward the 'ct' parameter to the 'ReadToEndAsync' method or pass in 'CancellationToken.None' explicitly to indicate intentionally not propagating the token",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251031013710_MakeImageUrlAndAllergensNullable.cs",
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Features/Payment/Handlers/StripeWebhookHandler.cs",
                 "region": {
-                  "startLine": 26,
-                  "startColumn": 31,
-                  "endLine": 26,
-                  "endColumn": 41
+                  "startLine": 23,
+                  "startColumn": 26,
+                  "endLine": 23,
+                  "endColumn": 71
                 }
               }
             }
           ],
           "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CA2254",
-          "level": "note",
-          "message": "The logging message template should not vary between calls to 'LoggerExtensions.LogError(ILogger, string?, params object?[])'",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Features/Kitchen/Handlers/UpdateOrderStatusHandler.cs",
-                "region": {
-                  "startLine": 19,
-                  "startColumn": 66,
-                  "endLine": 19,
-                  "endColumn": 80
-                }
-              }
+            "warningLevel": 1,
+            "customProperties": {
+              "ArgumentName": "ct",
+              "ParameterName": null,
+              "ShouldFix": "1"
             }
-          ],
-          "properties": {
-            "warningLevel": 1
           }
         },
         {
@@ -1213,18 +1197,60 @@
           }
         },
         {
-          "ruleId": "CA2016",
+          "ruleId": "CA2254",
           "level": "note",
-          "message": "Forward the 'ct' parameter to the 'ReadToEndAsync' method or pass in 'CancellationToken.None' explicitly to indicate intentionally not propagating the token",
+          "message": "The logging message template should not vary between calls to 'LoggerExtensions.LogError(ILogger, string?, params object?[])'",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Features/Payment/Handlers/StripeWebhookHandler.cs",
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Features/Kitchen/Handlers/UpdateOrderStatusHandler.cs",
                 "region": {
-                  "startLine": 23,
+                  "startLine": 19,
+                  "startColumn": 66,
+                  "endLine": 19,
+                  "endColumn": 80
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1186",
+          "level": "warning",
+          "message": "Add a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251106213404_Smek.cs",
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 33,
+                  "endLine": 17,
+                  "endColumn": 37
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1861",
+          "level": "note",
+          "message": "Prefer 'static readonly' fields over constant array arguments if the called method is called repeatedly and is not mutating the passed array",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251105195420_addedInventory.cs",
+                "region": {
+                  "startLine": 51,
                   "startColumn": 26,
-                  "endLine": 23,
-                  "endColumn": 71
+                  "endLine": 51,
+                  "endColumn": 52
                 }
               }
             }
@@ -1232,9 +1258,7 @@
           "properties": {
             "warningLevel": 1,
             "customProperties": {
-              "ArgumentName": "ct",
-              "ParameterName": null,
-              "ShouldFix": "1"
+              "paramName": "columns"
             }
           }
         },
@@ -1260,18 +1284,18 @@
           }
         },
         {
-          "ruleId": "S1186",
+          "ruleId": "S5122",
           "level": "warning",
-          "message": "Add a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation.",
+          "message": "Make sure this permissive CORS policy is safe here.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251106213404_Smek.cs",
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/ServiceExtensions.cs",
                 "region": {
-                  "startLine": 17,
-                  "startColumn": 33,
-                  "endLine": 17,
-                  "endColumn": 37
+                  "startLine": 34,
+                  "startColumn": 18,
+                  "endLine": 34,
+                  "endColumn": 36
                 }
               }
             }
@@ -1341,30 +1365,6 @@
           ],
           "properties": {
             "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CA1861",
-          "level": "note",
-          "message": "Prefer 'static readonly' fields over constant array arguments if the called method is called repeatedly and is not mutating the passed array",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251105195420_addedInventory.cs",
-                "region": {
-                  "startLine": 51,
-                  "startColumn": 26,
-                  "endLine": 51,
-                  "endColumn": 52
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1,
-            "customProperties": {
-              "paramName": "columns"
-            }
           }
         },
         {

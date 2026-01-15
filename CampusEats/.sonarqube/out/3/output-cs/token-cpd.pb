@@ -10122,27 +10122,7 @@ LogWarning!! 
 )**! "
 ;**" #
 }++ 
-},, ≈
-áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Requests\DeleteMenuRequest.cs
-	namespace 	
-
-CampusEats
- 
-. 
-Features 
-. 
-Menu "
-." #
-Requests# +
-;+ ,
-public 
-record 
-DeleteMenuRequest 
-(  !
-Guid! %
-Id& (
-)( )
-;) *Ê
+},, Ê
 áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Requests\UpdateMenuRequest.cs
 	namespace 	
 
@@ -10252,7 +10232,27 @@ CampusEats
 Guid  $
 Id% '
 )' (
-;( )´
+;( )≈
+áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Requests\DeleteMenuRequest.cs
+	namespace 	
+
+CampusEats
+ 
+. 
+Features 
+. 
+Menu "
+." #
+Requests# +
+;+ ,
+public 
+record 
+DeleteMenuRequest 
+(  !
+Guid! %
+Id& (
+)( )
+;) *´
 áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Requests\CreateMenuRequest.cs
 	namespace 	
 
@@ -11346,250 +11346,7 @@ LogWarning 
 )5 6
 ;6 7
 } 
-} Á!
-áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\DeleteItemHandler.cs
-	namespace 	
-
-CampusEats
- 
-. 
-Features 
-. 
-Menu "
-." #
-Handlers# +
-;+ ,
-public 
-class 
-DeleteItemHandler 
-( 
-CampusEatsContext 0
-context1 8
-,8 9
-ILogger: A
-<A B
-DeleteItemHandlerB S
->S T
-loggerU [
-)[ \
-{ 
-public		 
-
-async		 
-Task		 
-<		 
-IResult		 
->		 
-Handle		 %
-(		% &
-DeleteItemRequest		& 7
-request		8 ?
-)		? @
-{
-
- 
-logger 
-. 
-LogInformation 
-( 
-$str E
-,E F
-requestG N
-.N O
-IdO Q
-)Q R
-;R S
-var 
-menuItem 
-= 
-await 
-context $
-.$ %
-MenuItem% -
-.- .
-	FindAsync. 7
-(7 8
-request8 ?
-.? @
-Id@ B
-)B C
-;C D
-if 
-
-( 
-menuItem 
-== 
-null 
-) 
-{ 	
-logger 
-. 
-LogInformation !
-(! "
-$str" 6
-)6 7
-;7 8
-return 
-Results 
-. 
-NotFound #
-(# $
-$"$ &
-$str& 8
-{8 9
-request9 @
-.@ A
-IdA C
-}C D
-$strD N
-"N O
-)O P
-;P Q
-} 	
-var 
-allMenus 
-= 
-await 
-context $
-.$ %
-Menu% )
-.) *
-ToListAsync* 5
-(5 6
-)6 7
-;7 8
-var 
-menusContainingItem 
-=  !
-allMenus" *
-.* +
-Where+ 0
-(0 1
-m1 2
-=>3 5
-m6 7
-.7 8
-ItemId8 >
-.> ?
-Contains? G
-(G H
-requestH O
-.O P
-IdP R
-)R S
-)S T
-.T U
-ToListU [
-([ \
-)\ ]
-;] ^
-foreach 
-( 
-var 
-menu 
-in 
-menusContainingItem 0
-)0 1
-{ 	
-var 
-updatedItemIds 
-=  
-menu! %
-.% &
-ItemId& ,
-., -
-Where- 2
-(2 3
-id3 5
-=>6 8
-id9 ;
-!=< >
-request? F
-.F G
-IdG I
-)I J
-.J K
-ToListK Q
-(Q R
-)R S
-;S T
-var 
-updatedMenu 
-= 
-menu "
-with# '
-{( )
-ItemId* 0
-=1 2
-updatedItemIds3 A
-}B C
-;C D
-context 
-. 
-Entry 
-( 
-menu 
-) 
-.  
-CurrentValues  -
-.- .
-	SetValues. 7
-(7 8
-updatedMenu8 C
-)C D
-;D E
-logger 
-. 
-LogInformation !
-(! "
-$str" T
-,T U
-requestV ]
-.] ^
-Id^ `
-,` a
-menub f
-.f g
-Idg i
-)i j
-;j k
-} 	
-context   
-.   
-MenuItem   
-.   
-Remove   
-(    
-menuItem    (
-)  ( )
-;  ) *
-await!! 
-context!! 
-.!! 
-SaveChangesAsync!! &
-(!!& '
-)!!' (
-;!!( )
-logger"" 
-."" 
-LogInformation"" 
-("" 
-$str"" F
-,""F G
-menuItem""H P
-.""P Q
-Id""Q S
-)""S T
-;""T U
-return$$ 
-Results$$ 
-.$$ 
-	NoContent$$  
-($$  !
-)$$! "
-;$$" #
-}%% 
-}'' £F
+} °F
 áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\CreateMenuHandler.cs
 	namespace 	
 
@@ -11852,17 +11609,17 @@ Enumerable2 <
 Created// 
 (// 
 $"// !
-$str//! '
-{//' (
-menu//( ,
-.//, -
-Name//- 1
-}//1 2
-"//2 3
-,//3 4
-menu//5 9
-)//9 :
-;//: ;
+$str//! +
+{//+ ,
+menu//, 0
+.//0 1
+Id//1 3
+}//3 4
+"//4 5
+,//5 6
+menu//7 ;
+)//; <
+;//< =
 }00 
 private22 
 static22 
@@ -12096,7 +11853,250 @@ calculatedMM 
 calculatedOO 
 ;OO 
 }PP 
-}QQ ∆
+}QQ Á!
+áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\DeleteItemHandler.cs
+	namespace 	
+
+CampusEats
+ 
+. 
+Features 
+. 
+Menu "
+." #
+Handlers# +
+;+ ,
+public 
+class 
+DeleteItemHandler 
+( 
+CampusEatsContext 0
+context1 8
+,8 9
+ILogger: A
+<A B
+DeleteItemHandlerB S
+>S T
+loggerU [
+)[ \
+{ 
+public		 
+
+async		 
+Task		 
+<		 
+IResult		 
+>		 
+Handle		 %
+(		% &
+DeleteItemRequest		& 7
+request		8 ?
+)		? @
+{
+
+ 
+logger 
+. 
+LogInformation 
+( 
+$str E
+,E F
+requestG N
+.N O
+IdO Q
+)Q R
+;R S
+var 
+menuItem 
+= 
+await 
+context $
+.$ %
+MenuItem% -
+.- .
+	FindAsync. 7
+(7 8
+request8 ?
+.? @
+Id@ B
+)B C
+;C D
+if 
+
+( 
+menuItem 
+== 
+null 
+) 
+{ 	
+logger 
+. 
+LogInformation !
+(! "
+$str" 6
+)6 7
+;7 8
+return 
+Results 
+. 
+NotFound #
+(# $
+$"$ &
+$str& 8
+{8 9
+request9 @
+.@ A
+IdA C
+}C D
+$strD N
+"N O
+)O P
+;P Q
+} 	
+var 
+allMenus 
+= 
+await 
+context $
+.$ %
+Menu% )
+.) *
+ToListAsync* 5
+(5 6
+)6 7
+;7 8
+var 
+menusContainingItem 
+=  !
+allMenus" *
+.* +
+Where+ 0
+(0 1
+m1 2
+=>3 5
+m6 7
+.7 8
+ItemId8 >
+.> ?
+Contains? G
+(G H
+requestH O
+.O P
+IdP R
+)R S
+)S T
+.T U
+ToListU [
+([ \
+)\ ]
+;] ^
+foreach 
+( 
+var 
+menu 
+in 
+menusContainingItem 0
+)0 1
+{ 	
+var 
+updatedItemIds 
+=  
+menu! %
+.% &
+ItemId& ,
+., -
+Where- 2
+(2 3
+id3 5
+=>6 8
+id9 ;
+!=< >
+request? F
+.F G
+IdG I
+)I J
+.J K
+ToListK Q
+(Q R
+)R S
+;S T
+var 
+updatedMenu 
+= 
+menu "
+with# '
+{( )
+ItemId* 0
+=1 2
+updatedItemIds3 A
+}B C
+;C D
+context 
+. 
+Entry 
+( 
+menu 
+) 
+.  
+CurrentValues  -
+.- .
+	SetValues. 7
+(7 8
+updatedMenu8 C
+)C D
+;D E
+logger 
+. 
+LogInformation !
+(! "
+$str" T
+,T U
+requestV ]
+.] ^
+Id^ `
+,` a
+menub f
+.f g
+Idg i
+)i j
+;j k
+} 	
+context   
+.   
+MenuItem   
+.   
+Remove   
+(    
+menuItem    (
+)  ( )
+;  ) *
+await!! 
+context!! 
+.!! 
+SaveChangesAsync!! &
+(!!& '
+)!!' (
+;!!( )
+logger"" 
+."" 
+LogInformation"" 
+("" 
+$str"" F
+,""F G
+menuItem""H P
+.""P Q
+Id""Q S
+)""S T
+;""T U
+return$$ 
+Results$$ 
+.$$ 
+	NoContent$$  
+($$  !
+)$$! "
+;$$" #
+}%% 
+}'' ∆
 áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\CreateItemHandler.cs
 	namespace 	
 
@@ -13919,7 +13919,113 @@ BadRequest## %
 ;QQ	 
 
 }RR 
-}SS Ó
+}SS –
+ÇC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Inventory\InventoryDayItem.cs
+	namespace 	
+
+CampusEats
+ 
+. 
+Features 
+. 
+	Inventory '
+;' (
+public 
+class 
+InventoryDayItem 
+{ 
+public 
+
+Guid 
+Id 
+{ 
+get 
+; 
+set 
+; 
+}  
+=! "
+Guid# '
+.' (
+NewGuid( /
+(/ 0
+)0 1
+;1 2
+public 
+
+DateOnly 
+Date 
+{ 
+get 
+; 
+set  #
+;# $
+}% &
+public 
+
+Guid 
+ItemId 
+{ 
+get 
+; 
+set !
+;! "
+}# $
+public 
+
+string 
+Name 
+{ 
+get 
+; 
+set !
+;! "
+}# $
+=% &
+string' -
+.- .
+Empty. 3
+;3 4
+public		 
+
+decimal		 
+?		 
+	UnitPrice		 
+{		 
+get		  #
+;		# $
+set		% (
+;		( )
+}		* +
+public
+
+ 
+
+int
+
+ 
+Count
+
+ 
+{
+
+ 
+get
+
+ 
+;
+
+ 
+set
+
+ 
+;
+
+  
+}
+
+! "
+} Ó
 êC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Kitchen\Handlers\GetPendingOrdersHandler.cs
 	namespace 	
 
@@ -14147,113 +14253,7 @@ BadRequest )
 )**  !
 ;**! "
 }++ 
-},, –
-ÇC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Inventory\InventoryDayItem.cs
-	namespace 	
-
-CampusEats
- 
-. 
-Features 
-. 
-	Inventory '
-;' (
-public 
-class 
-InventoryDayItem 
-{ 
-public 
-
-Guid 
-Id 
-{ 
-get 
-; 
-set 
-; 
-}  
-=! "
-Guid# '
-.' (
-NewGuid( /
-(/ 0
-)0 1
-;1 2
-public 
-
-DateOnly 
-Date 
-{ 
-get 
-; 
-set  #
-;# $
-}% &
-public 
-
-Guid 
-ItemId 
-{ 
-get 
-; 
-set !
-;! "
-}# $
-public 
-
-string 
-Name 
-{ 
-get 
-; 
-set !
-;! "
-}# $
-=% &
-string' -
-.- .
-Empty. 3
-;3 4
-public		 
-
-decimal		 
-?		 
-	UnitPrice		 
-{		 
-get		  #
-;		# $
-set		% (
-;		( )
-}		* +
-public
-
- 
-
-int
-
- 
-Count
-
- 
-{
-
- 
-get
-
- 
-;
-
- 
-set
-
- 
-;
-
-  
-}
-
-! "
-} ì
+},, ì
 ~C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Inventory\InventoryDay.cs
 	namespace 	
 
