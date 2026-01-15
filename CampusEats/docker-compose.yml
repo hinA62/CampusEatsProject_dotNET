@@ -37,6 +37,11 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:8080
       - ConnectionStrings__DefaultConnection=Host=postgres;Database=CampusEatsDB;Username=postgres;Password=${POSTGRES_PASSWORD:-postgres123}
+      - Stripe__SecretKey=${STRIPE_SECRET_KEY}
+      - Stripe__PublishableKey=${STRIPE_PUBLISHABLE_KEY}
+      - Stripe__WebhookSecret=${STRIPE_WEBHOOK_SECRET}
+      - Stripe__ClientBaseUrl=http://localhost:5007
+      - Jwt__Key=${JWT_KEY}
     ports:
       - "5298:8080"
     depends_on:
