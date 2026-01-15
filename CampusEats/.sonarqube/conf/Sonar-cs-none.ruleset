@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RuleSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Rules for SonarQube" Description="This rule set was automatically generated from SonarQube" ToolsVersion="14.0">
   <Rules AnalyzerId="SonarScannerFor.NET" RuleNamespace="SonarScannerFor.NET">
+    <Rule Id="S1144" Action="None" />
+    <Rule Id="S107" Action="None" />
+    <Rule Id="S2187" Action="None" />
+    <Rule Id="S1006" Action="None" />
+    <Rule Id="S3776" Action="None" />
+    <Rule Id="S101" Action="None" />
+    <Rule Id="S1125" Action="None" />
+    <Rule Id="S2365" Action="None" />
+    <Rule Id="S927" Action="None" />
+    <Rule Id="S2692" Action="None" />
+    <Rule Id="S2955" Action="None" />
+    <Rule Id="S3427" Action="None" />
     <Rule Id="S7789" Action="None" />
     <Rule Id="S7788" Action="None" />
     <Rule Id="S8134" Action="None" />
@@ -9,7 +21,6 @@
     <Rule Id="S4026" Action="None" />
     <Rule Id="S3353" Action="None" />
     <Rule Id="S2114" Action="None" />
-    <Rule Id="S3776" Action="None" />
     <Rule Id="S4507" Action="None" />
     <Rule Id="S5773" Action="None" />
     <Rule Id="S4426" Action="None" />
@@ -141,7 +152,6 @@
     <Rule Id="S2259" Action="None" />
     <Rule Id="S2479" Action="None" />
     <Rule Id="S1192" Action="None" />
-    <Rule Id="S1125" Action="None" />
     <Rule Id="S7133" Action="None" />
     <Rule Id="S7131" Action="None" />
     <Rule Id="S4487" Action="None" />
@@ -175,7 +185,6 @@
     <Rule Id="S2699" Action="None" />
     <Rule Id="S6934" Action="None" />
     <Rule Id="S6930" Action="None" />
-    <Rule Id="S3427" Action="None" />
     <Rule Id="S3237" Action="None" />
     <Rule Id="S2275" Action="None" />
     <Rule Id="S2368" Action="None" />
@@ -204,7 +213,6 @@
     <Rule Id="S6669" Action="None" />
     <Rule Id="S6422" Action="None" />
     <Rule Id="S6424" Action="None" />
-    <Rule Id="S2187" Action="None" />
     <Rule Id="S6674" Action="None" />
     <Rule Id="S6798" Action="None" />
     <Rule Id="S6672" Action="None" />
@@ -228,7 +236,6 @@
     <Rule Id="S2234" Action="None" />
     <Rule Id="S3444" Action="None" />
     <Rule Id="S3445" Action="None" />
-    <Rule Id="S1144" Action="None" />
     <Rule Id="S3442" Action="None" />
     <Rule Id="S3440" Action="None" />
     <Rule Id="S3441" Action="None" />
@@ -255,10 +262,8 @@
     <Rule Id="S1123" Action="None" />
     <Rule Id="S1244" Action="None" />
     <Rule Id="S1121" Action="None" />
-    <Rule Id="S2692" Action="None" />
     <Rule Id="S2219" Action="None" />
     <Rule Id="S1128" Action="None" />
-    <Rule Id="S1006" Action="None" />
     <Rule Id="S1481" Action="None" />
     <Rule Id="S2148" Action="None" />
     <Rule Id="S3358" Action="None" />
@@ -300,7 +305,6 @@
     <Rule Id="S3456" Action="None" />
     <Rule Id="S3453" Action="None" />
     <Rule Id="S2123" Action="None" />
-    <Rule Id="S2365" Action="None" />
     <Rule Id="S2486" Action="None" />
     <Rule Id="S6961" Action="None" />
     <Rule Id="S5753" Action="None" />
@@ -311,7 +315,6 @@
     <Rule Id="S3217" Action="None" />
     <Rule Id="S6607" Action="None" />
     <Rule Id="S3218" Action="None" />
-    <Rule Id="S927" Action="None" />
     <Rule Id="S1151" Action="None" />
     <Rule Id="S3450" Action="None" />
     <Rule Id="S6613" Action="None" />
@@ -400,7 +403,6 @@
     <Rule Id="S3927" Action="None" />
     <Rule Id="S3928" Action="None" />
     <Rule Id="S3926" Action="None" />
-    <Rule Id="S2955" Action="None" />
     <Rule Id="S3923" Action="None" />
     <Rule Id="S131" Action="None" />
     <Rule Id="S134" Action="None" />
@@ -428,7 +430,6 @@
     <Rule Id="S6420" Action="None" />
     <Rule Id="S5693" Action="None" />
     <Rule Id="S2183" Action="None" />
-    <Rule Id="S107" Action="None" />
     <Rule Id="S106" Action="None" />
     <Rule Id="S108" Action="None" />
     <Rule Id="S6678" Action="None" />
@@ -461,7 +462,6 @@
     <Rule Id="S4220" Action="None" />
     <Rule Id="S4583" Action="None" />
     <Rule Id="S3264" Action="None" />
-    <Rule Id="S101" Action="None" />
     <Rule Id="S3265" Action="None" />
     <Rule Id="S100" Action="None" />
     <Rule Id="S6419" Action="None" />

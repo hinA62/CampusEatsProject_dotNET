@@ -578,35 +578,30 @@ xC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
  '
 ÂÂ .
  
-‰‰ &Ω
-~C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Frontend\Pages\Orders\Orders.razor
-<<Z [<<t u<
-JJ &\\ `` bb $jj (oo (P
-KK +$$ $$) 8++  --' 6bb jj oo (
-LL  / <hh! .nn1 >(
-MM 	 YY cc (
-NN  SS ZZ 
+‰‰ &˜
+~C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Frontend\Pages\Orders\Orders.razor
 
-PP" 4
-WW !TT }} 
-ff 6 A~~ 
-nn ooA G
-oo0 1oo5 6
-ss  	//v Ö
-ss& -uu( /
-xx *<<` s
+::V W<
+GG &YY ]] __ $ff gg <
+HH +$$ $$) 8++# 2__ ee (
+II  / <ee/ <ggI V(
+JJ 	 VV `` (
+KK  PP WW 
 
-xx: ;
-xxB Izz; B
-zz {{ 
-
-ÇÇ (887 E
-
-ÇÇ5 ;
-ÇÇ@ F
- $uu 2
- RR SS ^^ ``A L(
- !\\ +`` +zz )Ï	
+MM" 4
+TT !QQ tt 
+cc 6 Auu 
+gg  !gg% &
+jj  	--r Å
+jj& -ll( /
+oo *::\ o
+oo0 7qq; B
+qq rr 
+yy (663 A
+yy5 ;yy@ F
+ $ll 2
+ OO PP [[ ]]A L(
+ !YY +]] +qq )Ï	
 ÑC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Frontend\Pages\Orders\OrderDetails.razor
 QQs tQQx y
 cc~ 
@@ -614,7 +609,7 @@ xC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
  
 ÑÑK R
 ùùD K
-≥≥= D∆
+∞∞= D∆
 
 ÅÅ * .. *00D Q11E RBB &BB2 ?EE? LGG6 CQQ[ hTT &TT2 ?WWJ WYY6 Cccf shh "ooA NooZ g
 ÑÑ# 0
@@ -623,23 +618,23 @@ xC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 àà) 6
 ùù 
 üü 
-°° !
-££ !
-©© 
-±± 
-¿¿ 
-¬¬; HR
+üüV c
+°° 
+¶¶ 
+ÆÆ 
+∫∫ 
+ºº; HR
 
 ÇÇ !& 1
 ÑÑ8 C
 ÖÖB M
 áá< G
 ààE P
-∏∏ .
+≥≥ .
 
 ÉÉ 	 
 ôô 
-≠≠  
+™™  
 
 ÑÑ ''6 D77L Z"
 
@@ -656,40 +651,40 @@ xC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 
 óó '
 îî 
-≈≈ "0
+øø "0
 
-≥≥ 
-¥¥ 
-∂∂@ E
-∏∏" '
+∞∞ 
+±± 
+±±N S
+≥≥ #
 
-ææ "ssA L
+∏∏ "ssA L
 
-¬¬ 
-√√ 
+ºº 
+ΩΩ 
 
-   < B
+ƒƒ < B
 
-—— (
+ÀÀ (
 ÜÜ) 7
 
-——5 ;
-——@ F"
+ÀÀ5 ;
+ÀÀ@ F"
  $
 êê 
-ŒŒ h
+»» h
  oo  
 åå 
 éé 
 üü) 4
-°°. 9
-∂∂ 
-∂∂R ]
-ŒŒ ).
+üüp {
+±±" -
+±±` k
+»» ).
  !
 ùù" .
-≥≥ *
-¬¬ ){
+∞∞ *
+ºº ){
 yC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Frontend\Pages\NotFound.razor≈
 C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Frontend\Pages\Menu\MenuItems.razor0
 
@@ -1014,7 +1009,53 @@ zC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 ‚‚ "
  '
 êê (
-ææ! 0≠	
+ææ! 0÷
+ÑC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Frontend\Pages\Menu\CreateMenuItem.razoré
+^^+ 3& .S [  V ^%%W _&&7 ?))/ 7
+ãã* 2
+íí 
+ôô 
+õõ* 2
+ùù 
+††E MZ
+``  / < *
+áá 
+çç 
+îî 
+©© 
+ÆÆ N
+aa JJU _KK% /
+ÜÜ 
+éé 
+ïï 
+≤≤ 
+cc" 522: MJ
+ll" 488: LBB" 4zz || 
+ÄÄ 
+ôô! 3
+
+nn" 4
+xx 99@ N*
+xx' /zz( 0||& .
+ÄÄ# +
+
+ÑÑ #@ L0
+
+†† 
+¢¢ 
+®®) 1
+©©F N
+
+®®  
+©©d p
+
+∂∂ IIi o
+ pp rr ,
+ $tt 
+§§ 
+∏∏ 
+ '
+††! 0≠	
 ~C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Frontend\Pages\Menu\EditMenu.razor
 UU0 :YYA K
 ZZU VZZy z
@@ -1099,74 +1140,32 @@ zC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
  $
 åå 
 ”” 
-ÊÊ ÷
-ÑC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Frontend\Pages\Menu\CreateMenuItem.razoré
-^^+ 3& .S [  V ^%%W _&&7 ?))/ 7
-ãã* 2
-íí 
-ôô 
-õõ* 2
-ùù 
-††E MZ
-``  / < *
-áá 
-çç 
-îî 
-©© 
-ÆÆ N
-aa JJU _KK% /
-ÜÜ 
-éé 
-ïï 
-≤≤ 
-cc" 522: MJ
-ll" 488: LBB" 4zz || 
-ÄÄ 
-ôô! 3
-
-nn" 4
-xx 99@ N*
-xx' /zz( 0||& .
-ÄÄ# +
-
-ÑÑ #@ L0
-
-†† 
-¢¢ 
-®®) 1
-©©F N
-
-®®  
-©©d p
-
-∂∂ IIi o
- pp rr ,
- $tt 
-§§ 
-∏∏ 
- '
-††! 0Ö
-ÄC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Frontend\Pages\Menu\CreateMenu.razorT
+ÊÊ ¡
+ÄC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Frontend\Pages\Menu\CreateMenu.razor`
 vv '$$) 1''M U,,N V::O W??M U
 ûû* 2
-•• 4
+¨¨ 
+ÆÆ. 64
 ww 2EE% 8EEE XNN> Q
-áá N
+áá Z
 xx# 3SSA Q[[S c
 çç 
 èè 
 ìì 
-•• /B
+•• !
+¨¨ /N
 yy  / < *
 öö 
 †† 
-´´  
+ßß 
+≥≥  
 zz   (
-àà B
+àà N
 {{ aaY bbb) 2
 ôô 
 °° 
-ØØ 
+®® 
+∑∑ 
 
 }}" 4
 
@@ -1177,19 +1176,19 @@ zC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 èè$ *
 ìì! '
 
-óó	 $$B F
+óó $$B F
 
-≥≥ ``b h 
+ªª ``b h 
   
 ÅÅ 
  '
-áá$ 3
-
- .
+áá$ 3
+ 
+ÆÆ .
  $
 ÉÉ 
-ßß 
-µµ π
+ØØ 
+ΩΩ π
 
 xC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Frontend\Pages\Loyalty.razor(
 ??  /DD5 DEE5 DHH% 4(
@@ -1466,7 +1465,15 @@ xC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 OO %H V(
 WW YY aa5 ;cc 
  $]] 
- WW *ƒ
+ WW *˚
+{C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Frontend\Pages\Auth\Login.razor2
+99" /& 3T ag tDD7 D<
+::  / < *@@ LL QQ 2
+;; ""W a##! +?? UU 
+== "E P
+DD FF 
+ $HH 
+ DD  +ƒ
 ÑC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Frontend\Pages\Auth\ChangePassword.razorG
 EE+ A& <	!!j ÄVV pp* @ww "yyP f<
 FF &&j vbb ii* 6ii; Gww1 =
@@ -1484,15 +1491,7 @@ xC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 yy &
 ÉÉ  ,
  $RR  <
- NN PP PP, 7VV( 3yy0 ;˚
-{C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Frontend\Pages\Auth\Login.razor2
-99" /& 3T ag tDD7 D<
-::  / < *@@ LL QQ 2
-;; ""W a##! +?? UU 
-== "E P
-DD FF 
- $HH 
- DD  +p
+ NN PP PP, 7VV( 3yy0 ;p
 nC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Frontend\App.razor¢
 |C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Frontend\Services\UserService.cs
 
@@ -1810,7 +1809,20 @@ oC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
   
   $ /
   
-2 9   !! Ò
+2 9   !! œ
+ÑC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Frontend\Models\User\ClientProfileDto.cs
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+		 Ò
 ÑC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Frontend\Models\Payment\PaymentModels.cs
   
 
@@ -1845,29 +1857,7 @@ oC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 
 !! 
 
-"" œ
-ÑC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Frontend\Models\User\ClientProfileDto.cs
-
- 
-
- 
-
- 
-
- 
-
- 
-
-		 π
-ÜC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Frontend\Models\Order\PlaceOrderRequest.cs
-
- 
-
- 
-
- 
-
- ‰
+"" ‰
 ôC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Frontend\Models\Payment\CreateStripeCheckoutSessionRequest.cs
 
  /
@@ -1882,7 +1872,16 @@ oC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 
  *
 
- è
+ π
+ÜC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Frontend\Models\Order\PlaceOrderRequest.cs
+
+ 
+
+ 
+
+ 
+
+ è
 ÄC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Frontend\Models\Order\OrderStatus.cs
 
  ﬂ
