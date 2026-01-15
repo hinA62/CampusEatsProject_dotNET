@@ -55,7 +55,7 @@
                             <small class="text-muted">@order.CreatedAt.ToString("MMM dd, HH:mm")</small>
                             @if (order.Status == OrderStatus.Pending)
                             {
-                                <button class="btn btn-sm btn-danger mt-2" @onclick="(e) => CancelOrderFromList(e, order.Id)" @onclick:stopPropagation="true">
+                                <button class="btn btn-sm btn-danger mt-2" @onclick="(e) => CancelOrderFromList(order.Id)" @onclick:stopPropagation="true">
                                     Anulează
                                 </button>
                             }
