@@ -1,1 +1,1 @@
-çRwC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Test\CampusEats.Test.csproj¢net9.0ÚCSharp13
+ïRC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats.Frontend\CampusEats.Frontend.csproj¢net9.0ÚCSharp13

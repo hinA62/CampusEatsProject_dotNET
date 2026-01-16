@@ -3,5 +3,5 @@ projectKey=hinA62_CampusEatsProject_dotNET
 serverUrl=https://sonarcloud.io
 serverVersion=8.0.0.78371
 dashboardUrl=https://sonarcloud.io/dashboard?id=hinA62_CampusEatsProject_dotNET
-ceTaskId=AZvDx8MErfSEqZy2ywiq
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZvDx8MErfSEqZy2ywiq
+ceTaskId=AZvF8Byvlt9MKUCnZ5x8
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZvF8Byvlt9MKUCnZ5x8

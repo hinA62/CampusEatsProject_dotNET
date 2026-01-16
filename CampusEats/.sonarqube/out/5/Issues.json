@@ -1,0 +1,217 @@
+{
+  "$schema": "http://json.schemastore.org/sarif-1.0.0",
+  "version": "1.0.0",
+  "runs": [
+    {
+      "tool": {
+        "name": "Microsoft (R) Visual C# Compiler",
+        "version": "5.0.0.0",
+        "fileVersion": "5.0.0-2.25523.111 (b0f34d51)",
+        "semanticVersion": "5.0.0",
+        "language": "en-US"
+      },
+      "results": [
+        {
+          "ruleId": "CA1826",
+          "level": "note",
+          "message": "Do not use Enumerable methods on indexable collections. Instead use the collection directly.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/FrontendTests/CartServiceTests.cs",
+                "region": {
+                  "startLine": 39,
+                  "startColumn": 9,
+                  "endLine": 39,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "method": "First"
+            }
+          }
+        },
+        {
+          "ruleId": "CA1826",
+          "level": "note",
+          "message": "Do not use Enumerable methods on indexable collections. Instead use the collection directly.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/FrontendTests/CartServiceTests.cs",
+                "region": {
+                  "startLine": 50,
+                  "startColumn": 9,
+                  "endLine": 50,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "method": "First"
+            }
+          }
+        },
+        {
+          "ruleId": "CA1826",
+          "level": "note",
+          "message": "Do not use Enumerable methods on indexable collections. Instead use the collection directly.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/FrontendTests/CartServiceTests.cs",
+                "region": {
+                  "startLine": 65,
+                  "startColumn": 9,
+                  "endLine": 65,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "method": "First"
+            }
+          }
+        },
+        {
+          "ruleId": "CA1826",
+          "level": "note",
+          "message": "Do not use Enumerable methods on indexable collections. Instead use the collection directly.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/FrontendTests/CartServiceTests.cs",
+                "region": {
+                  "startLine": 87,
+                  "startColumn": 9,
+                  "endLine": 87,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "method": "First"
+            }
+          }
+        },
+        {
+          "ruleId": "CA1826",
+          "level": "note",
+          "message": "Do not use Enumerable methods on indexable collections. Instead use the collection directly.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/FrontendTests/CartServiceTests.cs",
+                "region": {
+                  "startLine": 88,
+                  "startColumn": 9,
+                  "endLine": 88,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "method": "First"
+            }
+          }
+        },
+        {
+          "ruleId": "CA1826",
+          "level": "note",
+          "message": "Do not use Enumerable methods on indexable collections. Instead use the collection directly.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/FrontendTests/CartServiceTests.cs",
+                "region": {
+                  "startLine": 124,
+                  "startColumn": 9,
+                  "endLine": 124,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "method": "First"
+            }
+          }
+        },
+        {
+          "ruleId": "CA1861",
+          "level": "note",
+          "message": "Prefer 'static readonly' fields over constant array arguments if the called method is called repeatedly and is not mutating the passed array",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Test/FrontendTests/UserServiceTests.cs",
+                "region": {
+                  "startLine": 127,
+                  "startColumn": 54,
+                  "endLine": 127,
+                  "endColumn": 99
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "paramName": "expected"
+            }
+          }
+        }
+      ],
+      "rules": {
+        "CA1826": {
+          "id": "CA1826",
+          "shortDescription": "Do not use Enumerable methods on indexable collections",
+          "fullDescription": "This collection is directly indexable. Going through LINQ here causes unnecessary allocations and CPU work.",
+          "defaultLevel": "note",
+          "helpUri": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1826",
+          "properties": {
+            "category": "Performance",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Telemetry",
+              "EnabledRuleInAggressiveMode"
+            ]
+          }
+        },
+        "CA1861": {
+          "id": "CA1861",
+          "shortDescription": "Avoid constant arrays as arguments",
+          "fullDescription": "Constant arrays passed as arguments are not reused when called repeatedly, which implies a new array is created each time. Consider extracting them to 'static readonly' fields to improve performance if the passed array is not mutated within the called method.",
+          "defaultLevel": "note",
+          "helpUri": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1861",
+          "properties": {
+            "category": "Performance",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Telemetry",
+              "EnabledRuleInAggressiveMode"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

@@ -218,6 +218,27 @@
           }
         },
         {
+          "ruleId": "S112",
+          "level": "warning",
+          "message": "'System.Exception' should not be thrown by user code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/MenuService.cs",
+                "region": {
+                  "startLine": 30,
+                  "startColumn": 89,
+                  "endLine": 30,
+                  "endColumn": 127
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
           "ruleId": "S1066",
           "level": "warning",
           "message": "Merge this if statement with the enclosing one.",
@@ -252,27 +273,6 @@
             "customProperties": {
               "0": "Merge this if statement with its nested one."
             }
-          }
-        },
-        {
-          "ruleId": "S112",
-          "level": "warning",
-          "message": "'System.Exception' should not be thrown by user code.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/MenuService.cs",
-                "region": {
-                  "startLine": 30,
-                  "startColumn": 89,
-                  "endLine": 30,
-                  "endColumn": 127
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
           }
         },
         {

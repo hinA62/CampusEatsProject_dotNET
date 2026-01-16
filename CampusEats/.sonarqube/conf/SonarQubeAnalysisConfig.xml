@@ -212,6 +212,7 @@ Automatic Analysis will not be available between 07:00 CET and 09:00 CET</Proper
     <Property Name="sonar.maintenance_mode.start_date">2023-09-28T09:10:00:00.000+01:00</Property>
     <Property Name="sonar.sensor.cache.baseUrl">https://api.sonarcloud.io/analysis</Property>
     <Property Name="sonar.core.startTime">1/8/2026 8:05:06 PM</Property>
+    <Property Name="sonar.coverage.exclusions"> **/CampusEats.Frontend/**,\   **/Migrations/**,\   **/obj/**,\   **/bin/**,\   **/Program.cs,\   **/DependencyInjection.cs,\   **/ServiceExtensions.cs,\   **/EndpointMapper.cs</Property>
   </ServerSettings>
   <LocalSettings>
     <Property Name="sonar.host.url">https://sonarcloud.io</Property>

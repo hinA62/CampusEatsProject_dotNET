@@ -29,11 +29,21 @@ public class JwtService(IConfiguration config, ILogger<JwtService> logger)
         }
 
         // Log pentru debugging (fără a expune cheia)
-        var keySource = Environment.GetEnvironmentVariable("JWT_KEY") != null 
-            ? "Environment Variable (JWT_KEY) ✓ Production-ready" 
-            : jwtKey.Contains("DEV_ONLY") 
-                ? "appsettings.Development.json ⚠ Development only" 
-                : "Configuration file";
+        string keySource;
+
+        if (Environment.GetEnvironmentVariable("JWT_KEY") != null)
+        {
+            keySource = "Environment Variable (JWT_KEY) ✓ Production-ready";
+        }
+        else if (jwtKey.Contains("DEV_ONLY"))
+        {
+            keySource = "appsettings.Development.json ⚠ Development only";
+        }
+        else
+        {
+            keySource = "Configuration file";
+        }
+
         logger.LogInformation("JWT Key loaded from: {KeySource}", keySource);
 
         var claims = new[]

@@ -10,7 +10,7 @@
     },
     {
       "key": "sonar.scanner.bootstrapStartTime",
-      "value": "1768516152000"
+      "value": "1768552311000"
     },
     {
       "key": "sonar.projectKey",
@@ -38,7 +38,7 @@
     },
     {
       "key": "sonar.modules",
-      "value": "1F76C8CE-6AA0-4C0A-BB5F-C6DFBC64E481,D5131FE7-9FDD-4535-BF51-D85303A4BB1A,ED0F663F-16CE-49EE-90BE-E4978EAA98E9,D45A5692-AE6B-477A-9810-D5ECF8D2A17E,9D10B5FA-D641-4DC1-A03B-C3F74132411D"
+      "value": "1F76C8CE-6AA0-4C0A-BB5F-C6DFBC64E481,D5131FE7-9FDD-4535-BF51-D85303A4BB1A,ED0F663F-16CE-49EE-90BE-E4978EAA98E9,0B35A515-0635-4C3D-A220-F2BE34225515,E06A60C8-A3D0-4A4F-BC37-F033F2F6E25B,9FC7122D-51DC-465B-97A0-34022BF1F8E1"
     },
     {
       "key": "1F76C8CE-6AA0-4C0A-BB5F-C6DFBC64E481.sonar.projectKey",
@@ -146,7 +146,7 @@
     },
     {
       "key": "ED0F663F-16CE-49EE-90BE-E4978EAA98E9.sonar.tests",
-      "value": "C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\appsettings.json,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\obj\\CampusEats.Test.csproj.nuget.dgspec.json,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\obj\\project.assets.json,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\obj\\project.packagespec.json,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\bin\\Debug\\net9.0\\appsettings.Development.json,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\bin\\Debug\\net9.0\\appsettings.json,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\bin\\Debug\\net9.0\\CampusEats.deps.json,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\bin\\Debug\\net9.0\\CampusEats.runtimeconfig.json,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\bin\\Debug\\net9.0\\CampusEats.staticwebassets.endpoints.json,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\bin\\Debug\\net9.0\\CampusEats.Test.deps.json,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\bin\\Debug\\net9.0\\CampusEats.Test.runtimeconfig.json,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\obj\\Debug\\net9.0\\CampusEats.Test.sourcelink.json,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\AuthTests\\ChangePasswordHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\AuthTests\\ChangePasswordValidatorTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\AuthTests\\JwtServiceTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\AuthTests\\RegisterUserValidatorTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\AuthTests\\UpdateUserRoleValidatorTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\InventoryTests\\InventoryHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\KitchenTests\\GetPendingOrdersHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\KitchenTests\\UpdateOrderStatusHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\KitchenTests\\UpdateOrderStatusValidatorTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\LoyaltyTests\\GetLoyaltyBalanceHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\LoyaltyTests\\IntegrationTests\\GetLoyaltyBalanceHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\LoyaltyTests\\IntegrationTests\\RedeemPointsHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\LoyaltyTests\\UnitTests\\RedeemPointsValidatorTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\MenuTests\\IntegrationTests\\CreateItemHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\MenuTests\\IntegrationTests\\CreateMenuHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\MenuTests\\IntegrationTests\\DeleteItemHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\MenuTests\\IntegrationTests\\DeleteMenuHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\MenuTests\\IntegrationTests\\UpdateItemHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\MenuTests\\IntegrationTests\\UpdateMenuHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\MenuTests\\UnitTests\\CreateItemValidatorTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\MenuTests\\UnitTests\\CreateMenuValidatorTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\MenuTests\\UnitTests\\UpdateItemValidatorTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\MenuTests\\UnitTests\\UpdateMenuValidatorTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\OrderTests\\IntegrationTests\\CancelOrderHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\OrderTests\\IntegrationTests\\GetOrderByIdHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\OrderTests\\IntegrationTests\\GetOrderHistoryHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\OrderTests\\IntegrationTests\\PlaceOrderHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\OrderTests\\UnitTests\\CancelOrderValidatorTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\OrderTests\\UnitTests\\PlaceOrderValidatorTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\PaymentTests\\IntegrationTests\\CreatePaymentHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\PaymentTests\\IntegrationTests\\CreateStripeCheckoutSessionHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\PaymentTests\\IntegrationTests\\GetPaymentByIdHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\PaymentTests\\IntegrationTests\\GetPaymentHistoryHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\PaymentTests\\IntegrationTests\\StripeWebhookHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\PaymentTests\\UnitTests\\CreatePaymentValidatorTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\TestResults\\coverage.opencover.xml"
+      "value": "C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\appsettings.json,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\obj\\CampusEats.Test.csproj.nuget.dgspec.json,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\obj\\project.assets.json,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\obj\\project.packagespec.json,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\bin\\Debug\\net9.0\\appsettings.Development.json,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\bin\\Debug\\net9.0\\appsettings.json,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\bin\\Debug\\net9.0\\CampusEats.deps.json,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\bin\\Debug\\net9.0\\CampusEats.Frontend.staticwebassets.endpoints.json,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\bin\\Debug\\net9.0\\CampusEats.Frontend.staticwebassets.runtime.json,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\bin\\Debug\\net9.0\\CampusEats.runtimeconfig.json,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\bin\\Debug\\net9.0\\CampusEats.staticwebassets.endpoints.json,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\bin\\Debug\\net9.0\\CampusEats.Test.deps.json,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\bin\\Debug\\net9.0\\CampusEats.Test.runtimeconfig.json,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\bin\\Debug\\net9.0\\MvcTestingAppManifest.json,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\obj\\Debug\\net9.0\\CampusEats.Test.sourcelink.json,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\obj\\Debug\\net9.0\\MvcTestingAppManifest.json,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\AuthTests\\ChangePasswordHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\AuthTests\\ChangePasswordValidatorTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\AuthTests\\JwtServiceTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\AuthTests\\RegisterUserValidatorTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\AuthTests\\UpdateUserRoleValidatorTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\DeoendencyInjectionTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\FrontendTests\\AuthServiceTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\FrontendTests\\CartServiceTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\FrontendTests\\KitchenServiceTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\FrontendTests\\Layout\\MainLayoutTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\FrontendTests\\Layout\\NavMenuTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\FrontendTests\\LoyaltyServiceTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\FrontendTests\\MenuItemServiceTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\FrontendTests\\MenuServiceTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\FrontendTests\\OrderServiceTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\FrontendTests\\Pages\\CartSidebarTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\FrontendTests\\Pages\\ChangePasswordPageTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\FrontendTests\\Pages\\ClientsPageTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\FrontendTests\\Pages\\CreateMenuItemPageTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\FrontendTests\\Pages\\CreateMenuPageTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\FrontendTests\\Pages\\EditMenuItemPageTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\FrontendTests\\Pages\\EditMenuPageTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\FrontendTests\\Pages\\HomePageTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\FrontendTests\\Pages\\KitchenPageTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\FrontendTests\\Pages\\LoginPageTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\FrontendTests\\Pages\\LoyaltyPageTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\FrontendTests\\Pages\\MenuItemsPageTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\FrontendTests\\Pages\\MenuPageTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\FrontendTests\\Pages\\OrderDetailsPageTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\FrontendTests\\Pages\\OrdersPageTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\FrontendTests\\Pages\\PaymentPageTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\FrontendTests\\Pages\\PaymentSuccessPageTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\FrontendTests\\Pages\\PlaceOrderPageTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\FrontendTests\\Pages\\ProfilePageTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\FrontendTests\\Pages\\RegisterPageTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\FrontendTests\\Pages\\UserProfilePageTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\FrontendTests\\PaymentServiceTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\FrontendTests\\UserServiceTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\InventoryTests\\InventoryHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\KitchenTests\\GetPendingOrdersHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\KitchenTests\\UpdateOrderStatusHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\KitchenTests\\UpdateOrderStatusValidatorTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\LoyaltyTests\\GetLoyaltyBalanceHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\LoyaltyTests\\IntegrationTests\\GetLoyaltyBalanceHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\LoyaltyTests\\IntegrationTests\\RedeemPointsHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\LoyaltyTests\\UnitTests\\RedeemPointsValidatorTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\MenuTests\\IntegrationTests\\CreateItemHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\MenuTests\\IntegrationTests\\CreateMenuHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\MenuTests\\IntegrationTests\\DeleteItemHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\MenuTests\\IntegrationTests\\DeleteMenuHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\MenuTests\\IntegrationTests\\UpdateItemHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\MenuTests\\IntegrationTests\\UpdateMenuHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\MenuTests\\UnitTests\\CreateItemValidatorTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\MenuTests\\UnitTests\\CreateMenuValidatorTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\MenuTests\\UnitTests\\UpdateItemValidatorTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\MenuTests\\UnitTests\\UpdateMenuValidatorTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\OrderTests\\IntegrationTests\\CancelOrderHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\OrderTests\\IntegrationTests\\GetOrderByIdHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\OrderTests\\IntegrationTests\\GetOrderHistoryHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\OrderTests\\IntegrationTests\\PlaceOrderHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\OrderTests\\UnitTests\\CancelOrderValidatorTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\OrderTests\\UnitTests\\PlaceOrderValidatorTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\PaymentTests\\IntegrationTests\\CreatePaymentHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\PaymentTests\\IntegrationTests\\CreateStripeCheckoutSessionHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\PaymentTests\\IntegrationTests\\GetPaymentByIdHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\PaymentTests\\IntegrationTests\\GetPaymentHistoryHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\PaymentTests\\IntegrationTests\\StripeWebhookHandlerTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\PaymentTests\\UnitTests\\CreatePaymentValidatorTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\PaymentTests\\UnitTests\\StripeWebhookHandlerUnitTests.cs,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\coverage.cobertura.xml,C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test\\TestResults\\coverage.opencover.xml"
     },
     {
       "key": "ED0F663F-16CE-49EE-90BE-E4978EAA98E9.sonar.cs.analyzer.projectOutPaths",
@@ -161,84 +161,124 @@
       "value": "C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\.sonarqube\\out\\2\\Telemetry.json"
     },
     {
-      "key": "D45A5692-AE6B-477A-9810-D5ECF8D2A17E.sonar.projectKey",
-      "value": "hinA62_CampusEatsProject_dotNET:D45A5692-AE6B-477A-9810-D5ECF8D2A17E"
+      "key": "0B35A515-0635-4C3D-A220-F2BE34225515.sonar.projectKey",
+      "value": "hinA62_CampusEatsProject_dotNET:0B35A515-0635-4C3D-A220-F2BE34225515"
     },
     {
-      "key": "D45A5692-AE6B-477A-9810-D5ECF8D2A17E.sonar.projectName",
+      "key": "0B35A515-0635-4C3D-A220-F2BE34225515.sonar.projectName",
       "value": "CampusEats"
     },
     {
-      "key": "D45A5692-AE6B-477A-9810-D5ECF8D2A17E.sonar.projectBaseDir",
+      "key": "0B35A515-0635-4C3D-A220-F2BE34225515.sonar.projectBaseDir",
       "value": "C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats"
     },
     {
-      "key": "D45A5692-AE6B-477A-9810-D5ECF8D2A17E.sonar.working.directory",
+      "key": "0B35A515-0635-4C3D-A220-F2BE34225515.sonar.working.directory",
       "value": "C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\.sonarqube\\out\\.sonar\\mod3"
     },
     {
-      "key": "D45A5692-AE6B-477A-9810-D5ECF8D2A17E.sonar.sourceEncoding",
+      "key": "0B35A515-0635-4C3D-A220-F2BE34225515.sonar.sourceEncoding",
       "value": "utf-8"
     },
     {
-      "key": "D45A5692-AE6B-477A-9810-D5ECF8D2A17E.sonar.tests",
+      "key": "0B35A515-0635-4C3D-A220-F2BE34225515.sonar.tests",
       "value": ""
     },
     {
-      "key": "D45A5692-AE6B-477A-9810-D5ECF8D2A17E.sonar.sources",
+      "key": "0B35A515-0635-4C3D-A220-F2BE34225515.sonar.sources",
       "value": ""
     },
     {
-      "key": "D45A5692-AE6B-477A-9810-D5ECF8D2A17E.sonar.cs.analyzer.projectOutPaths",
+      "key": "0B35A515-0635-4C3D-A220-F2BE34225515.sonar.cs.analyzer.projectOutPaths",
       "value": "C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\.sonarqube\\out\\3"
     },
     {
-      "key": "D45A5692-AE6B-477A-9810-D5ECF8D2A17E.sonar.cs.roslyn.reportFilePaths",
+      "key": "0B35A515-0635-4C3D-A220-F2BE34225515.sonar.cs.roslyn.reportFilePaths",
       "value": "C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\.sonarqube\\out\\3\\Issues.json"
     },
     {
-      "key": "D45A5692-AE6B-477A-9810-D5ECF8D2A17E.sonar.cs.scanner.telemetry",
+      "key": "0B35A515-0635-4C3D-A220-F2BE34225515.sonar.cs.scanner.telemetry",
       "value": "C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\.sonarqube\\out\\3\\Telemetry.json"
     },
     {
-      "key": "9D10B5FA-D641-4DC1-A03B-C3F74132411D.sonar.projectKey",
-      "value": "hinA62_CampusEatsProject_dotNET:9D10B5FA-D641-4DC1-A03B-C3F74132411D"
+      "key": "E06A60C8-A3D0-4A4F-BC37-F033F2F6E25B.sonar.projectKey",
+      "value": "hinA62_CampusEatsProject_dotNET:E06A60C8-A3D0-4A4F-BC37-F033F2F6E25B"
     },
     {
-      "key": "9D10B5FA-D641-4DC1-A03B-C3F74132411D.sonar.projectName",
-      "value": "CampusEats.Test"
+      "key": "E06A60C8-A3D0-4A4F-BC37-F033F2F6E25B.sonar.projectName",
+      "value": "CampusEats.Frontend"
     },
     {
-      "key": "9D10B5FA-D641-4DC1-A03B-C3F74132411D.sonar.projectBaseDir",
-      "value": "C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test"
+      "key": "E06A60C8-A3D0-4A4F-BC37-F033F2F6E25B.sonar.projectBaseDir",
+      "value": "C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Frontend"
     },
     {
-      "key": "9D10B5FA-D641-4DC1-A03B-C3F74132411D.sonar.working.directory",
+      "key": "E06A60C8-A3D0-4A4F-BC37-F033F2F6E25B.sonar.working.directory",
       "value": "C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\.sonarqube\\out\\.sonar\\mod4"
     },
     {
-      "key": "9D10B5FA-D641-4DC1-A03B-C3F74132411D.sonar.sourceEncoding",
+      "key": "E06A60C8-A3D0-4A4F-BC37-F033F2F6E25B.sonar.sourceEncoding",
       "value": "utf-8"
     },
     {
-      "key": "9D10B5FA-D641-4DC1-A03B-C3F74132411D.sonar.sources",
+      "key": "E06A60C8-A3D0-4A4F-BC37-F033F2F6E25B.sonar.tests",
       "value": ""
     },
     {
-      "key": "9D10B5FA-D641-4DC1-A03B-C3F74132411D.sonar.tests",
+      "key": "E06A60C8-A3D0-4A4F-BC37-F033F2F6E25B.sonar.sources",
       "value": ""
     },
     {
-      "key": "9D10B5FA-D641-4DC1-A03B-C3F74132411D.sonar.cs.analyzer.projectOutPaths",
+      "key": "E06A60C8-A3D0-4A4F-BC37-F033F2F6E25B.sonar.cs.analyzer.projectOutPaths",
       "value": "C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\.sonarqube\\out\\4"
     },
     {
-      "key": "9D10B5FA-D641-4DC1-A03B-C3F74132411D.sonar.cs.roslyn.reportFilePaths",
+      "key": "E06A60C8-A3D0-4A4F-BC37-F033F2F6E25B.sonar.cs.roslyn.reportFilePaths",
       "value": "C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\.sonarqube\\out\\4\\Issues.json"
     },
     {
-      "key": "9D10B5FA-D641-4DC1-A03B-C3F74132411D.sonar.cs.scanner.telemetry",
+      "key": "E06A60C8-A3D0-4A4F-BC37-F033F2F6E25B.sonar.cs.scanner.telemetry",
       "value": "C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\.sonarqube\\out\\4\\Telemetry.json"
+    },
+    {
+      "key": "9FC7122D-51DC-465B-97A0-34022BF1F8E1.sonar.projectKey",
+      "value": "hinA62_CampusEatsProject_dotNET:9FC7122D-51DC-465B-97A0-34022BF1F8E1"
+    },
+    {
+      "key": "9FC7122D-51DC-465B-97A0-34022BF1F8E1.sonar.projectName",
+      "value": "CampusEats.Test"
+    },
+    {
+      "key": "9FC7122D-51DC-465B-97A0-34022BF1F8E1.sonar.projectBaseDir",
+      "value": "C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\CampusEats.Test"
+    },
+    {
+      "key": "9FC7122D-51DC-465B-97A0-34022BF1F8E1.sonar.working.directory",
+      "value": "C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\.sonarqube\\out\\.sonar\\mod5"
+    },
+    {
+      "key": "9FC7122D-51DC-465B-97A0-34022BF1F8E1.sonar.sourceEncoding",
+      "value": "utf-8"
+    },
+    {
+      "key": "9FC7122D-51DC-465B-97A0-34022BF1F8E1.sonar.sources",
+      "value": ""
+    },
+    {
+      "key": "9FC7122D-51DC-465B-97A0-34022BF1F8E1.sonar.tests",
+      "value": ""
+    },
+    {
+      "key": "9FC7122D-51DC-465B-97A0-34022BF1F8E1.sonar.cs.analyzer.projectOutPaths",
+      "value": "C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\.sonarqube\\out\\5"
+    },
+    {
+      "key": "9FC7122D-51DC-465B-97A0-34022BF1F8E1.sonar.cs.roslyn.reportFilePaths",
+      "value": "C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\.sonarqube\\out\\5\\Issues.json"
+    },
+    {
+      "key": "9FC7122D-51DC-465B-97A0-34022BF1F8E1.sonar.cs.scanner.telemetry",
+      "value": "C:\\Users\\Veronica\\Desktop\\dot_Net\\CampusEats\\CampusEatsProject_dotNET\\CampusEats\\.sonarqube\\out\\5\\Telemetry.json"
     },
     {
       "key": "sonar.login",

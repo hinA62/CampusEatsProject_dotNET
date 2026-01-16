@@ -1,27 +1,4 @@
-ˇ
-ÇC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Menu\CreateItemValidator.cs
-
-  
-
-
- 
-
- 
-  
-  
- 3 6
- 6 7Û
-åC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Kitchen\UpdateOrderStatusValidator.cs
-
- '
-  
-  
-  
-  "©
-ÑC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Order\CancelOrderValidator.cs
-
- !
-  È
+È
 ÇC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Menu\UpdateMenuValidator.cs
 
   
@@ -32,7 +9,32 @@
  
   
   
-  ˇ
+  √
+àC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Payment\CreatePaymentValidator.cs
+
+ #
+
+
+ 
+
+ 
+  ä
+ÉC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Order\PlaceOrderValidator.cs
+
+  
+
+
+ 
+
+ 
+  
+  
+  
+  + ,©
+ÑC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Order\CancelOrderValidator.cs
+
+ !
+  ˇ
 ÇC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Menu\UpdateItemValidator.cs
 
   
@@ -54,26 +56,8 @@
 
  
   
-  √
-àC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Payment\CreatePaymentValidator.cs
-
- #
-
-
- 
-
- 
-  ¬
-áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Loyalty\RedeemPointsValidator.cs
-
- "
-
-
- 
-
- 
-  ä
-ÉC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Order\PlaceOrderValidator.cs
+  ˇ
+ÇC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Menu\CreateItemValidator.cs
 
   
 
@@ -83,8 +67,24 @@
  
   
   
-  
-  + ,Î
+ 3 6
+ 6 7¬
+áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Loyalty\RedeemPointsValidator.cs
+
+ "
+
+
+ 
+
+ 
+  Û
+åC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Kitchen\UpdateOrderStatusValidator.cs
+
+ '
+  
+  
+  
+  "Î
 ÜC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Auth\UpdateUserRoleValidator.cs
 
  $
@@ -99,7 +99,29 @@
   
   
   
-!! !! ≠
+!! !! Ã
+pC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\ServiceExtensions.cs
+
+ %
+
+ (Z
+D K  &   "" $%% ++ 
+2 5 
+ < L
+   *
+  (
+9 @ 
+"" && -
+%%! (%%, 3
+&& && 
+
+.. ,<
+..H O00 77" )88$ +::/ 6== 
+11 22 
+
+@@ (
+@@D KBB CC 
+CC' (DD JJ ≠
 ÜC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Validators\Auth\ChangePasswordValidator.cs
 
  $
@@ -112,28 +134,7 @@
   
   
   ( )
- - .Y Z¨
-pC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\ServiceExtensions.cs
-
- %
-
- (P
-D K  &   !! $$ 
-2 5 
- < L
-   *
-  (
-9 @ 
-!!! (!!, 3
-"" "" 
-
-'' ,<
-''H O)) 00" )11$ +33/ 666 
-** ++ 
-
-99 (
-99D K;; << 
-<<' (== CC ¢
+ - .Y Z¢
 fC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Program.cs.
 
 
@@ -304,16 +305,7 @@ fC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 ŸŸ! "
 
 ›› 
-››! "›
-äC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Migrations\20251212015140_AddImageUrlToMenu.cs
-
- *
-
-  "
-4 D 
-
-  $
-6 F Ï
+››! "Ï
 ôC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Migrations\20251218045055_RemoveRestrictionsFromCreateMenu.cs
 
 		 9
@@ -322,27 +314,16 @@ fC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 4 D 
 
   $
-6 F Ù
-çC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Migrations\20251207005139_AddLoyaltyTierSystem.cs
+6 F ›
+äC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Migrations\20251212015140_AddImageUrlToMenu.cs
 
- -
+ *
 
-  "
-4 D  
+  "
+4 D 
 
-  $
-6 F ## ’
-ñC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Migrations\20251207010312_UpdateLoyaltyPointsConversion.cs
-
- 6
-
-  "
-
-4 D
-
-  $
-
-6 FÕ
+  $
+6 F Õ
 éC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Migrations\20251207011437_FixLoyaltyPointsLogic.cs
 
  .
@@ -353,7 +334,16 @@ fC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 
   $
 
-6 F¢
+6 FÙ
+çC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Migrations\20251207005139_AddLoyaltyTierSystem.cs
+
+ -
+
+  "
+4 D  
+
+  $
+6 F ## ¢
 çC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Migrations\20251127153356_AddPaymentAndLoyalty.cs
 
 		 -
@@ -372,7 +362,18 @@ fC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 >>  !>>% &
 
 TT  $(
-TT6 FVV YY \\ Í
+TT6 FVV YY \\ ’
+ñC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Migrations\20251207010312_UpdateLoyaltyPointsConversion.cs
+
+ 6
+
+  "
+
+4 D
+
+  $
+
+6 FÍ
 ÖC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Migrations\20251121130418_AddUserTable.cs
 
 		 %
@@ -384,7 +385,16 @@ fC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 ##1 2##6 7
 
 ..  $
-..6 F00 33 ª
+..6 F00 33 Ä
+ôC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Migrations\20251031015520_MakeImageUrlAndAllergensOptional.cs
+
+		 9
+
+  "
+4 D  
+
+""  $
+""6 F$$ 00 ª
 }C:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Migrations\20251106213404_Smek.cs
 
  
@@ -425,25 +435,7 @@ fC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 2 37 8
 
 ""  $
-""6 F$$ Ä
-ôC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Migrations\20251031015520_MakeImageUrlAndAllergensOptional.cs
-
-		 9
-
-  "
-4 D  
-
-""  $
-""6 F$$ 00 Ï
-ôC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Migrations\20251031013710_MakeImageUrlAndAllergensNullable.cs
-
- 9
-
-  "
-4 D 
-
-  $
-6 F ÿ
+""6 F$$ ÿ
 ôC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Migrations\20251031014042_UpdateDietaryRestrictionsToFlags.cs
 
  9
@@ -455,6 +447,15 @@ fC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
   $
 
 6 FÏ
+ôC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Migrations\20251031013710_MakeImageUrlAndAllergensNullable.cs
+
+ 9
+
+  "
+4 D 
+
+  $
+6 F Ï
 ôC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Migrations\20251031012904_AddDietaryRestrictionsToMenuItem.cs
 
  9
@@ -500,40 +501,46 @@ qC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 
 
 
- ‰
-çC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Handlers\StripeWebhookHandler.cs
+ ¨
+ëC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Requests\GetPaymentHistoryRequest.cs
 
-
-
- !
-$ +  #
-* 9 KK $
-/ 5 
-L Z (
+ &
 
- %
-2 9* 1 
-M OKK1 3
- 6 :
- < E
- G T(
-  %% ** !(
-** ++ .. @@$ +(
-.. 00 11 99 
-004 =22 $
-115 ?33 %
-22. 4CC 
-33/ 6DD 
-88 == GG 
-998 A:: "
-::, /;; == 
-@@ EE 
-BB KK, /©
+, 2©
 éC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Requests\GetPaymentByIdRequest.cs
 
  #
 
-) 2ë
+) 2Œ
+õC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Requests\CreateStripeCheckoutSessionRequest.cs
+
+ 0
+
+	 
+
+	 
+
+	 
+çC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Requests\CreatePaymentRequest.cs
+
+ "
+
+	 
+
+
+ 
+
+		 
+
+
+
+ 
+
+	 
+
+ 
+
+ ë
 wC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Payment.cs
   
   
@@ -554,52 +561,7 @@ wC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 
  $
 
-  ¨
-ëC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Requests\GetPaymentHistoryRequest.cs
-
- &
-
-, 2Œ
-õC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Requests\CreateStripeCheckoutSessionRequest.cs
-
- 0
-
-	 
-
-	 
-
-	 ¡
-éC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Handlers\GetPaymentByIdHandler.cs
-
- "
-		' *  
-3 5 
-
- %
-< CJ Q
-W Y] _
-  A H
-= >B C
-çC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Requests\CreatePaymentRequest.cs
-
- "
-
-	 
-
-
- 
-
-		 
-
-
-
- 
-
-	 
-
- 
-
- –
+  –
 ëC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Handlers\GetPaymentHistoryHandler.cs
 
  %
@@ -636,7 +598,46 @@ wC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 00 11! .77 )88 (
 44 SS0 7
 RR SS #
-SS UU. 5⁄
+SS UU. 5‰
+çC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Handlers\StripeWebhookHandler.cs
+
+
+
+ !
+$ +  #
+* 9 KK $
+/ 5 
+L Z (
+
+ %
+2 9* 1 
+M OKK1 3
+ 6 :
+ < E
+ G T(
+  %% ** !(
+** ++ .. @@$ +(
+.. 00 11 99 
+004 =22 $
+115 ?33 %
+22. 4CC 
+33/ 6DD 
+88 == GG 
+998 A:: "
+::, /;; == 
+@@ EE 
+BB KK, /¡
+éC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Handlers\GetPaymentByIdHandler.cs
+
+ "
+		' *  
+3 5 
+
+ %
+< CJ Q
+W Y] _
+  A H
+= >B C⁄
 
 çC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Payment\Handlers\CreatePaymentHandler.cs
 
@@ -684,7 +685,12 @@ wC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 uu vv" )
 ÉÉ! (
 }} 
-ÜÜ2 <ª
+ÜÜ2 <®
+çC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\Requests\GetOrderHistoryRequest.cs
+
+ $
+
+* 2ª
 àC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\Requests\PlaceOrderRequest.cs
 
  
@@ -693,25 +699,20 @@ wC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 
  
 
- ®
-çC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\Requests\GetOrderHistoryRequest.cs
-
- $
-
-* 2•
+ •
 äC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\Requests\GetOrderByIdRequest.cs
 
  !
 
-' .§
+' .á
+yC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\OrderStatus.cs
+
+ §
 âC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\Requests\CancelOrderRequest.cs
 
   
 
-& -á
-yC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\OrderStatus.cs
-
- ’
+& -’
 sC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\Order.cs
 
  
@@ -730,7 +731,26 @@ sC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 
 
 
- æ
+ ê
+âC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\Handlers\CancelOrderHandler.cs
+ C U(
+2 9 !&& '' <
+W ] 1 7 !! )) 
+
+ %P
+9 @8 ?7 >2 9; B6 =!!Z a)); B
+  ((
+   (& 0F
+   !!k p""] b%% && 
+%% &&5 <** !•
+äC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\Handlers\GetOrderByIdHandler.cs
+  D W
+3 : !
+Y _ 
+
+ %(
+: A5 <2 9B I
+  l qæ
 àC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\Handlers\PlaceOrderHandler.cs
  B S2
 1 8$$ !(( !UU VV 2
@@ -771,26 +791,20 @@ sC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 = DN U& -
    
   
-  $ %•
-äC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\Handlers\GetOrderByIdHandler.cs
-  D W
-3 : !
-Y _ 
+  $ %“
+áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Requests\UpdateItemRequest.cs
 
- %(
-: A5 <2 9B I
-  l qê
-âC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Order\Handlers\CancelOrderHandler.cs
- C U(
-2 9 !&& '' <
-W ] 1 7 !! )) 
+ 
 
- %P
-9 @8 ?7 >2 9; B6 =!!Z a)); B
-  ((
-   (& 0F
-   !!k p""] b%% && 
-%% &&5 <** !Í
+	 
+
+ 
+
+ 
+
+ 
+
+ Í
 áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Requests\UpdateMenuRequest.cs
 
  
@@ -807,30 +821,7 @@ sC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 
  $
 
-		 ¢
-áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Requests\DeleteItemRequest.cs
-
- 
-
-% '¢
-áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Requests\DeleteMenuRequest.cs
-
- 
-
-& (“
-áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Requests\UpdateItemRequest.cs
-
- 
-
-	 
-
- 
-
- 
-
- 
-
- ﬁ
+		 ﬁ
 áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Requests\CreateMenuRequest.cs
 
  
@@ -845,7 +836,17 @@ sC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 
  
 
-		 “
+		 ¢
+áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Requests\DeleteMenuRequest.cs
+
+ 
+
+& (¢
+áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Requests\DeleteItemRequest.cs
+
+ 
+
+% '“
 áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Requests\CreateItemRequest.cs
 
  
@@ -893,18 +894,7 @@ qC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 
  $
 
- Ê
-áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\UpdateItemHandler.cs
- C T(
-2 9 $)) ** 2
-V \   ++ 
-
-		 %P
-		8 ?I P= D8 ?$$ %% && '' 
- % .(
-  " 2& 6(
-  "" &)) 
-"" ))8 G-- )Ñ
+ Ñ
 áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\UpdateMenuHandler.cs
 		 		B S2
 		1 8  ,, -- 44 !
@@ -931,7 +921,18 @@ qC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 AA BB 
 AA. 6BB  (
 DD DD$ +
-DD DD. 3¿
+DD DD. 3Ê
+áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\UpdateItemHandler.cs
+ C T(
+2 9 $)) ** 2
+V \   ++ 
+
+		 %P
+		8 ?I P= D8 ?$$ %% && '' 
+ % .(
+  " 2& 6(
+  "" &)) 
+"" ))8 G-- )¿
 áC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Menu\Handlers\DeleteMenuHandler.cs
  C T(
 2 9    (
@@ -1101,19 +1102,7 @@ qC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
   5 <4 ;O V## $$  '%% !&&= D
 C DH I
   #'' 
- (( +∏
-ëC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Kitchen\Requests\UpdateOrderStatusRequest.cs
-
- &
-
-	 
-
- ´
-êC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Kitchen\Requests\GetPendingOrdersRequest.cs
-
- %
-
- ’
+ (( +’
 ëC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Kitchen\Handlers\UpdateOrderStatusHandler.cs
 		 %		I a2
 		8 ? !.. // 00 <
@@ -1128,7 +1117,19 @@ qC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 ,, // &88  
 << /  7
 <<< I?? MM  
-<<W `?? (MM$ -Û
+<<W `?? (MM$ -∏
+ëC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Kitchen\Requests\UpdateOrderStatusRequest.cs
+
+ &
+
+	 
+
+ ´
+êC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Kitchen\Requests\GetPendingOrdersRequest.cs
+
+ %
+
+ Û
 êC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Kitchen\Handlers\GetPendingOrdersHandler.cs
 		 $		H _
 		7 >( /(
@@ -1239,7 +1240,7 @@ qC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 
  
 
- —
+ Ô
 wC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Auth\JwtService.cs
 
 
@@ -1248,20 +1249,20 @@ wC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 7 A2
 
 
-' -F L55: @88 99 
+' -F L??: @BB CC 
 
 
-C I%% 
+C I// 
 
  2
-* .))1 5**' +++( ,,,' +2
- ! ' "" 22B H
-   %%B K
-'' :: 
-22 44+ .
-44 <<  %
-55 ;; 
-77 ??8 =∫
+* .331 544' +55( ,66' +2
+ ! ' && <<B H2
+   $$ (( ,, //B K
+11 DD 
+<< >>+ .
+>> FF  %
+?? EE 
+AA II8 =∫
 ãC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\Features\Auth\Handlers\ChangePasswordHandler.cs
 
  "
@@ -1270,623 +1271,621 @@ wC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEat
 		 %(
 		< C; B& -; B
 		W YM O" $(
-  ? C 2
+  ? C ‰2
 mC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\EndpointMapper.cs
 
  "
 
  &n
 ; >  !   !   !! "" ## $$ ñ
-'' "335 >qq5 >
-ØØ5 >
-±±A J
-ââ= F
-ûûB K
-ƒƒ? H
-ÿÿL U
-„„A J
-¶¶A J
-◊◊9 B
-ûû; D:
+'' "225 >pp5 >
+ÆÆ5 >
+∞∞A J
+àà= F
+ùùB K
+≈≈? H
+€€L U
+ÊÊA J
+©©A J
+⁄⁄9 B
+°°; D:
 (( #
-±±5 ?
-ââ1 ;
-„„5 ?
-¶¶5 ?"
+∞∞5 ?
+àà1 ;
+ÊÊ5 ?
+©©5 ?"
 )) $
-ûû5 @
-ÿÿ? JÜ
-++ .@@ 3OO! 6cc 4~~ 3
-çç! 6
-°° 4
-ÀÀ 4
-‘‘ 4
-ëë 1
-´´  5
-˙˙ 4
+ùù5 @
+€€? JÜ
+++ .?? 3NN! 6bb 4}} 3
+åå! 6
+†† 4
+   4
+”” 4
+êê 1
+™™  5
+˝˝ 4:
+-- !
+¨¨? G
+≠≠> F
+ØØ? G
+ââ 
+.. ( 
+..8 ;00 11 
+00 XX bb (
+11 55 ?? NN 
+22" #22' (
+559 @66% ,
+55T [66 
+??C EBB8 :
+??Y `BB$ +
+??t {CC $
+BB !CC, 9
+NNF HOO; =
+NN\ cOO 
+XX9 ;ZZ" $
+ZZ [[" '
+bbD Fdd3 5
+bbZ \dd! #
+dd ee ee5 9
+ll - 
+ll= @nn oo "
+nn 
+ññ 
+†† *
+oo ss }} 
+åå 
+pp" #pp' (
+ss9 @tt% ,
+ssT [tt 
+}}C E
+ÄÄ8 :
+}}Y `
+ÄÄ$ +
+}}t {
+ÅÅ $
 
--- ":
-.. !
-≠≠? G
-ÆÆ> F
-∞∞? G
-ää 
-// ( 
-//8 ;11 22 
-11 YY cc (
-22 66 @@ OO 
-33" #33' (
-669 @77% ,
-66T [77 
-@@C ECC8 :
-@@Y `CC$ +
-@@t {DD $
-CC !DD, 9
-OOF HPP; =
-OO\ cPP 
-YY9 ;[[" $
-[[ \\" '
-ccD Fee3 5
-ccZ \ee! #
-ee ff ff5 9
-mm - 
-mm= @oo pp "
-oo 
-óó 
-°° *
-pp tt ~~ 
-çç 
-qq" #qq' (
-tt9 @uu% ,
-ttT [uu 
-~~C E
-ÅÅ8 :
-~~Y `
-ÅÅ$ +
-~~t {
-ÇÇ $
+ÄÄ !
+ÅÅ, 9
 
-ÅÅ !
-ÇÇ, 9
+ååF H
+çç; =
 
-ççF H
-éé; =
+åå\ c
+çç 
 
-çç\ c
-éé 
+ññ9 ;
+òò" $
 
-óó9 ;
-ôô" $
+òò 
+ôô" '
 
-ôô 
-öö" '
+††D F
+¢¢7 9
 
-°°D F
-££7 9
+††Z \
+¢¢! #$
 
-°°Z \
-££! #$
+¢¢ 
+££ 
+££5 9
 
-££ 
-§§ 
-§§5 9
+™™ ) <
 
-´´ ) <
+™™9 <
+¨¨ 
+≠≠ 
+ØØ 
+ÖÖ $
 
-´´9 <
-≠≠ 
-ÆÆ 
-∞∞ 
-ÜÜ $
+¨¨ 
+   
+”” 
 
-≠≠ 
-ÀÀ 
-‘‘ 
+≠≠ 
+ΩΩ 
 
-ÆÆ 
-ææ 
+ÆÆ" #
+ÆÆ' ($
 
-ØØ" #
-ØØ' ($
+ØØ 
+≥≥ 
+êê 
 
-∞∞ 
-¥¥ 
-ëë 
+∞∞" #
+∞∞' (
 
-±±" #
-±±' (
+≥≥: A
+¥¥% ,
 
-¥¥: A
-µµ% ,
+≥≥U \
+¥¥ 
 
-¥¥U \
-µµ 
+ΩΩ8 :
+øø !
 
-ææ8 :
-¿¿ !
+øø 
+¬¬ $
 
-¿¿ 
-√√ $
+¿¿# $
+¿¿( )
 
-¡¡# $
-¡¡( )
+  D F
+ÀÀ= ?
 
-ÀÀD F
-ÃÃ= ?
+  \ c
+ÀÀ 0
 
-ÀÀ\ c
-ÃÃ 0
+‘‘ 
+ÿÿ@ B
+€€: <
+‡‡F H<
 
-’’ 
-ŸŸ@ B
-‹‹: <
-··F H<
+’’  
+ÿÿ  
+›› !
+‚‚  
+ÁÁ  <
 
 ÷÷  
-ŸŸ  
-ﬁﬁ !
-„„  
-ËË  <
+ÿÿF H
+››S U
+ÂÂ 
+ÍÍ ê
 
-◊◊  
-ŸŸF H
-ﬁﬁS U
-ÊÊ 
-ÎÎ ê
-
-ŸŸ 
-€€ 
-ﬁﬁA F
-‰‰ !
-ÈÈ !
+ÿÿ 
+⁄⁄ 
+››A F
+„„ !
+ËË !
+ÓÓ 
 ÔÔ 
- 
+ÚÚ 
 ÛÛ 
 ÙÙ 
 ıı 
-ˆˆ 
-˜˜ 0
+ˆˆ 0
 
-ﬁﬁ 
-‡‡ 
-ÒÒ! '
-ÚÚ $
+›› 
+ﬂﬂ 
+! '
+ÒÒ $
 
-„„ 
+‚‚ 
+˜˜ 
+
+„„ 
+„„3 40
+
+‰‰ 
+‰‰# $
+‰‰) *
+‰‰1 2
+
+ÁÁ 
 ¯¯ 
 
-‰‰ 
-‰‰3 40
+ËË 
+ËË3 40
 
-ÂÂ 
-ÂÂ# $
-ÂÂ) *
-ÂÂ1 2
+ÈÈ 
+ÈÈ# $
+ÈÈ) *
+ÈÈ1 2
 
-ËË 
-˘˘ 
+ÏÏ 
+˚˚ $
 
-ÈÈ 
-ÈÈ3 40
+ÖÖB J
+ÜÜ< D
 
-ÍÍ 
-ÍÍ# $
-ÍÍ) *
-ÍÍ1 2
+ÖÖc j
+ÜÜ 
 
-ÌÌ 
-¸¸ $
+àà 
+àà# $
 
-ÜÜB J
-áá< D
+êêH J
+ëë8 :
 
-ÜÜc j
-áá 
+êê_ f
+ëë 
 
-ââ 
-ââ# $
+öö + 
 
-ëëH J
-íí8 :
+öö; >
+úú $
 
-ëë_ f
-íí 
+úú 
+†† 
+™™ 
 
-õõ + 
+ùù" #
+ùù' (
 
-õõ; >
-ùù $
+††. 4
+°°A G
 
-ùù 
-°° 
-´´ 
+††N U
+°° 
 
-ûû" #
-ûû' (
+™™L N
+´´B D
 
-°°. 4
-¢¢A G
+™™\ e
+´´F O
+™™Ä á
+´´ 
 
-°°N U
-¢¢ 
+¥¥ - 
 
-´´L N
-¨¨B D
+¥¥= @
+∂∂ $
 
-´´\ e
-¨¨F O
-´´Ä á
-¨¨ 
+∂∂ 
+ππ 
+ÕÕ 
 
-µµ - 
+ππ0 4
+ªª' +
 
-µµ= @
-∑∑ $
+ππG J
+ææ  #
 
-∑∑ 
-∫∫ 
-ÃÃ 
+ªªh i
+ææ1 20
 
-∫∫0 4
-ºº' +
-
-∫∫G J
-ΩΩ  #
-
-ºº5 6
-ΩΩ1 20
-
-ΩΩ 
-øø 
+ææ 
 ¿¿ 
-¡¡ 
+¡¡ 
+¬¬ 
 
-¡¡8 9
-¡¡= >
+¬¬8 9
+¬¬= >
 
-¡¡M N
-¡¡R S
+¬¬M N
+¬¬R S
 
-ƒƒ" (
-ƒƒ, 2
+≈≈" (
+≈≈, 2
 
-ÃÃ( ,
-ŒŒ' +
+ÕÕ( ,
+œœ' +
 
-ÃÃ? B
-œœ  #
+ÕÕ? B
+““  #
 
-ŒŒ5 6
-œœ- .<
+œœh i
+““- .<
 
-œœ 
-–– 
-”” 
-‘‘ 
-’’  #
+““ 
+”” 
+÷÷ 
+◊◊ 
+ÿÿ  #
 
-’’< =
-’’A B
+ÿÿ< =
+ÿÿA B
 
-’’Q R
-’’V W
+ÿÿQ R
+ÿÿV W
 
-ÿÿ" (
-ÿÿ, 2
+€€" (
+€€, 2
 
-ﬂﬂ +   $
+‚‚ +   $
 
-ﬂﬂ; >
-·· 
-‚‚ 
+‚‚; >
+‰‰ 
+ÂÂ 
 
-·· 
-öö <
+‰‰ 
+ùù <
 
-‚‚ 
-ÊÊ 
-˙˙ 
-ÉÉ 
-ãã 
+ÂÂ 
+ÈÈ 
+˝˝ 
+ÜÜ 
+éé 
 
-„„" #
-„„' ($
+ÊÊ" #
+ÊÊ' ($
 
-ÁÁ% ,
-ÏÏ? F
-, 3
+ÍÍ% ,
+ÔÔ? F
+ÛÛ, 3
 
-ËË% ,
- $
+ÎÎ% ,
+ÛÛ $
 
-ÈÈ1 :
-ÏÏ' 0$
+ÏÏ1 :
+ÔÔ' 0$
 
-ÍÍ" $
-ÏÏH J
-5 7$
+ÌÌ" $
+ÔÔH J
+ÛÛ5 7$
 
-ÏÏ 
-ÌÌ 
-ÓÓ5 ?
+ÔÔ 
+ 
+ÒÒ5 ?
 
-˙˙D F
-˚˚? A
+˝˝D F
+˛˛? A
 
-˙˙^ e
-˚˚ 
+˝˝^ e
+˛˛ 
 
-ÉÉB H
-ÑÑB H
+ÜÜB H
+ááB H
 
-ÉÉc j
-ÑÑ 
+ÜÜc j
+áá 
 
-åå3 :
-êê, 3
+èè3 :
+ìì, 3
 
-çç3 :
-êê $
+êê3 :
+ìì $
 
-éé" $
-êê5 7
+ëë" $
+ìì5 7
 
-õõ  '
-ûû &
+ûû  '
+°° &
 
-úú) 0
-ûû 
+üü) 0
+°° 
 
-ùù& (
-ûû( *
+††& (
+°°( *
 
-££ +!! 
+¶¶ +!! 
 
-££; >
-•• 0
+¶¶; >
+®® 0
 
-•• 
-©© 
-±± 
-≈≈ 
+®® 
+¨¨ 
+¥¥ 
+»» 
 
-¶¶" #
-¶¶' (
+©©" #
+©©' (
 
-©©A G
-™™B H
+¨¨A G
+≠≠B H
 
-©©b i
-™™ $
+¨¨b i
+≠≠ $
 
-≤≤$ +
-∑∑? F
-ªª, 3
+µµ$ +
+∫∫? F
+ææ, 3
 
-≥≥$ +
-ªª $
+∂∂$ +
+ææ $
 
-¥¥0 9
-∑∑' 0$
+∑∑0 9
+∫∫' 0$
 
-µµ" $
-∑∑H J
-ªª5 7$
+∏∏" $
+∫∫H J
+ææ5 7$
 
-∑∑ 
-∏∏ 
-ππ5 ?
+∫∫ 
+ªª 
+ºº5 ?
 
-≈≈F L
-»», 2
+»»F L
+ÀÀ, 2
 
-≈≈` b
-««  "
+»»` b
+    "
 
-≈≈v x
-  ! #
+»»v x
+ÕÕ! #
 
-«« 
-ÃÃ" %
+   
+œœ" %
 
-»» 
-»»  !
+ÀÀ 
+ÀÀ  !
 
-……' (
-……, -
+ÃÃ' (
+ÃÃ, -
 
-‘‘ ("" 
+◊◊ ("" 
 
-‘‘8 ;
-÷÷ $
+◊◊8 ;
+ŸŸ $
 
-÷÷ 
-⁄⁄ 
-ÒÒ 
+ŸŸ 
+›› 
+ÙÙ 
 
-◊◊& '
-◊◊+ ,
+⁄⁄& '
+⁄⁄+ ,
 
-€€" $
-ﬁﬁ" $
+ﬁﬁ" $
+··" $
 
-‹‹" $
-ÁÁ! #
+ﬂﬂ" $
+ÍÍ! #
 
-ﬁﬁ 
-ÈÈ" 'H
+·· 
+ÏÏ" 'H
 
-ﬂﬂ 
-·· 
-‚‚ 
-„„ 
-‰‰  
-ÂÂ 
+‚‚ 
+‰‰ 
+ÂÂ 
+ÊÊ 
+ÁÁ  
+ËË 
 
-ÚÚ 
-˜˜( .
+ıı 
+˙˙( .
 
-ÛÛ" $
-ˆˆ! #
+ˆˆ" $
+˘˘! #
 
-ÙÙ" $
-ÄÄ) +$
+˜˜" $
+ÉÉ) +$
 
-ˆˆ 
-ÇÇ 
-ÖÖ" &
+˘˘ 
+ÖÖ 
+àà" &
 
-˜˜ 
-˜˜  !H
+˙˙ 
+˙˙  !H
 
-¯¯ 
-˙˙ 
-˚˚ 
-¸¸ 
-˝˝  
-˛˛ 
+˚˚ 
+˝˝ 
+˛˛ 
+ˇˇ 
+ÄÄ  
+ÅÅ 
 
-éé (## $
+ëë (## $
 
-éé8 ;
-êê 
-¸¸ <
+ëë8 ;
+ìì 
+ˇˇ <
 
-êê 
-ìì 
-∫∫ 
-’’ 
-ÂÂ H
+ìì 
+ññ 
+ΩΩ 
+ÿÿ 
+ËË H
 
-îî  '
-ööA H
-üü8 ?
-•• "
-¶¶ 
-ßß> E0
+óó  '
+ùùA H
+¢¢8 ?
+®® "
+©© 
+™™> E0
 
-ïï  
-üü 
-¨¨ 
-≠≠ 
+òò  
+¢¢ 
+ØØ 
+∞∞ 
 
-ññ, 5
-öö) 20
+ôô, 5
+ùù) 20
 
-óó  
-ööJ L
-üüG I
-≠≠& ($
+öö  
+ùùJ L
+¢¢G I
+∞∞& ($
 
-öö  
-õõ !
-úú1 A
+ùù  
+ûû !
+üü1 A
 
-üü( )
-üü- .T
+¢¢( )
+¢¢- .T
 
-¢¢ 
-¨¨ 
-∞∞ "
-±± 
-±± #
-±±. 2
-±±A E$
+•• 
+ØØ 
+≥≥ "
+¥¥ 
+¥¥ #
+¥¥. 2
+¥¥A E$
 
-ªª $
-¡¡5 <
-√√: A
+ææ $
+ƒƒ5 <
+∆∆: A
 
-ºº  
-¿¿ 
+øø  
+√√ 
 
-ΩΩ !
-∆∆ "
+¿¿ !
+…… "
 
-ææ  
-¡¡D FT
+¡¡  
+ƒƒD FT
 
-¿¿ 
 √√ 
-√√L P
-∆∆1 5
-ÀÀ 
-ÃÃ 
-ÕÕ 
+∆∆ 
+∆∆L P
+……1 5
+ŒŒ 
+œœ 
+–– 
 
-¡¡% &
-¡¡* +
+ƒƒ% &
+ƒƒ* +
 
-∆∆ 
-   $
+…… 
+ÕÕ $
 
-ÊÊ" )
-ÏÏA H
-( /
+ÈÈ" )
+ÔÔA H
+ÛÛ( /
 
-ÁÁ" )
-  
+ÍÍ" )
+ÛÛ  
 
-ËË. 7
-ÏÏ) 2$
+ÎÎ. 7
+ÔÔ) 2$
 
-ÈÈ  
-ÏÏJ L
-1 3$
+ÏÏ  
+ÔÔJ L
+ÛÛ1 3$
 
-ÏÏ  
-ÌÌ !
-ÓÓ1 A$
+ÔÔ  
+ !
+ÒÒ1 A$
 
-˝˝ 
-ÉÉ8 >
-ãã? E
+ÄÄ 
+ÜÜ8 >
+éé? E
 
-˛˛" )
-ÉÉ  '$
+ÅÅ" )
+ÜÜ  '$
 
-ˇˇ  
-ãã 
-ìì 
+ÇÇ  
+éé 
+ññ 
 
-ÄÄ. 7
-ÜÜ) 20
+ÉÉ. 7
+ââ) 20
 
-ÅÅ  
-ÜÜP R
-ããI K
-ìì& ($
+ÑÑ  
+ââP R
+ééI K
+ññ& ($
 
-ÉÉ 
-ÜÜA N
-êê/ <$
+ÜÜ 
+ââA N
+ìì/ <$
 
-ÜÜ  
-áá !
-àà1 AT
+ââ  
+ää !
+ãã1 AT
 
-ãã 
-åå 
-íí 
-óó 
-òò 
-ôô 
-öö $
+éé 
+èè 
+ïï 
+öö 
+õõ 
+úú 
+ùù $
 
-êê 
-íí 
-õõ? F
+ìì 
+ïï 
+ûû? F
 
-ûû $
-ûû( .
+°° $
+°°( .
 
-©© *$$ 
+¨¨ *$$ 
 
-©©: =
-´´ 
+¨¨: =
+ÆÆ 
 
-´´ 
-≠≠ ˇ
+ÆÆ 
+∞∞ ˇ
 rC:\Users\Veronica\Desktop\dot_Net\CampusEats\CampusEatsProject_dotNET\CampusEats\CampusEats\DependencyInjection.cs
 
  '

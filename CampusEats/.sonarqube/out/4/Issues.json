@@ -11,7 +11,634 @@
         "language": "en-US"
       },
       "results": [
-      ]
+        {
+          "ruleId": "S3260",
+          "level": "warning",
+          "message": "Private classes which are not derived in the current assembly should be marked as 'sealed'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/AuthService.cs",
+                "region": {
+                  "startLine": 175,
+                  "startColumn": 19,
+                  "endLine": 175,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3459",
+          "level": "warning",
+          "message": "Remove unassigned auto-property 'UserId', or set its value.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/AuthService.cs",
+                "region": {
+                  "startLine": 178,
+                  "startColumn": 21,
+                  "endLine": 178,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1144",
+          "level": "warning",
+          "message": "Remove the unused private set accessor in property 'UserId'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/AuthService.cs",
+                "region": {
+                  "startLine": 178,
+                  "startColumn": 35,
+                  "endLine": 178,
+                  "endColumn": 38
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'localStorage.removeItem' 4 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/AuthService.cs",
+                "region": {
+                  "startLine": 111,
+                  "startColumn": 39,
+                  "endLine": 111,
+                  "endColumn": 64
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/AuthService.cs",
+                "region": {
+                  "startLine": 112,
+                  "startColumn": 39,
+                  "endLine": 112,
+                  "endColumn": 64
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/AuthService.cs",
+                "region": {
+                  "startLine": 113,
+                  "startColumn": 39,
+                  "endLine": 113,
+                  "endColumn": 64
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/AuthService.cs",
+                "region": {
+                  "startLine": 114,
+                  "startColumn": 39,
+                  "endLine": 114,
+                  "endColumn": 64
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null
+            }
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'localStorage.getItem' 4 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/AuthService.cs",
+                "region": {
+                  "startLine": 146,
+                  "startColumn": 56,
+                  "endLine": 146,
+                  "endColumn": 78
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/AuthService.cs",
+                "region": {
+                  "startLine": 151,
+                  "startColumn": 60,
+                  "endLine": 151,
+                  "endColumn": 82
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/AuthService.cs",
+                "region": {
+                  "startLine": 152,
+                  "startColumn": 59,
+                  "endLine": 152,
+                  "endColumn": 81
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/AuthService.cs",
+                "region": {
+                  "startLine": 153,
+                  "startColumn": 55,
+                  "endLine": 153,
+                  "endColumn": 77
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null
+            }
+          }
+        },
+        {
+          "ruleId": "S112",
+          "level": "warning",
+          "message": "'System.Exception' should not be thrown by user code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Services/MenuService.cs",
+                "region": {
+                  "startLine": 30,
+                  "startColumn": 89,
+                  "endLine": 30,
+                  "endColumn": 127
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1075",
+          "level": "warning",
+          "message": "Refactor your code not to use hardcoded absolute paths or URIs.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Program.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 57,
+                  "endLine": 15,
+                  "endColumn": 81
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1066",
+          "level": "warning",
+          "message": "Merge this if statement with the enclosing one.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/UserProfile.razor",
+                "region": {
+                  "startLine": 154,
+                  "startColumn": 17,
+                  "endLine": 154,
+                  "endColumn": 19
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/UserProfile.razor",
+                "region": {
+                  "startLine": 152,
+                  "startColumn": 13,
+                  "endLine": 152,
+                  "endColumn": 15
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": "Merge this if statement with its nested one."
+            }
+          }
+        },
+        {
+          "ruleId": "S3776",
+          "level": "warning",
+          "message": "Refactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 435,
+                  "startColumn": 24,
+                  "endLine": 435,
+                  "endColumn": 38
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 437,
+                  "startColumn": 9,
+                  "endLine": 437,
+                  "endColumn": 11
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 437,
+                  "startColumn": 37,
+                  "endLine": 437,
+                  "endColumn": 39
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 448,
+                  "startColumn": 9,
+                  "endLine": 448,
+                  "endColumn": 11
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 448,
+                  "startColumn": 42,
+                  "endLine": 448,
+                  "endColumn": 44
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 463,
+                  "startColumn": 13,
+                  "endLine": 463,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 474,
+                  "startColumn": 17,
+                  "endLine": 474,
+                  "endColumn": 19
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 488,
+                  "startColumn": 17,
+                  "endLine": 488,
+                  "endColumn": 19
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 496,
+                  "startColumn": 13,
+                  "endLine": 496,
+                  "endColumn": 17
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 502,
+                  "startColumn": 13,
+                  "endLine": 502,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 510,
+                  "startColumn": 52,
+                  "endLine": 510,
+                  "endColumn": 53
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 515,
+                  "startColumn": 17,
+                  "endLine": 515,
+                  "endColumn": 19
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 520,
+                  "startColumn": 17,
+                  "endLine": 520,
+                  "endColumn": 21
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 526,
+                  "startColumn": 13,
+                  "endLine": 526,
+                  "endColumn": 17
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 532,
+                  "startColumn": 52,
+                  "endLine": 532,
+                  "endColumn": 53
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 537,
+                  "startColumn": 17,
+                  "endLine": 537,
+                  "endColumn": 19
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 541,
+                  "startColumn": 17,
+                  "endLine": 541,
+                  "endColumn": 21
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats.Frontend/Pages/Payments/Payment.razor",
+                "region": {
+                  "startLine": 547,
+                  "startColumn": 9,
+                  "endLine": 547,
+                  "endColumn": 14
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": "+1",
+              "1": "+1",
+              "10": "+2 (incl 1 for nesting)",
+              "11": "+1",
+              "12": "+1",
+              "13": "+2 (incl 1 for nesting)",
+              "14": "+2 (incl 1 for nesting)",
+              "15": "+1",
+              "16": "+1",
+              "2": "+1",
+              "3": "+1",
+              "4": "+1",
+              "5": "+2 (incl 1 for nesting)",
+              "6": "+2 (incl 1 for nesting)",
+              "7": "+1",
+              "8": "+1",
+              "9": "+2 (incl 1 for nesting)"
+            }
+          }
+        }
+      ],
+      "rules": {
+        "S1066": {
+          "id": "S1066",
+          "shortDescription": "Mergeable \"if\" statements should be combined",
+          "fullDescription": "Nested code - blocks of code inside blocks of code - is eventually necessary, but increases complexity. This is why keeping the code as flat as possible, by avoiding unnecessary nesting, is considered a good practice.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1066",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S1075": {
+          "id": "S1075",
+          "shortDescription": "URIs should not be hardcoded",
+          "fullDescription": "Hard-coding a URI makes it difficult to test a program for a variety of reasons:",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1075",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S112": {
+          "id": "S112",
+          "shortDescription": "General or reserved exceptions should never be thrown",
+          "fullDescription": "This rule raises an issue when a general or reserved exception is thrown.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-112",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S1144": {
+          "id": "S1144",
+          "shortDescription": "Unused private types or members should be removed",
+          "fullDescription": "This rule raises an issue when a private/internal type or member is never referenced in the code.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1144",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S1192": {
+          "id": "S1192",
+          "shortDescription": "String literals should not be duplicated",
+          "fullDescription": "Duplicated string literals make the process of refactoring complex and error-prone, as any change would need to be propagated on all occurrences.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1192",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": false,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S3260": {
+          "id": "S3260",
+          "shortDescription": "Non-derived \"private\" classes and records should be \"sealed\"",
+          "fullDescription": "Classes and records with either private or file access modifiers aren’t visible outside of their assemblies or files, so if they’re not extended inside their scope, they should be made explicitly non-extensible with the addition of the sealed keyword.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-3260",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S3459": {
+          "id": "S3459",
+          "shortDescription": "Unassigned members should be removed",
+          "fullDescription": "Fields and auto-properties that are never assigned to hold the default values for their types. They are either pointless code or, more likely, mistakes.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-3459",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S3776": {
+          "id": "S3776",
+          "shortDescription": "Cognitive Complexity of methods should not be too high",
+          "fullDescription": "This rule raises an issue when the code cognitive complexity of a function is above a certain threshold.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-3776",
+          "properties": {
+            "category": "Critical Code Smell",
+            "isEnabledByDefault": false,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        }
+      }
     }
   ]
 }

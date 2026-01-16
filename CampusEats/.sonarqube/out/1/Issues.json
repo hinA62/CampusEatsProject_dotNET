@@ -549,210 +549,6 @@
           }
         },
         {
-          "ruleId": "S1144",
-          "level": "warning",
-          "message": "Remove the unused private field 'ClientTag'.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/EndpointMapper.cs",
-                "region": {
-                  "startLine": 45,
-                  "startColumn": 5,
-                  "endLine": 45,
-                  "endColumn": 47
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1192",
-          "level": "warning",
-          "message": "Define a constant instead of using this literal 'LoyaltyTransactions' 4 times.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251127153356_AddPaymentAndLoyalty.cs",
-                "region": {
-                  "startLine": 46,
-                  "startColumn": 23,
-                  "endLine": 46,
-                  "endColumn": 44
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251127153356_AddPaymentAndLoyalty.cs",
-                "region": {
-                  "startLine": 69,
-                  "startColumn": 24,
-                  "endLine": 69,
-                  "endColumn": 45
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251127153356_AddPaymentAndLoyalty.cs",
-                "region": {
-                  "startLine": 74,
-                  "startColumn": 24,
-                  "endLine": 74,
-                  "endColumn": 45
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251127153356_AddPaymentAndLoyalty.cs",
-                "region": {
-                  "startLine": 87,
-                  "startColumn": 23,
-                  "endLine": 87,
-                  "endColumn": 44
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1,
-            "customProperties": {
-              "0": null,
-              "1": null,
-              "2": null
-            }
-          }
-        },
-        {
-          "ruleId": "S1192",
-          "level": "warning",
-          "message": "Define a constant instead of using this literal 'numeric(18,2)' 4 times.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251121130418_AddUserTable.cs",
-                "region": {
-                  "startLine": 17,
-                  "startColumn": 23,
-                  "endLine": 17,
-                  "endColumn": 38
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251121130418_AddUserTable.cs",
-                "region": {
-                  "startLine": 20,
-                  "startColumn": 26,
-                  "endLine": 20,
-                  "endColumn": 41
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251121130418_AddUserTable.cs",
-                "region": {
-                  "startLine": 54,
-                  "startColumn": 23,
-                  "endLine": 54,
-                  "endColumn": 38
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251121130418_AddUserTable.cs",
-                "region": {
-                  "startLine": 58,
-                  "startColumn": 26,
-                  "endLine": 58,
-                  "endColumn": 41
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1,
-            "customProperties": {
-              "0": null,
-              "1": null,
-              "2": null
-            }
-          }
-        },
-        {
-          "ruleId": "S1192",
-          "level": "warning",
-          "message": "Define a constant instead of using this literal 'LoyaltyAccounts' 4 times.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251207005139_AddLoyaltyTierSystem.cs",
-                "region": {
-                  "startLine": 15,
-                  "startColumn": 24,
-                  "endLine": 15,
-                  "endColumn": 41
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251207005139_AddLoyaltyTierSystem.cs",
-                "region": {
-                  "startLine": 22,
-                  "startColumn": 24,
-                  "endLine": 22,
-                  "endColumn": 41
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251207005139_AddLoyaltyTierSystem.cs",
-                "region": {
-                  "startLine": 33,
-                  "startColumn": 24,
-                  "endLine": 33,
-                  "endColumn": 41
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251207005139_AddLoyaltyTierSystem.cs",
-                "region": {
-                  "startLine": 37,
-                  "startColumn": 24,
-                  "endLine": 37,
-                  "endColumn": 41
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1,
-            "customProperties": {
-              "0": null,
-              "1": null,
-              "2": null
-            }
-          }
-        },
-        {
           "ruleId": "S1192",
           "level": "warning",
           "message": "Define a constant instead of using this literal 'decimal(18,2)' 5 times.",
@@ -1045,18 +841,201 @@
           }
         },
         {
-          "ruleId": "S5122",
+          "ruleId": "S1192",
           "level": "warning",
-          "message": "Make sure this permissive CORS policy is safe here.",
+          "message": "Define a constant instead of using this literal 'LoyaltyTransactions' 4 times.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/ServiceExtensions.cs",
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251127153356_AddPaymentAndLoyalty.cs",
                 "region": {
-                  "startLine": 34,
-                  "startColumn": 18,
-                  "endLine": 34,
-                  "endColumn": 36
+                  "startLine": 46,
+                  "startColumn": 23,
+                  "endLine": 46,
+                  "endColumn": 44
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251127153356_AddPaymentAndLoyalty.cs",
+                "region": {
+                  "startLine": 69,
+                  "startColumn": 24,
+                  "endLine": 69,
+                  "endColumn": 45
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251127153356_AddPaymentAndLoyalty.cs",
+                "region": {
+                  "startLine": 74,
+                  "startColumn": 24,
+                  "endLine": 74,
+                  "endColumn": 45
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251127153356_AddPaymentAndLoyalty.cs",
+                "region": {
+                  "startLine": 87,
+                  "startColumn": 23,
+                  "endLine": 87,
+                  "endColumn": 44
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null
+            }
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'numeric(18,2)' 4 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251121130418_AddUserTable.cs",
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 23,
+                  "endLine": 17,
+                  "endColumn": 38
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251121130418_AddUserTable.cs",
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 26,
+                  "endLine": 20,
+                  "endColumn": 41
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251121130418_AddUserTable.cs",
+                "region": {
+                  "startLine": 54,
+                  "startColumn": 23,
+                  "endLine": 54,
+                  "endColumn": 38
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251121130418_AddUserTable.cs",
+                "region": {
+                  "startLine": 58,
+                  "startColumn": 26,
+                  "endLine": 58,
+                  "endColumn": 41
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null
+            }
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'LoyaltyAccounts' 4 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251207005139_AddLoyaltyTierSystem.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 24,
+                  "endLine": 15,
+                  "endColumn": 41
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251207005139_AddLoyaltyTierSystem.cs",
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 24,
+                  "endLine": 22,
+                  "endColumn": 41
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251207005139_AddLoyaltyTierSystem.cs",
+                "region": {
+                  "startLine": 33,
+                  "startColumn": 24,
+                  "endLine": 33,
+                  "endColumn": 41
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251207005139_AddLoyaltyTierSystem.cs",
+                "region": {
+                  "startLine": 37,
+                  "startColumn": 24,
+                  "endLine": 37,
+                  "endColumn": 41
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null
+            }
+          }
+        },
+        {
+          "ruleId": "CA1825",
+          "level": "note",
+          "message": "Avoid unnecessary zero-length array allocations.  Use Array.Empty<int>() instead.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251031012904_AddDietaryRestrictionsToMenuItem.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 31,
+                  "endLine": 18,
+                  "endColumn": 41
                 }
               }
             }
@@ -1092,48 +1071,6 @@
           }
         },
         {
-          "ruleId": "S3358",
-          "level": "warning",
-          "message": "Extract this nested ternary operation into an independent statement.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Features/Auth/JwtService.cs",
-                "region": {
-                  "startLine": 34,
-                  "startColumn": 15,
-                  "endLine": 36,
-                  "endColumn": 39
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CA2254",
-          "level": "note",
-          "message": "The logging message template should not vary between calls to 'LoggerExtensions.LogError(ILogger, string?, params object?[])'",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Features/Kitchen/Handlers/UpdateOrderStatusHandler.cs",
-                "region": {
-                  "startLine": 19,
-                  "startColumn": 66,
-                  "endLine": 19,
-                  "endColumn": 80
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
           "ruleId": "S6781",
           "level": "warning",
           "message": "JWT secret keys should not be disclosed, either in code or in configuration files.",
@@ -1142,9 +1079,9 @@
               "resultFile": {
                 "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Features/Auth/JwtService.cs",
                 "region": {
-                  "startLine": 50,
+                  "startLine": 60,
                   "startColumn": 19,
-                  "endLine": 50,
+                  "endLine": 60,
                   "endColumn": 75
                 }
               }
@@ -1176,18 +1113,60 @@
           }
         },
         {
-          "ruleId": "CA1825",
+          "ruleId": "CA2254",
           "level": "note",
-          "message": "Avoid unnecessary zero-length array allocations.  Use Array.Empty<int>() instead.",
+          "message": "The logging message template should not vary between calls to 'LoggerExtensions.LogError(ILogger, string?, params object?[])'",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251031012904_AddDietaryRestrictionsToMenuItem.cs",
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Features/Kitchen/Handlers/UpdateOrderStatusHandler.cs",
                 "region": {
-                  "startLine": 18,
+                  "startLine": 19,
+                  "startColumn": 66,
+                  "endLine": 19,
+                  "endColumn": 80
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S4581",
+          "level": "warning",
+          "message": "Use 'Guid.NewGuid()' or 'Guid.Empty' or add arguments to this GUID instantiation.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251218045055_RemoveRestrictionsFromCreateMenu.cs",
+                "region": {
+                  "startLine": 31,
                   "startColumn": 31,
-                  "endLine": 18,
-                  "endColumn": 41
+                  "endLine": 31,
+                  "endColumn": 79
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1905",
+          "level": "warning",
+          "message": "Remove this unnecessary cast to 'decimal?'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Features/Order/Handlers/PlaceOrderHandler.cs",
+                "region": {
+                  "startLine": 38,
+                  "startColumn": 47,
+                  "endLine": 38,
+                  "endColumn": 55
                 }
               }
             }
@@ -1251,174 +1230,6 @@
                   "startColumn": 28,
                   "endLine": 19,
                   "endColumn": 51
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S4581",
-          "level": "warning",
-          "message": "Use 'Guid.NewGuid()' or 'Guid.Empty' or add arguments to this GUID instantiation.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251218045055_RemoveRestrictionsFromCreateMenu.cs",
-                "region": {
-                  "startLine": 31,
-                  "startColumn": 31,
-                  "endLine": 31,
-                  "endColumn": 79
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1186",
-          "level": "warning",
-          "message": "Add a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251207011437_FixLoyaltyPointsLogic.cs",
-                "region": {
-                  "startLine": 17,
-                  "startColumn": 33,
-                  "endLine": 17,
-                  "endColumn": 37
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CA2254",
-          "level": "note",
-          "message": "The logging message template should not vary between calls to 'LoggerExtensions.LogError(ILogger, string?, params object?[])'",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Features/Order/Handlers/CancelOrderHandler.cs",
-                "region": {
-                  "startLine": 21,
-                  "startColumn": 66,
-                  "endLine": 21,
-                  "endColumn": 80
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S6580",
-          "level": "warning",
-          "message": "Use a format provider when parsing date and time.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/EndpointMapper.cs",
-                "region": {
-                  "startLine": 316,
-                  "startColumn": 22,
-                  "endLine": 316,
-                  "endColumn": 56
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S6580",
-          "level": "warning",
-          "message": "Use a format provider when parsing date and time.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/EndpointMapper.cs",
-                "region": {
-                  "startLine": 334,
-                  "startColumn": 22,
-                  "endLine": 334,
-                  "endColumn": 56
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1905",
-          "level": "warning",
-          "message": "Remove this unnecessary cast to 'decimal?'.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Features/Order/Handlers/PlaceOrderHandler.cs",
-                "region": {
-                  "startLine": 38,
-                  "startColumn": 47,
-                  "endLine": 38,
-                  "endColumn": 55
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1186",
-          "level": "warning",
-          "message": "Add a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251207010312_UpdateLoyaltyPointsConversion.cs",
-                "region": {
-                  "startLine": 17,
-                  "startColumn": 33,
-                  "endLine": 17,
-                  "endColumn": 37
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1186",
-          "level": "warning",
-          "message": "Add a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251031014042_UpdateDietaryRestrictionsToFlags.cs",
-                "region": {
-                  "startLine": 17,
-                  "startColumn": 33,
-                  "endLine": 17,
-                  "endColumn": 37
                 }
               }
             }
@@ -1497,27 +1308,6 @@
           }
         },
         {
-          "ruleId": "S1186",
-          "level": "warning",
-          "message": "Add a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Migrations/20251106213404_Smek.cs",
-                "region": {
-                  "startLine": 17,
-                  "startColumn": 33,
-                  "endLine": 17,
-                  "endColumn": 37
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
           "ruleId": "CA1861",
           "level": "note",
           "message": "Prefer 'static readonly' fields over constant array arguments if the called method is called repeatedly and is not mutating the passed array",
@@ -1554,6 +1344,27 @@
                   "startColumn": 17,
                   "endLine": 61,
                   "endColumn": 21
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA2254",
+          "level": "note",
+          "message": "The logging message template should not vary between calls to 'LoggerExtensions.LogError(ILogger, string?, params object?[])'",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Veronica/Desktop/dot_Net/CampusEats/CampusEatsProject_dotNET/CampusEats/CampusEats/Features/Order/Handlers/CancelOrderHandler.cs",
+                "region": {
+                  "startLine": 21,
+                  "startColumn": 66,
+                  "endLine": 21,
+                  "endColumn": 80
                 }
               }
             }
@@ -1652,40 +1463,6 @@
             ]
           }
         },
-        "S1144": {
-          "id": "S1144",
-          "shortDescription": "Unused private types or members should be removed",
-          "fullDescription": "This rule raises an issue when a private/internal type or member is never referenced in the code.",
-          "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1144",
-          "properties": {
-            "category": "Major Code Smell",
-            "isEnabledByDefault": true,
-            "tags": [
-              "C#",
-              "MainSourceScope",
-              "TestSourceScope",
-              "SonarWay"
-            ]
-          }
-        },
-        "S1186": {
-          "id": "S1186",
-          "shortDescription": "Methods should not be empty",
-          "fullDescription": "An empty method is generally considered bad practice and can lead to confusion, readability, and maintenance issues. Empty methods bring no functionality and are misleading to others as they might think the method implementation fulfills a specific and identified requirement.",
-          "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1186",
-          "properties": {
-            "category": "Critical Code Smell",
-            "isEnabledByDefault": true,
-            "tags": [
-              "C#",
-              "MainSourceScope",
-              "TestSourceScope",
-              "SonarWay"
-            ]
-          }
-        },
         "S1192": {
           "id": "S1192",
           "shortDescription": "String literals should not be duplicated",
@@ -1752,23 +1529,6 @@
             ]
           }
         },
-        "S3358": {
-          "id": "S3358",
-          "shortDescription": "Ternary operators should not be nested",
-          "fullDescription": "Nested ternaries are hard to read and can make the order of operations complex to understand.",
-          "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-3358",
-          "properties": {
-            "category": "Major Code Smell",
-            "isEnabledByDefault": true,
-            "tags": [
-              "C#",
-              "MainSourceScope",
-              "TestSourceScope",
-              "SonarWay"
-            ]
-          }
-        },
         "S4581": {
           "id": "S4581",
           "shortDescription": "\"new Guid()\" should not be used",
@@ -1786,22 +1546,6 @@
             ]
           }
         },
-        "S5122": {
-          "id": "S5122",
-          "shortDescription": "Having a permissive Cross-Origin Resource Sharing policy is security-sensitive",
-          "fullDescription": "Having a permissive Cross-Origin Resource Sharing policy is security-sensitive. It has led in the past to the following vulnerabilities:",
-          "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-5122",
-          "properties": {
-            "category": "Minor Security Hotspot",
-            "isEnabledByDefault": true,
-            "tags": [
-              "C#",
-              "MainSourceScope",
-              "SonarWay"
-            ]
-          }
-        },
         "S6444": {
           "id": "S6444",
           "shortDescription": "Not specifying a timeout for regular expressions is security-sensitive",
@@ -1814,23 +1558,6 @@
             "tags": [
               "C#",
               "MainSourceScope",
-              "SonarWay"
-            ]
-          }
-        },
-        "S6580": {
-          "id": "S6580",
-          "shortDescription": "Use a format provider when parsing date and time",
-          "fullDescription": "When converting a string representation of a date and time to a DateTime object or any other temporal type with one of the available system parsing methods, you should always provide an IFormatProvider parameter.",
-          "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-6580",
-          "properties": {
-            "category": "Major Code Smell",
-            "isEnabledByDefault": true,
-            "tags": [
-              "C#",
-              "MainSourceScope",
-              "TestSourceScope",
               "SonarWay"
             ]
           }

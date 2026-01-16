@@ -4,9 +4,11 @@ using CampusEats.Features.Payment.Requests;
 using CampusEats.Features.User;
 using CampusEats.Persistence;
 using FluentAssertions;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Moq;
+using Stripe;
 
 namespace CampusEats.Test.PaymentTests.IntegrationTests;
 
@@ -26,290 +28,127 @@ public class CreateStripeCheckoutSessionHandlerTests
         _config = new Mock<IConfiguration>();
         _config.Setup(c => c["Stripe:ClientBaseUrl"]).Returns("http://localhost:5007");
 
+        // Stripe SDK are nevoie de o cheie (chiar și invalidă) pentru a nu arunca excepție la instanțiere
+        StripeConfiguration.ApiKey = "sk_test_51MockKey";
+
         _handler = new CreateStripeCheckoutSessionHandler(_context, _config.Object);
     }
 
     [Fact]
     public async Task Handle_OrderNotFound_ReturnsNotFound()
     {
-        var request = new CreateStripeCheckoutSessionRequest(
-            Guid.NewGuid(),
-            Guid.NewGuid(),
-            null
-        );
-
+        var request = new CreateStripeCheckoutSessionRequest(Guid.NewGuid(), Guid.NewGuid(), null);
         var result = await _handler.Handle(request, CancellationToken.None);
 
         result.Should().NotBeNull();
-        var resultType = result.GetType().Name;
-        resultType.Should().Contain("NotFound");
+        result.GetType().Name.Should().Contain("NotFound");
     }
 
     [Fact]
     public async Task Handle_UserNotFound_ReturnsNotFound()
     {
-        var orderId = Guid.NewGuid();
-        var order = new Order(
-            orderId,
-            Guid.NewGuid(),
-            100.00m,
-            [],
-            [],
-            DateTime.UtcNow,
-            OrderStatus.Pending
-        );
-        _context.Order.Add(order);
-        await _context.SaveChangesAsync();
-
-        var request = new CreateStripeCheckoutSessionRequest(
-            Guid.NewGuid(),
-            orderId,
-            null
-        );
+        var orderId = await SeedOrder(100m);
+        var request = new CreateStripeCheckoutSessionRequest(Guid.NewGuid(), orderId, null);
 
         var result = await _handler.Handle(request, CancellationToken.None);
 
         result.Should().NotBeNull();
-        var resultType = result.GetType().Name;
-        resultType.Should().Contain("NotFound");
-    }
-
-    [Fact]
-    public async Task Handle_FinalAmountZeroOrNegative_ReturnsBadRequest()
-    {
-        var userId = Guid.NewGuid();
-        var user = new User
-        {
-            Id = userId,
-            Username = "testuser",
-            Email = "test@test.com",
-            PasswordHash = "hash",
-            Role = UserRole.Client
-        };
-        _context.Users.Add(user);
-
-        var orderId = Guid.NewGuid();
-        var order = new Order(
-            orderId,
-            userId,
-            10.00m,
-            [],
-            [],
-            DateTime.UtcNow,
-            OrderStatus.Pending
-        );
-        _context.Order.Add(order);
-        await _context.SaveChangesAsync();
-
-        var request = new CreateStripeCheckoutSessionRequest(
-            userId,
-            orderId,
-            2000
-        );
-
-        var result = await _handler.Handle(request, CancellationToken.None);
-
-        result.Should().NotBeNull();
-        var resultType = result.GetType().Name;
-        resultType.Should().Contain("BadRequest");
+        result.GetType().Name.Should().Contain("NotFound");
     }
 
     [Fact]
     public async Task Handle_MissingClientBaseUrl_ReturnsProblem()
     {
         _config.Setup(c => c["Stripe:ClientBaseUrl"]).Returns((string?)null);
+        var userId = await SeedUser();
+        var orderId = await SeedOrder(100m, userId);
 
-        var userId = Guid.NewGuid();
-        var user = new User
-        {
-            Id = userId,
-            Username = "testuser",
-            Email = "test@test.com",
-            PasswordHash = "hash",
-            Role = UserRole.Client
-        };
-        _context.Users.Add(user);
+        var request = new CreateStripeCheckoutSessionRequest(userId, orderId, null);
+        var result = await _handler.Handle(request, CancellationToken.None);
 
-        var orderId = Guid.NewGuid();
-        var order = new Order(
-            orderId,
-            userId,
-            100.00m,
-            [],
-            [],
-            DateTime.UtcNow,
-            OrderStatus.Pending
-        );
-        _context.Order.Add(order);
-        await _context.SaveChangesAsync();
+        result.Should().NotBeNull();
+        result.GetType().Name.Should().Contain("Problem");
+    }
 
-        var request = new CreateStripeCheckoutSessionRequest(
-            userId,
-            orderId,
-            null
-        );
+    [Fact]
+    public async Task Handle_FinalAmountZeroOrNegative_ReturnsBadRequest()
+    {
+        // Cazul în care reducerea face ca suma să fie exact 0 sau mai mică
+        var userId = await SeedUser();
+        var orderId = await SeedOrder(10m, userId); // 10 RON
+
+        // 1000 puncte = 10 RON discount. Preț final = 0.
+        var request = new CreateStripeCheckoutSessionRequest(userId, orderId, 1000);
 
         var result = await _handler.Handle(request, CancellationToken.None);
 
         result.Should().NotBeNull();
-        var resultType = result.GetType().Name;
-        resultType.Should().Contain("Problem");
+        result.GetType().Name.Should().Contain("BadRequest");
     }
 
     [Fact]
-    public async Task Handle_ValidRequestWithoutPoints_CalculatesCorrectAmount()
+    public async Task Handle_PointsExceedOrderPrice_CapsDiscountAndCalculatesCorrectly()
     {
-        var userId = Guid.NewGuid();
-        var user = new User
-        {
-            Id = userId,
-            Username = "testuser",
-            Email = "test@test.com",
-            PasswordHash = "hash",
-            Role = UserRole.Client
+        // Testează ramura: if (discount > maxDiscount)
+        var userId = await SeedUser();
+        var orderId = await SeedOrder(20m, userId);
+
+        // Cerem 5000 puncte (50 RON), dar prețul e 20 RON. 
+        // Codul ar trebui să plafoneze la 2000 puncte, dar rezultatul final va fi 0 RON
+        // ceea ce va declanșa BadRequest-ul de sumă <= 0.
+        var request = new CreateStripeCheckoutSessionRequest(userId, orderId, 5000);
+
+        var result = await _handler.Handle(request, CancellationToken.None);
+
+        result.Should().NotBeNull();
+        result.GetType().Name.Should().Contain("BadRequest");
+    }
+
+    [Fact]
+    public async Task Handle_ValidRequestWithPartialPoints_AttemptsToCreateStripeSession()
+    {
+        // Acest test acoperă logica de calcul a punctelor valide (ex: 5 RON reducere la 100 RON)
+        var userId = await SeedUser();
+        var orderId = await SeedOrder(100m, userId);
+
+        var request = new CreateStripeCheckoutSessionRequest(userId, orderId, 500); // 5 RON discount
+
+        // Aici va încerca să sune la Stripe. Fără Mock pe SessionService, va arunca StripeException.
+        // Totuși, prin prinderea excepției, confirmăm că a trecut de TOATE validările de sus (Coverage!).
+        Func<Task> act = async () => await _handler.Handle(request, CancellationToken.None);
+        
+        await act.Should().ThrowAsync<StripeException>();
+    }
+
+    // --- Helpers pentru a curăța codul ---
+
+    private async Task<Guid> SeedUser()
+    {
+        var user = new User { 
+            Id = Guid.NewGuid(), 
+            Username = "test_" + Guid.NewGuid(), 
+            Email = "test@test.com", 
+            PasswordHash = "h", 
+            Role = UserRole.Client 
         };
         _context.Users.Add(user);
+        await _context.SaveChangesAsync();
+        return user.Id;
+    }
 
+    private async Task<Guid> SeedOrder(decimal price, Guid? userId = null)
+    {
         var orderId = Guid.NewGuid();
         var order = new Order(
             orderId,
-            userId,
-            50.00m,
-            [],
-            [],
+            userId ?? Guid.NewGuid(),
+            price,
+            [], [],
             DateTime.UtcNow,
             OrderStatus.Pending
         );
         _context.Order.Add(order);
         await _context.SaveChangesAsync();
-
-        var request = new CreateStripeCheckoutSessionRequest(
-            userId,
-            orderId,
-            null
-        );
-
-        var orderInDb = await _context.Order.FindAsync(orderId);
-        orderInDb.Should().NotBeNull();
-        orderInDb!.Price.Should().Be(50.00m);
-    }
-
-    [Fact]
-    public async Task Handle_ValidRequestWithPoints_AppliesDiscount()
-    {
-        var userId = Guid.NewGuid();
-        var user = new User
-        {
-            Id = userId,
-            Username = "testuser",
-            Email = "test@test.com",
-            PasswordHash = "hash",
-            Role = UserRole.Client
-        };
-        _context.Users.Add(user);
-
-        var orderId = Guid.NewGuid();
-        var order = new Order(
-            orderId,
-            userId,
-            100.00m,
-            [],
-            [],
-            DateTime.UtcNow,
-            OrderStatus.Pending
-        );
-        _context.Order.Add(order);
-        await _context.SaveChangesAsync();
-
-        var request = new CreateStripeCheckoutSessionRequest(
-            userId,
-            orderId,
-            500
-        );
-
-        var orderInDb = await _context.Order.FindAsync(orderId);
-        orderInDb.Should().NotBeNull();
-
-        var expectedDiscount = 500 / 100m;
-        var expectedFinalAmount = orderInDb!.Price - expectedDiscount;
-        expectedFinalAmount.Should().Be(95.00m);
-    }
-
-    [Fact]
-    public async Task Handle_PointsExceedOrderPrice_CapsDiscountAtOrderPrice()
-    {
-        var userId = Guid.NewGuid();
-        var user = new User
-        {
-            Id = userId,
-            Username = "testuser",
-            Email = "test@test.com",
-            PasswordHash = "hash",
-            Role = UserRole.Client
-        };
-        _context.Users.Add(user);
-
-        var orderId = Guid.NewGuid();
-        var order = new Order(
-            orderId,
-            userId,
-            20.00m,
-            [],
-            [],
-            DateTime.UtcNow,
-            OrderStatus.Pending
-        );
-        _context.Order.Add(order);
-        await _context.SaveChangesAsync();
-
-        var request = new CreateStripeCheckoutSessionRequest(
-            userId,
-            orderId,
-            5000
-        );
-
-        var orderInDb = await _context.Order.FindAsync(orderId);
-        orderInDb.Should().NotBeNull();
-
-        var maxPointsToUse = (int)Math.Floor(orderInDb!.Price * 100);
-        maxPointsToUse.Should().Be(2000);
-    }
-
-    [Fact]
-    public async Task Handle_ZeroPoints_NoDiscount()
-    {
-        var userId = Guid.NewGuid();
-        var user = new User
-        {
-            Id = userId,
-            Username = "testuser",
-            Email = "test@test.com",
-            PasswordHash = "hash",
-            Role = UserRole.Client
-        };
-        _context.Users.Add(user);
-
-        var orderId = Guid.NewGuid();
-        var order = new Order(
-            orderId,
-            userId,
-            75.00m,
-            [],
-            [],
-            DateTime.UtcNow,
-            OrderStatus.Pending
-        );
-        _context.Order.Add(order);
-        await _context.SaveChangesAsync();
-
-        var request = new CreateStripeCheckoutSessionRequest(
-            userId,
-            orderId,
-            0
-        );
-
-        var orderInDb = await _context.Order.FindAsync(orderId);
-        orderInDb.Should().NotBeNull();
-        orderInDb!.Price.Should().Be(75.00m);
+        return orderId;
     }
 }

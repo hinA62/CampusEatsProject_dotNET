@@ -42,7 +42,6 @@ public static class EndpointMapper
     
     private const string IdGuidRouteConstraint = "{id:guid}";
     
-    private const string ClientTag = "Client";
     private const string OrderTag = "Orders";
     private static void MapMenuEndpoints(WebApplication app)
     {
@@ -313,7 +312,9 @@ public static class EndpointMapper
         // Rebuild inventory (Admin only)
         group.MapPost("/rebuild", async (string date, InventoryHandler svc) =>
             {
-                if (!DateOnly.TryParse(date, out var d)) return Results.BadRequest("Invalid date (YYYY-MM-DD).");
+                if (!DateOnly.TryParse(date, System.Globalization.CultureInfo.InvariantCulture, out var d)) 
+                    return Results.BadRequest("Invalid date (YYYY-MM-DD).");
+                
                 var day = await svc.RebuildAsync(d);
                 return Results.Ok(new {
                     day.Date,
@@ -331,7 +332,9 @@ public static class EndpointMapper
         // Get inventory (Kitchen and Admin can view)
         group.MapGet("/", async (string date, InventoryHandler svc) =>
             {
-                if (!DateOnly.TryParse(date, out var d)) return Results.BadRequest("Invalid date (YYYY-MM-DD).");
+                if (!DateOnly.TryParse(date, System.Globalization.CultureInfo.InvariantCulture, out var d)) 
+                    return Results.BadRequest("Invalid date (YYYY-MM-DD).");
+                
                 var day = await svc.GetAsync(d);
                 return day is null
                     ? Results.NotFound()
